@@ -1,0 +1,11 @@
+D:\Users\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\bin\Debug\HW.CMS.BLL.dll
+D:\Users\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\bin\Debug\HW.CMS.BLL.pdb
+D:\Users\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\bin\Debug\HW.CMS.DAL.dll
+D:\Users\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\bin\Debug\HW.CMS.Model.dll
+D:\Users\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\bin\Debug\HW.CMS.DAL.pdb
+D:\Users\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\bin\Debug\HW.CMS.Model.pdb
+D:\Users\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.csprojAssemblyReference.cache
+D:\Users\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.csproj.CoreCompileInputs.cache
+D:\Users\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.csproj.CopyComplete
+D:\Users\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.dll
+D:\Users\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.pdb
