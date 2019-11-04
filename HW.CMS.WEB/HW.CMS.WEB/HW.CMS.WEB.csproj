@@ -67,6 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\nth.tabs.css" />
+    <Content Include="css\nth.tabs.min.css" />
+    <Content Include="css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="js\bootstrap.min.css" />
@@ -76,6 +79,7 @@
     <Content Include="js\front.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\style.default.css" />
+    <Content Include="login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +93,13 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,8 +112,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Admin\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HW.CMS.BLL\HW.CMS.BLL.csproj">
+      <Project>{3c4bb48a-cb2c-4312-959c-2ea1f5790c2a}</Project>
+      <Name>HW.CMS.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HW.CMS.Model\HW.CMS.Model.csproj">
+      <Project>{740929d9-7652-4d04-956d-d439f4688c50}</Project>
+      <Name>HW.CMS.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
