@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="HW.CMS.WEB.index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReportInfo.aspx.cs" Inherits="HW.CMS.WEB.ReportInfo" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link href="js/bootstrap.min.css" rel="stylesheet" />
+<link href="js/bootstrap.min.css" rel="stylesheet" />
     <link href="js/fontastic.css" rel="stylesheet" />
     <link href="js/font-awesome.min.css" rel="stylesheet" />
     <link href="js/style.default.css" rel="stylesheet" />
@@ -170,8 +170,8 @@
           <!-- Breadcrumb-->
           <div class="breadcrumb-holder container-fluid">
             <ul class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">345</a></li>
-              <li class="breadcrumb-item active">234            </li>
+              <li class="breadcrumb-item"><a href="index.html">报备表</a></li>
+              <li class="breadcrumb-item active">报备表            </li>
             </ul>
           </div>
          
@@ -184,3 +184,5 @@
     <script src="js/front.js"></script>
 </body>
 </html>
+
+
