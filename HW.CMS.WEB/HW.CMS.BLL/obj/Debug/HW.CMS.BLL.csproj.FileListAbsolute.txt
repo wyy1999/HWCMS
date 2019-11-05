@@ -20,3 +20,14 @@ C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.csp
 C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.csproj.CopyComplete
 C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.dll
 C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.pdb
+C:\Users\lenovo\Desktop\新建文件夹 (2)\HWCMS\HW.CMS.WEB\HW.CMS.BLL\bin\Debug\HW.CMS.BLL.dll
+C:\Users\lenovo\Desktop\新建文件夹 (2)\HWCMS\HW.CMS.WEB\HW.CMS.BLL\bin\Debug\HW.CMS.BLL.pdb
+C:\Users\lenovo\Desktop\新建文件夹 (2)\HWCMS\HW.CMS.WEB\HW.CMS.BLL\bin\Debug\HW.CMS.DAL.dll
+C:\Users\lenovo\Desktop\新建文件夹 (2)\HWCMS\HW.CMS.WEB\HW.CMS.BLL\bin\Debug\HW.CMS.Model.dll
+C:\Users\lenovo\Desktop\新建文件夹 (2)\HWCMS\HW.CMS.WEB\HW.CMS.BLL\bin\Debug\HW.CMS.DAL.pdb
+C:\Users\lenovo\Desktop\新建文件夹 (2)\HWCMS\HW.CMS.WEB\HW.CMS.BLL\bin\Debug\HW.CMS.Model.pdb
+C:\Users\lenovo\Desktop\新建文件夹 (2)\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.csprojAssemblyReference.cache
+C:\Users\lenovo\Desktop\新建文件夹 (2)\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\新建文件夹 (2)\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.csproj.CopyComplete
+C:\Users\lenovo\Desktop\新建文件夹 (2)\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.dll
+C:\Users\lenovo\Desktop\新建文件夹 (2)\HWCMS\HW.CMS.WEB\HW.CMS.BLL\obj\Debug\HW.CMS.BLL.pdb

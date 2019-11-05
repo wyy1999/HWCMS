@@ -77,10 +77,15 @@
     <Content Include="InfoTable.aspx" />
     <Content Include="js\bootstrap.min.css" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\Chart.min.js" />
+    <Content Include="js\custom.css" />
     <Content Include="js\font-awesome.min.css" />
     <Content Include="js\fontastic.css" />
     <Content Include="js\front.js" />
+    <Content Include="js\jquery.cookie.js" />
     <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.validate.min.js" />
+    <Content Include="js\popper.min.js" />
     <Content Include="js\style.default.css" />
     <Content Include="login.aspx" />
     <Content Include="ReportInfo.aspx" />

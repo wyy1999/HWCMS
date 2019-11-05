@@ -6,70 +6,61 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
-  
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="plugins/ionicons/css/ionicons.min.css" />
-    <link rel="stylesheet" href="plugins/adminLTE/css/AdminLTE.css" />
-    <link rel="stylesheet" href="plugins/iCheck/square/blue.css" />
+    <link href="js/bootstrap.min.css" rel="stylesheet" />
+    <link href="js/font-awesome.min.css" rel="stylesheet" />
+    <link href="js/fontastic.css" rel="stylesheet" />
+
+    <link href="js/style.default.css" rel="stylesheet" />
+    <link href="js/custom.css" rel="stylesheet" />
 </head>
 <body>
-     <div class="login-box">
-        <div class="login-logo">
-            <a href="all-admin-index.html"><b>数据</b>公司管理系统</a>
-        </div>
-        <!-- /.login-logo -->
-        <div class="login-box-body">
-            <p class="login-box-msg">登录系统</p>
-
-            <form runat="server">
-                <div class="form-group has-feedback">
-               <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
-               <%--<input type="email" class="form-control" placeholder="Email">--%>
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    <div class="page login-page">
+      <div class="container d-flex align-items-center">
+        <div class="form-holder has-shadow">
+          <div class="row">
+            <!-- Logo & Information Panel-->
+            <div class="col-lg-6">
+              <div class="info d-flex align-items-center">
+                <div class="content">
+                  <div class="logo">
+                    <h1>The login page</h1>
+                  </div>
+                  <p>The best preparation for tomorrow is doing your best today.</p>
                 </div>
-                <div class="form-group has-feedback">
-                    <asp:TextBox ID="TextBox2" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>
-                    <%--<input type="password" class="form-control" placeholder="密码">--%>
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label><input type="checkbox"> 记住 下次自动登录</label>
-                        </div>
+              </div>
+            </div>
+            <!-- Form Panel    -->
+            <div class="col-lg-6 bg-white">
+              <div class="form d-flex align-items-center">
+                <div class="content">
+                  <form method="post" class="form-validate">
+                    <div class="form-group">
+                      <input id="login-username" type="text" name="loginUsername" required data-msg="Please enter your username" class="input-material">
+                      <label for="login-username" class="label-material">用户名</label>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-xs-4">
-                     <asp:Button ID="Button1" runat="server" Text="登录"  CssClass="btn btn-primary btn-block btn-flat" OnClick="Button1_Click" />
-                     <asp:Label ID="Label1" runat="server"></asp:Label>
-                        <%-- <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>--%>
-                    </div>
-                    <!-- /.col -->
+                    <div class="form-group">
+                      <input id="login-password" type="password" name="loginPassword" required data-msg="Please enter your password" class="input-material">
+                      <label for="login-password" class="label-material">密码</label>
+                    </div><a id="login" href="index.aspx" class="btn btn-primary">登录</a>
+                    <!-- This should be submit button but I replaced it with <a> for demo purposes-->
+                  </form><a href="#" class="forgot-pass">忘记密码?</a><br><small>When all else is lost the future still remains. </small>
                 </div>
-            </form>
-            <!-- /.social-auth-links -->
-            <a href="#">忘记密码</a><br>           
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- /.login-box-body -->
+      </div>
+     
     </div>
-    <!-- /.login-box -->
-
-    <!-- jQuery 2.2.3 -->
-    <!-- Bootstrap 3.3.6 -->
-    <!-- iCheck -->
-    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="plugins/iCheck/icheck.min.js"></script>
-    <script>
-        $(function() {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass: 'iradio_square-blue',
-                increaseArea: '20%' // optional
-            });
-        });
-    </script>
+    <!-- JavaScript files-->
+    <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.cookie.js"></script>
+        <script src="js/Chart.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+    <!-- Main File-->
+        <script src="js/front.js"></script>
+    </form>
 </body>
 </html>

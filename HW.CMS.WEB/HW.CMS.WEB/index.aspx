@@ -114,7 +114,7 @@
                                     </ul>
                                 </li>
                                 <!-- Logout    -->
-                                <li class="nav-item"><a href="#" class="nav-link logout"><span class="d-none d-sm-inline">退出</span><i class="fa fa-sign-out"></i></a></li>
+                                <li class="nav-item"><a href="login.aspx" class="nav-link logout"><span class="d-none d-sm-inline">退出</span><i class="fa fa-sign-out"></i></a></li>
                             </ul>
                         </div>
                     </div>
