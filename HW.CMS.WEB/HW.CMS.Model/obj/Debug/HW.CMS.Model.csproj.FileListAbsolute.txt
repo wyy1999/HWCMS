@@ -10,3 +10,8 @@ C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.Model\obj\Debug\HW.CMS.Model
 C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.Model\obj\Debug\HW.CMS.Model.csproj.CoreCompileInputs.cache
 C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.Model\obj\Debug\HW.CMS.Model.dll
 C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.Model\obj\Debug\HW.CMS.Model.pdb
+C:\Users\22893\Desktop\新建文件夹\HWCMS\HW.CMS.WEB\HW.CMS.Model\bin\Debug\HW.CMS.Model.dll
+C:\Users\22893\Desktop\新建文件夹\HWCMS\HW.CMS.WEB\HW.CMS.Model\bin\Debug\HW.CMS.Model.pdb
+C:\Users\22893\Desktop\新建文件夹\HWCMS\HW.CMS.WEB\HW.CMS.Model\obj\Debug\HW.CMS.Model.csproj.CoreCompileInputs.cache
+C:\Users\22893\Desktop\新建文件夹\HWCMS\HW.CMS.WEB\HW.CMS.Model\obj\Debug\HW.CMS.Model.dll
+C:\Users\22893\Desktop\新建文件夹\HWCMS\HW.CMS.WEB\HW.CMS.Model\obj\Debug\HW.CMS.Model.pdb

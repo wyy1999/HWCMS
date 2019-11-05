@@ -175,7 +175,50 @@
             </ul>
           </div>
                   <div>
-                      在这写东西
+                      <asp:Repeater ID="Repeater1" runat="server">
+                <HeaderTemplate>
+                    <table style="text-align:center" border="1">
+                        <tr>
+                            <th>
+                                支出id
+                            </th>
+                            <th>
+                                员工编号
+                            </th>
+                            <th>
+                                补贴
+                            </th>
+                            <th>
+                                五险一金
+                            </th>
+                            <th>
+                                报备金额
+                            </th>
+                        </tr>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td>
+                            <%#Eval("AccoutId") %>
+                        </td>
+                        <td>
+                            <%#Eval("InfoId") %>
+                        </td>
+                        <td>
+                            <%#Eval("AccSubsidy") %>
+                        </td>
+                        <td>
+                            <%#Eval("AccFiveMoney") %>
+                        </td>
+                        <td>
+                            <%#Eval("ReportId") %>
+                        </td>
+                    </tr>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </table>
+                </FooterTemplate>
+            </asp:Repeater>
                   </div>
          
         </div>
