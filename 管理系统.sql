@@ -76,9 +76,9 @@ create table InfoTable(
   InfoSalary money default(0) check(InfoSalary>=0) not null,--工资
   InfoState int check(InfoState=0 or InfoState=1 or InfoState=2 )  --状态 0在职 1请假 2离职
 )
+insert  into InfoTable values('张三',18,'男','1997.11.1','123456431','12345123454','河南省','11231234121@qq.com','','','2',2,2,2,'7000',0)
 
-
-
+select * from InfoTable
 
 
 /*人员打卡表 ClockInfo*/
@@ -125,6 +125,7 @@ create table ReportInfo(
     ReportState int check(ReportState=1 or ReportState=0)--审核状态 0未审核 1已审核
 )
 
+insert into ReportInfo values ('损坏','2012.1.12',2,3452,1)
 go
 --财务表（支出）AccoutInfo
 if exists(select * from sys.tables where name='AccoutInfo')
@@ -138,6 +139,9 @@ create table AccoutInfo(
    ReportId int references ReportInfo(ReportId),--报备金额 外键报备表
 )
 go
+insert into AccoutInfo values (2,123,321,1)
+
+select * from AccoutInfo
 
 --研发部门表ResearchInfo
 if exists(select * from sys.tables where name='ResearchInfo')
@@ -153,6 +157,7 @@ create table ResearchInfo(
     ResState int check(ResState=0 or ResState=1)--研发状态 0研发中 1研发完成
 )
 go
+insert into ResearchInfo values('火箭','飞天','2016.6.12','2018.6.20',123456,1)
 
 --研发详情表 DetailsInfo
 if exists(select * from sys.tables where name='DetailsInfo')
@@ -230,6 +235,9 @@ insert into DepartmentInfo values('财务部')
 insert into DepartmentInfo values('研发部')
 insert into DepartmentInfo values('销售部')
 
+insert into AccoutInfo values('','','','','')
+
 select * from UserLogin
 select * from DutyInfo
 select * from DepartmentInfo
+
