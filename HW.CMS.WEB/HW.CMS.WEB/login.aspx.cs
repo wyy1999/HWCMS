@@ -15,6 +15,29 @@ namespace HW.CMS.WEB
 
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            // 获取用户名和密码
+            string username = TextBox1.Text;
+            string password = TextBox2.Text;
+            //6.处理结果
+            //如果没有找到用户，我提示一下
+            UserBll bll = new UserBll();
+            object result = bll.LoginIn(username, password);
+            int num = Convert.ToInt32(result);
+            if (num > 0)
+            {
+                //Session.Add("Userid", num);
+                Response.Redirect("index.aspx");
+            }
+            else
+            {
+                Response.Write("<script>alert('用户名或密码错误，请重新输入！')</script>");
+
+            }
+
+        }
+
         /// <summary>
         /// 登录按钮
         /// </summary>

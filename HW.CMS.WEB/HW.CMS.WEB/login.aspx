@@ -14,6 +14,7 @@
     <link href="js/custom.css" rel="stylesheet" />
 </head>
 <body>
+    <form runat="server">
     <div class="page login-page">
       <div class="container d-flex align-items-center">
         <div class="form-holder has-shadow">
@@ -35,13 +36,16 @@
                 <div class="content">
                   <form method="post" class="form-validate">
                     <div class="form-group">
-                      <input id="login-username" type="text" name="loginUsername" required data-msg="Please enter your username" class="input-material">
+                        <asp:TextBox ID="TextBox1" CssClass="input-material"   runat="server"></asp:TextBox>
+                     <%-- <input id="login-username" type="text" name="loginUsername" required data-msg="Please enter your username" class="input-material">--%>
                       <label for="login-username" class="label-material">用户名</label>
                     </div>
                     <div class="form-group">
-                      <input id="login-password" type="password" name="loginPassword" required data-msg="Please enter your password" class="input-material">
+                        <asp:TextBox ID="TextBox2" CssClass="input-material"   runat="server"></asp:TextBox>
+<%--                      <input id="login-password" type="password" name="loginPassword" required data-msg="Please enter your password" class="input-material">--%>
                       <label for="login-password" class="label-material">密码</label>
-                    </div><a id="login" href="index.aspx" class="btn btn-primary">登录</a>
+                    </div>
+                      <asp:Button ID="Button1" CssClass="btn btn-primary"  runat="server" Text="登录" OnClick="Button1_Click" />
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
                   </form><a href="#" class="forgot-pass">忘记密码?</a><br><small>When all else is lost the future still remains. </small>
                 </div>
