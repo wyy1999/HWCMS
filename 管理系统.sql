@@ -52,7 +52,6 @@ go
 
 
 
-
 /*公司人员详细信息表 InfoTable*/
 if exists(select * from sys.tables where name='InfoTable')
 drop table InfoTable
@@ -76,9 +75,7 @@ create table InfoTable(
   InfoSalary money default(0) check(InfoSalary>=0) not null,--工资
   InfoState int check(InfoState=0 or InfoState=1 or InfoState=2 )  --状态 0在职 1请假 2离职
 )
-insert  into InfoTable values('张三',18,'男','1997.11.1','123456431','12345123454','河南省','11231234121@qq.com','','','2',2,2,2,'7000',0)
 
-select * from InfoTable
 
 
 /*人员打卡表 ClockInfo*/
@@ -91,8 +88,6 @@ create table ClockInfo(
    ClockTime datetime default(getdate()) not null,--打卡时间
    ClockState int check(ClockState=0 or ClockState=1)--状态 0已打卡 1 未打卡
 )
-
-
 
 
 
@@ -125,7 +120,7 @@ create table ReportInfo(
     ReportState int check(ReportState=1 or ReportState=0)--审核状态 0未审核 1已审核
 )
 
-insert into ReportInfo values ('损坏','2012.1.12',2,3452,1)
+
 go
 --财务表（支出）AccoutInfo
 if exists(select * from sys.tables where name='AccoutInfo')
@@ -139,9 +134,7 @@ create table AccoutInfo(
    ReportId int references ReportInfo(ReportId),--报备金额 外键报备表
 )
 go
-insert into AccoutInfo values (2,123,321,1)
 
-select * from AccoutInfo
 
 --研发部门表ResearchInfo
 if exists(select * from sys.tables where name='ResearchInfo')
@@ -157,7 +150,7 @@ create table ResearchInfo(
     ResState int check(ResState=0 or ResState=1)--研发状态 0研发中 1研发完成
 )
 go
-insert into ResearchInfo values('火箭','飞天','2016.6.12','2018.6.20',123456,1)
+
 
 --研发详情表 DetailsInfo
 if exists(select * from sys.tables where name='DetailsInfo')
@@ -173,6 +166,7 @@ create table DetailsInfo(
    DetPlan varchar(50)not null,--进度
    ResId int  references ResearchInfo(ResId)--外键详情表
 )
+
 go
 --销售表SaleInfo
 if exists(select * from sys.tables where name='SaleInfo')
@@ -211,7 +205,7 @@ create table IncomeInfo(
 )
 go
 
-
+select * from SaleInfo
 --------------------------------------------------------插入数据
 --登陆表
 insert into UserLogin values(1001,'123456',1)
@@ -235,7 +229,25 @@ insert into DepartmentInfo values('财务部')
 insert into DepartmentInfo values('研发部')
 insert into DepartmentInfo values('销售部')
 
-insert into AccoutInfo values('','','','','')
+insert into DetailsInfo values ('飞上天',10000000,2000000,800000,'快完成',1)
+insert into ResearchInfo values('火箭','飞天','2016.6.12','2018.6.20',123456,1)
+insert into AccoutInfo values (1,123,321,1)
+insert into ReportInfo values ('损坏','2012.1.12',2,3452,1)
+insert into LeaveInfo values (1,1,'2019.9.9','回家结婚',0)
+insert  into ClockInfo values(1,'2019.10.10',0)
+insert  into InfoTable values('张三',18,'男','1997.11.1','123456431','12345123454','河南省','11231234121@qq.com','','','2',2,2,2,'7000',0)
+
+select * from InfoTable
+select * from DutyInfo
+select * from DepartmentInfo
+select * from ClockInfo
+select * from LeaveInfo
+select * from ReportInfo
+
+select * from InfoTable
+select * from SaleInfo
+
+select * from UserLogin
 
 select * from UserLogin
 select * from DutyInfo
