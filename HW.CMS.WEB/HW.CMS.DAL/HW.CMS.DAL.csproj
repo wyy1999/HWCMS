@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="AccoutInfoDal.cs" />
     <Compile Include="DBHelper.cs" />
+    <Compile Include="InfoTableDal.cs" />
     <Compile Include="ResearchInfoDal.cs" />
     <Compile Include="UserDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

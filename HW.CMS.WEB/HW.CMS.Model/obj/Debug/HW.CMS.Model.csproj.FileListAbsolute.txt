@@ -6,7 +6,6 @@ D:\Users\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.Model\obj\Debug\HW.CMS.Model.dll
 D:\Users\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.Model\obj\Debug\HW.CMS.Model.pdb
 C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.Model\bin\Debug\HW.CMS.Model.dll
 C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.Model\bin\Debug\HW.CMS.Model.pdb
-C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.Model\obj\Debug\HW.CMS.Model.csprojAssemblyReference.cache
 C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.Model\obj\Debug\HW.CMS.Model.csproj.CoreCompileInputs.cache
 C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.Model\obj\Debug\HW.CMS.Model.dll
 C:\Users\my丶loves\Desktop\HWCMS\HW.CMS.WEB\HW.CMS.Model\obj\Debug\HW.CMS.Model.pdb
