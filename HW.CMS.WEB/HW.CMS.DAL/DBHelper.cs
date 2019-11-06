@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HW.CMS.DAL
 {
-   public  class DBHelper
+    public class DBHelper
     {
         //读取连接字符串
         public static readonly string connStr = ConfigurationManager.ConnectionStrings["CompanyManagementConnectionString"].ConnectionString;
@@ -73,23 +73,19 @@ namespace HW.CMS.DAL
         /// <returns></returns>
         public static int ExcuteSqlNonQuery(string sql, SqlParameter[] sqlParameters)
         {
-            //创建连接
-            using (SqlConnection connection = new SqlConnection(connStr))
+            using (SqlConnection sqlcon = new SqlConnection(connStr))
             {
-                //创建命令
-                using (SqlCommand command = new SqlCommand(sql, connection))
+                using (SqlCommand sqlcom = new SqlCommand(sql, sqlcon))
                 {
-                    //执行
-                    if (connection.State == ConnectionState.Closed)
+                    if (sqlcon.State == ConnectionState.Closed)
                     {
-                        connection.Open();
+                        sqlcon.Open();
                     }
-                    //添加参数
-                    command.Parameters.AddRange(sqlParameters);
-                    //返回结果,及时关闭掉连接
-                    return command.ExecuteNonQuery();
+                    sqlcom.Parameters.AddRange(sqlParameters);
+                    return sqlcom.ExecuteNonQuery();
                 }
             }
+
         }
 
 

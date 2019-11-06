@@ -48,6 +48,7 @@
     <Compile Include="ResearchInfoDal.cs" />
     <Compile Include="UserDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserLoginDal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HW.CMS.Model\HW.CMS.Model.csproj">

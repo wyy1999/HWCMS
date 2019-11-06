@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HW.CMS.Model
 {
-    class UserLogin
+    public class UserLogin
     {
         public int Userid { get; set; }
         public int UserNum { get; set; }

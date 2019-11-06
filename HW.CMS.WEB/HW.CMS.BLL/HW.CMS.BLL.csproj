@@ -45,6 +45,7 @@
     <Compile Include="InfoTableBll.cs" />
     <Compile Include="UserBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserLoginBll.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HW.CMS.DAL\HW.CMS.DAL.csproj">

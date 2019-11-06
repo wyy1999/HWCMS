@@ -172,31 +172,36 @@
                     <!-- Breadcrumb-->
                     <div class="breadcrumb-holder container-fluid">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">人员信息表</a></li>
-                            <li class="breadcrumb-item active">人员信息表            </li>
+                            <li class="breadcrumb-item">人员信息表</li>
+                            <li class="breadcrumb-item active">
+                                <asp:Button ID="Button1" runat="server" Text="添加" OnClick="Button1_Click" /></li>
                         </ul>
                     </div>
 
                     <div>
-                        <table class="table table-hover">
-
-                            <caption>悬停表格布局</caption>
-                            <thead>
+                        <asp:Repeater ID="Repeater1" runat="server">
+                            <HeaderTemplate>
+                                <table class="table table-hover" style="text-align: center" border="1">
+                                    <tr>
+                                        <th>员工编号</th>
+                                        <th>登陆密码</th>
+                                        <th>登陆角色</th>
+                                    </tr>
+                            </HeaderTemplate>
+                            <ItemTemplate>
                                 <tr>
-                                    <th>员工编号</th>
-                                    <th>登陆密码</th>
-                                    <th>登陆角色</th>
+                                    <td><%#Eval("UserNum") %></td>
+                                    <td><%#Eval("Userpwd") %></td>
+                                    <td><%#Eval("UserRole") %></td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>  <%#Eval("UserNum") %></td>
-                                    <td>  <%#Eval("Userpwd") %></td>
-                                    <td>  <%#Eval("UserRole") %></td>
-                                </tr>
-                              
-                            </tbody>
-                        </table>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                </table>
+                            </FooterTemplate>
+                        </asp:Repeater>
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                          <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                         <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
                     </div>
 
                 </div>

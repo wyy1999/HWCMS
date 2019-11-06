@@ -179,7 +179,7 @@
                   <div>
                       <asp:Repeater ID="Repeater1" runat="server">
                 <HeaderTemplate>
-                    <table style="text-align:center" border="1">
+                    <table class="table table-hover" style="text-align:center" border="1">
                         <tr>
                             <th>
                                 支出id

@@ -46,6 +46,7 @@
     <Compile Include="InfoTable.cs" />
     <Compile Include="ReportInfo.cs" />
     <Compile Include="ResearchInfoModel.cs" />
+    <Compile Include="UserLogin.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

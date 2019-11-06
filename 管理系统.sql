@@ -25,7 +25,6 @@ create table UserLogin(
 go
 
 
-
 --公司职务表DutyInfo
 if exists(select * from sys.tables where name='DutyInfo')
 drop table DutyInfo
