@@ -4,9 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-<link href="js/bootstrap.min.css" rel="stylesheet" />
+    <link href="js/bootstrap.min.css" rel="stylesheet" />
     <link href="js/fontastic.css" rel="stylesheet" />
     <link href="js/font-awesome.min.css" rel="stylesheet" />
     <link href="js/style.default.css" rel="stylesheet" />
@@ -160,24 +160,53 @@
                         <li><a href="#"><i class="icon-picture"></i>Demo </a></li>
                     </ul>
                 </nav>
-                 <div class="content-inner">
-          <!-- Page Header-->
-          <header class="page-header">
-            <div class="container-fluid">
-              <h2 class="no-margin-bottom">123</h2>
-            </div>
-          </header>
-          <!-- Breadcrumb-->
-          <div class="breadcrumb-holder container-fluid">
-            <ul class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">人员信息表</a></li>
-              <li class="breadcrumb-item active">人员信息表            </li>
-            </ul>
-          </div>
-           <div>
-                      在这写东西
-                  </div>
-        </div>
+                <div class="content-inner">
+                    <!-- Page Header-->
+                    <header class="page-header">
+                        <div class="container-fluid">
+                            <h2 class="no-margin-bottom">123</h2>
+                        </div>
+                    </header>
+                    <!-- Breadcrumb-->
+                    <div class="breadcrumb-holder container-fluid">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">人员信息表</a></li>
+                            <li class="breadcrumb-item active">人员信息表            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <table class="table table-hover">
+
+                            <caption>悬停表格布局</caption>
+                            <thead>
+                                <tr>
+                                    <th>名称</th>
+                                    <th>城市</th>
+                                    <th>邮编</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tanmay</td>
+                                    <td>Bangalore</td>
+                                    <td>560001</td>
+                                </tr>
+                                <tr>
+                                    <td>Sachin</td>
+                                    <td>Mumbai</td>
+                                    <td>400003</td>
+                                </tr>
+                                <tr>
+                                    <td>Uma</td>
+                                    <td>Pune</td>
+                                    <td>411027</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
             </div>
         </div>
         <script src="js/jquery.min.js"></script>
