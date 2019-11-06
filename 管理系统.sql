@@ -237,17 +237,17 @@ insert into LeaveInfo values (1,1,'2019.9.9','回家结婚',0)
 insert  into ClockInfo values(1,'2019.10.10',0)
 insert  into InfoTable values('张三',18,'男','1997.11.1','123456431','12345123454','河南省','11231234121@qq.com','','','2',2,2,2,'7000',0)
 
-select * from InfoTable
+select * from UserLogin
 select * from DutyInfo
 select * from DepartmentInfo
 select * from ClockInfo
 select * from LeaveInfo
-select * from ReportInfo
+select * from ResearchInfo
 
 select * from InfoTable
 select * from SaleInfo
 
-select * from UserLogin
+select * from AccoutInfo
 
 select * from UserLogin
 select * from DutyInfo

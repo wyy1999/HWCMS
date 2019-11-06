@@ -6,10 +6,12 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <link href="js/bootstrap.min.css" rel="stylesheet" />
-    <link href="js/fontastic.css" rel="stylesheet" />
-    <link href="js/font-awesome.min.css" rel="stylesheet" />
-    <link href="js/style.default.css" rel="stylesheet" />
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/fontastic.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <link href="css/style.default.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -136,8 +138,8 @@
                     <!-- Sidebar Navidation Menus-->
                     <span class="heading">菜单</span>
                     <ul class="list-unstyled">
-                        <li class="active"><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
-                        <li><a href="InfoTable.aspx"><i class="icon-grid"></i>人员信息表 </a></li>
+                        <li><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
+                        <li class="active"><a href="InfoTable.aspx"><i class="icon-grid"></i>人员信息表 </a></li>
                         <li><a href="ClockInfo.aspx"><i class="fa fa-bar-chart"></i>打卡表 </a></li>
                         <li><a href="ReportInfo.aspx"><i class="icon-padnote"></i>报备表 </a></li>
                         <li><a href="AccoutInfo.aspx"><i class="icon-padnote"></i>支出表 </a></li>
@@ -181,27 +183,18 @@
                             <caption>悬停表格布局</caption>
                             <thead>
                                 <tr>
-                                    <th>名称</th>
-                                    <th>城市</th>
-                                    <th>邮编</th>
+                                    <th>员工编号</th>
+                                    <th>登陆密码</th>
+                                    <th>登陆角色</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Tanmay</td>
-                                    <td>Bangalore</td>
-                                    <td>560001</td>
+                                    <td>  <%#Eval("UserNum") %></td>
+                                    <td>  <%#Eval("Userpwd") %></td>
+                                    <td>  <%#Eval("UserRole") %></td>
                                 </tr>
-                                <tr>
-                                    <td>Sachin</td>
-                                    <td>Mumbai</td>
-                                    <td>400003</td>
-                                </tr>
-                                <tr>
-                                    <td>Uma</td>
-                                    <td>Pune</td>
-                                    <td>411027</td>
-                                </tr>
+                              
                             </tbody>
                         </table>
                     </div>
