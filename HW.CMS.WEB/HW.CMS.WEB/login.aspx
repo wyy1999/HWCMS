@@ -6,12 +6,12 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link href="js/bootstrap.min.css" rel="stylesheet" />
-    <link href="js/font-awesome.min.css" rel="stylesheet" />
-    <link href="js/fontastic.css" rel="stylesheet" />
-
-    <link href="js/style.default.css" rel="stylesheet" />
-    <link href="js/custom.css" rel="stylesheet" />
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/fontastic.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <link href="css/style.default.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
 </head>
 <body>
     <form runat="server">
@@ -57,14 +57,14 @@
      
     </div>
     <!-- JavaScript files-->
-    <script src="js/jquery.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.cookie.js"></script>
-        <script src="js/Chart.min.js"></script>
-        <script src="js/jquery.validate.min.js"></script>
+      <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <!-- Main File-->
-        <script src="js/front.js"></script>
+    <script src="js/front.js"></script>
     </form>
 </body>
 </html>
