@@ -174,18 +174,19 @@
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item">人员信息表</li>
                             <li class="breadcrumb-item active">
-                                <asp:Button ID="Button1" runat="server" Text="添加" OnClick="Button1_Click" /></li>
+                                <asp:Label type="button" data-toggle="modal" data-target="#myModal" runat="server" Text="添加"></asp:Label>
                         </ul>
                     </div>
 
                     <div>
-                        <asp:Repeater ID="Repeater1" runat="server">
+                        <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
                             <HeaderTemplate>
                                 <table class="table table-hover" style="text-align: center" border="1">
                                     <tr>
                                         <th>员工编号</th>
                                         <th>登陆密码</th>
                                         <th>登陆角色</th>
+                                        <th>操作</th>
                                     </tr>
                             </HeaderTemplate>
                             <ItemTemplate>
@@ -193,31 +194,74 @@
                                     <td><%#Eval("UserNum") %></td>
                                     <td><%#Eval("Userpwd") %></td>
                                     <td><%#Eval("UserRole") %></td>
+                                    <td style="width: 200px">
+                                        <asp:LinkButton ID="LinkButton1" CommandName="delete" CommandArgument='<%#Eval("Userid") %>' runat="server">删除</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton2" runat="server">修改</asp:LinkButton>
+                                    </td>
                                 </tr>
                             </ItemTemplate>
                             <FooterTemplate>
                                 </table>
                             </FooterTemplate>
                         </asp:Repeater>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                          <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                         <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                    </div>
 
+
+
+                        <!-- Modal -->
+
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header"> 
+                                        <h4 class="modal-title" id="myModalLabel">添加</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                      
+                                    </div>
+                                    <div class="modal-body">
+                                        <table>
+                                            <tr>
+                                                <td>员工编号</td>
+                                                <td><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+                                            </tr>
+                                            <tr>
+                                                <td>登陆密码</td>
+                                                <td><asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+                                            </tr>
+                                            <tr>
+                                                <td>登陆角色</td>
+                                                <td><asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+                                            </tr>
+                                        </table>
+                                        
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Button1" OnClick="Button1_Click" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<%--                    <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">LinkButton</asp:LinkButton>--%>
                 </div>
             </div>
         </div>
-            <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper.js/umd/popper.min.js"> </script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="js/charts-home.js"></script>
-    <!-- Main File-->
-    <script src="js/front.js"></script>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/popper.js/umd/popper.min.js"> </script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+        <script src="vendor/chart.js/Chart.min.js"></script>
+        <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+        <script src="js/charts-home.js"></script>
+        <!-- Main File-->
+        <script src="js/front.js"></script>
 
     </form>
+    <script>
+
+</script>
 </body>
 </html>
 

@@ -18,6 +18,27 @@ namespace HW.CMS.WEB
             Repeater1.DataBind();
         }
 
+        //protected void Button1_Click(object sender, EventArgs e)
+        //{
+        //    string tex1 = TextBox1.Text;
+        //    string tex2 = TextBox2.Text;
+        //    string tex3 = TextBox3.Text;
+        //    UserLogin user = new UserLogin();
+        //    user.UserNum = Convert.ToInt32(tex1);
+        //    user.Userpwd = tex2;
+        //    user.UserRole = Convert.ToInt32(tex3);
+        //    if (UserLoginBll.insert(user) > 0)
+        //    {
+        //        Response.Write("<script>alert('添加成功');</script>");
+        //        Response.Redirect("InfoTable.aspx");
+        //    }
+        //}
+
+        protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             string tex1 = TextBox1.Text;
@@ -30,9 +51,13 @@ namespace HW.CMS.WEB
             if (UserLoginBll.insert(user) > 0)
             {
                 Response.Write("<script>alert('添加成功');</script>");
-                Response.Redirect("InfoTable.aspx");
             }
         }
+
+        //protected void Button1_Click(object sender, EventArgs e)
+        //{
+        //    Response.Write("<script>alert('修改失败');</script>");
+        //}
 
 
         //protected void Button1_Click(object sender, EventArgs e)
