@@ -6,12 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using HW.CMS.Model;
 using HW.CMS.BLL;
+using System.Data;
 
 
 namespace HW.CMS.WEB
 {
     public partial class InfoTable : System.Web.UI.Page
     {
+        UserBll bll = new UserBll();
         protected void Page_Load(object sender, EventArgs e)
         {
             Repeater1.DataSource = UserLoginBll.selectAll();
@@ -36,7 +38,27 @@ namespace HW.CMS.WEB
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+            string name = e.CommandName;
+            int id = Convert.ToInt32(e.CommandArgument);
+            if (name == "update")
+            {
+                Response.Write("<script>alert('12');</script>");
+            }
+            else
+            {
+                int num = bll.delete(id);
+                if (num > 0)
+                {
+                    //Response.Redirect("InfoTable.aspx");
+                   
+                    Response.Write("<script>alert('删除成功');location.href='InfoTable.aspx';</script>");
 
+                }
+                else
+                {
+                    Response.Write("<script>alert('删除失败');</script>");
+                }
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -48,9 +70,11 @@ namespace HW.CMS.WEB
             user.UserNum = Convert.ToInt32(tex1);
             user.Userpwd = tex2;
             user.UserRole = Convert.ToInt32(tex3);
+
             if (UserLoginBll.insert(user) > 0)
             {
-                Response.Write("<script>alert('添加成功');</script>");
+
+                Response.Write("<script>alert('添加');location.href='InfoTable.aspx';</script>");
             }
         }
 

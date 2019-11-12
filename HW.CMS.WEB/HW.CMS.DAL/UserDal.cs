@@ -27,5 +27,13 @@ namespace HW.CMS.DAL
             return result;
         }
 
+        public int delete(int id)
+        {
+            string sql = "delete from UserLogin where Userid =@id";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@id", id);
+            return DBHelper.ExcuteSqlNonQuery(sql, sqlParameters);
+        }
+
     }
 }

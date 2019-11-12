@@ -219,7 +219,7 @@
                                     <td><%#Eval("UserRole") %></td>
                                     <td style="width: 200px">
                                         <asp:LinkButton ID="LinkButton1" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("Userid") %>' runat="server">删除</asp:LinkButton>
-                                        <asp:LinkButton ID="LinkButton2"  class="btn btn-info" runat="server">修改</asp:LinkButton>
+                                         <asp:Label type="button"  class="btn btn-success" data-toggle="modal" data-target="#myModal" runat="server" Text="修改"></asp:Label>
                                     </td>
                                 </tr>
                             </ItemTemplate>

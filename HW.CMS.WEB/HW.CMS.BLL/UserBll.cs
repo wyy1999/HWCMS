@@ -19,7 +19,11 @@ namespace HW.CMS.BLL
         /// <returns></returns>
         public object LoginIn(string userName, string passWord)
         {
-            return dal.LoginIn(userName,passWord);
+            return dal.LoginIn(userName, passWord);
         }
+        public int delete(int id)
+        {
+            return dal.delete(id);
         }
+    }
 }
