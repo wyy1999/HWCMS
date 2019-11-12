@@ -9,9 +9,14 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/fontastic.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" />
     <link href="css/style.default.css" rel="stylesheet" />
     <link href="css/custom.css" rel="stylesheet" />
+
+
+  <%--  	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  --%>
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -174,14 +179,14 @@
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item">人员信息表</li>
                             <li class="breadcrumb-item active">
-                                <asp:Label type="button" data-toggle="modal" data-target="#myModal" runat="server" Text="添加"></asp:Label>
+                                <asp:Label type="button"  class="btn btn-success" data-toggle="modal" data-target="#myModal" runat="server" Text="添加"></asp:Label>
                         </ul>
                     </div>
 
                     <div>
                         <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
                             <HeaderTemplate>
-                                <table class="table table-hover" style="text-align: center" border="1">
+                                <table class="table table-hover" style="text-align: center" >
                                     <tr>
                                         <th>员工编号</th>
                                         <th>登陆密码</th>
@@ -190,13 +195,13 @@
                                     </tr>
                             </HeaderTemplate>
                             <ItemTemplate>
-                                <tr>
+                                <tr class="danger">
                                     <td><%#Eval("UserNum") %></td>
                                     <td><%#Eval("Userpwd") %></td>
                                     <td><%#Eval("UserRole") %></td>
                                     <td style="width: 200px">
-                                        <asp:LinkButton ID="LinkButton1" CommandName="delete" CommandArgument='<%#Eval("Userid") %>' runat="server">删除</asp:LinkButton>
-                                        <asp:LinkButton ID="LinkButton2" runat="server">修改</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton1" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("Userid") %>' runat="server">删除</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton2"  class="btn btn-info" runat="server">修改</asp:LinkButton>
                                     </td>
                                 </tr>
                             </ItemTemplate>

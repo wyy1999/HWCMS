@@ -42,7 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccoutinfoBll.cs" />
+    <Compile Include="ClockInfoBll.cs" />
     <Compile Include="InfoTableBll.cs" />
+    <Compile Include="ReportInfoBll.cs" />
+    <Compile Include="ResearchInfoBll.cs" />
     <Compile Include="UserBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserLoginBll.cs" />

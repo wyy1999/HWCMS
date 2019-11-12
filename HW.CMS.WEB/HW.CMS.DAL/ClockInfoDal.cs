@@ -1,34 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HW.CMS.Model;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace HW.CMS.DAL
 {
-    public class ClockInfoDal
+  public  class ClockInfoDal
     {
-        public static List<ClockInfo> selectAll()
+
+        /// <summary>
+        /// 查询全部
+        /// </summary>
+        /// <returns></returns>
+        public List<ClockInfo> CloList()
         {
+            string sql = "select InfoTable.InfoName,ClockInfo.*from InfoTable,ClockInfo where ClockInfo.InfoId=InfoTable.InfoId";
+            SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
             List<ClockInfo> list = new List<ClockInfo>();
-            string sql = "select * from ClockInfo";
-            SqlDataReader sqlda = DBHelper.ExcuteSqlDataReader(sql);
-            if (sqlda.HasRows)
+            if (reader.HasRows)
             {
-                while (sqlda.Read())
+                while (reader.Read())
                 {
-                    ClockInfo accout = new ClockInfo()
-                    {
-                        ClockId = Convert.ToInt32(sqlda["ClockId"]),
-                        InfoId = Convert.ToInt32(sqlda["InfoId"]),
-                        ClockTime = Convert.ToString(sqlda["ClockTime"]),
-                        ClockState = Convert.ToInt32(sqlda["ClockState"]),
-                    };
-                    list.Add(accout);
-                };
+                    ClockInfo model = new ClockInfo();
+                    model.ClockTime = reader["ClockTime"].ToString();
+                    model.ClockId = int.Parse(reader["ClockId"].ToString());
+                    model.InfoName = reader["InfoName"].ToString();
+                    //model.InfoId = int.Parse(reader["InfoId"].ToString());                   
+                    model.ClockState = int.Parse(reader["ClockState"].ToString());
+                    
+                    list.Add(model);
+                }
             }
             return list;
         }

@@ -1,18 +1,24 @@
-﻿using System;
+﻿using HW.CMS.DAL;
+using HW.CMS.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HW.CMS.DAL;
-using HW.CMS.Model;
 
 namespace HW.CMS.BLL
 {
-    public class ReportInfoBll
+   public class ReportInfoBll
     {
-        public static List<ReportInfo> selectAll()
+        ReportInfoDal dal = new ReportInfoDal();
+
+        /// <summary>
+        /// 查询全部
+        /// </summary>
+        /// <returns></returns>
+        public List<ReportInfo> RepList()
         {
-            return ReportInfoDal.selectAll();
+            return dal.RepList();
         }
     }
 }

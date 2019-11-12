@@ -4,14 +4,19 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/fontastic.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" />
     <link href="css/style.default.css" rel="stylesheet" />
     <link href="css/custom.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <%-- bootsharp --%>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -162,35 +167,74 @@
                         <li><a href="#"><i class="icon-picture"></i>Demo </a></li>
                     </ul>
                 </nav>
-                 <div class="content-inner">
-          <!-- Page Header-->
-          <header class="page-header">
-            <div class="container-fluid">
-              <h2 class="no-margin-bottom">123</h2>
+                <div class="content-inner">
+                    <!-- Page Header-->
+                    <header class="page-header">
+                        <div class="container-fluid">
+                            <h2 class="no-margin-bottom">123</h2>
+                        </div>
+                    </header>
+                    <!-- Breadcrumb-->
+                    <div class="breadcrumb-holder container-fluid">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">研发表</a></li>
+                            <li class="breadcrumb-item active">研发表            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        在这写东西
+               <asp:Repeater ID="Repeater1" runat="server">
+                   <HeaderTemplate>
+                       <table class="table">
+                           
+                           <thead>
+                               <tr>
+                                   <th>产品id</th>
+                                   <th>产品名称</th>
+                                   <th>产品内容</th>
+                                   <th>开始时间</th>
+                                   <th>结束时间</th>
+                                   <th>研发金额</th>
+                                   <th>研发状态</th>
+                                   <th>编辑</th>
+                               </tr>
+                           </thead>
+                   </HeaderTemplate>
+                   <ItemTemplate>
+                       <tbody>
+                           <tr class="active">
+                               <td><%#Eval("ResId") %></td>
+                               <td><%#Eval("Resname") %></td>
+                               <td><%#Eval("ResIntroduce") %></td>
+                               <td><%#Eval("BeginTime") %></td>
+                               <td><%#Eval("EndTime") %></td>
+                               <td><%#Eval("ResMoney") %></td>
+                               <td><%#Eval("ResStateString") %></td>
+                               <td>
+                                   <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" >修改</asp:LinkButton>
+                                   <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger">删除</asp:LinkButton>
+                               </td>
+                           </tr>
+                       </tbody>                                         
+                   </ItemTemplate>
+                   <FooterTemplate>
+                       </table>
+                   </FooterTemplate>
+
+               </asp:Repeater>
+                    </div>
+                </div>
             </div>
-          </header>
-          <!-- Breadcrumb-->
-          <div class="breadcrumb-holder container-fluid">
-            <ul class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">研发表</a></li>
-              <li class="breadcrumb-item active">研发表            </li>
-            </ul>
-          </div>
-           <div>
-                      在这写东西
-               </div>
         </div>
-            </div>
-        </div>
-          <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper.js/umd/popper.min.js"> </script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="js/charts-home.js"></script>
-    <!-- Main File-->
-    <script src="js/front.js"></script>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/popper.js/umd/popper.min.js"> </script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+        <script src="vendor/chart.js/Chart.min.js"></script>
+        <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+        <script src="js/charts-home.js"></script>
+        <!-- Main File-->
+        <script src="js/front.js"></script>
 
     </form>
 

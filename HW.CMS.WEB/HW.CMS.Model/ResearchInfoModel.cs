@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace HW.CMS.Model
 {
-    class ResearchInfoModel
+    /// <summary>
+    /// 研发表
+    /// </summary>
+  public  class ResearchInfoModel
     {
         public int ResId { get; set; }
         public string Resname { get; set; }
@@ -15,5 +18,22 @@ namespace HW.CMS.Model
         public string EndTime { get; set; }
         public double ResMoney { get; set; }
         public int ResState { get; set; }
+
+        //string类型
+        private string _ResStateString;
+
+        public string ResStateString
+        {
+            get {
+                if (ResState == 0)
+                {
+                    return "未完成";
+                }
+                else {
+                    return "已完成";
+                }
+            }            
+        }
+
     }
 }

@@ -177,7 +177,42 @@
             </ul>
           </div>
            <div>
-                      在这写东西
+                    
+               <asp:Repeater ID="Repeater1" runat="server">
+                   <HeaderTemplate>
+                       <table  class="table table-hover">
+                           
+                           <thead>
+                               <tr>
+                                   <th>报备原因</th>
+                                   <th>报备时间</th>
+                                   <th>报备部门</th>
+                                   <th>所需金额</th> 
+                                   <th>审核状态</th> 
+                                   <th>编辑</th>
+                               </tr>
+                           </thead>
+                   </HeaderTemplate>
+                   <ItemTemplate>
+                       <tbody>
+                           <tr >
+                               <td><%#Eval("ReportReason") %></td>
+                               <td><%#Eval("ReportTime") %></td>
+                               <td><%#Eval("Dep") %></td>
+                               <td><%#Eval("ReportMoney") %> ￥</td>   
+                               <td><%#Eval("ReportStateString") %></td>  
+                               <td>
+                                   <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" >修改</asp:LinkButton>
+                                   <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger">删除</asp:LinkButton>
+                               </td>
+                           </tr>
+                       </tbody>                                         
+                   </ItemTemplate>
+                   <FooterTemplate>
+                       </table>
+                   </FooterTemplate>
+
+               </asp:Repeater>
                   </div>
         </div>
             </div>

@@ -1,36 +1,39 @@
-﻿using System;
+﻿using HW.CMS.Model;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
-using HW.CMS.Model;
 
 namespace HW.CMS.DAL
 {
     public class ReportInfoDal
     {
-        public static List<ReportInfo> selectAll()
+        /// <summary>
+        /// 查询全部
+        /// </summary>
+        /// <returns></returns>
+        public List<ReportInfo> RepList()
         {
+            string sql = "select ReportInfo.*,DepartmentInfo.Dep from ReportInfo,DepartmentInfo where DepartmentInfo.DepId=ReportInfo.DepId";
+            SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
             List<ReportInfo> list = new List<ReportInfo>();
-            string sql = "select * from ReportInfo";
-            SqlDataReader sqlda = DBHelper.ExcuteSqlDataReader(sql);
-            if (sqlda.HasRows)
+            if (reader.HasRows)
             {
-                while (sqlda.Read())
+                while (reader.Read())
                 {
-                    ReportInfo accout = new ReportInfo()
-                    {
-                        ReportId = Convert.ToInt32(sqlda["ReportId"]),
-                        ReportReason = Convert.ToString(sqlda["ReportReason"]),
-                        ReportTime = Convert.ToString(sqlda["ReportTime"]),
-                        DepId = Convert.ToInt32(sqlda["DepId"]),
-                        ReportMoney = Convert.ToDouble(sqlda["ReportMoney"]),
-                        ReportState = Convert.ToInt32(sqlda["ReportState"])
-                    };
-                    list.Add(accout);
-                };
+                    ReportInfo model = new ReportInfo();
+                    model.Dep = reader["Dep"].ToString();
+                    //model.ReportId = int.Parse(reader["ReportId"].ToString());
+                    model.ReportMoney =double.Parse(reader["ReportMoney"].ToString()) ;
+                    model.ReportTime = DateTime.Parse(reader["ReportTime"].ToString()) ;
+                    model.ReportReason = reader["ReportReason"].ToString();
+                              
+                    model.ReportState = int.Parse(reader["ReportState"].ToString());
+
+                    list.Add(model);
+                }
             }
             return list;
         }

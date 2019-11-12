@@ -110,8 +110,9 @@ create table ClockInfo(
 go
 
 insert  into ClockInfo values(1,'2019.10.10',0)
+insert  into ClockInfo values(2,'2019.11.10',1)
 
-
+select InfoTable.InfoName,ClockInfo.*from InfoTable,ClockInfo where ClockInfo.InfoId=InfoTable.InfoId
 
 --员工请假表LeaveInfo
 if exists(select * from sys.tables where name='LeaveInfo')
@@ -143,6 +144,8 @@ create table ReportInfo(
 )
 go
 insert into ReportInfo values ('损坏','2012.1.12',2,3452,1)
+insert into ReportInfo values ('坏','2012.2.12',3,5000,0)
+select ReportInfo.*,DepartmentInfo.Dep from ReportInfo,DepartmentInfo where DepartmentInfo.DepId=ReportInfo.DepId
 
 --财务表（支出）AccoutInfo
 if exists(select * from sys.tables where name='AccoutInfo')
@@ -173,6 +176,7 @@ create table ResearchInfo(
     ResState int check(ResState=0 or ResState=1)--研发状态 0研发中 1研发完成
 )
 go
+select * from ResearchInfo
 insert into ResearchInfo values('火箭','飞天','2016.6.12','2018.6.20',123456,1)
 
 --研发详情表 DetailsInfo

@@ -8,11 +8,16 @@ using HW.CMS.Model;
 
 namespace HW.CMS.BLL
 {
-    public class ResearchInfoBll
+  public  class ResearchInfoBll
     {
-        public static List<ResearchInfoModel> selectAll()
+        ResearchInfoDal dal = new ResearchInfoDal();
+        /// <summary>
+        /// 查询全部
+        /// </summary>
+        /// <returns></returns>
+        public List<ResearchInfoModel> ResList()
         {
-            return ResearchInfoDal.selectAll();
+            return dal.ResList();
         }
-    }
+        }
 }

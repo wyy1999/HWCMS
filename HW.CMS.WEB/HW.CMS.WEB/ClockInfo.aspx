@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <link href="css/style.default.css" rel="stylesheet" />
     <link href="css/custom.css" rel="stylesheet" />
+
+      <%-- bootsharp --%>
+   <%-- <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />--%>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -177,7 +182,40 @@
             </ul>
           </div>
            <div>
-                      在这写东西
+                  
+                <asp:Repeater ID="Repeater1" runat="server">
+                   <HeaderTemplate>
+                       <table  class="table table-hover">
+                           
+                           <thead>
+                               <tr>
+                                   <th>打卡id</th>
+                                   <th>员工姓名</th>
+                                   <th>打卡时间</th>
+                                   <th>打卡状态</th> 
+                                   <th>编辑</th>
+                               </tr>
+                           </thead>
+                   </HeaderTemplate>
+                   <ItemTemplate>
+                       <tbody>
+                           <tr >
+                               <td><%#Eval("ClockId") %></td>
+                               <td><%#Eval("InfoName") %></td>
+                               <td><%#Eval("ClockTime") %></td>
+                               <td><%#Eval("ClockStateString") %></td>                              
+                               <td>
+                                   <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" >修改</asp:LinkButton>
+                                   <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger">删除</asp:LinkButton>
+                               </td>
+                           </tr>
+                       </tbody>                                         
+                   </ItemTemplate>
+                   <FooterTemplate>
+                       </table>
+                   </FooterTemplate>
+
+               </asp:Repeater>
                   </div>
         </div>
             </div>
