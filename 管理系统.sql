@@ -153,14 +153,14 @@ drop table AccoutInfo
 GO
 create table AccoutInfo(
    AccoutId int primary key identity(1,1),--支出id
-   InfoId int references  InfoTable(InfoId),   --员工表外键
-   AccSubsidy money check(AccSubsidy>=0) not null,--补贴
-   AccFiveMoney money check(AccFiveMoney>=0) not null,--五险一金
-   ReportId int references ReportInfo(ReportId),--报备金额 外键报备表
+   ACCSalary money check(AccSubsidy>=0) not null,--工资总金额   
+   AccSubsidy money check(AccSubsidy>=0) not null,--补贴总金额
+   AccFiveMoney money check(AccFiveMoney>=0) not null,--五险一金总金额
+   ReportId int references ReportInfo(ReportId),--报备金额 外键报备表 字段（报备部门  所需金额）
 )
 go
 
-insert into AccoutInfo values (1,123,321,1)
+insert into AccoutInfo values (30000,5000,8000,1)
 
 --研发部门表ResearchInfo
 if exists(select * from sys.tables where name='ResearchInfo')
@@ -207,8 +207,8 @@ create table SaleInfo(
    SaleId int primary key identity(1,1),--销售id
    GroupName varchar(50) not null,--组名
    SaleContent varchar(50),--销售内容
-   SaleMoney money check(SaleMoney>=0) default(0) not null--销售金额
-
+   SaleMoney money check(SaleMoney>=0) default(0) not null,--销售金额
+   DepId int references DepartmentInfo(DepId),--报备部门 部门表外键
 )
 go
 
@@ -218,7 +218,7 @@ drop table PersonSaleInfo
 GO
 create table PersonSaleInfo(
   PerId int primary key identity(1,1),--个人销售id
-  InfoId int references  InfoTable(InfoId),   --员工表外键
+  InfoId int references  InfoTable(InfoId),   --员工表外键 字段  姓名  
   DepId int references DepartmentInfo(DepId),--报备部门 部门表外键
   PerMoney money check(PerMoney>=0) default(0) not null,--销售金额
   ConMoney money check(ConMoney>=0) default(0) not null,--消费金额

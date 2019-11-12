@@ -143,13 +143,31 @@
                     <!-- Sidebar Navidation Menus-->
                     <span class="heading">菜单</span>
                     <ul class="list-unstyled">
-                        <li><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
-                        <li class="active"><a href="InfoTable.aspx"><i class="icon-grid"></i>人员信息表 </a></li>
-                        <li><a href="ClockInfo.aspx"><i class="fa fa-bar-chart"></i>打卡表 </a></li>
-                        <li><a href="ReportInfo.aspx"><i class="icon-padnote"></i>报备表 </a></li>
-                        <li><a href="AccoutInfo.aspx"><i class="icon-padnote"></i>支出表 </a></li>
-                        <li><a href="ResearchInfo.aspx"><i class="icon-padnote"></i>研发表 </a></li>
-                        <li><a href="SaleInfo.aspx"><i class="icon-padnote"></i>销售表 </a></li>
+                        <li class="active"><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
+                        <li><a href="InfoTable.aspx"><i class="icon-grid"></i>公司人员信息 </a></li>
+                        <li><a href="ClockInfo.aspx"><i class="fa fa-bar-chart"></i>人员打卡 </a></li>
+                        <li><a href="ReportInfo.aspx"><i class="icon-padnote"></i>公司报备</a></li>
+                           <li><a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>公司财务 </a>
+                            <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
+                                <li><a href="AccoutInfo.aspx">支出</a></li>
+                                <li><a href="#">收入</a></li>
+                                <li><a href="#">Page</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>研发部 </a>
+                            <ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
+                                <li><a href="ResearchInfo.aspx">研发内容</a></li>
+                                <li><a href="DetailsInfo.aspx">研发详情</a></li>
+                                <li><a href="#">Page</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#exampledropdownDropdown3" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>销售部 </a>
+                             <ul id="exampledropdownDropdown3" class="collapse list-unstyled ">
+                                <li><a href="SaleInfo.aspx">销售情况</a></li>
+                                <li><a href="PersonSaleInfo.aspx">个人销售情况</a></li>
+                                <li><a href="#">Page</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-interface-windows"></i>Example dropdown </a>
                             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                                 <li><a href="#">Page</a></li>
