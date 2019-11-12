@@ -26,7 +26,7 @@ namespace HW.CMS.DAL
                     ReportInfo model = new ReportInfo();
                     model.Dep = reader["Dep"].ToString();
                     //model.ReportId = int.Parse(reader["ReportId"].ToString());
-                    model.ReportMoney =double.Parse(reader["ReportMoney"].ToString()) ;
+                    model.ReportMoney =int.Parse(reader["ReportMoney"].ToString()) ;
                     model.ReportTime = DateTime.Parse(reader["ReportTime"].ToString()) ;
                     model.ReportReason = reader["ReportReason"].ToString();
                               

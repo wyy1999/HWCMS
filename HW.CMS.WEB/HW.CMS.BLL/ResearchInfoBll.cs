@@ -19,5 +19,15 @@ namespace HW.CMS.BLL
         {
             return dal.ResList();
         }
+
+        /// <summary>
+        /// 添加
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int Add(ResearchInfoModel model)
+        {
+            return dal.Add(model);
+        }
         }
 }

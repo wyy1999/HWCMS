@@ -20,7 +20,7 @@ namespace HW.CMS.Model
         public int ResState { get; set; }
 
         //string类型
-        private string _ResStateString;
+       
 
         public string ResStateString
         {

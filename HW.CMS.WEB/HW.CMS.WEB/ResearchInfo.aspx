@@ -14,7 +14,7 @@
     <link href="css/custom.css" rel="stylesheet" />
     <meta charset="utf-8">
     <%-- bootsharp --%>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <%--<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />--%>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -143,11 +143,11 @@
                     <!-- Sidebar Navidation Menus-->
                     <span class="heading">菜单</span>
                     <ul class="list-unstyled">
-                       <li class="active"><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
+                        <li class="active"><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
                         <li><a href="InfoTable.aspx"><i class="icon-grid"></i>公司人员信息 </a></li>
                         <li><a href="ClockInfo.aspx"><i class="fa fa-bar-chart"></i>人员打卡 </a></li>
                         <li><a href="ReportInfo.aspx"><i class="icon-padnote"></i>公司报备</a></li>
-                           <li><a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>公司财务 </a>
+                        <li><a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>公司财务 </a>
                             <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
                                 <li><a href="AccoutInfo.aspx">支出</a></li>
                                 <li><a href="#">收入</a></li>
@@ -162,7 +162,7 @@
                             </ul>
                         </li>
                         <li><a href="#exampledropdownDropdown3" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>销售部 </a>
-                             <ul id="exampledropdownDropdown3" class="collapse list-unstyled ">
+                            <ul id="exampledropdownDropdown3" class="collapse list-unstyled ">
                                 <li><a href="SaleInfo.aspx">销售情况</a></li>
                                 <li><a href="PersonSaleInfo.aspx">个人销售情况</a></li>
                                 <li><a href="#">Page</a></li>
@@ -195,53 +195,106 @@
                     <!-- Breadcrumb-->
                     <div class="breadcrumb-holder container-fluid">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">研发表</a></li>
-                            <li class="breadcrumb-item active">研发表            </li>
+                            <li class="breadcrumb-item"><a href="ResearchInfo.aspx">研发部</a></li>
+                            <li class="breadcrumb-item active">研发内容            </li>
+                            <button style="margin-left:20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">添加</button>
                         </ul>
+                         
                     </div>
                     <div>
-                        在这写东西
-               <asp:Repeater ID="Repeater1" runat="server">
-                   <HeaderTemplate>
-                       <table class="table">
-                           
-                           <thead>
-                               <tr>
-                                   <th>产品id</th>
-                                   <th>产品名称</th>
-                                   <th>产品内容</th>
-                                   <th>开始时间</th>
-                                   <th>结束时间</th>
-                                   <th>研发金额</th>
-                                   <th>研发状态</th>
-                                   <th>编辑</th>
-                               </tr>
-                           </thead>
-                   </HeaderTemplate>
-                   <ItemTemplate>
-                       <tbody>
-                           <tr class="active">
-                               <td><%#Eval("ResId") %></td>
-                               <td><%#Eval("Resname") %></td>
-                               <td><%#Eval("ResIntroduce") %></td>
-                               <td><%#Eval("BeginTime") %></td>
-                               <td><%#Eval("EndTime") %></td>
-                               <td><%#Eval("ResMoney") %></td>
-                               <td><%#Eval("ResStateString") %></td>
-                               <td>
-                                   <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" >修改</asp:LinkButton>
-                                   <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger">删除</asp:LinkButton>
-                               </td>
-                           </tr>
-                       </tbody>                                         
-                   </ItemTemplate>
-                   <FooterTemplate>
-                       </table>
-                   </FooterTemplate>
 
-               </asp:Repeater>
+                        <asp:Repeater ID="Repeater1" runat="server">
+                            <HeaderTemplate>
+                                
+                                <table class="table table-hove">
+                                   
+                                    <thead>
+                                        <tr>
+                                            <th>产品名称</th>
+                                            <th>产品内容</th>
+                                            <th>开始时间</th>
+                                            <th>结束时间</th>
+                                            <th>研发金额</th>
+                                            <th>研发状态</th>
+                                            <th>编辑</th>
+                                        </tr>
+                                    </thead>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <tbody>
+                                    <tr class="warning">
+
+                                        <td><%#Eval("Resname") %></td>
+                                        <td><%#Eval("ResIntroduce") %></td>
+                                        <td><%#Eval("BeginTime") %></td>
+                                        <td><%#Eval("EndTime") %></td>
+                                        <td><%#Eval("ResMoney") %></td>
+                                        <td><%#Eval("ResStateString") %></td>
+                                        <td>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" >修改</asp:LinkButton>
+                                            <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" >删除</asp:LinkButton>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                </table>
+                            </FooterTemplate>
+
+                        </asp:Repeater>
+                        <%-- 模态框 --%>
+                        <!-- Large modal -->
+                       
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="exampleModalLabel">修改</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="control-label">产品名称:</label>                                                
+                                                <asp:TextBox ID="TxtName" runat="server" ></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">产品内容:</label>
+                                                <asp:TextBox ID="TxtCon" runat="server" class="form-control"></asp:TextBox>
+                                                
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">开始时间:</label>
+                                                <asp:TextBox ID="TxtBeg" runat="server" class="form-control"></asp:TextBox>                                                              
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">结束时间:</label>
+                                                <asp:TextBox ID="TxtEnd" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">研发金额:</label>
+                                                <asp:TextBox ID="TxtMoney" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                             <div class="form-group">
+                                                <label for="message-text" class="control-label">研发状态:</label>
+                                                <asp:TextBox ID="TxtState" runat="server" class="form-control"></asp:TextBox>
+                                                 
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                       <asp:Button ID="Button2" runat="server" Text="确定添加" OnClick="Button2_Click" class="btn btn-primary"  />
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
         <script src="vendor/jquery/jquery.min.js"></script>
