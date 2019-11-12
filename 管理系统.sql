@@ -153,7 +153,7 @@ drop table AccoutInfo
 GO
 create table AccoutInfo(
    AccoutId int primary key identity(1,1),--支出id
-   ACCSalary money check(AccSubsidy>=0) not null,--工资总金额   
+   ACCSalary money check(ACCSalary>=0) not null,--工资总金额   
    AccSubsidy money check(AccSubsidy>=0) not null,--补贴总金额
    AccFiveMoney money check(AccFiveMoney>=0) not null,--五险一金总金额
    ReportId int references ReportInfo(ReportId),--报备金额 外键报备表 字段（报备部门  所需金额）
@@ -170,14 +170,15 @@ create table ResearchInfo(
     ResId int primary key identity(1,1),--id
     Resname varchar(50) not null,--产品名称
     ResIntroduce varchar(500) not null,--产品内容
-    BeginTime datetime not null,--开始时间
-    EndTime datetime not null,--结束时间
+    BeginTime datetime default(getdate()) not null,--开始时间
+    EndTime datetime default(getdate()) not null,--结束时间
     ResMoney money check(ResMoney>=0) default(0) not null,--研发金额
-    ResState int check(ResState=0 or ResState=1)--研发状态 0研发中 1研发完成
+    ResState int default(0) check(ResState=0 or ResState=1)--研发状态 0研发中 1研发完成
 )
 go
 select * from ResearchInfo
 insert into ResearchInfo values('火箭','飞天','2016.6.12','2018.6.20',123456,1)
+insert into ResearchInfo values('拉布拉多','如何成功','2016.5.12','2018.5.20',50000,0)
 
 --研发详情表 DetailsInfo
 if exists(select * from sys.tables where name='DetailsInfo')
@@ -186,17 +187,23 @@ GO
 
 create table DetailsInfo(
    DetId int primary key identity(1,1),--主id
-   DetContent varchar(500) not null,--研发内容
+   InfoId int references  InfoTable(InfoId),   --员工表外键 研发负责人
    AllMoney money check(AllMoney>=0) default(0) not null,--总资金
    UseMoney money check(UseMoney>=0) default(0) not null,--已用资金
    OverMoney money check(OverMoney>=0) default(0) not null,--剩余资金
    DetPlan varchar(50)not null,--进度
-   ResId int  references ResearchInfo(ResId)--外键详情表
+   ResId int  references ResearchInfo(ResId)--外键研发表
 )
 
 go
+select * from InfoTable 
+select InfoTable.InfoName,DetailsInfo. * from DetailsInfo,InfoTable
+where InfoTable.InfoId=DetailsInfo.InfoId
 
-insert into DetailsInfo values ('飞上天',10000000,2000000,800000,'快完成',1)
+insert into DetailsInfo values (2,10000000,2000000,800000,'100%',1)
+insert into DetailsInfo values (2,50000,50000,0,'50%',2)
+select InfoTable.InfoName,ResearchInfo.Resname,ResearchInfo.ResIntroduce,DetailsInfo.*from InfoTable,ResearchInfo,DetailsInfo
+where InfoTable.InfoId=DetailsInfo.InfoId and ResearchInfo.ResId=DetailsInfo.ResId
 
 --销售表SaleInfo
 if exists(select * from sys.tables where name='SaleInfo')
