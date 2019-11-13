@@ -238,7 +238,7 @@ create table PersonSaleInfo(
 )
 go
 
-SELECT InfoTable.InfoName,PersonSaleInfo.*FROM PersonSaleInfo,InfoTable WHERE InfoTable.InfoId=PersonSaleInfo.InfoId
+
 INSERT INTO PersonSaleInfo VALUES(1,1,2324131131,123131313)
 INSERT INTO PersonSaleInfo VALUES(1,1,1423424242,234242434)
 SELECT InfoTable.InfoName,DepartmentInfo.Dep,PersonSaleInfo.*FROM InfoTable,DepartmentInfo,PersonSaleInfo 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SaleInfo.aspx.cs" Inherits="HW.CMS.WEB.SaleInfo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PersonSaleInfo.aspx.cs" Inherits="HW.CMS.WEB.PersonSaleInfo" %>
 
 <!DOCTYPE html>
 
@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/fontastic.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
@@ -200,10 +200,10 @@
                        <table class="table table-hover">
                            <thead>
                                <tr>
-                                   <th>组名</th>
-                                   <th>销售内容</th>
-                                   <th>销售金额</th>
+                                   <th>员工</th>
                                    <th>报备部门</th>
+                                   <th>销售金额</th>
+                                   <th>消费金额</th>
                                    <th>编辑</th>
                                </tr>
                            </thead>
@@ -212,14 +212,14 @@
                    <ItemTemplate>
                        <tbody>
                            <tr>
-                               <td><%#Eval("GroupName")%></td>
-                               <td><%#Eval("SaleContent")%></td>
-                               <td><%#Eval("SaleMoney")%></td>
+                               <td><%#Eval("InfoId")%></td>
                                <td><%#Eval("DepId")%></td>
+                               <td><%#Eval("PerMoney")%></td>
+                               <td><%#Eval("ConMoney")%></td>
                                <td>
                                    <%--<asp:LinkButton ID="LinkButton1" CommandName="insert" CommandArgument='<%#Eval("")%>' runat="server">添加</asp:LinkButton>--%>
-                                   <asp:LinkButton ID="LinkButton2" CommandName="update" CommandArgument='<%#Eval("SaleId")%>' runat="server">更新</asp:LinkButton>
-                                   <asp:LinkButton ID="LinkButton3" CommandName="delete" CommandArgument='<%#Eval("SaleId")%>' runat="server">删除</asp:LinkButton>
+                                   <asp:LinkButton ID="LinkButton2" CommandName="update" CommandArgument='<%#Eval("PerId")%>' runat="server">更新</asp:LinkButton>
+                                   <asp:LinkButton ID="LinkButton3" CommandName="delete" CommandArgument='<%#Eval("PerId")%>' runat="server">删除</asp:LinkButton>
                                </td>
                            </tr>
                        </tbody>
@@ -238,5 +238,3 @@
     <script src="js/front.js"></script>
 </body>
 </html>
-
-
