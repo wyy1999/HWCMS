@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HW.CMS.Model;
 
 namespace HW.CMS.DAL
 {
@@ -32,6 +33,19 @@ namespace HW.CMS.DAL
             string sql = "delete from UserLogin where Userid =@id";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@id", id);
+            return DBHelper.ExcuteSqlNonQuery(sql, sqlParameters);
+        }
+
+        public int update(UserLogin user)
+        {
+            string sql = "update UserLogin set UserNum=@UserNum,Userpwd=@Userpwd,UserRole=@UserRole where  Userid=@Userid";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@UserNum",user.UserNum),
+                new SqlParameter("@Userpwd",user.Userpwd),
+                new SqlParameter("@UserRole",user.UserRole),
+                new SqlParameter("@Userid",user.Userid),
+            };
             return DBHelper.ExcuteSqlNonQuery(sql, sqlParameters);
         }
 
