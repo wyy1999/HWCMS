@@ -34,23 +34,49 @@ namespace HW.CMS.WEB
         /// <param name="e"></param>
         protected void Button2_Click(object sender, EventArgs e)
         {
-            string p = TxtName.Text;
+            
+            string p = TxtMoney.Text;
             ResearchInfoModel model = new ResearchInfoModel();
             model.Resname = TxtName.Text;
             model.ResIntroduce = TxtCon.Text;
-            model.BeginTime = TxtBeg.Text;
-            model.EndTime = TxtEnd.Text;
+            model.BeginTime =Convert.ToString(DateTime.Now) ;
+            model.EndTime = "";           
             model.ResMoney = Convert.ToDouble(TxtMoney.Text);
             model.ResState = Convert.ToInt32(TxtState.Text);
             if (bll.Add(model) >= 0)
             {
-                Response.Write("<script>alert('添加成功！') </script>");
+                Response.Write("<script>alert('添加成功！');location.href='ResearchInfo.aspx' </script>");
+               
             }
             else
             {
 
                 Response.Write("<script>alert('添加失败！') </script>");
             }
+
+        }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
+        protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            //string comtype = e.CommandName;
+            //int ResId = Convert.ToInt32(e.CommandArgument.ToString());
+            //if (comtype=="delete")
+            //{
+            //    int result = bll.delete_Res(ResId);
+            //    if (result > 0)
+            //    {
+            //        Response.Write("<script>alert('删除成功');location.href='ResearchInfo.aspx'</script>");
+            //    }
+            //    else
+            //    {
+            //        Response.Write("<script>alert('删除失败，请重新删除')  </script>");
+            //    }
+            //}
 
         }
     }

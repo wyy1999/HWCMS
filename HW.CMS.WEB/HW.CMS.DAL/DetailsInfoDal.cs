@@ -1,36 +1,38 @@
-﻿using System;
+﻿using HW.CMS.Model;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using HW.CMS.Model;
 
 namespace HW.CMS.DAL
 {
-    public class ResearchInfoDal
+  public  class DetailsInfoDal
     {
         /// <summary>
         /// 查询全部
         /// </summary>
         /// <returns></returns>
-        public List<ResearchInfoModel> ResList()
+        public List<DetailsInfoModel> DetList()
         {
-            string sql = "select * from ResearchInfo";
+            string sql = "select InfoTable.InfoName,ResearchInfo.Resname,ResearchInfo.ResIntroduce,DetailsInfo.*from InfoTable,ResearchInfo,DetailsInfo where InfoTable.InfoId = DetailsInfo.InfoId and ResearchInfo.ResId = DetailsInfo.ResId";
             SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
-            List<ResearchInfoModel> list = new List<ResearchInfoModel>();
+            List<DetailsInfoModel> list = new List<DetailsInfoModel>();
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    ResearchInfoModel model = new ResearchInfoModel();
-                    model.BeginTime = reader["BeginTime"].ToString();
-                    model.ResId = int.Parse(reader["ResId"].ToString());
-                    model.ResIntroduce = reader["ResIntroduce"].ToString();
-                    model.ResMoney =Convert.ToDouble(reader["ResMoney"].ToString());
+                    DetailsInfoModel model = new DetailsInfoModel();
+                    model.InfoName = reader["InfoName"].ToString();
+                    model.ResIntroduce = reader["ResIntroduce"].ToString();                
                     model.Resname = reader["Resname"].ToString();
-                    model.ResState = int.Parse(reader["ResState"].ToString()) ;
-                    model.EndTime = reader["EndTime"].ToString();
+                    model.OverMoney = decimal.Parse(reader["OverMoney"].ToString());
+                    model.AllMoney = decimal.Parse(reader["AllMoney"].ToString()) ;
+                    model.DetPlan = reader["DetPlan"].ToString();
+                    model.DetId = int.Parse(reader["DetId"].ToString()) ;
+                    model.UseMoney = decimal.Parse(reader["UseMoney"].ToString()) ;
+
                     list.Add(model);
                 }
             }
@@ -49,12 +51,12 @@ namespace HW.CMS.DAL
             SqlParameter[] sqlParameters = new SqlParameter[]
            {
 
-               new SqlParameter("@ResIntroduce",model.ResIntroduce),
-               new SqlParameter("@BeginTime",model.BeginTime),
-               new SqlParameter("@EndTime",model.EndTime),
-               new SqlParameter("@ResMoney",model.ResMoney),
-               new SqlParameter("@ResState",model.ResState),
-               new SqlParameter("@Resname",model.Resname),
+               new SqlParameter("@username",model.Resname),
+               new SqlParameter("@userpwd",model.ResIntroduce),
+               new SqlParameter("@username",model.BeginTime),
+               new SqlParameter("@userpwd",model.EndTime),
+               new SqlParameter("@username",model.ResMoney),
+               new SqlParameter("@userpwd",model.ResState),
 
           };
             ///执行命令  返回结果
@@ -92,7 +94,7 @@ namespace HW.CMS.DAL
         }
 
 
-      
+
         /// <summary>
         /// 修改
         /// </summary>
@@ -107,7 +109,7 @@ namespace HW.CMS.DAL
                 new SqlParameter("@Resname",model.Resname),
                 new SqlParameter("@ResIntroduce",model.ResIntroduce),
                 new SqlParameter("@BeginTime",model.BeginTime),
-                new SqlParameter("@EndTime",model.EndTime),               
+                new SqlParameter("@EndTime",model.EndTime),
                 new SqlParameter("@ResMoney",model.ResMoney),
                 new SqlParameter("@ResState",model.ResState),
             };

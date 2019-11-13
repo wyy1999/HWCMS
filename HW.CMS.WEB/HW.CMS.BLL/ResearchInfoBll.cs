@@ -8,6 +8,9 @@ using HW.CMS.Model;
 
 namespace HW.CMS.BLL
 {
+    /// <summary>
+    /// 研发表
+    /// </summary>
   public  class ResearchInfoBll
     {
         ResearchInfoDal dal = new ResearchInfoDal();
@@ -29,5 +32,27 @@ namespace HW.CMS.BLL
         {
             return dal.Add(model);
         }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="ResId"></param>
+        /// <returns></returns>
+        public int delete_Res(int ResId)
+        {
+
+            return dal.delete_Res(ResId);
+        }
+
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int update_Res(ResearchInfoModel model)
+        {
+            return dal.update_Res(model);
+        }
+
         }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ResearchInfo.aspx.cs" Inherits="HW.CMS.WEB.ResearchInfo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DetailsInfo.aspx.cs" Inherits="HW.CMS.WEB.DetailsInfo" %>
 
 <!DOCTYPE html>
 
@@ -143,7 +143,7 @@
                     <!-- Sidebar Navidation Menus-->
                     <span class="heading">菜单</span>
                     <ul class="list-unstyled">
-                        <li ><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
+                        <li class="active"><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
                         <li><a href="InfoTable.aspx"><i class="icon-grid"></i>公司人员信息 </a></li>
                         <li><a href="ClockInfo.aspx"><i class="fa fa-bar-chart"></i>人员打卡 </a></li>
                         <li><a href="ReportInfo.aspx"><i class="icon-padnote"></i>公司报备</a></li>
@@ -156,7 +156,7 @@
                         </li>
                         <li><a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>研发部 </a>
                             <ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
-                                <li class="active"><a href="ResearchInfo.aspx">研发内容</a></li>
+                                <li><a href="ResearchInfo.aspx">研发内容</a></li>
                                 <li><a href="DetailsInfo.aspx">研发详情</a></li>
                                 <li><a href="#">Page</a></li>
                             </ul>
@@ -196,14 +196,14 @@
                     <div class="breadcrumb-holder container-fluid">
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="ResearchInfo.aspx">研发部</a></li>
-                            <li class="breadcrumb-item active">研发内容            </li>
+                            <li class="breadcrumb-item active">研发详情           </li>
                             <button style="margin-left:20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">添加</button>
                         </ul>
                          
                     </div>
                     <div>
 
-                        <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
+                        <asp:Repeater ID="Repeater1" runat="server" >
                             <HeaderTemplate>
                                 
                                 <table class="table table-hove">
@@ -211,12 +211,13 @@
                                     <thead>
                                         <tr>
                                             <th>id</th>
-                                            <th>产品名称</th>
-                                            <th>产品内容</th>
-                                            <th>开始时间</th>
-                                            <th>结束时间</th>
-                                            <th>研发金额</th>
-                                            <th>研发状态</th>
+                                            <th>研发负责人</th>
+                                            <th>研发名称</th>
+                                            <th>研发内容</th>
+                                            <th>总资金</th>
+                                            <th>已用资金</th>
+                                            <th>剩余资金</th>
+                                            <th>研发进度</th>
                                             <th>编辑</th>
                                         </tr>
                                     </thead>
@@ -224,15 +225,17 @@
                             <ItemTemplate>
                                 <tbody>
                                     <tr class="warning">
-                                        <td><%#Eval("ResId") %></td>
+                                        <td><%#Eval("DetId") %></td>
+                                        <td><%#Eval("InfoName") %></td>
                                         <td><%#Eval("Resname") %></td>
                                         <td><%#Eval("ResIntroduce") %></td>
-                                        <td><%#Eval("BeginTime") %></td>
-                                        <td><%#Eval("EndTime") %></td>
-                                        <td><%#Eval("ResMoney") %></td>
-                                        <td><%#Eval("ResStateString") %></td>
+                                        <td><%#Eval("AllMoney") %></td>
+                                        <td><%#Eval("UseMoney") %></td>
+                                        <td><%#Eval("OverMoney") %></td>
+                                        <td><%#Eval("DetPlan") %></td>
                                         <td>
-                                            <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info"  >修改</asp:LinkButton>                                      
+                                            <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info"  >修改</asp:LinkButton>
+                                            <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%# Eval("ResId")%>' >删除</asp:LinkButton>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -249,24 +252,29 @@
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    
                                     <div class="modal-header">
-                                        <h4 class="modal-title" id="exampleModalLabel">添加</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        
+                                        <h4 class="modal-title" id="exampleModalLabel">添加</h4>
                                     </div>
                                     <div class="modal-body">
-                                        
+                                        <form>
                                             <div class="form-group">
                                                 <label for="recipient-name" class="control-label">产品名称:</label>                                                
-                                                <asp:TextBox ID="TxtName" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="TxtName" runat="server" ></asp:TextBox>
                                             </div>
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">产品内容:</label>
-                                                <asp:TextBox ID="TxtCon" runat="server" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="TxtCon" runat="server" class="form-control"></asp:TextBox>
                                                 
                                             </div>
-                                            
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">开始时间:</label>
+                                                <asp:TextBox ID="TxtBeg" runat="server" class="form-control"></asp:TextBox>                                                              
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">结束时间:</label>
+                                                <asp:TextBox ID="TxtEnd" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">研发金额:</label>
                                                 <asp:TextBox ID="TxtMoney" runat="server" class="form-control"></asp:TextBox>
@@ -276,11 +284,11 @@
                                                 <asp:TextBox ID="TxtState" runat="server" class="form-control"></asp:TextBox>
                                                  
                                             </div>
-                                       
+                                        </form>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                       <asp:Button ID="Button2" runat="server" Text="确定添加" OnClick="Button2_Click" class="btn btn-primary"  />
+                                       <asp:Button ID="Button2" runat="server" Text="确定添加"  class="btn btn-primary"  />
                                         
                                         
                                     </div>
@@ -301,9 +309,11 @@
         <script src="js/charts-home.js"></script>
         <!-- Main File-->
         <script src="js/front.js"></script>
+
     </form>
 
 </body>
 </html>
+
 
 

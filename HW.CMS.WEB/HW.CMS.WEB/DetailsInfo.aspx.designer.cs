@@ -10,7 +10,7 @@
 namespace HW.CMS.WEB {
     
     
-    public partial class ResearchInfo {
+    public partial class DetailsInfo {
         
         /// <summary>
         /// form1 控件。
@@ -47,6 +47,24 @@ namespace HW.CMS.WEB {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtCon;
+        
+        /// <summary>
+        /// TxtBeg 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtBeg;
+        
+        /// <summary>
+        /// TxtEnd 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtEnd;
         
         /// <summary>
         /// TxtMoney 控件。
