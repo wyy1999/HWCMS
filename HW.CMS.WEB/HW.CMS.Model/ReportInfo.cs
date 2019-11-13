@@ -15,7 +15,7 @@ namespace HW.CMS.Model
         public string ReportReason { get; set; }
         public DateTime ReportTime { get; set; }
         public int DepId { get; set; }
-        public int ReportMoney { get; set; }
+        public decimal ReportMoney { get; set; }
         public int ReportState { get; set; }
 
       

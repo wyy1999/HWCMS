@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HW.CMS.BLL
 {
-   public class ReportInfoBll
+    public class ReportInfoBll
     {
         ReportInfoDal dal = new ReportInfoDal();
 
@@ -19,6 +19,10 @@ namespace HW.CMS.BLL
         public List<ReportInfo> RepList()
         {
             return dal.RepList();
+        }
+        public int Del_ReportInfo(int ReportId)
+        {
+            return dal.Del_ReportInfo(ReportId);
         }
     }
 }

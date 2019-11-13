@@ -221,7 +221,7 @@
                                <td><%#Eval("ReportStateString") %></td>  
                                <td>
                                    <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" >修改</asp:LinkButton>
-                                   <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger">删除</asp:LinkButton>
+                                   <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("ReportId") %>'>删除</asp:LinkButton>
                                </td>
                            </tr>
                        </tbody>                                         
