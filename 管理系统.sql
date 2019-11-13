@@ -219,6 +219,11 @@ create table SaleInfo(
    DepId int references DepartmentInfo(DepId),--报备部门 部门表外键
 )
 go
+SELECT * FROM SaleInfo
+
+INSERT INTO SaleInfo VALUES('嘿','销售内容',2342424,1)
+INSERT INTO SaleInfo VALUES('哈','销售内容',5335333,1)
+INSERT INTO SaleInfo VALUES('嗯哼','销售内容',435355,1)
 
 --个人销售表PersonSaleInfo
 if exists(select * from sys.tables where name='PersonSaleInfo')
@@ -233,6 +238,11 @@ create table PersonSaleInfo(
 )
 go
 
+SELECT InfoTable.InfoName,PersonSaleInfo.*FROM PersonSaleInfo,InfoTable WHERE InfoTable.InfoId=PersonSaleInfo.InfoId
+INSERT INTO PersonSaleInfo VALUES(1,1,2324131131,123131313)
+INSERT INTO PersonSaleInfo VALUES(1,1,1423424242,234242434)
+SELECT InfoTable.InfoName,DepartmentInfo.Dep,PersonSaleInfo.*FROM InfoTable,DepartmentInfo,PersonSaleInfo 
+WHERE InfoTable.InfoId=PersonSaleInfo.InfoId AND DepartmentInfo.DepId=PersonSaleInfo.DepId
 --财务表（收入）IncomeInfo
 if exists(select * from sys.tables where name='IncomeInfo')
 drop table IncomeInfo
