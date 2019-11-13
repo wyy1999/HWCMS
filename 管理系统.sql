@@ -90,7 +90,7 @@ create table InfoTable(
   DepId int references DepartmentInfo(DepId),--部门外键id
   DutyId int references DutyInfo(DutyId), --职务外键id
   Userid int references UserLogin(Userid),--登陆表外键
-  InfoSalary money default(0) check(InfoSalary>=0) not null,--工资
+  InfoSalary decimal(18,2) default(0) check(InfoSalary>=0) not null,--工资
   InfoState int check(InfoState=0 or InfoState=1 or InfoState=2 )  --状态 0在职 1请假 2离职
 )
 
@@ -139,7 +139,7 @@ create table ReportInfo(
     ReportReason varchar(500) not null,--报备原因
     ReportTime datetime default(getdate()) not null,--报备时间
     DepId int references DepartmentInfo(DepId),--报备部门 部门表外键
-    ReportMoney money default(0) check(ReportMoney>=0) not null,--所需金额
+    ReportMoney decimal(18,2) default(0) check(ReportMoney>=0) not null,--所需金额
     ReportState int check(ReportState=1 or ReportState=0)--审核状态 0未审核 1已审核
 )
 go
@@ -153,9 +153,9 @@ drop table AccoutInfo
 GO
 create table AccoutInfo(
    AccoutId int primary key identity(1,1),--支出id
-   ACCSalary money check(ACCSalary>=0) not null,--工资总金额   
-   AccSubsidy money check(AccSubsidy>=0) not null,--补贴总金额
-   AccFiveMoney money check(AccFiveMoney>=0) not null,--五险一金总金额
+   ACCSalary decimal(18,2) check(ACCSalary>=0) not null,--工资总金额   
+   AccSubsidy decimal(18,2) check(AccSubsidy>=0) not null,--补贴总金额
+   AccFiveMoney decimal(18,2) check(AccFiveMoney>=0) not null,--五险一金总金额
    ReportId int references ReportInfo(ReportId),--报备金额 外键报备表 字段（报备部门  所需金额）
 )
 go
@@ -172,13 +172,14 @@ create table ResearchInfo(
     ResIntroduce varchar(500) not null,--产品内容
     BeginTime datetime default(getdate()) not null,--开始时间
     EndTime datetime default(getdate()) not null,--结束时间
-    ResMoney money check(ResMoney>=0) default(0) not null,--研发金额
+    ResMoney decimal(18,2) check(ResMoney>=0) default(0) not null,--研发金额
     ResState int default(0) check(ResState=0 or ResState=1)--研发状态 0研发中 1研发完成
 )
 go
 select * from ResearchInfo
 insert into ResearchInfo values('火箭','飞天','2016.6.12','2018.6.20',123456,1)
 insert into ResearchInfo values('拉布拉多','如何成功','2016.5.12','2018.5.20',50000,0)
+delete from  ResearchInfo where ResId=1
 
 --研发详情表 DetailsInfo
 if exists(select * from sys.tables where name='DetailsInfo')
@@ -188,9 +189,9 @@ GO
 create table DetailsInfo(
    DetId int primary key identity(1,1),--主id
    InfoId int references  InfoTable(InfoId),   --员工表外键 研发负责人
-   AllMoney money check(AllMoney>=0) default(0) not null,--总资金
-   UseMoney money check(UseMoney>=0) default(0) not null,--已用资金
-   OverMoney money check(OverMoney>=0) default(0) not null,--剩余资金
+   AllMoney decimal(18,2) check(AllMoney>=0) default(0) not null,--总资金
+   UseMoney decimal(18,2) check(UseMoney>=0) default(0) not null,--已用资金
+   OverMoney decimal(18,2) check(OverMoney>=0) default(0) not null,--剩余资金
    DetPlan varchar(50)not null,--进度
    ResId int  references ResearchInfo(ResId)--外键研发表
 )
@@ -214,7 +215,7 @@ create table SaleInfo(
    SaleId int primary key identity(1,1),--销售id
    GroupName varchar(50) not null,--组名
    SaleContent varchar(50),--销售内容
-   SaleMoney money check(SaleMoney>=0) default(0) not null,--销售金额
+   SaleMoney decimal(18,2) check(SaleMoney>=0) default(0) not null,--销售金额
    DepId int references DepartmentInfo(DepId),--报备部门 部门表外键
 )
 go
@@ -227,8 +228,8 @@ create table PersonSaleInfo(
   PerId int primary key identity(1,1),--个人销售id
   InfoId int references  InfoTable(InfoId),   --员工表外键 字段  姓名  
   DepId int references DepartmentInfo(DepId),--报备部门 部门表外键
-  PerMoney money check(PerMoney>=0) default(0) not null,--销售金额
-  ConMoney money check(ConMoney>=0) default(0) not null,--消费金额
+  PerMoney decimal(18,2) check(PerMoney>=0) default(0) not null,--销售金额
+  ConMoney decimal(18,2) check(ConMoney>=0) default(0) not null,--消费金额
 )
 go
 
