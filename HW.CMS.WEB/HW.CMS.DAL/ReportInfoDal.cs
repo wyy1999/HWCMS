@@ -25,8 +25,8 @@ namespace HW.CMS.DAL
                 {
                     ReportInfo model = new ReportInfo();
                     model.Dep = reader["Dep"].ToString();
-                    //model.ReportId = int.Parse(reader["ReportId"].ToString());
-                    model.ReportMoney =int.Parse(reader["ReportMoney"].ToString()) ;
+                    model.ReportId = int.Parse(reader["ReportId"].ToString());
+                    model.ReportMoney = Convert.ToDecimal(reader["ReportMoney"]);
                     model.ReportTime = DateTime.Parse(reader["ReportTime"].ToString()) ;
                     model.ReportReason = reader["ReportReason"].ToString();
                               
@@ -36,6 +36,15 @@ namespace HW.CMS.DAL
                 }
             }
             return list;
+        }
+        public int Del_ReportInfo(int ReportId)
+        {
+            string sql = "delete from ReportInfo where ReportId=@ReportId";
+            SqlParameter[] pal = new SqlParameter[] {
+                new SqlParameter("@ReportId",ReportId)
+            };
+            int retult = DBHelper.ExcuteSqlNonQuery(sql,pal);
+            return retult;
         }
     }
 }

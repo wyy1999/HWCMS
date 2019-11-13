@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using HW.CMS.Model;
 
 namespace HW.CMS.WEB
 {
@@ -23,12 +24,22 @@ namespace HW.CMS.WEB
             //6.处理结果
             //如果没有找到用户，我提示一下
             UserBll bll = new UserBll();
-            object result = bll.LoginIn(username, password);
-            int num = Convert.ToInt32(result);
-            if (num > 0)
+            UserLogin result = bll.LoginIn(username, password);
+            Response.Write("<script>alert('"+result.UserRole+"')</script>");
+            if (result.UserRole!=0)
             {
+                if (result.UserRole == 1)
+                {
+                    Response.Redirect("InfoTable.aspx");
+                }
+                else if(result.UserRole==2)
+                {
+                    Response.Redirect("AccoutInfo.aspx");
+                }
+                else { 
                 //Session.Add("Userid", num);
                 Response.Redirect("index.aspx");
+                }
             }
             else
             {

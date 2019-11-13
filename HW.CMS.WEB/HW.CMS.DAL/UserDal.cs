@@ -16,16 +16,32 @@ namespace HW.CMS.DAL
         /// <param name="userName"></param>
         /// <param name="passWord"></param>
         /// <returns></returns>
-        public object LoginIn(string userName, string passWord)
+        public static UserLogin LoginIn(string userName, string passWord)
         {
+
+
             //与数据库操作的步骤
             string sql = "select * from UserLogin where UserNum=@UserNum and Userpwd=@Userpwd ";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("@UserNum", userName);
             sqlParameters[1] = new SqlParameter("@Userpwd", passWord);
             //5.执行命令，返回结果
-            object result = DBHelper.ExcuteScalar(sql, sqlParameters);
-            return result;
+            UserLogin accout = new UserLogin();
+            SqlDataReader result = DBHelper.ExcuteSqlDataReader(sql, sqlParameters);
+            if (result.HasRows)
+            {
+                while (result.Read())
+                {
+                    accout = new UserLogin() { 
+
+                    Userid = Convert.ToInt32(result["Userid"]),
+                    UserNum = Convert.ToInt32(result["UserNum"]),
+                    Userpwd = Convert.ToString(result["Userpwd"]),
+                    UserRole = Convert.ToInt32(result["UserRole"]),
+                };
+            };
+            }
+            return accout;
         }
 
         public int delete(int id)

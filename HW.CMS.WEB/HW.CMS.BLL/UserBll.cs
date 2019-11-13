@@ -17,9 +17,9 @@ namespace HW.CMS.BLL
         /// <param name="userName"></param>
         /// <param name="passWord"></param>
         /// <returns></returns>
-        public object LoginIn(string userName, string passWord)
+        public UserLogin LoginIn(string userName, string passWord)
         {
-            return dal.LoginIn(userName, passWord);
+            return UserDal.LoginIn(userName, passWord);
         }
         public int delete(int id)
         {
