@@ -219,7 +219,7 @@
                                     <td><%#Eval("UserRole") %></td>
                                     <td style="width: 200px">
                                         <asp:LinkButton ID="LinkButton1" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("Userid") %>' runat="server">删除</asp:LinkButton>
-                                          <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("UserNum") %>','<%#Eval("Userpwd") %>','<%#Eval("UserRole") %>')"> 修改</a>
+                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("Userid") %>','<%#Eval("UserNum") %>','<%#Eval("Userpwd") %>','<%#Eval("UserRole") %>')">修改</a>
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -269,54 +269,69 @@
                                 </div>
                             </div>
                         </div>
-                       
-        <script type="text/javascript">
-            function addressUpdate(num, pwd, role,) {
-                $("#update_UserNum").val(num);
-                $("#update_Userpwd").val(pwd);
-                $("#update_UserRole").val(role);
-                $("#modal-address-update").modal("show");
-            }
-        </script>
-                        
-    <div class="modal fade" id="modal-address-update" tabindex="-1" role="dialog" aria-labelledby="modal-address-update-label"
-        aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header" style="text-align: center">
-                     <h3 class="modal-title" id="modal-address-update-label">修改信息</h3>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
-                    </button>
-                   
-                </div>
-                <div class="modal-body">
-                    <form role="form" id="address-update-form" method="post" action="#">
-                        <input type="hidden" id="update_AddressId" />
-                        <div class="form-group">
-                            <input type="text" id="update_UserNum" name="update_UserNum" placeholder="请输入收货地址"
-                                class="form-control" required />
+
+                        <script type="text/javascript">
+                            function addressUpdate(id, num, pwd, role, ) {
+                                $("#update_Userid").val(id);
+                                $("#update_UserNum").val(num);
+                                $("#update_Userpwd").val(pwd);
+                                $("#update_UserRole").val(role);
+                                $("#modal-address-update").modal("show");
+                            }
+                        </script>
+
+                        <div class="modal fade" id="modal-address-update" tabindex="-1" role="dialog" aria-labelledby="modal-address-update-label"
+                            aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="text-align: center">
+                                        <h3 class="modal-title" id="modal-address-update-label">修改信息</h3>
+                                        <button type="button" class="close" data-dismiss="modal">
+                                            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                        </button>
+
+                                    </div>
+                                    <div class="modal-body">
+                                       
+                                            <input type="hidden" id="update_AddressId" />
+
+                                            <div>
+                                                <table>
+                                                    <tr style="display:none">
+                                                        <td>员工编号</td>
+                                                        <td>
+                                                            <asp:TextBox ID="update_Userid" name="update_Userid" placeholder="隐藏的"
+                                                                class="form-control" runat="server"></asp:TextBox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>员工编号</td>
+                                                        <td>
+                                                            <asp:TextBox ID="update_UserNum" name="update_UserNum" placeholder="请输入收货地址"
+                                                                class="form-control" runat="server"></asp:TextBox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>登陆密码</td>
+                                                        <td>
+                                                            <asp:TextBox ID="update_Userpwd" name="update_Userpwd" placeholder="请输入收货人姓名"
+                                                                class="form-control" runat="server"></asp:TextBox></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>登陆角色</td>
+                                                        <td>
+                                                            <asp:TextBox ID="update_UserRole" name="update_UserRole" placeholder="请输入收件人联系方式"
+                                                                class="form-control" runat="server"></asp:TextBox></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="form-group" style="text-align: center">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    取消</button>
+                                                <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="修改" OnClick="Button2_Click" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="text" id="update_Userpwd" name="update_Userpwd" placeholder="请输入收货人姓名"
-                                class="form-control" required />
-                        </div>
-                        <div class="form-group">
-                            <input type="number" id="update_UserRole" name="update_UserRole" placeholder="请输入收件人联系方式"
-                                class="form-control" required maxlength="11" minlength="11" />
-                        </div>
-                        <div class="form-group" style="text-align: center">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">
-                                取消</button>
-                            <button type="submit" class="btn btn-primary">
-                                修改</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-                    </div>
+                    
                     <%--                    <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">LinkButton</asp:LinkButton>--%>
                 </div>
             </div>

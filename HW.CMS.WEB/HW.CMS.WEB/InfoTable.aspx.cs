@@ -75,6 +75,22 @@ namespace HW.CMS.WEB
             }
         }
 
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+            UserLogin user = new UserLogin();
+            user.Userid = Convert.ToInt32(update_Userid.Text);
+            user.UserNum = Convert.ToInt32(update_UserNum.Text);
+            user.Userpwd = update_Userpwd.Text;
+            user.UserRole = Convert.ToInt32(update_UserRole.Text);
+
+            if (bll.update(user) > 0)
+            {
+
+                Response.Write("<script>alert('修改成功');location.href='InfoTable.aspx';</script>");
+            }
+        }
+
         //protected void Button1_Click(object sender, EventArgs e)
         //{
         //    Response.Write("<script>alert('修改失败');</script>");

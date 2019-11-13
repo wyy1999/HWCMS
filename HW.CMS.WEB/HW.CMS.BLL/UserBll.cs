@@ -25,5 +25,9 @@ namespace HW.CMS.BLL
         {
             return dal.delete(id);
         }
+        public int update(UserLogin user)
+        {
+            return dal.update(user);
+        }
     }
 }
