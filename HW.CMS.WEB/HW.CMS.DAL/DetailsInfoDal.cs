@@ -32,6 +32,8 @@ namespace HW.CMS.DAL
                     model.DetPlan = reader["DetPlan"].ToString();
                     model.DetId = int.Parse(reader["DetId"].ToString()) ;
                     model.UseMoney = decimal.Parse(reader["UseMoney"].ToString()) ;
+                    model.InfoId= int.Parse(reader["InfoId"].ToString());
+                    model.ResId= int.Parse(reader["ResId"].ToString());
 
                     list.Add(model);
                 }
@@ -78,19 +80,19 @@ namespace HW.CMS.DAL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public int Add(ResearchInfoModel model)
+        public int Add(DetailsInfoModel model)
         {
-            string sql = " insert into ResearchInfo values(@Resname,@ResIntroduce,@BeginTime,@EndTime,@ResMoney,@ResState)";
+            string sql = " insert into DetailsInfo values(@InfoId,@AllMoney,@UseMoney,@OverMoney,@DetPlan,@ResId)";
             ///创建命令
             SqlParameter[] sqlParameters = new SqlParameter[]
            {
 
-               new SqlParameter("@username",model.Resname),
-               new SqlParameter("@userpwd",model.ResIntroduce),
-               new SqlParameter("@username",model.BeginTime),
-               new SqlParameter("@userpwd",model.EndTime),
-               new SqlParameter("@username",model.ResMoney),
-               new SqlParameter("@userpwd",model.ResState),
+               new SqlParameter("@InfoId",model.InfoId),
+               new SqlParameter("@AllMoney",model.AllMoney),
+               new SqlParameter("@UseMoney",model.UseMoney),
+               new SqlParameter("@OverMoney",model.OverMoney),
+               new SqlParameter("@DetPlan",model.DetPlan),
+               new SqlParameter("@ResId",model.ResId),
 
           };
             ///执行命令  返回结果
@@ -114,14 +116,14 @@ namespace HW.CMS.DAL
         /// <summary>
         /// 删除
         /// </summary>
-        /// <param name="ResId"></param>
+        /// <param name="DetId"></param>
         /// <returns></returns>
-        public int delete_Res(int ResId)
+        public int delete_Det(int DetId)
         {
-            string sql = " delete from ResearchInfo where ResId=@ResId";
+            string sql = " delete from DetailsInfo where DetId=@DetId";
             SqlParameter[] par = new SqlParameter[]
             {
-                new SqlParameter("@ResId",ResId)
+                new SqlParameter("@DetId",DetId)
             };
             int result = DBHelper.ExcuteSqlNonQuery(sql, par);
             return result;
@@ -134,18 +136,18 @@ namespace HW.CMS.DAL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public int update_Res(ResearchInfoModel model)
+        public int update_Det(DetailsInfoModel model)
         {
-            string sql = "update usertable set Resname=@Resname,ResIntroduce=@ResIntroduce,BeginTime=@BeginTime,EndTime=@EndTime,ResMoney=@ResMoney,ResState=@ResState where ResId=@ResId";
+            string sql = "update DetailsInfo set InfoId=@InfoId,AllMoney=@AllMoney,UseMoney=@UseMoney,OverMoney=@OverMoney,DetPlan=@DetPlan,ResId=@ResId where DetId=@DetId";
             SqlParameter[] par = new SqlParameter[]
             {
+                new SqlParameter("@DetId",model.DetId),
+                new SqlParameter("@InfoId",model.InfoId),
+                new SqlParameter("@AllMoney",model.AllMoney),
+                new SqlParameter("@UseMoney",model.UseMoney),
+                new SqlParameter("@OverMoney",model.OverMoney),
+                new SqlParameter("@DetPlan",model.DetPlan),
                 new SqlParameter("@ResId",model.ResId),
-                new SqlParameter("@Resname",model.Resname),
-                new SqlParameter("@ResIntroduce",model.ResIntroduce),
-                new SqlParameter("@BeginTime",model.BeginTime),
-                new SqlParameter("@EndTime",model.EndTime),
-                new SqlParameter("@ResMoney",model.ResMoney),
-                new SqlParameter("@ResState",model.ResState),
             };
             int result = DBHelper.ExcuteSqlNonQuery(sql, par);
             return result;

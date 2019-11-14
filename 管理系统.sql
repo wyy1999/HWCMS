@@ -181,6 +181,20 @@ insert into ResearchInfo values('火箭','飞天','2016.6.12','2018.6.20',123456,1)
 insert into ResearchInfo values('拉布拉多','如何成功','2016.5.12','2018.5.20',50000,0)
 
 
+
+if exists(select * from sys.procedures where name='sel_ResearchInfo')
+drop proc sel_ResearchInfo
+go
+
+create proc sel_ResearchInfo(@Resname varchar(50) ='',@ResState int=0)
+as
+declare @strsql varchar(max)
+set @strsql='select * from ResearchInfo where Resname like ''%'+@Resname+'%'''
+if @ResState<>0
+set @strsql=@strsql+'and ResState='+CONVERT(varchar,@ResState)
+exec (@strsql)
+go
+
 --研发详情表 DetailsInfo
 if exists(select * from sys.tables where name='DetailsInfo')
 drop table DetailsInfo
@@ -197,7 +211,7 @@ create table DetailsInfo(
 )
 
 go
-select * from InfoTable 
+select * from DetailsInfo 
 select InfoTable.InfoName,DetailsInfo. * from DetailsInfo,InfoTable
 where InfoTable.InfoId=DetailsInfo.InfoId
 

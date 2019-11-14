@@ -144,8 +144,8 @@
                     <span class="heading">菜单</span>
                     <ul class="list-unstyled">
                         <li><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
-                       <li><a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse"><i class="icon-grid"></i>公司人员信息 </a>
-                             <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
+                        <li><a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse"><i class="icon-grid"></i>公司人员信息 </a>
+                            <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
                                 <li><a href="InfoTable.aspx">登录信息</a></li>
                                 <li><a href="UserInfo.aspx">人员详情</a></li>
                                 <li><a href="#">Page</a></li>
@@ -154,7 +154,7 @@
                         <li><a href="#exampledropdownDropdown5" aria-expanded="false" data-toggle="collapse"><i class="fa fa-bar-chart"></i>出勤情况 </a>
                             <ul id="exampledropdownDropdown5" class="collapse list-unstyled ">
                                 <li><a href="ClockInfo.aspx">打卡信息</a></li>
-                                <li><a href="LeaveInfo.aspx">请假信息</a></li>                              
+                                <li><a href="LeaveInfo.aspx">请假信息</a></li>
                             </ul>
 
                         </li>
@@ -209,17 +209,17 @@
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="ResearchInfo.aspx">研发部</a></li>
                             <li class="breadcrumb-item active">研发详情           </li>
-                            <button style="margin-left:20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">添加</button>
+                            <button style="margin-left: 20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">添加</button>
                         </ul>
-                         
+
                     </div>
                     <div>
 
-                        <asp:Repeater ID="Repeater1" runat="server" >
+                        <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
                             <HeaderTemplate>
-                                
+
                                 <table class="table table-hove">
-                                   
+
                                     <thead>
                                         <tr>
                                             <th>id</th>
@@ -241,13 +241,13 @@
                                         <td><%#Eval("InfoName") %></td>
                                         <td><%#Eval("Resname") %></td>
                                         <td><%#Eval("ResIntroduce") %></td>
-                                        <td><%#Eval("AllMoney") %></td>
-                                        <td><%#Eval("UseMoney") %></td>
-                                        <td><%#Eval("OverMoney") %></td>
+                                        <td><%#Eval("AllMoney") %> ￥</td>
+                                        <td><%#Eval("UseMoney") %>￥</td>
+                                        <td><%#Eval("OverMoney") %>￥</td>
                                         <td><%#Eval("DetPlan") %></td>
                                         <td>
-                                            <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info"  >修改</asp:LinkButton>
-                                            <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%# Eval("ResId")%>' >删除</asp:LinkButton>
+                                               <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("DetId") %>','<%#Eval("InfoId") %>','<%#Eval("AllMoney") %>','<%#Eval("UseMoney") %>','<%#Eval("OverMoney") %>','<%#Eval("DetPlan") %>','<%#Eval("ResId") %>')">修改</a>
+                                            <asp:LinkButton ID="LinkButton3" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%# Eval("DetId")%>'>删除</asp:LinkButton>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -257,10 +257,8 @@
                             </FooterTemplate>
 
                         </asp:Repeater>
-                        <%-- 模态框 --%>
+                        <%-- 添加模态框 --%>
                         <!-- Large modal -->
-                       
-
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -269,47 +267,116 @@
                                         <h4 class="modal-title" id="exampleModalLabel">添加</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="control-label">产品名称:</label>                                                
-                                                <asp:TextBox ID="TxtName" runat="server" ></asp:TextBox>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="message-text" class="control-label">产品内容:</label>
-                                                <asp:TextBox ID="TxtCon" runat="server" class="form-control"></asp:TextBox>
-                                                
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="message-text" class="control-label">开始时间:</label>
-                                                <asp:TextBox ID="TxtBeg" runat="server" class="form-control"></asp:TextBox>                                                              
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="message-text" class="control-label">结束时间:</label>
-                                                <asp:TextBox ID="TxtEnd" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="message-text" class="control-label">研发金额:</label>
-                                                <asp:TextBox ID="TxtMoney" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">研发状态:</label>
-                                                <asp:TextBox ID="TxtState" runat="server" class="form-control"></asp:TextBox>
-                                                 
-                                            </div>
-                                        </form>
+
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">研发负责人:</label>
+                                            <asp:TextBox ID="TxtName" runat="server" class="form-control" ></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">总资金:</label>
+                                            <asp:TextBox ID="TxtAll" runat="server" class="form-control"></asp:TextBox>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">已用资金:</label>
+                                            <asp:TextBox ID="TxtUse" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">剩余资金:</label>
+                                            <asp:TextBox ID="TxtOver" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">进度:</label>
+                                            <asp:TextBox ID="TxtPlan" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">研发表ID:</label>
+                                            <asp:TextBox ID="TxtResId" runat="server" class="form-control"></asp:TextBox>
+
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                       <asp:Button ID="Button2" runat="server" Text="确定添加"  class="btn btn-primary"  />
-                                        
-                                        
+                                        <asp:Button ID="Button1" runat="server" Text="确定添加" class="btn btn-primary" OnClick="Button1_Click" />
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
+
+                        <%--修改模态框  --%>
+                        <script type="text/javascript">
+                            function addressUpdate(DetId, InfoId, AllMoney, UseMoney, OverMoney, DetPlan, ResId) {
+                                $("#update_DetId").val(DetId);
+                                $("#update_InfoId").val(InfoId);
+                                $("#update_AllMoney").val(AllMoney);
+                                $("#update_UseMoney").val(UseMoney);
+                                $("#update_OverMoney").val(OverMoney);
+                                $("#update_DetPlan").val(DetPlan);
+                                $("#update_ResId").val(ResId);
+                                $("#modal-address-update").modal("show");
+                            }
+                        </script>
+
+                        <div class="modal fade" id="modal-address-update" tabindex="-1" role="dialog" aria-labelledby="modal-address-update-label"
+                            aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="text-align: center">
+                                        <h3 class="modal-title" id="modal-address-update-label">修改信息</h3>
+                                        <button type="button" class="close" data-dismiss="modal">
+                                            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                        </button>
+
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <input type="hidden" id="update_AddressId" />
+
+                                        <div>
+
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">研发详情编号:</label>
+                                                <asp:TextBox ID="update_DetId" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">研发负责人:</label>
+                                                <asp:TextBox ID="update_InfoId" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">总资金:</label>
+                                                <asp:TextBox ID="update_AllMoney" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">已用资金:</label>
+                                                <asp:TextBox ID="update_UseMoney" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">剩余资金:</label>
+                                                <asp:TextBox ID="update_OverMoney" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">研发进度:</label>
+                                                <asp:TextBox ID="update_DetPlan" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">研发表ID:</label>
+                                                <asp:TextBox ID="update_ResId" runat="server" class="form-control"></asp:TextBox>
+                                                <%--<asp:TextBox ID="update_ResState" runat="server" class="form-control"></asp:TextBox>--%>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="text-align: center">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                取消</button>
+                                            <asp:Button ID="Button3" runat="server" Text="修改" OnClick="Button3_Click" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
         <script src="vendor/jquery/jquery.min.js"></script>
