@@ -18,9 +18,9 @@ namespace HW.CMS.BLL
         {
             return dal.Add(model);
         }
-        public int update(int InfoId, int DepId, double PerMoney, double ConMoney)
+        public int update(PersonSaleInfoModel model)
         {
-            return dal.update(InfoId, DepId, PerMoney, ConMoney);
+            return dal.update(model);
         }
         public int delete(int PerId)
         {

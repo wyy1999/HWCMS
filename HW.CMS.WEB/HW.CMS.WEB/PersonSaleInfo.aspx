@@ -215,6 +215,7 @@
                                <tr>
                                    <th>员工</th>
                                    <th>报备部门</th>
+                                   <th>销售内容</th>
                                    <th>销售金额</th>
                                    <th>消费金额</th>
                                    <th>编辑</th>
@@ -227,6 +228,7 @@
                            <tr>
                                <td><%#Eval("InfoName")%></td>
                                <td><%#Eval("Dep")%></td>
+                               <td><%#Eval("PerContent")%></td>
                                <td><%#Eval("PerMoney")%></td>
                                <td><%#Eval("ConMoney")%></td>
                                <td>

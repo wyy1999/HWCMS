@@ -18,9 +18,9 @@ namespace HW.CMS.BLL
         {
             return dal.Add(model);
         }
-        public int update(string GroupName, string SaleContent, double SaleMoney, int DepId, int SaleId)
+        public int update(SaleInfoModel model)
         {
-            return dal.update(GroupName, SaleContent, SaleMoney, DepId, SaleId);
+            return dal.update(model);
         }
         public int delete(int SaleId)
         {

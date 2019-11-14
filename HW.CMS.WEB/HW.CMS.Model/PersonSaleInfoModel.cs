@@ -14,6 +14,7 @@ namespace HW.CMS.Model
         public int PerId { get; set; }
         public int InfoId { get; set; }
         public int DepId { get; set; }
+        public string PerContent { get; set; }
         public double PerMoney { get; set; }
         public double ConMoney { get; set; }
 

@@ -63,16 +63,16 @@ namespace HW.CMS.DAL
         /// 更新
         /// </summary>
         /// 
-        public int update(string GroupName,string SaleContent,double SaleMoney,int DepId,int SaleId)
+        public int update(SaleInfoModel model)
         {
-            string sql = "update SaleInfo set groupname=@groupname,salecontent=@salecontent,salemoney=@salemoney,depid=@depid,saleid=@id";
+            string sql = "update SaleInfo set GroupName=@GroupName,SaleContent=@SaleContent,SaleMoney=@SaleMoney,DepId=@DepId where SaleId=@SaleId ";
             SqlParameter[] par = new SqlParameter[]
             {
-                new SqlParameter("@groupname",GroupName),
-                new SqlParameter("@salecontent",SaleContent),
-                new SqlParameter("@salemoney",SaleMoney),
-                new SqlParameter("@depid",DepId),
-                new SqlParameter("@id",SaleId),
+                new SqlParameter("@GroupName",model.GroupName),
+                new SqlParameter("@SaleContent",model.SaleContent),
+                new SqlParameter("@SaleMoney",model.SaleMoney),
+                new SqlParameter("@DepId",model.DepId),
+                new SqlParameter("@SaleId",model.SaleId),
             };
             int result = DBHelper.ExcuteSqlNonQuery(sql,par);
             return result;
@@ -82,10 +82,10 @@ namespace HW.CMS.DAL
         /// </summary>
         public int delete(int SaleId)
         {
-            string sql = "delete from SaleInfo where SaleId=@id";
+            string sql = "delete from SaleInfo where SaleId=@SaleId";
             SqlParameter[] p = new SqlParameter[]
             {
-                new SqlParameter("@id",SaleId)
+                new SqlParameter("@SaleId",SaleId)
             };
             int result= DBHelper.ExcuteSqlNonQuery(sql,p);
             return result;

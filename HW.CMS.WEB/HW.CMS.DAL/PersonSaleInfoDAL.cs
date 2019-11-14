@@ -25,6 +25,7 @@ namespace HW.CMS.DAL
                     model.PerId = int.Parse(reader["PerId"].ToString());
                     model.InfoId = int.Parse(reader["InfoId"].ToString());
                     model.DepId= int.Parse(reader["DepId"].ToString());
+                    model.PerContent = reader["PerContent"].ToString();
                     model.PerMoney=double.Parse(reader["PerMoney"].ToString());
                     model.ConMoney= double.Parse(reader["ConMoney"].ToString());
                     model.Dep = reader["Dep"].ToString();
@@ -63,15 +64,17 @@ namespace HW.CMS.DAL
         /// <summary>
         /// 更新
         /// </summary>
-        public int update(int InfoId,int DepId,double PerMoney,double ConMoney)
+        public int update(PersonSaleInfoModel model)
         {
-            string sql = "update PersonSaleInfo set infoid=@infoid,depid=@depid,permoney=@permoney,conmoney=@conmoney";
+            string sql = "update PersonSaleInfo set InfoId=@InfoId,DepId=@DepId,PerContent=@PerContent,PerMoney=@PerMoney,ConMoney=@ConMoney where PerId=@PerId";
             SqlParameter[] par = new SqlParameter[]
             {
-                new SqlParameter("@infoid",InfoId),
-                new SqlParameter("@depid",DepId),
-                new SqlParameter("@permoney",PerMoney),
-                new SqlParameter("@conmoney",ConMoney),
+                new SqlParameter("@PerId",model.InfoId),
+                new SqlParameter("@InfoId",model.InfoId),
+                new SqlParameter("@DepId",model.DepId),
+                new SqlParameter("@PerContent",model.PerContent),
+                new SqlParameter("@PerMoney",model.PerMoney),
+                new SqlParameter("@ConMoney",model.ConMoney),
             };
             int result = DBHelper.ExcuteSqlNonQuery(sql, par);
             return result;
@@ -81,12 +84,12 @@ namespace HW.CMS.DAL
         /// </summary>
         public int delete(int PerId)
         {
-            string sql = "delete from PersonSaleInfo where PerId=@id";
+            string sql = "delete from PersonSaleInfo where PerId=@PerId";
             SqlParameter[] p = new SqlParameter[]
             {
-                new SqlParameter ("@id",PerId)
+                new SqlParameter ("@PerId",PerId)
             };
-            int result = DBHelper.ExcuteSqlNonQuery(sql, p);
+            int result = DBHelper.ExcuteSqlNonQuery(sql,p);
             return result;
         }
     }
