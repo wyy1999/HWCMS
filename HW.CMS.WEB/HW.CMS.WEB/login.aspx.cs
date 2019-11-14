@@ -30,6 +30,7 @@ namespace HW.CMS.WEB
             {
                 if (result.UserRole == 1)
                 {
+                    Session["chuan"] = result.UserNum;
                     Response.Redirect("InfoTable.aspx");
                 }
                 else if(result.UserRole==2)

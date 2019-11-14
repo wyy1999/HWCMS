@@ -136,7 +136,8 @@
                             <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle">
                         </div>
                         <div class="title">
-                            <h1 class="h4">qwe</h1>
+                            <h1 class="h4">
+                                <asp:TextBox ID="TextBox4" runat="server" BorderStyle="None"></asp:TextBox></h1>
                             <p>qwe</p>
                         </div>
                     </div>
