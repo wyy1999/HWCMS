@@ -16,7 +16,7 @@ namespace HW.CMS.Model
         public string ResIntroduce { get; set; }
         public string BeginTime { get; set; }
         public string EndTime { get; set; }
-        public double ResMoney { get; set; }
+        public decimal ResMoney { get; set; }
         public int ResState { get; set; }
 
         //string类型

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using HW.CMS.BLL;
+using HW.CMS.Model;
 
 namespace HW.CMS.WEB
 {
@@ -15,6 +16,20 @@ namespace HW.CMS.WEB
             DetailsInfoBll bll = new DetailsInfoBll();
             Repeater1.DataSource = bll.DetList();
             Repeater1.DataBind();
+
+            //获取浏览器地址里面的参数
+            //根据用户id加载用户信息
+            if (!IsPostBack) {
+
+                if (Request.QueryString["ResId"] != null)
+                {
+                    
+                    DetailsInfoModel model = bll.Res_Id(Convert.ToInt32(Request.QueryString["ResId"]));
+                  
+
+                }
+            } 
+            
         }
     }
 }

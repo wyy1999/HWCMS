@@ -19,5 +19,16 @@ namespace HW.CMS.BLL
         {
             return dal.DetList();
         }
+
+
+        /// <summary>
+        /// id查询
+        /// </summary>
+        /// <param name="ResId"></param>
+        /// <returns></returns>
+        public DetailsInfoModel Res_Id(int ResId)
+        {
+            return dal.Res_Id(ResId);
+        }
         }
 }

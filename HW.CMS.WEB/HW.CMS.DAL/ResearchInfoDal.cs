@@ -27,15 +27,19 @@ namespace HW.CMS.DAL
                     model.BeginTime = reader["BeginTime"].ToString();
                     model.ResId = int.Parse(reader["ResId"].ToString());
                     model.ResIntroduce = reader["ResIntroduce"].ToString();
-                    model.ResMoney =Convert.ToDouble(reader["ResMoney"].ToString());
+                    model.ResMoney =Convert.ToDecimal(reader["ResMoney"].ToString());
                     model.Resname = reader["Resname"].ToString();
                     model.ResState = int.Parse(reader["ResState"].ToString()) ;
                     model.EndTime = reader["EndTime"].ToString();
                     list.Add(model);
                 }
+                
             }
+            
             return list;
         }
+
+       
 
         /// <summary>
         /// 添加
@@ -100,7 +104,7 @@ namespace HW.CMS.DAL
         /// <returns></returns>
         public int update_Res(ResearchInfoModel model)
         {
-            string sql = "update usertable set Resname=@Resname,ResIntroduce=@ResIntroduce,BeginTime=@BeginTime,EndTime=@EndTime,ResMoney=@ResMoney,ResState=@ResState where ResId=@ResId";
+            string sql = "update ResearchInfo set Resname=@Resname,ResIntroduce=@ResIntroduce,BeginTime=@BeginTime,EndTime=@EndTime,ResMoney=@ResMoney,ResState=@ResState where ResId=@ResId";
             SqlParameter[] par = new SqlParameter[]
             {
                 new SqlParameter("@ResId",model.ResId),

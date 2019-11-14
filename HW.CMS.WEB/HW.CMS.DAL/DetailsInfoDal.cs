@@ -40,6 +40,40 @@ namespace HW.CMS.DAL
         }
 
         /// <summary>
+        /// id查询
+        /// </summary>
+        /// <param name="ResId"></param>
+        /// <returns></returns>
+        public DetailsInfoModel Res_Id(int ResId)
+        {
+            DetailsInfoModel model = new DetailsInfoModel();
+            //根据用户id 查询用户信息
+            string sql = "select * from DetailsInfo where ResId=@ResId";
+            ///创建命令
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+               new SqlParameter("@ResId",ResId)
+
+           };
+            //5.执行命令，返回结果
+            SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql, sqlParameters);
+            if (reader.HasRows)
+            {
+                //读取第一条数据
+                while (reader.Read())
+                {
+                    model.InfoId = int.Parse(reader["InfoId"].ToString()) ;
+                    model.ResId = int.Parse(reader["ResId"].ToString());                  
+                    model.OverMoney = decimal.Parse(reader["OverMoney"].ToString());
+                    model.AllMoney = decimal.Parse(reader["AllMoney"].ToString());
+                    model.DetPlan = reader["DetPlan"].ToString();
+                    model.DetId = int.Parse(reader["DetId"].ToString());
+                    model.UseMoney = decimal.Parse(reader["UseMoney"].ToString());
+                }
+            }
+            return model;
+        }
+        /// <summary>
         /// 添加
         /// </summary>
         /// <param name="model"></param>
