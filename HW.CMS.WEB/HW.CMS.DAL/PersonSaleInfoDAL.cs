@@ -14,7 +14,7 @@ namespace HW.CMS.DAL
         /// </summary>
          public List<PersonSaleInfoModel> pers()
         {
-            string sql = "select * from PersonSaleInfo";
+            string sql = "SELECT InfoTable.InfoName,DepartmentInfo.Dep,PersonSaleInfo.*FROM InfoTable,DepartmentInfo,PersonSaleInfo WHERE InfoTable.InfoId = PersonSaleInfo.InfoId AND DepartmentInfo.DepId = PersonSaleInfo.DepId";
             SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
             List<PersonSaleInfoModel> list = new List<PersonSaleInfoModel>();
             if(reader.HasRows)
@@ -27,6 +27,8 @@ namespace HW.CMS.DAL
                     model.DepId= int.Parse(reader["DepId"].ToString());
                     model.PerMoney=double.Parse(reader["PerMoney"].ToString());
                     model.ConMoney= double.Parse(reader["ConMoney"].ToString());
+                    model.Dep = reader["Dep"].ToString();
+                    model.InfoName= reader["InfoName"].ToString();
                     list.Add(model);
                 }
             }

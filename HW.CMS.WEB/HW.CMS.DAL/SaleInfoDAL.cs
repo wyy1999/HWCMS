@@ -14,7 +14,7 @@ namespace HW.CMS.DAL
         /// </summary>
         public List<SaleInfoModel> SalList()
         {
-            string sql = "select * from SaleInfo";
+            string sql = "select SaleInfo.*,DepartmentInfo.Dep from SaleInfo,DepartmentInfo where DepartmentInfo.DepId=SaleInfo.DepId";
             SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
             List<SaleInfoModel> list = new List<SaleInfoModel>();
             if(reader.HasRows)
@@ -22,11 +22,12 @@ namespace HW.CMS.DAL
                 while(reader.Read())
                 {
                     SaleInfoModel model = new SaleInfoModel();
+                    model.Dep = reader["Dep"].ToString();
                     model.SaleId = int.Parse(reader["SaleId"].ToString());
                     model.GroupName = reader["GroupName"].ToString();
                     model.SaleContent = reader["SaleContent"].ToString();
                     model.SaleMoney = double.Parse(reader["SaleMoney"].ToString());
-                    model.DepId = int.Parse(reader["DepId"].ToString());
+                   
                     list.Add(model);
                 }
             }

@@ -225,8 +225,8 @@
                    <ItemTemplate>
                        <tbody>
                            <tr>
-                               <td><%#Eval("InfoId")%></td>
-                               <td><%#Eval("DepId")%></td>
+                               <td><%#Eval("InfoName")%></td>
+                               <td><%#Eval("Dep")%></td>
                                <td><%#Eval("PerMoney")%></td>
                                <td><%#Eval("ConMoney")%></td>
                                <td>

@@ -219,8 +219,8 @@ create table SaleInfo(
    DepId int references DepartmentInfo(DepId),--部门 部门表外键
 )
 go
-SELECT * FROM SaleInfo
-
+--SELECT * FROM SaleInfo
+select SaleInfo.*,DepartmentInfo.Dep from SaleInfo,DepartmentInfo where DepartmentInfo.DepId=SaleInfo.DepId
 INSERT INTO SaleInfo VALUES('嘿','销售内容',2342424,1)
 INSERT INTO SaleInfo VALUES('哈','销售内容',5335333,1)
 INSERT INTO SaleInfo VALUES('嗯哼','销售内容',435355,1)
