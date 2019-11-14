@@ -17,6 +17,15 @@ namespace HW.CMS.Model
         public double SaleMoney { get; set; }
         public int DepId { get; set; }
 
+
+        private string _Dep;
+
+        public string Dep
+        {
+            get { return _Dep; }
+            set { _Dep = value; }
+        }
+
     }
     
 }

@@ -225,10 +225,11 @@
                    <ItemTemplate>
                        <tbody>
                            <tr>
+                               
                                <td><%#Eval("GroupName")%></td>
                                <td><%#Eval("SaleContent")%></td>
                                <td><%#Eval("SaleMoney")%></td>
-                               <td><%#Eval("DepId")%></td>
+                               <td><%#Eval("Dep")%></td>
                                <td>
                                    <%--<asp:LinkButton ID="LinkButton1" CommandName="insert" CommandArgument='<%#Eval("")%>' runat="server">添加</asp:LinkButton>--%>
                                    <asp:LinkButton ID="LinkButton2" CommandName="update" CommandArgument='<%#Eval("SaleId")%>' runat="server">更新</asp:LinkButton>
