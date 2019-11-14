@@ -138,9 +138,21 @@
                     <!-- Sidebar Navidation Menus-->
                     <span class="heading">菜单</span>
                     <ul class="list-unstyled">
-                        <li class="active"><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
-                        <li><a href="InfoTable.aspx"><i class="icon-grid"></i>公司人员信息 </a></li>
-                        <li><a href="ClockInfo.aspx"><i class="fa fa-bar-chart"></i>人员打卡 </a></li>
+                        <li ><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
+                        <li><a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse"><i class="icon-grid"></i>公司人员信息 </a>
+                             <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
+                                <li><a href="InfoTable.aspx">登录信息</a></li>
+                                <li><a href="UserInfo.aspx">人员详情</a></li>
+                                <li><a href="#">Page</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#exampledropdownDropdown5" aria-expanded="false" data-toggle="collapse"><i class="fa fa-bar-chart"></i>出勤情况 </a>
+                            <ul id="exampledropdownDropdown5" class="collapse list-unstyled ">
+                                <li><a href="ClockInfo.aspx">打卡信息</a></li>
+                                <li><a href="LeaveInfo.aspx">请假信息</a></li>                              
+                            </ul>
+
+                        </li>
                         <li><a href="ReportInfo.aspx"><i class="icon-padnote"></i>公司报备</a></li>
                            <li><a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>公司财务 </a>
                             <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
@@ -156,10 +168,10 @@
                                 <li><a href="#">Page</a></li>
                             </ul>
                         </li>
-                        <li><a href="#exampledropdownDropdown3" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>销售部 </a>
+                        <li class="active"><a href="#exampledropdownDropdown3" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>销售部 </a>
                              <ul id="exampledropdownDropdown3" class="collapse list-unstyled ">
                                 <li><a href="SaleInfo.aspx">销售情况</a></li>
-                                <li><a href="PersonSaleInfo.aspx">个人销售情况</a></li>
+                                <li class="active"><a href="PersonSaleInfo.aspx">个人销售情况</a></li>
                                 <li><a href="#">Page</a></li>
                             </ul>
                         </li>
@@ -190,8 +202,9 @@
           <!-- Breadcrumb-->
           <div class="breadcrumb-holder container-fluid">
             <ul class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">销售表</a></li>
-              <li class="breadcrumb-item active">销售表            </li>
+              <li class="breadcrumb-item"><a href="index.html">销售部</a></li>
+              <li class="breadcrumb-item active">个人销售情况           </li>
+                <button style="margin-left:20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">添加</button>
             </ul>
           </div>
            <div>
@@ -228,13 +241,64 @@
                        </table> 
                    </FooterTemplate>
                </asp:Repeater>
+
+                <%-- 模态框 --%>
+                        <!-- Large modal -->
+                       
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLabel">添加</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        
+                                    </div>
+                                    <div class="modal-body">
+                                        
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="control-label">产品名称:</label>                                                
+                                                <asp:TextBox ID="TxtName" runat="server" class="form-control" ></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">产品内容:</label>
+                                                <asp:TextBox ID="TxtCon" runat="server" class="form-control" ></asp:TextBox>
+                                                
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">研发金额:</label>
+                                                <asp:TextBox ID="TxtMoney" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                             <div class="form-group">
+                                                <label for="message-text" class="control-label">研发状态:</label>
+                                                <asp:TextBox ID="TxtState" runat="server" class="form-control"></asp:TextBox>
+                                                 
+                                            </div>
+                                       
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                       <asp:Button ID="Button2" runat="server" Text="确定添加"  class="btn btn-primary"  />                                                                             
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
               </div>
         </div>
             </div>
         </div>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </form>
+        <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="js/charts-home.js"></script>
+    <!-- Main File-->
     <script src="js/front.js"></script>
+          </form>
 </body>
 </html>

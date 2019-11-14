@@ -179,7 +179,7 @@ go
 select * from ResearchInfo
 insert into ResearchInfo values('火箭','飞天','2016.6.12','2018.6.20',123456,1)
 insert into ResearchInfo values('拉布拉多','如何成功','2016.5.12','2018.5.20',50000,0)
-delete from  ResearchInfo where ResId=1
+
 
 --研发详情表 DetailsInfo
 if exists(select * from sys.tables where name='DetailsInfo')
@@ -201,7 +201,7 @@ select * from InfoTable
 select InfoTable.InfoName,DetailsInfo. * from DetailsInfo,InfoTable
 where InfoTable.InfoId=DetailsInfo.InfoId
 
-insert into DetailsInfo values (2,10000000,2000000,800000,'100%',1)
+insert into DetailsInfo values (2,10000000,2000000,800000,'100%',2)
 insert into DetailsInfo values (2,50000,50000,0,'50%',2)
 select InfoTable.InfoName,ResearchInfo.Resname,ResearchInfo.ResIntroduce,DetailsInfo.*from InfoTable,ResearchInfo,DetailsInfo
 where InfoTable.InfoId=DetailsInfo.InfoId and ResearchInfo.ResId=DetailsInfo.ResId
@@ -216,7 +216,7 @@ create table SaleInfo(
    GroupName varchar(50) not null,--组名
    SaleContent varchar(50),--销售内容
    SaleMoney decimal(18,2) check(SaleMoney>=0) default(0) not null,--销售金额
-   DepId int references DepartmentInfo(DepId),--报备部门 部门表外键
+   DepId int references DepartmentInfo(DepId),--部门 部门表外键
 )
 go
 SELECT * FROM SaleInfo
@@ -232,15 +232,16 @@ GO
 create table PersonSaleInfo(
   PerId int primary key identity(1,1),--个人销售id
   InfoId int references  InfoTable(InfoId),   --员工表外键 字段  姓名  
-  DepId int references DepartmentInfo(DepId),--报备部门 部门表外键
+  DepId int references DepartmentInfo(DepId),--部门 部门表外键、
+  PerContent VARCHAR(500),--销售内容
   PerMoney decimal(18,2) check(PerMoney>=0) default(0) not null,--销售金额
   ConMoney decimal(18,2) check(ConMoney>=0) default(0) not null,--消费金额
 )
 go
 
 
-INSERT INTO PersonSaleInfo VALUES(1,1,2324131131,123131313)
-INSERT INTO PersonSaleInfo VALUES(1,1,1423424242,234242434)
+INSERT INTO PersonSaleInfo VALUES(1,1,'支付宝刷脸支付',12324131131,123131313)
+INSERT INTO PersonSaleInfo VALUES(1,1,'支付宝扫码支付',1423424242,234242434)
 SELECT InfoTable.InfoName,DepartmentInfo.Dep,PersonSaleInfo.*FROM InfoTable,DepartmentInfo,PersonSaleInfo 
 WHERE InfoTable.InfoId=PersonSaleInfo.InfoId AND DepartmentInfo.DepId=PersonSaleInfo.DepId
 --财务表（收入）IncomeInfo

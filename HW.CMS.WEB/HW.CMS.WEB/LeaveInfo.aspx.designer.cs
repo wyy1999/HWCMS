@@ -10,7 +10,7 @@
 namespace HW.CMS.WEB {
     
     
-    public partial class SaleInfo {
+    public partial class LeaveInfo {
         
         /// <summary>
         /// form1 控件。

@@ -10,7 +10,7 @@
 namespace HW.CMS.WEB {
     
     
-    public partial class SaleInfo {
+    public partial class UserInfo {
         
         /// <summary>
         /// form1 控件。

@@ -143,9 +143,21 @@
                     <!-- Sidebar Navidation Menus-->
                     <span class="heading">菜单</span>
                     <ul class="list-unstyled">
-                        <li class="active"><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
-                        <li><a href="InfoTable.aspx"><i class="icon-grid"></i>公司人员信息 </a></li>
-                        <li><a href="ClockInfo.aspx"><i class="fa fa-bar-chart"></i>人员打卡 </a></li>
+                        <li ><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
+                          <li class="active"><a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse"><i class="icon-grid"></i>公司人员信息 </a>
+                             <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
+                                <li class="active"><a href="InfoTable.aspx">登录信息</a></li>
+                                <li><a href="UserInfo.aspx">人员详情</a></li>
+                                <li><a href="#">Page</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#exampledropdownDropdown5" aria-expanded="false" data-toggle="collapse"><i class="fa fa-bar-chart"></i>出勤情况 </a>
+                            <ul id="exampledropdownDropdown5" class="collapse list-unstyled ">
+                                <li><a href="ClockInfo.aspx">打卡信息</a></li>
+                                <li><a href="LeaveInfo.aspx">请假信息</a></li>                              
+                            </ul>
+
+                        </li>
                         <li><a href="ReportInfo.aspx"><i class="icon-padnote"></i>公司报备</a></li>
                         <li><a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>公司财务 </a>
                             <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">

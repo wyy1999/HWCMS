@@ -143,9 +143,21 @@
                     <!-- Sidebar Navidation Menus-->
                     <span class="heading">菜单</span>
                     <ul class="list-unstyled">
-                        <li ><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
-                        <li><a href="InfoTable.aspx"><i class="icon-grid"></i>公司人员信息 </a></li>
-                        <li><a href="ClockInfo.aspx"><i class="fa fa-bar-chart"></i>人员打卡 </a></li>
+                       <li ><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
+                        <li><a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse"><i class="icon-grid"></i>公司人员信息 </a>
+                             <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
+                                <li><a href="InfoTable.aspx">登录信息</a></li>
+                                <li><a href="UserInfo.aspx">人员详情</a></li>
+                                <li><a href="#">Page</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#exampledropdownDropdown5" aria-expanded="false" data-toggle="collapse"><i class="fa fa-bar-chart"></i>出勤情况 </a>
+                            <ul id="exampledropdownDropdown5" class="collapse list-unstyled ">
+                                <li><a href="ClockInfo.aspx">打卡信息</a></li>
+                                <li><a href="LeaveInfo.aspx">请假信息</a></li>                              
+                            </ul>
+
+                        </li>
                         <li><a href="ReportInfo.aspx"><i class="icon-padnote"></i>公司报备</a></li>
                         <li><a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>公司财务 </a>
                             <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
@@ -154,9 +166,9 @@
                                 <li><a href="#">Page</a></li>
                             </ul>
                         </li>
-                        <li><a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>研发部 </a>
+                        <li class="active"><a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>研发部 </a>
                             <ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
-                                <li class="active"><a href="ResearchInfo.aspx">研发内容</a></li>
+                                <li class="active"><a href="ResearchInfo.aspx" >研发内容</a></li>
                                 <li><a href="DetailsInfo.aspx">研发详情</a></li>
                                 <li><a href="#">Page</a></li>
                             </ul>
@@ -280,14 +292,15 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                       <asp:Button ID="Button2" runat="server" Text="确定添加" OnClick="Button2_Click" class="btn btn-primary"  />
-                                        
-                                        
+                                       <asp:Button ID="Button2" runat="server" Text="确定添加" OnClick="Button2_Click" class="btn btn-primary"  />                                                                             
                                     </div>
                                 </div>
                             </div>
                             
                         </div>
+                   
+                        
+                    
                     </div>
                 </div> 
             </div>
