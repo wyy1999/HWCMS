@@ -43,9 +43,14 @@
   <ItemGroup>
     <Compile Include="AccoutInfoModel.cs" />
     <Compile Include="ClockInfo.cs" />
+    <Compile Include="DetailsInfoModel.cs" />
     <Compile Include="InfoTable.cs" />
+    <Compile Include="LeaveInfoModel.cs" />
+    <Compile Include="PersonSaleInfoModel.cs" />
     <Compile Include="ReportInfo.cs" />
     <Compile Include="ResearchInfoModel.cs" />
+    <Compile Include="SaleInfoModel.cs" />
+    <Compile Include="UserInfoModel.cs" />
     <Compile Include="UserLogin.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

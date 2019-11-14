@@ -43,11 +43,16 @@
   <ItemGroup>
     <Compile Include="AccoutinfoBll.cs" />
     <Compile Include="ClockInfoBll.cs" />
+    <Compile Include="DetailsInfoBll.cs" />
     <Compile Include="InfoTableBll.cs" />
+    <Compile Include="LeaveInfoBll.cs" />
+    <Compile Include="PersonSaleInfoBLL.cs" />
     <Compile Include="ReportInfoBll.cs" />
     <Compile Include="ResearchInfoBll.cs" />
+    <Compile Include="SaleInfoBLL.cs" />
     <Compile Include="UserBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInfoBll.cs" />
     <Compile Include="UserLoginBll.cs" />
   </ItemGroup>
   <ItemGroup>

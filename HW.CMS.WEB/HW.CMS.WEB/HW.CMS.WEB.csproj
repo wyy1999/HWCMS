@@ -78,6 +78,7 @@
     <Content Include="css\style.red.css" />
     <Content Include="css\style.sea.css" />
     <Content Include="css\style.violet.css" />
+    <Content Include="DetailsInfo.aspx" />
     <Content Include="fonts\dashboard.svg" />
     <Content Include="Global.asax" />
     <Content Include="icons-reference\fonts\dashboard.svg" />
@@ -388,10 +389,13 @@
     <Content Include="js\charts-custom.js" />
     <Content Include="js\charts-home.js" />
     <Content Include="js\front.js" />
+    <Content Include="LeaveInfo.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="PersonSaleInfo.aspx" />
     <Content Include="ReportInfo.aspx" />
     <Content Include="ResearchInfo.aspx" />
     <Content Include="SaleInfo.aspx" />
+    <Content Include="UserInfo.aspx" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="vendor\bootstrap\css\bootstrap-reboot.css" />
@@ -509,6 +513,13 @@
     <Compile Include="ClockInfo.aspx.designer.cs">
       <DependentUpon>ClockInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DetailsInfo.aspx.cs">
+      <DependentUpon>DetailsInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetailsInfo.aspx.designer.cs">
+      <DependentUpon>DetailsInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -526,12 +537,26 @@
     <Compile Include="InfoTable.aspx.designer.cs">
       <DependentUpon>InfoTable.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LeaveInfo.aspx.cs">
+      <DependentUpon>LeaveInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LeaveInfo.aspx.designer.cs">
+      <DependentUpon>LeaveInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PersonSaleInfo.aspx.cs">
+      <DependentUpon>PersonSaleInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PersonSaleInfo.aspx.designer.cs">
+      <DependentUpon>PersonSaleInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportInfo.aspx.cs">
@@ -554,6 +579,13 @@
     </Compile>
     <Compile Include="SaleInfo.aspx.designer.cs">
       <DependentUpon>SaleInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.aspx.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserInfo.aspx.designer.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
