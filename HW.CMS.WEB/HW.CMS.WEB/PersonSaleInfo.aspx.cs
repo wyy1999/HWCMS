@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using HW.CMS.BLL;
+using HW.CMS.Model;
 namespace HW.CMS.WEB
 {
     public partial class PersonSaleInfo : System.Web.UI.Page
@@ -14,6 +15,62 @@ namespace HW.CMS.WEB
         {
             Repeater1.DataSource = bll.pers();
             Repeater1.DataBind();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            PersonSaleInfoModel model = new PersonSaleInfoModel();
+            model.PerId = Convert.ToInt32(TextBox1.Text);
+            model.InfoId = Convert.ToInt32(update_InfoId.Text);
+            model.DepId = Convert.ToInt32(update_DepId.Text);
+            model.PerContent = update_PerContent.Text;
+            model.PerMoney = Convert.ToDecimal(update_PerMoney.Text);
+            model.ConMoney = Convert.ToDecimal(TextBox2.Text);
+            if (bll.update(model) >= 0)
+            {
+                Response.Write("<script>alert('修改成功！');location.href='PersonSaleInfo.aspx' </script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('修改失败！') </script>");
+            }
+        }
+
+        protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            int id = Convert.ToInt32(e.CommandArgument.ToString());
+            if (bll.delete(id) >= 0)
+            {
+                Response.Write("<script>alert('删除成功！');location.href='PersonSaleInfo.aspx' </script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('删除失败！') </script>");
+            }
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            PersonSaleInfoModel model = new PersonSaleInfoModel();
+            model.InfoId = Convert.ToInt32(TxtName.Text);
+            model.DepId =Convert.ToInt32(TexDep.Text);
+            model.PerContent =TexPerContent.Text;
+            model.PerMoney = Convert.ToDecimal(TexPerMoney.Text);
+            model.ConMoney = Convert.ToDecimal(TexConMoney.Text);
+            int num = 0;
+            if (bll.Add(model) >= 0)
+            {
+                Response.Write("<script>alert('添加成功！');location.href='PersonSaleInfo.aspx' </script>");
+
+            }
+            else
+            {
+
+                Response.Write("<script>alert('添加失败！') </script>");
+            }
+            Session.Add("PerId", num);
+
         }
     }
 }

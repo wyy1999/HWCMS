@@ -68,11 +68,12 @@ namespace HW.CMS.DAL
             string sql = "update SaleInfo set GroupName=@GroupName,SaleContent=@SaleContent,SaleMoney=@SaleMoney,DepId=@DepId where SaleId=@SaleId ";
             SqlParameter[] par = new SqlParameter[]
             {
+                 new SqlParameter("@SaleId",model.SaleId),
                 new SqlParameter("@GroupName",model.GroupName),
                 new SqlParameter("@SaleContent",model.SaleContent),
                 new SqlParameter("@SaleMoney",model.SaleMoney),
-                new SqlParameter("@DepId",model.DepId),
-                new SqlParameter("@SaleId",model.SaleId),
+                new SqlParameter("@DepId",model.DepId)
+               
             };
             int result = DBHelper.ExcuteSqlNonQuery(sql,par);
             return result;

@@ -15,8 +15,8 @@ namespace HW.CMS.Model
         public int InfoId { get; set; }
         public int DepId { get; set; }
         public string PerContent { get; set; }
-        public double PerMoney { get; set; }
-        public double ConMoney { get; set; }
+        public decimal PerMoney { get; set; }
+        public decimal ConMoney { get; set; }
 
         private string _Dep;
 

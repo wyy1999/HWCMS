@@ -26,8 +26,8 @@ namespace HW.CMS.DAL
                     model.InfoId = int.Parse(reader["InfoId"].ToString());
                     model.DepId= int.Parse(reader["DepId"].ToString());
                     model.PerContent = reader["PerContent"].ToString();
-                    model.PerMoney=double.Parse(reader["PerMoney"].ToString());
-                    model.ConMoney= double.Parse(reader["ConMoney"].ToString());
+                    model.PerMoney=decimal.Parse(reader["PerMoney"].ToString());
+                    model.ConMoney= decimal.Parse(reader["ConMoney"].ToString());
                     model.Dep = reader["Dep"].ToString();
                     model.InfoName= reader["InfoName"].ToString();
                     list.Add(model);
@@ -40,13 +40,14 @@ namespace HW.CMS.DAL
         /// </summary>
         public int Add(PersonSaleInfoModel model)
         {
-            string sql = "insert into PersonSaleInfo values(@InfoId,@DepId,@PerMoney,@ConMoney)";
+            string sql = "insert into PersonSaleInfo values(@InfoId,@DepId,@PerContent,@PerMoney,@ConMoney)";
             SqlParameter[] pters = new SqlParameter[]
             {
-                new SqlParameter("@infoid",model.InfoId),
-               new SqlParameter("depid",model.DepId),
-               new SqlParameter("permoney",model.PerMoney),
-               new SqlParameter("conmoney",model.ConMoney),
+                new SqlParameter("@InfoId",model.InfoId),
+               new SqlParameter("@DepId",model.DepId),
+               new SqlParameter("@PerContent",model.PerContent),
+               new SqlParameter("@PerMoney",model.PerMoney),
+               new SqlParameter("@ConMoney",model.ConMoney),
             };
             int result = DBHelper.ExcuteSqlNonQuery(sql, pters);
              int res = 0;
@@ -69,7 +70,7 @@ namespace HW.CMS.DAL
             string sql = "update PersonSaleInfo set InfoId=@InfoId,DepId=@DepId,PerContent=@PerContent,PerMoney=@PerMoney,ConMoney=@ConMoney where PerId=@PerId";
             SqlParameter[] par = new SqlParameter[]
             {
-                new SqlParameter("@PerId",model.InfoId),
+                new SqlParameter("@PerId",model.PerId),
                 new SqlParameter("@InfoId",model.InfoId),
                 new SqlParameter("@DepId",model.DepId),
                 new SqlParameter("@PerContent",model.PerContent),
