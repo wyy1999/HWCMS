@@ -1,6 +1,7 @@
 ﻿using HW.CMS.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -14,29 +15,32 @@ namespace HW.CMS.DAL
         /// 查询全部
         /// </summary>
         /// <returns></returns>
-        public List<DetailsInfoModel> DetList()
+        public List<DetailsInfoModel> DetList( int ResId=0)
         {
-            string sql = "select InfoTable.InfoName,ResearchInfo.Resname,ResearchInfo.ResIntroduce,DetailsInfo.*from InfoTable,ResearchInfo,DetailsInfo where InfoTable.InfoId = DetailsInfo.InfoId and ResearchInfo.ResId = DetailsInfo.ResId";
-            SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
+            SqlParameter[] sqlParameters = new SqlParameter[]
+               {
+                    new SqlParameter("@ResId",ResId),
+                  
+               };
+            DataTable table = DBHelper.Query("sel_DetailsInfo", sqlParameters);                 
             List<DetailsInfoModel> list = new List<DetailsInfoModel>();
-            if (reader.HasRows)
+            foreach (DataRow row in table.Rows)
             {
-                while (reader.Read())
-                {
+               
                     DetailsInfoModel model = new DetailsInfoModel();
-                    model.InfoName = reader["InfoName"].ToString();
-                    model.ResIntroduce = reader["ResIntroduce"].ToString();                
-                    model.Resname = reader["Resname"].ToString();
-                    model.OverMoney = decimal.Parse(reader["OverMoney"].ToString());
-                    model.AllMoney = decimal.Parse(reader["AllMoney"].ToString()) ;
-                    model.DetPlan = reader["DetPlan"].ToString();
-                    model.DetId = int.Parse(reader["DetId"].ToString()) ;
-                    model.UseMoney = decimal.Parse(reader["UseMoney"].ToString()) ;
-                    model.InfoId= int.Parse(reader["InfoId"].ToString());
-                    model.ResId= int.Parse(reader["ResId"].ToString());
+                    model.InfoName = row["InfoName"].ToString();
+                    model.ResIntroduce = row["ResIntroduce"].ToString();                
+                    model.Resname = row["Resname"].ToString();
+                    model.OverMoney = decimal.Parse(row["OverMoney"].ToString());
+                    model.AllMoney = decimal.Parse(row["AllMoney"].ToString()) ;
+                    model.DetPlan = row["DetPlan"].ToString();
+                    model.DetId = int.Parse(row["DetId"].ToString()) ;
+                    model.UseMoney = decimal.Parse(row["UseMoney"].ToString()) ;
+                    model.InfoId= int.Parse(row["InfoId"].ToString());
+                    model.ResId= int.Parse(row["ResId"].ToString());
 
                     list.Add(model);
-                }
+                
             }
             return list;
         }
@@ -141,16 +145,17 @@ namespace HW.CMS.DAL
             string sql = "update DetailsInfo set InfoId=@InfoId,AllMoney=@AllMoney,UseMoney=@UseMoney,OverMoney=@OverMoney,DetPlan=@DetPlan,ResId=@ResId where DetId=@DetId";
             SqlParameter[] par = new SqlParameter[]
             {
-                new SqlParameter("@DetId",model.DetId),
+
                 new SqlParameter("@InfoId",model.InfoId),
                 new SqlParameter("@AllMoney",model.AllMoney),
                 new SqlParameter("@UseMoney",model.UseMoney),
                 new SqlParameter("@OverMoney",model.OverMoney),
                 new SqlParameter("@DetPlan",model.DetPlan),
                 new SqlParameter("@ResId",model.ResId),
+                new SqlParameter("@DetId",model.DetId),
             };
-            int result = DBHelper.ExcuteSqlNonQuery(sql, par);
-            return result;
+            return  DBHelper.ExcuteSqlNonQuery(sql, par);
+             
         }
 
     }

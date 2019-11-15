@@ -96,5 +96,19 @@ namespace HW.CMS.WEB
                 Response.Write("<script>alert('修改失败！') </script>");
             }
         }
+
+        /// <summary>
+        /// 查询
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int ResState =Convert.ToInt32(RadioButtonList1.SelectedValue) ;
+            string Resname = TxtResName.Text;
+            Repeater1.DataSource = bll.ResList(Resname, ResState);
+            Repeater1.DataBind();
+            
+        }
     }
 }

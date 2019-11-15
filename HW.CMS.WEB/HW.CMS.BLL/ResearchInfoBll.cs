@@ -18,9 +18,9 @@ namespace HW.CMS.BLL
         /// 查询全部
         /// </summary>
         /// <returns></returns>
-        public List<ResearchInfoModel> ResList()
+        public List<ResearchInfoModel> ResList(string Resname = "", int ResState = 0)
         {
-            return dal.ResList();
+            return dal.ResList(Resname,ResState);
         }
 
         /// <summary>

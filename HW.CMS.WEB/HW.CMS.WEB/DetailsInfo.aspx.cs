@@ -12,22 +12,26 @@ namespace HW.CMS.WEB
     public partial class DetailsInfo : System.Web.UI.Page
     {
         DetailsInfoBll bll = new DetailsInfoBll();
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             Repeater1.DataSource = bll.DetList();
             Repeater1.DataBind();
-
             //获取浏览器地址里面的参数
             //根据用户id加载用户信息
-            if (!IsPostBack) {
+            if (!IsPostBack)
+            {
 
                 if (Request.QueryString["ResId"] != null)
-                {                    
-                    DetailsInfoModel model = bll.Res_Id(Convert.ToInt32(Request.QueryString["ResId"]));   
+                {
+
+                    Repeater1.DataSource = bll.DetList(Convert.ToInt32(Request.QueryString["ResId"]));
+                    Repeater1.DataBind();
+
                 }
-            } 
-            
+
+            }
+
         }
 
         /// <summary>
@@ -82,11 +86,12 @@ namespace HW.CMS.WEB
             model.ResId = Convert.ToInt32(update_ResId.Text);
             model.InfoId = Convert.ToInt32(update_InfoId.Text) ;
             model.AllMoney =Convert.ToDecimal(update_AllMoney.Text) ;
-            //model.DetId = Convert.ToInt32(update_DetId.Text) ;
+            model.DetId = Convert.ToInt32(update_DetId.Text);
             model.DetPlan = update_DetPlan.Text;
             model.OverMoney = Convert.ToDecimal(update_OverMoney.Text);
             model.UseMoney = Convert.ToDecimal(update_UseMoney.Text);
-            if (bll.update_Det(model) >= 0)
+
+            if (bll.update_Det(model) > 0)
             {
                 Response.Write("<script>alert('修改成功！');location.href='DetailsInfo.aspx' </script>");
             }

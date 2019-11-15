@@ -15,9 +15,9 @@ namespace HW.CMS.BLL
         /// 查询全部
         /// </summary>
         /// <returns></returns>
-        public List<DetailsInfoModel> DetList()
+        public List<DetailsInfoModel> DetList(int ResId=0)
         {
-            return dal.DetList();
+            return dal.DetList(ResId);
         }
 
 
@@ -55,7 +55,7 @@ namespace HW.CMS.BLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public int update_Det(DetailsInfoModel model)
+        public  int update_Det(DetailsInfoModel model)
         {
             return dal.update_Det(model);
         }

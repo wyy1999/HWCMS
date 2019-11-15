@@ -336,7 +336,7 @@
 
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">研发详情编号:</label>
-                                                <asp:TextBox ID="update_DetId" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
+                                                <asp:TextBox ID="update_DetId" runat="server" class="form-control" ></asp:TextBox>
                                             </div>
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">研发负责人:</label>

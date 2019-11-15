@@ -185,15 +185,16 @@ insert into ResearchInfo values('拉布拉多','如何成功','2016.5.12','2018.5.20',50
 if exists(select * from sys.procedures where name='sel_ResearchInfo')
 drop proc sel_ResearchInfo
 go
-
+--存储过程
 create proc sel_ResearchInfo(@Resname varchar(50) ='',@ResState int=0)
 as
 declare @strsql varchar(max)
 set @strsql='select * from ResearchInfo where Resname like ''%'+@Resname+'%'''
-if @ResState<>0
+if @ResState<>2
 set @strsql=@strsql+'and ResState='+CONVERT(varchar,@ResState)
 exec (@strsql)
 go
+exec sel_ResearchInfo '',2
 
 --研发详情表 DetailsInfo
 if exists(select * from sys.tables where name='DetailsInfo')
@@ -212,13 +213,28 @@ create table DetailsInfo(
 
 go
 select * from DetailsInfo 
-select InfoTable.InfoName,DetailsInfo. * from DetailsInfo,InfoTable
-where InfoTable.InfoId=DetailsInfo.InfoId
+
 
 insert into DetailsInfo values (2,10000000,2000000,800000,'100%',2)
 insert into DetailsInfo values (2,50000,50000,0,'50%',2)
 select InfoTable.InfoName,ResearchInfo.Resname,ResearchInfo.ResIntroduce,DetailsInfo.*from InfoTable,ResearchInfo,DetailsInfo
-where InfoTable.InfoId=DetailsInfo.InfoId and ResearchInfo.ResId=DetailsInfo.ResId
+where InfoTable.InfoId=DetailsInfo.InfoId and ResearchInfo.ResId=DetailsInfo.ResId and DetailsInfo.ResId=1
+go
+
+if exists(select * from sys.procedures where name='sel_DetailsInfo')
+drop proc sel_DetailsInfo
+go
+--存储过程
+create proc sel_DetailsInfo( @ResId int=0)
+as
+declare @strsql varchar(max)
+set @strsql='select InfoTable.InfoName,ResearchInfo.Resname,ResearchInfo.ResIntroduce,DetailsInfo.*from InfoTable,ResearchInfo,DetailsInfo
+where InfoTable.InfoId=DetailsInfo.InfoId and ResearchInfo.ResId=DetailsInfo.ResId'
+if @ResId<>0
+set @strsql=@strsql+' and DetailsInfo.ResId='+CONVERT(varchar,@ResId)
+exec(@strsql)
+go
+exec sel_DetailsInfo 1
 
 --销售表SaleInfo
 if exists(select * from sys.tables where name='SaleInfo')
@@ -276,11 +292,11 @@ select * from SaleInfo
 
 
 
+update DetailsInfo set InfoId=2,AllMoney=3000,UseMoney=2000,OverMoney=1000,DetPlan='90%',ResId=3 where DetId=1
 
 
 
-
-select * from UserLogin
+select * from DetailsInfo
 select * from DutyInfo
 select * from DepartmentInfo
 select * from ClockInfo

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using HW.CMS.Model;
+using System.Data;
 
 namespace HW.CMS.DAL
 {
@@ -14,25 +15,29 @@ namespace HW.CMS.DAL
         /// 查询全部
         /// </summary>
         /// <returns></returns>
-        public List<ResearchInfoModel> ResList()
+        public List<ResearchInfoModel> ResList( string Resname="",int ResState=0)
         {
-            string sql = "select * from ResearchInfo";
-            SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
-            List<ResearchInfoModel> list = new List<ResearchInfoModel>();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
+            SqlParameter[] sqlParameters = new SqlParameter[]
                 {
+                    new SqlParameter("@Resname",Resname),
+                    new SqlParameter("@ResState",ResState),
+                };
+            DataTable table = DBHelper.Query("sel_ResearchInfo",sqlParameters);
+           
+            List<ResearchInfoModel> list = new List<ResearchInfoModel>();
+            foreach (DataRow row in table.Rows)
+            {
+                
                     ResearchInfoModel model = new ResearchInfoModel();
-                    model.BeginTime = reader["BeginTime"].ToString();
-                    model.ResId = int.Parse(reader["ResId"].ToString());
-                    model.ResIntroduce = reader["ResIntroduce"].ToString();
-                    model.ResMoney =Convert.ToDecimal(reader["ResMoney"].ToString());
-                    model.Resname = reader["Resname"].ToString();
-                    model.ResState = int.Parse(reader["ResState"].ToString()) ;
-                    model.EndTime = reader["EndTime"].ToString();
+                    model.BeginTime = row["BeginTime"].ToString();
+                    model.ResId = int.Parse(row["ResId"].ToString());
+                    model.ResIntroduce = row["ResIntroduce"].ToString();
+                    model.ResMoney =Convert.ToDecimal(row["ResMoney"].ToString());
+                    model.Resname = row["Resname"].ToString();
+                    model.ResState = int.Parse(row["ResState"].ToString()) ;
+                    model.EndTime = row["EndTime"].ToString();
                     list.Add(model);
-                }
+               
                 
             }
             

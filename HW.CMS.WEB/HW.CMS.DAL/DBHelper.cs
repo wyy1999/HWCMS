@@ -87,6 +87,29 @@ namespace HW.CMS.DAL
             }
 
         }
+    
+
+      /// <summary>
+      /// 查询
+      /// </summary>
+      /// <param name="sql"></param>
+      /// <param name="sqlparam"></param>
+      /// <returns></returns>
+        public static DataTable Query(string sql, SqlParameter[] sqlparam = null)
+        {
+            DataTable table = new DataTable();
+            SqlConnection sqlconn = new SqlConnection(connStr);
+            SqlCommand sqlcomm = new SqlCommand(sql, sqlconn);
+            sqlcomm.CommandType = CommandType.StoredProcedure;
+            if (sqlparam != null)
+            {
+                sqlcomm.Parameters.AddRange(sqlparam);
+            }
+            SqlDataAdapter sda = new SqlDataAdapter(sqlcomm);
+            sda.Fill(table);
+            return table;
+
+        }
 
 
     }

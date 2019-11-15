@@ -214,6 +214,17 @@
 
                     </div>
                     <div>
+                        <div style="height:50px;text-align:center;margin-top:10px">
+
+                            产品名称：<asp:TextBox ID="TxtResName" runat="server" ></asp:TextBox>
+                        研发状态：<asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                            <asp:ListItem Value="2" Selected="True">全部</asp:ListItem>
+                            <asp:ListItem Value="0">未完成</asp:ListItem>
+                            <asp:ListItem Value="1">已完成</asp:ListItem>
+                        </asp:RadioButtonList>
+                        <asp:Button ID="Button1" runat="server" Text="查询"  class="btn btn-success" OnClick="Button1_Click"/>
+                        </div>
+                        
 
                         <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
                             <HeaderTemplate>
@@ -337,7 +348,7 @@
 
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">研发编号:</label>
-                                                <asp:TextBox ID="update_ResId" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
+                                                <asp:TextBox ID="update_ResId" runat="server" class="form-control" ></asp:TextBox>
                                             </div>
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">产品名称:</label>
