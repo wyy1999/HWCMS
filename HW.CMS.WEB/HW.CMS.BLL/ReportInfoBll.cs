@@ -2,6 +2,7 @@
 using HW.CMS.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,13 +17,22 @@ namespace HW.CMS.BLL
         /// 查询全部
         /// </summary>
         /// <returns></returns>
-        public List<ReportInfo> RepList()
+        public List<ReportInfoModel> RepList()
         {
             return dal.RepList();
         }
         public int Del_ReportInfo(int ReportId)
         {
             return dal.Del_ReportInfo(ReportId);
+        }
+        public int update_Res(ReportInfoModel model)
+        {
+            return dal.update_Res(model);
+        }
+
+        public int Add(ReportInfoModel model)
+        {
+            return dal.Add(model);
         }
     }
 }

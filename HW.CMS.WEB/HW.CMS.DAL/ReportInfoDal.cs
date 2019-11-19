@@ -14,24 +14,23 @@ namespace HW.CMS.DAL
         /// 查询全部
         /// </summary>
         /// <returns></returns>
-        public List<ReportInfo> RepList()
+        public List<ReportInfoModel> RepList()
         {
             string sql = "select ReportInfo.*,DepartmentInfo.Dep from ReportInfo,DepartmentInfo where DepartmentInfo.DepId=ReportInfo.DepId";
             SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
-            List<ReportInfo> list = new List<ReportInfo>();
+            List<ReportInfoModel> list = new List<ReportInfoModel>();
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    ReportInfo model = new ReportInfo();
+                    ReportInfoModel model = new ReportInfoModel();
                     model.Dep = reader["Dep"].ToString();
                     model.ReportId = int.Parse(reader["ReportId"].ToString());
                     model.ReportMoney = Convert.ToDecimal(reader["ReportMoney"]);
-                    model.ReportTime = DateTime.Parse(reader["ReportTime"].ToString()) ;
-                    model.ReportReason = reader["ReportReason"].ToString();
-                              
+                    model.ReportTime =reader["ReportTime"].ToString() ;
+                    model.ReportReason = reader["ReportReason"].ToString();          
                     model.ReportState = int.Parse(reader["ReportState"].ToString());
-
+                    model.DepId = int.Parse(reader["DepId"].ToString());
                     list.Add(model);
                 }
             }
@@ -45,6 +44,55 @@ namespace HW.CMS.DAL
             };
             int retult = DBHelper.ExcuteSqlNonQuery(sql,pal);
             return retult;
+        }
+
+        public int update_Res(ReportInfoModel model)
+        {
+            string sql = "update ReportInfo set ReportReason=@ReportReason,ReportTime=@ReportTime,DepId=@DepId,ReportMoney=@ReportMoney,ReportState=@ReportState where ReportId=@ReportId ";
+            SqlParameter[] par = new SqlParameter[]
+            {
+                new SqlParameter("@ReportId",model.ReportId),
+                new SqlParameter("@ReportReason",model.ReportReason),
+                new SqlParameter("@ReportTime",model.ReportTime),
+                new SqlParameter("@DepId",model.DepId),
+                new SqlParameter("@ReportMoney",model.ReportMoney),
+                new SqlParameter("@ReportState",model.ReportState),
+            };
+            int result = DBHelper.ExcuteSqlNonQuery(sql, par);
+            return result;
+        }
+
+        public int Add(ReportInfoModel model)
+        {
+            string sql = " insert into ReportInfo values(@ReportReason,@ReportTime,@DepId,@ReportMoney,@ReportState)";
+            ///创建命令
+            SqlParameter[] sqlParameters = new SqlParameter[]
+           {
+
+               new SqlParameter("@ReportReason",model.ReportReason),
+               new SqlParameter("@ReportTime",model.ReportTime),
+               new SqlParameter("@DepId",model.DepId),
+               new SqlParameter("@ReportMoney",model.ReportMoney),
+               new SqlParameter("@ReportState",model.ReportState)
+
+
+          };
+            ///执行命令  返回结果
+            int result = DBHelper.ExcuteSqlNonQuery(sql, sqlParameters);
+            int res = 0;
+            ///执行命令  返回结果
+
+            if (result != 0)
+            {
+                res = 100;
+                return res;
+            }
+            else
+            {
+                res = DBHelper.ExcuteSqlNonQuery(sql, sqlParameters);
+            }
+
+            return res;
         }
     }
 }

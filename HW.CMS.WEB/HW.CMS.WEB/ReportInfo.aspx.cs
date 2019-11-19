@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using HW.CMS.BLL;
+using HW.CMS.Model;
 
 namespace HW.CMS.WEB
 {
@@ -17,7 +18,11 @@ namespace HW.CMS.WEB
             Repeater1.DataBind();
 
         }
-
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             ReportInfoBll bll = new ReportInfoBll();
@@ -46,6 +51,65 @@ namespace HW.CMS.WEB
                 }
 
 
+            }
+        }
+        /// <summary>
+        /// 
+        /// 修改
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //protected void Button3_Click(object sender, EventArgs e)
+        //{
+        
+        //}
+
+        /// <summary>
+        /// 添加
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            ReportInfoModel model = new ReportInfoModel();
+            model.ReportTime = Convert.ToString(DateTime.Now);
+            model.ReportReason = Txt1.Text;
+            model.DepId = Convert.ToInt32(Txt3.Text);
+            model.ReportMoney = Convert.ToDecimal(Txt4.Text);
+            model.ReportState = Convert.ToInt32(DropDownList1.SelectedValue);
+            if (bll.Add(model) >= 0)
+            {
+                Response.Write("<script>alert('添加成功！');location.href='ReportInfo.aspx' </script>");
+
+            }
+            else
+            {
+
+                Response.Write("<script>alert('添加失败！') </script>");
+            }
+        }
+
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            ReportInfoModel model = new ReportInfoModel();
+            model.ReportId = Convert.ToInt32(update_ReportId.Text);
+            model.ReportReason = update_ReportReason.Text;
+            model.ReportTime = update_ReportTime.Text;
+            model.DepId = Convert.ToInt32(update_DepId.Text);
+            model.ReportMoney = Convert.ToDecimal(update_ReportMoney.Text);
+            model.ReportState = Convert.ToInt32(update_state.SelectedValue);
+            if (bll.update_Res(model) >= 0)
+            {
+                Response.Write("<script>alert('修改成功！');location.href='ReportInfo.aspx' </script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('修改失败！') </script>");
             }
         }
     }
