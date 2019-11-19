@@ -73,6 +73,10 @@ insert into DepartmentInfo values('研发部')
 insert into DepartmentInfo values('销售部')
 
 
+
+
+
+
 /*公司人员详细信息表 InfoTable*/
 if exists(select * from sys.tables where name='InfoTable')
 drop table InfoTable
@@ -276,6 +280,20 @@ select SaleInfo.*,DepartmentInfo.Dep from SaleInfo,DepartmentInfo where Departme
 INSERT INTO SaleInfo VALUES('嘿','销售内容',2342424,1)
 INSERT INTO SaleInfo VALUES('哈','销售内容',5335333,1)
 INSERT INTO SaleInfo VALUES('嗯哼','销售内容',435355,1)
+
+if exists(select * from sys.procedures where name='sel_SaleInfo')
+drop proc sel_SaleInfo
+go
+create proc sel_SaleInfo(@GroupName varchar(50)='',@DepId int=0)
+as
+declare @strsql varchar(max)
+set @strsql='select * from SaleInfo,DepartmentInfo where DepartmentInfo.DepId=SaleInfo.DepId and GroupName like ''%'+@GroupName+'%'''
+if @DepId<>0
+set @strsql=@strsql+'and DepId='+CONVERT(varchar,@DepId)
+exec (@strsql)
+go
+exec sel_SaleInfo 
+
 
 --个人销售表PersonSaleInfo
 if exists(select * from sys.tables where name='PersonSaleInfo')

@@ -13,8 +13,9 @@ namespace HW.CMS.WEB
         SaleInfoBLL bll = new SaleInfoBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             Repeater1.DataSource = bll.SalList();
-            Repeater1.DataBind();
+                Repeater1.DataBind();
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -72,6 +73,17 @@ namespace HW.CMS.WEB
             }
         }
 
-       
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+           
+            string GroupName = TextBox1.Text;
+            Repeater1.DataSource = bll.SalList(GroupName);
+            Repeater1.DataBind();
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
