@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace HW.CMS.DAL
 {
@@ -14,25 +15,30 @@ namespace HW.CMS.DAL
         /// 查询全部
         /// </summary>
         /// <returns></returns>
-        public List<ReportInfoModel> RepList()
+        public List<ReportInfoModel> RepList(string ReportReason="",int ReportState=0)
         {
-            string sql = "select ReportInfo.*,DepartmentInfo.Dep from ReportInfo,DepartmentInfo where DepartmentInfo.DepId=ReportInfo.DepId";
-            SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
-            List<ReportInfoModel> list = new List<ReportInfoModel>();
-            if (reader.HasRows)
+            //string sql = "select ReportInfo.*,DepartmentInfo.Dep from ReportInfo,DepartmentInfo where DepartmentInfo.DepId=ReportInfo.DepId";
+            //SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
+            SqlParameter[] sqlParameters = new SqlParameter[]
             {
-                while (reader.Read())
-                {
+               new SqlParameter("@ReportReason",ReportReason),
+               new SqlParameter("@ReportState",ReportState)
+            };
+            DataTable table = DBHelper.Query("Sel_ReportInfo", sqlParameters);
+            List<ReportInfoModel> list = new List<ReportInfoModel>();
+           foreach(DataRow row in table.Rows)
+            {
+               
                     ReportInfoModel model = new ReportInfoModel();
-                    model.Dep = reader["Dep"].ToString();
-                    model.ReportId = int.Parse(reader["ReportId"].ToString());
-                    model.ReportMoney = Convert.ToDecimal(reader["ReportMoney"]);
-                    model.ReportTime =reader["ReportTime"].ToString() ;
-                    model.ReportReason = reader["ReportReason"].ToString();          
-                    model.ReportState = int.Parse(reader["ReportState"].ToString());
-                    model.DepId = int.Parse(reader["DepId"].ToString());
+                model.Dep = row["Dep"].ToString();
+                model.ReportId = int.Parse(row["ReportId"].ToString());
+                    model.ReportMoney = Convert.ToDecimal(row["ReportMoney"]);
+                    model.ReportTime = row["ReportTime"].ToString() ;
+                    model.ReportReason = row["ReportReason"].ToString();          
+                    model.ReportState = int.Parse(row["ReportState"].ToString());
+                    model.DepId = int.Parse(row["DepId"].ToString());
                     list.Add(model);
-                }
+               
             }
             return list;
         }
@@ -94,5 +100,6 @@ namespace HW.CMS.DAL
 
             return res;
         }
+
     }
 }

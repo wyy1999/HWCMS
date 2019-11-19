@@ -208,7 +208,16 @@
             </ul>
           </div>
            <div>
-                    
+                    <div style="height:50px;text-align:center;margin-top:10px">
+
+                            报备原因：<asp:TextBox ID="TxtResName" runat="server" ></asp:TextBox>
+                        审核状态：<asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                            <asp:ListItem Value="2" Selected="True">全部</asp:ListItem>
+                            <asp:ListItem Value="0">未完成</asp:ListItem>
+                            <asp:ListItem Value="1">已完成</asp:ListItem>
+                        </asp:RadioButtonList>
+                        <asp:Button ID="Button1" runat="server" Text="查询"  class="btn btn-success" OnClick="Button1_Click"/>
+                        </div>  
                <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" >
                    <HeaderTemplate>
                        <table  class="table table-hover">

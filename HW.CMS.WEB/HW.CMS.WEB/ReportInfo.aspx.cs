@@ -112,5 +112,14 @@ namespace HW.CMS.WEB
                 Response.Write("<script>alert('修改失败！') </script>");
             }
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int ReportState = Convert.ToInt32(RadioButtonList1.SelectedValue);
+            string ReportReason = TxtResName.Text;
+            Repeater1.DataSource = bll.RepList(ReportReason, ReportState);
+            Repeater1.DataBind();
+
+        }
     }
 }

@@ -17,9 +17,9 @@ namespace HW.CMS.BLL
         /// 查询全部
         /// </summary>
         /// <returns></returns>
-        public List<ReportInfoModel> RepList()
+        public List<ReportInfoModel> RepList(string ReportReason = "", int ReportState = 0)
         {
-            return dal.RepList();
+            return dal.RepList(ReportReason,ReportState);
         }
         public int Del_ReportInfo(int ReportId)
         {
