@@ -68,7 +68,7 @@ namespace HW.CMS.WEB
             UserLogin user = new UserLogin();
             user.UserNum = Convert.ToInt32(TextBox1.Text);
             user.Userpwd = TextBox2.Text;
-            user.UserRole = Convert.ToInt32(TextBox3.Text);
+            user.DutyId = Convert.ToInt32(TextBox3.Text);
 
             if (UserLoginBll.insert(user) > 0)
             {
@@ -84,7 +84,7 @@ namespace HW.CMS.WEB
             user.Userid = Convert.ToInt32(update_Userid.Text);
             user.UserNum = Convert.ToInt32(update_UserNum.Text);
             user.Userpwd = update_Userpwd.Text;
-            user.UserRole = Convert.ToInt32(update_UserRole.Text);
+            user.DutyId = Convert.ToInt32(update_UserRole.Text);
 
             if (bll.update(user) > 0)
             {

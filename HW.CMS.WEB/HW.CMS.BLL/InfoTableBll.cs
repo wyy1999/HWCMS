@@ -15,9 +15,9 @@ namespace HW.CMS.BLL
         /// 查询
         /// </summary>
         /// <returns></returns>
-        public static List<InfoTable> selectAll(string InfoName = "", int DepId = 0, int DutyId = 0)
+        public static List<InfoTable> selectAll(string InfoName = "", int DepId = 0, int DutyId = 0, string InfoSex = "")
         {
-            return InfoTableDal.selectAll(InfoName,DepId,DutyId);
+            return InfoTableDal.selectAll(InfoName,DepId,DutyId,InfoSex);
         }
         }
 }

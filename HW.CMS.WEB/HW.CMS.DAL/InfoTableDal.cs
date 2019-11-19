@@ -15,13 +15,14 @@ namespace HW.CMS.DAL
         /// 查询
         /// </summary>
         /// <returns></returns>
-        public static List<InfoTable> selectAll(string InfoName="",int DepId=0,int DutyId=0)
+        public static List<InfoTable> selectAll(string InfoName="",int DepId=0,int DutyId=0,string InfoSex="")
         {
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                     new SqlParameter("@InfoName",InfoName),
                     new SqlParameter("@DepId",DepId),
                     new SqlParameter("@DutyId",DutyId),
+                    new SqlParameter("@InfoSex",InfoSex)
 
             };
             DataTable table = DBHelper.Query("sel_InfoTable", sqlParameters);
@@ -57,5 +58,9 @@ namespace HW.CMS.DAL
             }
             return list;
         }
+
+     
+
+
     }
 }

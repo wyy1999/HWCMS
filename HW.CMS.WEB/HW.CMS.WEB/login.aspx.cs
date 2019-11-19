@@ -25,15 +25,15 @@ namespace HW.CMS.WEB
             //如果没有找到用户，我提示一下
             UserBll bll = new UserBll();
             UserLogin result = bll.LoginIn(username, password);
-            Response.Write("<script>alert('"+result.UserRole+"')</script>");
-            if (result.UserRole!=0)
+            Response.Write("<script>alert('"+result.DutyId+"')</script>");
+            if (result.DutyId!=0)
             {
-                if (result.UserRole == 1)
+                if (result.DutyId == 1)
                 {
                     Session["chuan"] = result.UserNum;
                     Response.Redirect("InfoTable.aspx");
                 }
-                else if(result.UserRole==2)
+                else if(result.DutyId==2)
                 {
                     Response.Redirect("AccoutInfo.aspx");
                 }

@@ -41,15 +41,24 @@ namespace HW.CMS.Model
 
         /// <summary>
         /// 角色
-        /// </summary>
-        private int _UserRole;
+        /// </summary>      
+        private int _DutyId;
 
-        public int UserRole
+        public int DutyId
         {
-            get { return _UserRole; }
-            set { _UserRole = value; }
+            get { return _DutyId; }
+            set { _DutyId = value; }
         }
 
+        private string _DutyName;
+
+        public string DutyName
+        {
+            get { return _DutyName; }
+            set { _DutyName = value; }
+        }
+
+      
 
     }
 }

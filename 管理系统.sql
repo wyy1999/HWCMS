@@ -105,22 +105,25 @@ insert  into InfoTable values('张三',18,'男','1997.11.1','123456431','1234512345
 insert  into InfoTable values('里斯',20,'女','1997.10.1','12345643152','12345123456','河南省郑州市','10231234121@qq.com',getdate(),'','3',2,3,3,'7000',0)
 go
 
+
 --存储过程
 if exists(select * from sys.tables where name='sel_InfoTable')
 drop proc sel_InfoTable
 GO
-create proc sel_InfoTable(@InfoName varchar(10)='', @DepId  int=0,@DutyId int=0)
+create proc sel_InfoTable(@InfoName varchar(10)='', @DepId  int=0,@DutyId int=0,@InfoSex char(2)='')
 as
 declare @strsql varchar(max)
-set @strsql='select DepartmentInfo.Dep,DutyInfo.DutyName,userlogin.UserNum, InfoTable .*from DepartmentInfo,DutyInfo,InfoTable,userlogin
-where DepartmentInfo.DepId=InfoTable.DepId and DutyInfo.DutyId=InfoTable.DutyId and userlogin.Userid=InfoTable.Userid and InfoName like ''%'+@InfoName+'%'''
+set @strsql='select DepartmentInfo.Dep,DutyInfo.DutyName,userlogin.UserNum, InfoTable .*from DepartmentInfo,DutyInfo,InfoTable,userlogin where DepartmentInfo.DepId=InfoTable.DepId and DutyInfo.DutyId=InfoTable.DutyId and userlogin.Userid=InfoTable.Userid and InfoName like ''%'+@InfoName+'%'''
 if @DepId<>0
 set @strsql=@strsql+' and InfoTable.DepId='+CONVERT(varchar,@DepId)
 if @DutyId<>0
 set @strsql=@strsql+' and InfoTable.DutyId='+CONVERT(varchar,@DutyId)
+if @InfoSex<>''
+set @strsql=@strsql+' and InfoSex='''+CONVERT(varchar,@InfoSex)+''''
+print @strsql
 exec(@strsql)
 go
-exec sel_InfoTable '三',1,2
+exec sel_InfoTable '三',0,0,''
 
 
 /*人员打卡表 ClockInfo*/
@@ -172,6 +175,21 @@ go
 insert into ReportInfo values ('损坏','2012.1.12',2,3452,1)
 insert into ReportInfo values ('坏','2012.2.12',3,5000,0)
 select ReportInfo.*,DepartmentInfo.Dep from ReportInfo,DepartmentInfo where DepartmentInfo.DepId=ReportInfo.DepId
+
+--报备表存储过程
+if exists(select * from sys.procedures where name='Sel_ReportInfo')
+drop proc Sel_ReportInfo
+go
+create proc Sel_ReportInfo(@ReportReason varchar(50)='',@ReportState int=0)
+as
+declare @sql varchar(max)
+set @sql='select ReportInfo.*,DepartmentInfo.Dep from ReportInfo,DepartmentInfo where DepartmentInfo.DepId=ReportInfo.DepId and ReportReason like ''%'+@ReportReason+'%'''
+if @ReportState<>2 
+set @sql=@sql+' and ReportState='+CONVERT(varchar,@ReportState)
+exec(@sql)
+go
+exec Sel_ReportInfo'',2
+
 
 --财务表（支出）AccoutInfo
 if exists(select * from sys.tables where name='AccoutInfo')

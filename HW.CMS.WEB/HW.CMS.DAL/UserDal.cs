@@ -21,7 +21,7 @@ namespace HW.CMS.DAL
 
 
             //与数据库操作的步骤
-            string sql = "select * from UserLogin where UserNum=@UserNum and Userpwd=@Userpwd ";
+            string sql = "select DutyInfo.DutyName,userlogin.* from userlogin,DutyInfo where userlogin.DutyId=DutyInfo.DutyId and UserNum =@UserNum and Userpwd=@Userpwd ";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("@UserNum", userName);
             sqlParameters[1] = new SqlParameter("@Userpwd", passWord);
@@ -37,7 +37,8 @@ namespace HW.CMS.DAL
                     Userid = Convert.ToInt32(result["Userid"]),
                     UserNum = Convert.ToInt32(result["UserNum"]),
                     Userpwd = Convert.ToString(result["Userpwd"]),
-                    UserRole = Convert.ToInt32(result["UserRole"]),
+                    DutyId=Convert.ToInt32(result["DutyId"]),
+                     DutyName=Convert.ToString(result["DutyName"])
                 };
             };
             }
@@ -54,12 +55,12 @@ namespace HW.CMS.DAL
 
         public int update(UserLogin user)
         {
-            string sql = "update UserLogin set UserNum=@UserNum,Userpwd=@Userpwd,UserRole=@UserRole where  Userid=@Userid";
+            string sql = "update UserLogin set UserNum=@UserNum,Userpwd=@Userpwd,DutyId=@DutyId where  Userid=@Userid";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@UserNum",user.UserNum),
                 new SqlParameter("@Userpwd",user.Userpwd),
-                new SqlParameter("@UserRole",user.UserRole),
+                new SqlParameter("@DutyId",user.DutyId),
                 new SqlParameter("@Userid",user.Userid),
             };
             return DBHelper.ExcuteSqlNonQuery(sql, sqlParameters);

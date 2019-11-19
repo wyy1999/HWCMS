@@ -214,11 +214,37 @@
                          
                     </div>
                     <div>
+                        <div style="height:50px;text-align:center;margin-top:10px">
+                            姓名：<asp:TextBox ID="TxtInfoName" runat="server"></asp:TextBox>
+                            部门：<asp:DropDownList ID="DropDep" runat="server">
+                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                <asp:ListItem Value="1">人事部</asp:ListItem>
+                                <asp:ListItem Value="2">财务部</asp:ListItem>
+                                <asp:ListItem Value="3">研发部</asp:ListItem>
+                                <asp:ListItem Value="4">销售部</asp:ListItem>
+                            </asp:DropDownList>
+                            职务：<asp:DropDownList ID="DropDutyName" runat="server">
+                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                <asp:ListItem Value="1">总经理</asp:ListItem>
+                                <asp:ListItem Value="2">人事经理</asp:ListItem>
+                                <asp:ListItem Value="3">财务经理</asp:ListItem>
+                                <asp:ListItem Value="4">销售主管</asp:ListItem>
+                                <asp:ListItem Value="5">研发主管</asp:ListItem>
+                                <asp:ListItem Value="6">普通员工</asp:ListItem>
+                                <asp:ListItem Value="7">实习生</asp:ListItem>
+                            </asp:DropDownList>
+                            性别：<asp:RadioButtonList ID="Sex" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                                <asp:ListItem Selected="True">全部</asp:ListItem>
+                                <asp:ListItem>男</asp:ListItem>
+                                <asp:ListItem>女</asp:ListItem>
+                            </asp:RadioButtonList>
+                            <asp:Button ID="Button1" runat="server" Text="查询" CssClass="btn-success disabled" OnClick="Button1_Click" />
+                        </div>
 
                         <asp:Repeater ID="Repeater1" runat="server">
                             <HeaderTemplate>
                                 
-                                <table class="table table-hove">
+                                <table class="table table-hover">
                                    
                                     <thead>
                                         <tr>

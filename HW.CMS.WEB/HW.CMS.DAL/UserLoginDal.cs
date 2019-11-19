@@ -18,7 +18,7 @@ namespace HW.CMS.DAL
         public static List<UserLogin> selectAll()
         {
             List<UserLogin> list = new List<UserLogin>();
-            string sql = "select * from UserLogin";
+            string sql = "select DutyInfo.DutyName,userlogin.* from userlogin,DutyInfo where userlogin.DutyId=DutyInfo.DutyId ";
             SqlDataReader sqlda = DBHelper.ExcuteSqlDataReader(sql);
             if (sqlda.HasRows)
             {
@@ -29,7 +29,8 @@ namespace HW.CMS.DAL
                         Userid = Convert.ToInt32(sqlda["Userid"]),
                         UserNum = Convert.ToInt32(sqlda["UserNum"]),
                         Userpwd = Convert.ToString(sqlda["Userpwd"]),
-                        UserRole = Convert.ToInt32(sqlda["UserRole"]),
+                        DutyId=Convert.ToInt32(sqlda["DutyId"]),
+                         DutyName = Convert.ToString(sqlda["DutyName"]),
                     };
                     list.Add(accout);
                 };
@@ -39,12 +40,12 @@ namespace HW.CMS.DAL
 
         public static int insert(UserLogin param)
         {
-           string sql = "insert into UserLogin values(@UserNum,@Userpwd,@UserRole)";
+           string sql = "insert into UserLogin values(@UserNum,@Userpwd,@DutyId)";
             SqlParameter[] sqlpar = new SqlParameter[]
             {
                new SqlParameter("@UserNum",param.UserNum),
                new SqlParameter("@Userpwd",param.Userpwd),
-               new SqlParameter("@UserRole",param.UserRole),
+               new SqlParameter("@DutyId",param.DutyId),
             };
             return DBHelper.ExcuteSqlNonQuery(sql, sqlpar);
         }

@@ -26,7 +26,7 @@
                 <nav class="navbar">
                     <!-- 搜索框-->
                     <div class="search-box">
-                        <button class="dismiss"><i class="icon-close">123</i></button>
+                        <button class="dismiss"><i class="icon-close">公司人员信息</i></button>
                         <form id="searchForm" action="#" role="search">
                             <input type="search" placeholder="What are you looking for..." class="form-control">
                         </form>
@@ -37,7 +37,7 @@
                             <div class="navbar-header">
                                 <!-- Navbar Brand -->
                                 <a href="index.html" class="navbar-brand d-none d-sm-inline-block">
-                                    <div class="brand-text d-none d-lg-inline-block"><span>Bootstrap </span><strong>123   </strong></div>
+                                    <div class="brand-text d-none d-lg-inline-block"><span>公司管理 </span><strong>系统   </strong></div>
                                     <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div>
                                 </a>
                                 <!-- 切换按钮-->
@@ -149,7 +149,7 @@
                              <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
                                 <li class="active"><a href="InfoTable.aspx">登录信息</a></li>
                                 <li><a href="UserInfo.aspx">人员详情</a></li>
-                                <li><a href="#">Page</a></li>
+                               
                             </ul>
                         </li>
                         <li><a href="#exampledropdownDropdown5" aria-expanded="false" data-toggle="collapse"><i class="fa fa-bar-chart"></i>出勤情况 </a>
@@ -164,24 +164,24 @@
                             <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
                                 <li><a href="AccoutInfo.aspx">支出</a></li>
                                 <li><a href="#">收入</a></li>
-                                <li><a href="#">Page</a></li>
+                               
                             </ul>
                         </li>
                         <li><a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>研发部 </a>
                             <ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
                                 <li><a href="ResearchInfo.aspx">研发内容</a></li>
                                 <li><a href="DetailsInfo.aspx">研发详情</a></li>
-                                <li><a href="#">Page</a></li>
+                               
                             </ul>
                         </li>
                         <li><a href="#exampledropdownDropdown3" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>销售部 </a>
                             <ul id="exampledropdownDropdown3" class="collapse list-unstyled ">
                                 <li><a href="SaleInfo.aspx">销售情况</a></li>
                                 <li><a href="PersonSaleInfo.aspx">个人销售情况</a></li>
-                                <li><a href="#">Page</a></li>
+                              
                             </ul>
                         </li>
-                        <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-interface-windows"></i>Example dropdown </a>
+                     <%--   <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-interface-windows"></i>Example dropdown </a>
                             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                                 <li><a href="#">Page</a></li>
                                 <li><a href="#">Page</a></li>
@@ -189,13 +189,11 @@
                             </ul>
                         </li>
                         <li><a href="login.html"><i class="icon-interface-windows"></i>Login page </a></li>
-                    </ul>
-                    <span class="heading">Extras</span>
+                    </ul>--%>
+                    <span class="heading">制度</span>
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="icon-flask"></i>Demo </a></li>
-                        <li><a href="#"><i class="icon-screen"></i>Demo </a></li>
-                        <li><a href="#"><i class="icon-mail"></i>Demo </a></li>
-                        <li><a href="#"><i class="icon-picture"></i>Demo </a></li>
+                        <li><a href="#"><i class="icon-flask"></i>打卡 </a></li>
+                        <li><a href="#"><i class="icon-screen"></i>请假 </a></li>                       
                     </ul>
                 </nav>
                 <div class="content-inner">
@@ -217,7 +215,7 @@
                     <div>
                         <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
                             <HeaderTemplate>
-                                <table class="table table-hover" style="text-align: center">
+                                <table class="table table-hover" style="text-align: center;background-color:aliceblue;">
                                     <tr>
                                         <th>员工编号</th>
                                         <th>登陆密码</th>
@@ -229,10 +227,10 @@
                                 <tr class="danger">
                                     <td><%#Eval("UserNum") %></td>
                                     <td><%#Eval("Userpwd") %></td>
-                                    <td><%#Eval("UserRole") %></td>
+                                    <td><%#Eval("DutyName") %></td>
                                     <td style="width: 200px">
                                         <asp:LinkButton ID="LinkButton1" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("Userid") %>' runat="server">删除</asp:LinkButton>
-                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("Userid") %>','<%#Eval("UserNum") %>','<%#Eval("Userpwd") %>','<%#Eval("UserRole") %>')">修改</a>
+                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("Userid") %>','<%#Eval("UserNum") %>','<%#Eval("Userpwd") %>','<%#Eval("DutyId") %>')">修改</a>
                                     </td>
                                 </tr>
                             </ItemTemplate>
