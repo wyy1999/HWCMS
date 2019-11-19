@@ -21,5 +21,9 @@ namespace HW.CMS.BLL
             return dal.CloList();
         }
 
+        public int inserts(int st) {
+            return dal.inserts(st);
+        }
+
         }
 }

@@ -8,7 +8,7 @@ using HW.CMS.Model;
 
 namespace HW.CMS.DAL
 {
-  public  class ClockInfoDal
+    public class ClockInfoDal
     {
 
         /// <summary>
@@ -30,11 +30,21 @@ namespace HW.CMS.DAL
                     model.InfoName = reader["InfoName"].ToString();
                     //model.InfoId = int.Parse(reader["InfoId"].ToString());                   
                     model.ClockState = int.Parse(reader["ClockState"].ToString());
-                    
+
                     list.Add(model);
                 }
             }
             return list;
+        }
+
+        public int inserts(int st)
+        {
+            string sql = "insert  into ClockInfo values(@InfoId,"+DateTime.Now+",0)";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+          {
+                new SqlParameter("@InfoId",st),
+          };
+            return DBHelper.ExcuteSqlNonQuery(sql, sqlParameters);
         }
     }
 }
