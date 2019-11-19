@@ -11,27 +11,6 @@ use  CompanyManagement
 go
 
 
-/*员工登录表*/
-if exists(select * from sys.tables where name='UserLogin')
-drop table UserLogin
-GO
-create table UserLogin(
-   Userid int primary key identity(1,1),--主键id
-   UserNum int not null ,--员工编号
-   Userpwd varchar(20)not null,--登录密码
-   UserRole int check(UserRole=1 or UserRole=2 or UserRole=3 or UserRole=4 or UserRole=5 or UserRole=6  ) , 
-   --登录角色  1 总经理 2人事经理 3财务经理 4销售主管 5研发主管 6员工
-)
-go
-
---登陆表
-insert into UserLogin values(1001,'123456',1)
-insert into UserLogin values(1002,'123456',2)
-insert into UserLogin values(1003,'123456',3)
-insert into UserLogin values(1004,'123456',4)
-insert into UserLogin values(1005,'123456',5)
-insert into UserLogin values(1006,'123456',6)
-
 --公司职务表DutyInfo
 if exists(select * from sys.tables where name='DutyInfo')
 drop table DutyInfo
@@ -50,6 +29,30 @@ insert into DutyInfo values('销售主管')
 insert into DutyInfo values('研发主管')
 insert into DutyInfo values('普通员工')
 insert into DutyInfo values('实习生')
+
+
+/*员工登录表*/
+if exists(select * from sys.tables where name='UserLogin')
+drop table UserLogin
+GO
+create table UserLogin(
+   Userid int primary key identity(1,1),--主键id
+   UserNum int not null ,--员工编号
+   Userpwd varchar(20)not null,--登录密码
+    DutyId int references DutyInfo(DutyId) , --职务表
+   --登录角色  1 总经理 2人事经理 3财务经理 4销售主管 5研发主管 6员工
+)
+go
+select * from userlogin
+--登陆表
+insert into UserLogin values(1001,'123456',1)
+insert into UserLogin values(1002,'123456',2)
+insert into UserLogin values(1003,'123456',3)
+insert into UserLogin values(1004,'123456',4)
+insert into UserLogin values(1005,'123456',5)
+insert into UserLogin values(1006,'123456',6)
+
+
 
 
 --公司部门表 DepartmentInfo
@@ -96,6 +99,25 @@ create table InfoTable(
 
 insert  into InfoTable values('张三',18,'男','1997.11.1','123456431','12345123454','河南省','11231234121@qq.com','','','2',1,2,2,'7000',0)
 insert  into InfoTable values('里斯',20,'女','1997.10.1','12345643152','12345123456','河南省郑州市','10231234121@qq.com',getdate(),'','3',2,3,3,'7000',0)
+go
+
+--存储过程
+if exists(select * from sys.tables where name='sel_InfoTable')
+drop proc sel_InfoTable
+GO
+create proc sel_InfoTable(@InfoName varchar(10)='', @DepId  int=0,@DutyId int=0)
+as
+declare @strsql varchar(max)
+set @strsql='select DepartmentInfo.Dep,DutyInfo.DutyName,userlogin.UserNum, InfoTable .*from DepartmentInfo,DutyInfo,InfoTable,userlogin
+where DepartmentInfo.DepId=InfoTable.DepId and DutyInfo.DutyId=InfoTable.DutyId and userlogin.Userid=InfoTable.Userid and InfoName like ''%'+@InfoName+'%'''
+if @DepId<>0
+set @strsql=@strsql+' and InfoTable.DepId='+CONVERT(varchar,@DepId)
+if @DutyId<>0
+set @strsql=@strsql+' and InfoTable.DutyId='+CONVERT(varchar,@DutyId)
+exec(@strsql)
+go
+exec sel_InfoTable '三',1,2
+
 
 /*人员打卡表 ClockInfo*/
 if exists(select * from sys.tables where name='ClockInfo')
@@ -292,7 +314,6 @@ select * from SaleInfo
 
 
 
-update DetailsInfo set InfoId=2,AllMoney=3000,UseMoney=2000,OverMoney=1000,DetPlan='90%',ResId=3 where DetId=1
 
 
 

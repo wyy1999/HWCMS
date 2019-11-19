@@ -10,9 +10,14 @@ namespace HW.CMS.BLL
 {
     public class InfoTableBll
     {
-        public static List<InfoTable> selectAll()
+
+        /// <summary>
+        /// 查询
+        /// </summary>
+        /// <returns></returns>
+        public static List<InfoTable> selectAll(string InfoName = "", int DepId = 0, int DutyId = 0)
         {
-            return InfoTableBll.selectAll();
+            return InfoTableDal.selectAll(InfoName,DepId,DutyId);
         }
-    }
+        }
 }

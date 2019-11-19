@@ -222,13 +222,22 @@
                                    
                                     <thead>
                                         <tr>
-                                            <th>id</th>
-                                            <th>产品名称</th>
-                                            <th>产品内容</th>
-                                            <th>开始时间</th>
-                                            <th>结束时间</th>
-                                            <th>研发金额</th>
-                                            <th>研发状态</th>
+                                            <th>姓名</th>
+                                            <th>年龄</th>
+                                            <th>性别</th>
+                                            <th>出生年月</th>
+                                            <th>身份证号</th>
+                                            <th>电话</th>
+                                            <th>地址</th>
+                                            <th>邮箱</th>
+                                            <th>入职时间</th>
+                                            <th>离职时间</th>
+                                            <th>工龄</th>
+                                            <th>所属部门</th>
+                                            <th>职位</th>
+                                            <th>登录名</th>
+                                            <th>工资</th>
+                                            <th>在职状态</th>
                                             <th>编辑</th>
                                         </tr>
                                     </thead>
@@ -236,13 +245,22 @@
                             <ItemTemplate>
                                 <tbody>
                                     <tr class="warning">
-                                        <td><%#Eval("ResId") %></td>
-                                        <td><%#Eval("Resname") %></td>
-                                        <td><%#Eval("ResIntroduce") %></td>
-                                        <td><%#Eval("BeginTime") %></td>
-                                        <td><%#Eval("EndTime") %></td>
-                                        <td><%#Eval("ResMoney") %></td>
-                                        <td><%#Eval("ResStateString") %></td>
+                                        <td><%#Eval("InfoName") %></td>
+                                        <td><%#Eval("InfoAge") %></td>
+                                        <td><%#Eval("InfoSex") %></td>
+                                        <td><%#Eval("InfoDate") %></td>
+                                        <td><%#Eval("InfoIdcard") %></td>
+                                        <td><%#Eval("InfoTel") %></td>
+                                        <td><%#Eval("InfoAddress") %></td>
+                                        <td><%#Eval("InfoEmail") %></td>
+                                        <td><%#Eval("InfoEntrytime") %></td>
+                                        <td><%#Eval("InfoLeavetime") %></td>
+                                        <td><%#Eval("InfoWorkyears") %></td>
+                                        <td><%#Eval("Dep") %></td>
+                                        <td><%#Eval("DutyName") %></td>
+                                        <td><%#Eval("UserNum") %></td>
+                                        <td><%#Eval("InfoSalary") %></td>
+                                        <td><%#Eval("InfoState") %></td>
                                         <td>
                                             <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info"  >修改</asp:LinkButton>                                      
                                         </td>

@@ -26,5 +26,28 @@ namespace HW.CMS.Model
         public int Userid { get; set; }
         public double InfoSalary { get; set; }
         public int InfoState { get; set; }
+        private string _Dep;
+
+        public string Dep
+        {
+            get { return _Dep; }
+            set { _Dep = value; }
+        }
+
+        private string _DutyName;
+
+        public string DutyName
+        {
+            get { return _DutyName; }
+            set { _DutyName = value; }
+        }
+        private int _UserNum;
+
+        public int UserNum
+        {
+            get { return _UserNum; }
+            set { _UserNum = value; }
+        }
+
     }
 }
