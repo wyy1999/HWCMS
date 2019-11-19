@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AccoutInfo.aspx.cs" Inherits="HW.CMS.WEB.AccoutInfo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="IncomeInfo.aspx.cs" Inherits="HW.CMS.WEB.IncomeInfo" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -14,10 +14,9 @@
     <link href="css/custom.css" rel="stylesheet" />
 
     <%-- bootsharp --%>
-   <%-- <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />--%>
+  <%--  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />--%>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -208,7 +207,7 @@
                     <!-- Breadcrumb-->
                     <div class="breadcrumb-holder container-fluid">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">支出表</a></li>
+                            <li class="breadcrumb-item"><a href="index.html">收入表</a></li>
                             <li class="breadcrumb-item active"></li>
                             <asp:Label type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" runat="server" Text="添加"></asp:Label>
                         </ul>
@@ -219,39 +218,28 @@
                             <HeaderTemplate>
                                 <table class="table table-hover">
                                     <tr>
-                                        <th>支出id
+                                        <th>收入id
                                         </th>
-                                        <th>工资金额
+                                        <th>销售金额
                                         </th>
-                                        <th>补贴金额
-                                        </th>
-                                        <th>五险一金
-                                        </th>
-                                        <th>报备金额
+                                        <th>销售内容
                                         </th>
                                     </tr>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <tr>
                                     <td>
-                                        <%#Eval("AccoutId") %>
+                                        <%#Eval("IncomeId") %>
                                     </td>
                                     <td>
-                                        <%#Eval("ACCSalary") %>￥
+                                        <%#Eval("SaleMoney") %>￥
                                     </td>
                                     <td>
-                                        <%#Eval("AccSubsidy") %>￥
+                                        <%#Eval("SaleContent") %>
                                     </td>
                                     <td>
-                                        <%#Eval("AccFiveMoney") %>￥
-                                    </td>
-                                    <td>
-                                        <%#Eval("ReportMoney") %>￥
-                                    </td>
-                                    <td>
-                                        <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("AccoutId") %>'>删除</asp:LinkButton>
-                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("AccoutId") %>','<%#Eval("ACCSalary") %>','<%#Eval("AccSubsidy") %>','<%#Eval("AccFiveMoney") %>','<%#Eval("ReportId") %>')">修改</a>
-
+                                        <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("IncomeId") %>'>删除</asp:LinkButton>
+                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("IncomeId") %>','<%#Eval("SaleId") %>')">修改</a>
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -273,27 +261,11 @@
                                     <table>
 
                                         <tr>
-                                            <td>工资金额</td>
+                                            <td>销售id</td>
                                             <td>
-                                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
-                                        </tr>
-                                        <tr>
-                                            <td>补贴金额</td>
-                                            <td>
-                                                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
-                                        </tr>
-                                        <tr>
-                                            <td>五险一金</td>
-                                            <td>
-                                                <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox></td>
-                                        </tr>
-                                        <tr>
-                                            <td>报备id</td>
-                                            <td>
-                                                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox></td>
+                                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
                                         </tr>
                                     </table>
-
 
                                 </div>
                                 <div class="modal-footer">
@@ -304,12 +276,9 @@
                         </div>
                     </div>
                     <script type="text/javascript">
-                        function addressUpdate(id, Salary, Subsidy, FiveMoney, Id) {
-                            $("#update_AccoutId").val(id);
-                            $("#update_ACCSalary").val(Salary);
-                            $("#update_AccSubsidy").val(Subsidy);
-                            $("#update_AccFiveMoney").val(FiveMoney);
-                            $("#update_ReportId").val(Id);
+                        function addressUpdate(id, Id) {
+                            $("#update_IncomeId").val(id);
+                            $("#update_SaleId").val(Id);
                             $("#modal-address-update").modal("show");
                         }
                     </script>
@@ -332,42 +301,23 @@
                                     <div>
                                         <table>
                                             <tr style="display: none">
-                                                <td>支出id</td>
+                                                <td>收入id</td>
                                                 <td>
-                                                    <asp:TextBox ID="update_AccoutId" name="update_AccoutId"
+                                                    <asp:TextBox ID="update_IncomeId" name="update_IncomeId"
                                                         class="form-control" runat="server"></asp:TextBox></td>
                                             </tr>
                                             <tr>
-                                                <td>工资金额</td>
+                                                <td>销售id</td>
                                                 <td>
-                                                    <asp:TextBox ID="update_ACCSalary" name="update_ACCSalary"
+                                                    <asp:TextBox ID="update_SaleId" name="update_SaleId"
                                                         class="form-control" runat="server"></asp:TextBox></td>
-                                            </tr>
-                                            <tr>
-                                                <td>补贴金额</td>
-                                                <td>
-                                                    <asp:TextBox ID="update_AccSubsidy" name="update_AccSubsidy"
-                                                        class="form-control" runat="server"></asp:TextBox></td>
-                                            </tr>
-                                            <tr>
-                                                <td>五险一金</td>
-                                                <td>
-                                                    <asp:TextBox ID="update_AccFiveMoney" name="update_AccFiveMoney"
-                                                        class="form-control" runat="server"></asp:TextBox></td>
-                                            </tr>
-                                            <tr>
-                                                <td>报备金额</td>
-                                                <td>
-                                                    <asp:TextBox ID="update_ReportId" name="update_ReportId "
-                                                        class="form-control" runat="server"></asp:TextBox></td>
-
                                             </tr>
                                         </table>
                                     </div>
                                     <div class="form-group" style="text-align: center">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">
                                             取消</button>
-                                    <asp:Button ID="Button3" runat="server" Text="修改" OnClick="Button3_Click" />
+                                        <asp:Button ID="Button2" runat="server" Text="修改" OnClick="Button2_Click" />
                                     </div>
                                 </div>
                             </div>
@@ -384,4 +334,3 @@
     </form>
 </body>
 </html>
-

@@ -12,9 +12,22 @@ namespace HW.CMS.BLL
 {
     public class AccoutinfoBll
     {
-        public static List<AccoutInfoModel> selectall()
+        AccoutInfoDal dal = new AccoutInfoDal();
+        public List<AccoutInfoModel> selectall()
         {
-            return AccoutInfoDal.selectAll();
+            return dal.selectAll();
+        }
+        public int Add(AccoutInfoModel model)
+        {
+            return dal.Add(model);
+        }
+        public int update(AccoutInfoModel model)
+        {
+            return dal.update(model);
+        }
+        public int delete(int AccoutId)
+        {
+            return dal.delete(AccoutId);
         }
     }
 }
