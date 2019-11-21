@@ -20,19 +20,19 @@
             <header class="header">
                 <nav class="navbar">
                     <!-- 搜索框-->
-                    <div class="search-box">
+                    <%--<div class="search-box">
                         <button class="dismiss"><i class="icon-close">123</i></button>
                         <form id="searchForm" action="#" role="search">
                             <input type="search" placeholder="What are you looking for..." class="form-control">
                         </form>
-                    </div>
+                    </div>--%>
                     <div class="container-fluid">
                         <div class="navbar-holder d-flex align-items-center justify-content-between">
                             <!-- 左侧标题-->
                             <div class="navbar-header">
                                 <!-- Navbar Brand -->
                                 <a href="index.html" class="navbar-brand d-none d-sm-inline-block">
-                                    <div class="brand-text d-none d-lg-inline-block"><span>Bootstrap </span><strong>123   </strong></div>
+                                    <div class="brand-text d-none d-lg-inline-block"><span>公司管理 </span><strong>系统  </strong></div>
                                     <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div>
                                 </a>
                                 <!-- 切换按钮-->
@@ -106,7 +106,7 @@
                                     </ul>
                                 </li>
                                 <!-- Languages dropdown    -->
-                                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle">
+                                <%--<li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle">
                                     <img src="img/flags/16/GB.png" alt="图片"><span class="d-none d-sm-inline-block">语言</span></a>
                                     <ul aria-labelledby="languages" class="dropdown-menu">
                                         <li><a rel="nofollow" href="#" class="dropdown-item">
@@ -114,7 +114,7 @@
                                         <li><a rel="nofollow" href="#" class="dropdown-item">
                                             <img src="img/flags/16/FR.png" alt="English" class="mr-2">菜单2                                         </a></li>
                                     </ul>
-                                </li>
+                                </li>--%>
                                 <!-- Logout    -->
                                 <li class="nav-item"><a href="#" class="nav-link logout"><span class="d-none d-sm-inline">退出</span><i class="fa fa-sign-out"></i></a></li>
                             </ul>
@@ -143,7 +143,7 @@
                              <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
                                 <li><a href="InfoTable.aspx">登录信息</a></li>
                                 <li><a href="UserInfo.aspx">人员详情</a></li>
-                                <li><a href="#">Page</a></li>
+                                
                             </ul>
                         </li>
                         <li><a href="#exampledropdownDropdown5" aria-expanded="false" data-toggle="collapse"><i class="fa fa-bar-chart"></i>出勤情况 </a>
@@ -157,46 +157,46 @@
                            <li><a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>公司财务 </a>
                             <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
                                 <li><a href="AccoutInfo.aspx">支出</a></li>
-                                <li><a href="#">收入</a></li>
-                                <li><a href="#">Page</a></li>
+                                <li><a href="IncomeInfo.aspx">收入</a></li>
+                                
                             </ul>
                         </li>
                         <li><a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>研发部 </a>
                             <ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
                                 <li><a href="ResearchInfo.aspx">研发内容</a></li>
                                 <li><a href="DetailsInfo.aspx">研发详情</a></li>
-                                <li><a href="#">Page</a></li>
+                               
                             </ul>
                         </li>
                         <li class="active"><a href="#exampledropdownDropdown3" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>销售部 </a>
                              <ul id="exampledropdownDropdown3" class="collapse list-unstyled ">
                                 <li><a href="SaleInfo.aspx">销售情况</a></li>
                                 <li class="active"><a href="PersonSaleInfo.aspx">个人销售情况</a></li>
-                                <li><a href="#">Page</a></li>
+                                
                             </ul>
                         </li>
-                        <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-interface-windows"></i>Example dropdown </a>
+                        <%--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-interface-windows"></i>Example dropdown </a>
                             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                                 <li><a href="#">Page</a></li>
                                 <li><a href="#">Page</a></li>
                                 <li><a href="#">Page</a></li>
                             </ul>
-                        </li>
-                        <li><a href="login.html"><i class="icon-interface-windows"></i>Login page </a></li>
+                        </li>--%>
+                        <li><a href="login.html"><i class="icon-interface-windows"></i>产品分布图 </a></li>
                     </ul>
-                    <span class="heading">Extras</span>
+                    <span class="heading">制度</span>
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="icon-flask"></i>Demo </a></li>
-                        <li><a href="#"><i class="icon-screen"></i>Demo </a></li>
-                        <li><a href="#"><i class="icon-mail"></i>Demo </a></li>
-                        <li><a href="#"><i class="icon-picture"></i>Demo </a></li>
+                        <li><a href="#"><i class="icon-flask"></i>打卡 </a></li>
+                        <li><a href="#"><i class="icon-screen"></i>请假 </a></li>
+                        <%--<li><a href="#"><i class="icon-mail"></i>Demo </a></li>
+                        <li><a href="#"><i class="icon-picture"></i>Demo </a></li>--%>
                     </ul>
                 </nav>
                  <div class="content-inner">
           <!-- Page Header-->
           <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">123</h2>
+              <h2 class="no-margin-bottom">销售情况</h2>
             </div>
           </header>
           <!-- Breadcrumb-->
@@ -233,7 +233,7 @@
                                <td><%#Eval("ConMoney")%></td>
                                <td>
                                    <%--<asp:LinkButton ID="LinkButton1" CommandName="insert" CommandArgument='<%#Eval("")%>' runat="server">添加</asp:LinkButton>--%>
-                                   <asp:LinkButton ID="LinkButton2" CommandName="update" CommandArgument='<%#Eval("PerId")%>' runat="server">更新</asp:LinkButton>
+                                   <asp:LinkButton ID="LinkButton2" CommandName="update" CommandArgument='<%#Eval("PerId")%>' runat="server">修改</asp:LinkButton>
                                    <asp:LinkButton ID="LinkButton3" CommandName="delete" CommandArgument='<%#Eval("PerId")%>' runat="server">删除</asp:LinkButton>
                                </td>
                            </tr>

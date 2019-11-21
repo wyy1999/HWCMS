@@ -111,7 +111,7 @@
                                     </ul>
                                 </li>
                                 <!-- Languages dropdown    -->
-                                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle">
+                               <%-- <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle">
                                     <img src="img/flags/16/GB.png" alt="图片"><span class="d-none d-sm-inline-block">语言</span></a>
                                     <ul aria-labelledby="languages" class="dropdown-menu">
                                         <li><a rel="nofollow" href="#" class="dropdown-item">
@@ -119,7 +119,7 @@
                                         <li><a rel="nofollow" href="#" class="dropdown-item">
                                             <img src="img/flags/16/FR.png" alt="English" class="mr-2">菜单2                                         </a></li>
                                     </ul>
-                                </li>
+                                </li>--%>
                                 <!-- Logout    -->
                                 <li class="nav-item"><a href="#" class="nav-link logout"><span class="d-none d-sm-inline">退出</span><i class="fa fa-sign-out"></i></a></li>
                             </ul>
@@ -163,7 +163,7 @@
                         <li><a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>公司财务 </a>
                             <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
                                 <li><a href="AccoutInfo.aspx">支出</a></li>
-                                <li><a href="#">收入</a></li>
+                                <li><a href="IncomeInfo.aspx">收入</a></li>
                                
                             </ul>
                         </li>
@@ -181,15 +181,15 @@
                               
                             </ul>
                         </li>
-                     <%--   <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-interface-windows"></i>Example dropdown </a>
+                        <%--<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-interface-windows"></i>Example dropdown </a>
                             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                                 <li><a href="#">Page</a></li>
                                 <li><a href="#">Page</a></li>
                                 <li><a href="#">Page</a></li>
                             </ul>
-                        </li>
-                        <li><a href="login.html"><i class="icon-interface-windows"></i>Login page </a></li>
-                    </ul>--%>
+                        </li>--%>
+                        <li><a href="login.html"><i class="icon-interface-windows"></i>产品分布图 </a></li>
+                    </ul>
                     <span class="heading">制度</span>
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="icon-flask"></i>打卡 </a></li>
@@ -200,15 +200,15 @@
                     <!-- Page Header-->
                     <header class="page-header">
                         <div class="container-fluid">
-                            <h2 class="no-margin-bottom">123</h2>
+                            <h2 class="no-margin-bottom">公司人员信息</h2>
                         </div>
                     </header>
                     <!-- Breadcrumb-->
                     <div class="breadcrumb-holder container-fluid">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item">人员信息表</li>
+                            <li class="breadcrumb-item">人员信息</li>
                             <li class="breadcrumb-item active">
-                                <asp:Label type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" runat="server" Text="添加"></asp:Label>
+                                <asp:Label type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="添加"></asp:Label>
                         </ul>
                     </div>
 
@@ -229,8 +229,9 @@
                                     <td><%#Eval("Userpwd") %></td>
                                     <td><%#Eval("DutyName") %></td>
                                     <td style="width: 200px">
+                                         <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("Userid") %>','<%#Eval("UserNum") %>','<%#Eval("Userpwd") %>','<%#Eval("DutyId") %>')">修改</a>
                                         <asp:LinkButton ID="LinkButton1" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("Userid") %>' runat="server">删除</asp:LinkButton>
-                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("Userid") %>','<%#Eval("UserNum") %>','<%#Eval("Userpwd") %>','<%#Eval("DutyId") %>')">修改</a>
+                                       
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -274,7 +275,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                        <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Button1" OnClick="Button1_Click" />
+                                        <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="添加" OnClick="Button1_Click" />
 
                                     </div>
                                 </div>

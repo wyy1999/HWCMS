@@ -8,5 +8,6 @@ namespace HW.CMS.Model
 {
     class LeaveInfoModel
     {
+
     }
 }
