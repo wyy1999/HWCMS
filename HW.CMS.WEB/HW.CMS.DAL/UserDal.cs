@@ -66,5 +66,17 @@ namespace HW.CMS.DAL
             return DBHelper.ExcuteSqlNonQuery(sql, sqlParameters);
         }
 
+
+        public int insert_leave(int uid,int tid,string baca)
+        {
+            string sql = "insert into LeaveInfo values(@InfoId,@DepId,'"+ DateTime.Now+ "',@LeaveReason,0)";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@InfoId",uid),
+                new SqlParameter("@DepId",tid),
+                new SqlParameter("@LeaveReason",baca),
+            };
+            return DBHelper.ExcuteSqlNonQuery(sql, sqlParameters);
+        }
     }
 }

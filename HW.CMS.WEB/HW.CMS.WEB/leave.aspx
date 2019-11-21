@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="timer.aspx.cs" Inherits="HW.CMS.WEB.timer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="leave.aspx.cs" Inherits="HW.CMS.WEB.leave" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/fontastic.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" />
@@ -137,7 +137,6 @@
                         </div>
                         <div class="title">
                             <h1 class="h4">
-                                <asp:TextBox ID="TextBox4" runat="server" BorderStyle="None"></asp:TextBox></h1>
                             <p>qwe</p>
                         </div>
                     </div>
@@ -206,20 +205,16 @@
                     <!-- Breadcrumb-->
                     <div class="breadcrumb-holder container-fluid">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item">人员信息表</li>
+                            <li class="breadcrumb-item">请假表</li>
                             <li class="breadcrumb-item active">
                         </ul>
                     </div>
 
                     <div>
-
-                        <span>当前时间</span><div id="current_time" style="height: 20px"></div>
-                        <span>请输入员工编号</span>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                        <asp:Button ID="Button1" runat="server" Text="签到" OnClick="Button1_Click" />
-                        <asp:Button ID="Button2" runat="server" Text="签退" OnClick="Button2_Click" />
-
-
+                        员工id<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        部门id<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                        请假原因<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                        <asp:Button ID="Button1" runat="server" Text="提交请求" OnClick="Button1_Click" />
 
 
 
@@ -240,16 +235,4 @@
 
 
 
-</body>
-<script>
-    $(function () {
-        
-        setInterval(function () {
-            var now = (new Date()).toLocaleString();
-            $('#current_time').text(now);
-        }, 1000);
-        
-    })
-
-</script>
-</html>
+</body></html>
