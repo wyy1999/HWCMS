@@ -12,7 +12,7 @@ namespace HW.CMS.Model
         public decimal ACCSalary { get; set; }
         public decimal AccSubsidy { get; set; }
         public decimal AccFiveMoney { get; set; }
-        public int ReportId { get; set; }
+        public decimal AccReportModey { get; set; }
         public decimal ReportMoney { get; set; }
 
         

@@ -112,13 +112,13 @@ namespace HW.CMS.WEB {
         protected global::System.Web.UI.WebControls.TextBox update_AccFiveMoney;
         
         /// <summary>
-        /// update_ReportId 控件。
+        /// update_AccReportModey 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox update_ReportId;
+        protected global::System.Web.UI.WebControls.TextBox update_AccReportModey;
         
         /// <summary>
         /// Button3 控件。

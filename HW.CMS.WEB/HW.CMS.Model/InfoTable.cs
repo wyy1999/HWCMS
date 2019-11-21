@@ -24,9 +24,28 @@ namespace HW.CMS.Model
         public int DepId { get; set; }
         public int DutyId { get; set; }
         public int Userid { get; set; }
-        public double InfoSalary { get; set; }
+        public decimal InfoSalary { get; set; }
         public int InfoState { get; set; }
         private string _Dep;
+
+       
+
+        public string InfoStatestring
+        {
+            get {
+                if (InfoState == 1)
+                {
+                    return "在职";
+                }              
+                else {
+                    return "离职";
+                }
+
+
+            }
+           
+        }
+
 
         public string Dep
         {

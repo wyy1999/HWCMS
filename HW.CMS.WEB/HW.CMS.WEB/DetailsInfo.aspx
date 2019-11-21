@@ -25,12 +25,12 @@
             <header class="header">
                 <nav class="navbar">
                     <!-- 搜索框-->
-                    <div class="search-box">
+                    <%--<div class="search-box">
                         <button class="dismiss"><i class="icon-close">123</i></button>
                         <form id="searchForm" action="#" role="search">
                             <input type="search" placeholder="What are you looking for..." class="form-control">
                         </form>
-                    </div>
+                    </div>--%>
                     <div class="container-fluid">
                         <div class="navbar-holder d-flex align-items-center justify-content-between">
                             <!-- 左侧标题-->
@@ -121,7 +121,7 @@
                                     </ul>
                                 </li>--%>
                                 <!-- Logout    -->
-                                <li class="nav-item"><a href="#" class="nav-link logout"><span class="d-none d-sm-inline">退出</span><i class="fa fa-sign-out"></i></a></li>
+                                <li class="nav-item"><a href="login.aspx" class="nav-link logout"><span class="d-none d-sm-inline">退出</span><i class="fa fa-sign-out"></i></a></li>
                             </ul>
                         </div>
                     </div>

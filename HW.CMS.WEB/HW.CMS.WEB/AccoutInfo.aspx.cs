@@ -50,7 +50,7 @@ namespace HW.CMS.WEB
             user.ACCSalary = Convert.ToDecimal(TextBox2.Text);
             user.AccSubsidy = Convert.ToDecimal(TextBox3.Text);
             user.AccFiveMoney = Convert.ToDecimal(TextBox4.Text);
-            user.ReportId = Convert.ToInt32(TextBox5.Text);
+            user.AccReportModey = Convert.ToInt32(TextBox5.Text);
 
             if (bll.Add(user) > 0)
             {
@@ -66,7 +66,7 @@ namespace HW.CMS.WEB
             user.ACCSalary = Convert.ToDecimal(update_ACCSalary.Text);
             user.AccSubsidy = Convert.ToDecimal(update_AccSubsidy.Text);
             user.AccFiveMoney = Convert.ToDecimal(update_AccFiveMoney.Text);
-            user.ReportId = Convert.ToInt32(update_ReportId.Text);
+            user.AccReportModey = Convert.ToInt32(update_AccReportModey.Text);
 
             if (bll.update(user) > 0)
             {

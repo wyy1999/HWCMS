@@ -28,9 +28,9 @@
                     <!-- 搜索框-->
                     <div class="search-box">
                         <button class="dismiss"><i class="icon-close">财务信息</i></button>
-                        <form id="searchForm" action="#" role="search">
+                        <%--<form id="searchForm" action="#" role="search">
                             <input type="search" placeholder="What are you looking for..." class="form-control"/>
-                        </form>
+                        </form>--%>
                     </div>
                     <div class="container-fluid">
                         <div class="navbar-holder d-flex align-items-center justify-content-between">
@@ -122,7 +122,7 @@
                                     </ul>
                                 </li>--%>
                                 <!-- Logout    -->
-                                <li class="nav-item"><a href="#" class="nav-link logout"><span class="d-none d-sm-inline">退出</span><i class="fa fa-sign-out"></i></a></li>
+                                <li class="nav-item"><a href="login.aspx" class="nav-link logout"><span class="d-none d-sm-inline">退出</span><i class="fa fa-sign-out"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -188,7 +188,7 @@
                                 <li><a href="#">Page</a></li>
                             </ul>
                         </li>--%>
-                        <li><a href="login.html"><i class="icon-interface-windows"></i>产品分布图 </a></li>
+                        <li><a href="TheMap/examples/index.html"><i class="icon-interface-windows"></i>产品分布图 </a></li>
                     </ul>
                     <span class="heading">制度</span>
                     <ul class="list-unstyled">
@@ -246,10 +246,10 @@
                                         <%#Eval("AccFiveMoney") %>￥
                                     </td>
                                     <td>
-                                        <%#Eval("ReportMoney") %>￥
+                                        <%#Eval("AccReportModey") %>￥
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("AccoutId") %>','<%#Eval("ACCSalary") %>','<%#Eval("AccSubsidy") %>','<%#Eval("AccFiveMoney") %>','<%#Eval("ReportId") %>')">修改</a>
+                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("AccoutId") %>','<%#Eval("ACCSalary") %>','<%#Eval("AccSubsidy") %>','<%#Eval("AccFiveMoney") %>','<%#Eval("AccReportModey") %>')">修改</a>
                                         <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("AccoutId") %>'>删除</asp:LinkButton>
                                         
 
@@ -305,12 +305,12 @@
                         </div>
                     </div>
                     <script type="text/javascript">
-                        function addressUpdate(id, Salary, Subsidy, FiveMoney, Id) {
+                        function addressUpdate(id, Salary, Subsidy, FiveMoney, AccReportModey) {
                             $("#update_AccoutId").val(id);
                             $("#update_ACCSalary").val(Salary);
                             $("#update_AccSubsidy").val(Subsidy);
                             $("#update_AccFiveMoney").val(FiveMoney);
-                            $("#update_ReportId").val(Id);
+                            $("#update_AccReportModey").val(AccReportModey);
                             $("#modal-address-update").modal("show");
                         }
                     </script>
@@ -359,7 +359,7 @@
                                             <tr>
                                                 <td>报备金额</td>
                                                 <td>
-                                                    <asp:TextBox ID="update_ReportId" name="update_ReportId "
+                                                    <asp:TextBox ID="update_AccReportModey" name="update_ReportId "
                                                         class="form-control" runat="server"></asp:TextBox></td>
 
                                             </tr>
@@ -382,7 +382,12 @@
                         <script src="js/charts-home.js"></script>
                         <!-- Main File-->
                         <script src="js/front.js"></script>
+                         </div>
+                     </div>
+                 </div>
+             </div>
     </form>
+   
 </body>
 </html>
 

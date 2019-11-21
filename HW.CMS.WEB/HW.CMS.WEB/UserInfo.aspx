@@ -100,7 +100,7 @@
                                         </a></li>
                                         <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
                                             <div class="msg-profile">
-                                                <img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle">
+                                                <img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"/>
                                             </div>
                                             <div class="msg-body">
                                                 <h3 class="h5">Ashley Wood</h3>
@@ -121,7 +121,7 @@
                                     </ul>
                                 </li>--%>
                                 <!-- Logout    -->
-                                <li class="nav-item"><a href="#" class="nav-link logout"><span class="d-none d-sm-inline"><a href="login.aspx">退出</a></span><i class="fa fa-sign-out"></i></a></li>
+                                <li class="nav-item"><a href="login.aspx" class="nav-link logout"><span class="d-none d-sm-inline">退出</span><i class="fa fa-sign-out"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -133,7 +133,7 @@
                     <!-- Sidebar Header-->
                     <div class="sidebar-header d-flex align-items-center">
                         <div class="avatar">
-                            <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle">
+                            <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle" />
                         </div>
                         <div class="title">
                             <h1 class="h4">qwe</h1>
@@ -143,18 +143,18 @@
                     <!-- Sidebar Navidation Menus-->
                     <span class="heading">菜单</span>
                     <ul class="list-unstyled">
-                        <li ><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
+                        <li><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
                         <li class="active"><a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse"><i class="icon-grid"></i>公司人员信息 </a>
-                             <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
+                            <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
                                 <li><a href="InfoTable.aspx">登录信息</a></li>
                                 <li class="active"><a href="UserInfo.aspx">人员详情</a></li>
-                                
+
                             </ul>
                         </li>
                         <li><a href="#exampledropdownDropdown5" aria-expanded="false" data-toggle="collapse"><i class="fa fa-bar-chart"></i>出勤情况 </a>
                             <ul id="exampledropdownDropdown5" class="collapse list-unstyled ">
                                 <li><a href="ClockInfo.aspx">打卡信息</a></li>
-                                <li><a href="LeaveInfo.aspx">请假信息</a></li>                              
+                                <li><a href="LeaveInfo.aspx">请假信息</a></li>
                             </ul>
 
                         </li>
@@ -163,24 +163,24 @@
                             <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
                                 <li><a href="AccoutInfo.aspx">支出</a></li>
                                 <li><a href="IncomeInfo.aspx">收入</a></li>
-                               
+
                             </ul>
                         </li>
                         <li><a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>研发部 </a>
                             <ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
                                 <li class="active"><a href="ResearchInfo.aspx">研发内容</a></li>
                                 <li><a href="DetailsInfo.aspx">研发详情</a></li>
-                               
+
                             </ul>
                         </li>
                         <li><a href="#exampledropdownDropdown3" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>销售部 </a>
                             <ul id="exampledropdownDropdown3" class="collapse list-unstyled ">
                                 <li><a href="SaleInfo.aspx">销售情况</a></li>
                                 <li><a href="PersonSaleInfo.aspx">个人销售情况</a></li>
-                               
+
                             </ul>
                         </li>
-                       <%-- <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-interface-windows"></i>Example dropdown </a>
+                        <%-- <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-interface-windows"></i>Example dropdown </a>
                             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                                 <li><a href="#">Page</a></li>
                                 <li><a href="#">Page</a></li>
@@ -208,22 +208,21 @@
                     <div class="breadcrumb-holder container-fluid">
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="ResearchInfo.aspx">公司人员信息</a></li>
-                            <li class="breadcrumb-item active">人员详情            </li>
-                            <button style="margin-left:20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">添加</button>
+                            <li class="breadcrumb-item active">人员详情            </li>          
                         </ul>
-                         
+                        <button style="margin-left: 20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">添加</button>
                     </div>
                     <div>
-                        <div style="height:50px;text-align:center;margin-top:10px">
+                        <div style="height: 50px; text-align: center; margin-top: 10px">
                             姓名：<asp:TextBox ID="TxtInfoName" runat="server"></asp:TextBox>
-                            部门：<asp:DropDownList ID="DropDep" runat="server">
+                            &nbsp;&nbsp;&nbsp;部门：<asp:DropDownList ID="DropDep" runat="server">
                                 <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
                                 <asp:ListItem Value="1">人事部</asp:ListItem>
                                 <asp:ListItem Value="2">财务部</asp:ListItem>
                                 <asp:ListItem Value="3">研发部</asp:ListItem>
                                 <asp:ListItem Value="4">销售部</asp:ListItem>
                             </asp:DropDownList>
-                            职务：<asp:DropDownList ID="DropDutyName" runat="server">
+                           &nbsp;&nbsp;&nbsp; 职务：<asp:DropDownList ID="DropDutyName" runat="server">
                                 <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
                                 <asp:ListItem Value="1">总经理</asp:ListItem>
                                 <asp:ListItem Value="2">人事经理</asp:ListItem>
@@ -233,19 +232,25 @@
                                 <asp:ListItem Value="6">普通员工</asp:ListItem>
                                 <asp:ListItem Value="7">实习生</asp:ListItem>
                             </asp:DropDownList>
-                            性别：<asp:RadioButtonList ID="Sex" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                           &nbsp;&nbsp;&nbsp; 性别：<asp:RadioButtonList ID="Sex" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
                                 <asp:ListItem Selected="True">全部</asp:ListItem>
                                 <asp:ListItem>男</asp:ListItem>
                                 <asp:ListItem>女</asp:ListItem>
+                            </asp:RadioButtonList>&nbsp;&nbsp;&nbsp;
+
+                           状态： <asp:RadioButtonList ID="RadioState" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                                <asp:ListItem Selected="True" Value="0">全部</asp:ListItem>
+                                <asp:ListItem Value="1">在职</asp:ListItem>
+                                <asp:ListItem Value="2">离职</asp:ListItem>
                             </asp:RadioButtonList>
                             <asp:Button ID="Button1" runat="server" Text="查询" CssClass="btn-success disabled" OnClick="Button1_Click" />
                         </div>
 
                         <asp:Repeater ID="Repeater1" runat="server">
                             <HeaderTemplate>
-                                
+
                                 <table class="table table-hover">
-                                   
+
                                     <thead>
                                         <tr>
                                             <th>姓名</th>
@@ -271,7 +276,7 @@
                             <ItemTemplate>
                                 <tbody>
                                     <tr class="warning">
-                                       
+
                                         <td><%#Eval("InfoName") %></td>
                                         <td><%#Eval("InfoAge") %></td>
                                         <td><%#Eval("InfoSex") %></td>
@@ -287,9 +292,12 @@
                                         <td><%#Eval("DutyName") %></td>
                                         <td><%#Eval("UserNum") %></td>
                                         <td><%#Eval("InfoSalary") %></td>
-                                        <td><%#Eval("InfoState") %></td>
+                                        <td><%#Eval("InfoStatestring") %></td>
                                         <td>
-                                            <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info"  >修改</asp:LinkButton>                                      
+                                            <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("InfoId") %>','<%#Eval("InfoName") %>','<%#Eval("InfoAge") %>',
+                                                   '<%#Eval("InfoSex") %>','<%#Eval("InfoDate") %>','<%#Eval("InfoIdcard") %>','<%#Eval("InfoTel") %>',
+                                                '<%#Eval("InfoAddress") %>','<%#Eval("InfoEmail") %>',  '<%#Eval("InfoEntrytime") %>','<%#Eval("InfoLeavetime") %>','<%#Eval("InfoWorkyears") %>',
+                                                '<%#Eval("DepId") %>','<%#Eval("DutyId") %>','<%#Eval("Userid") %>','<%#Eval("InfoSalary") %>','<%#Eval("InfoState") %>')">修改</a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -301,52 +309,290 @@
                         </asp:Repeater>
                         <%-- 模态框 --%>
                         <!-- Large modal -->
-                       
+
 
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    
+
                                     <div class="modal-header">
                                         <h4 class="modal-title" id="exampleModalLabel">添加</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        
+
                                     </div>
                                     <div class="modal-body">
-                                        
-                                            <div class="form-group">
-                                                <label for="recipient-name" class="control-label">产品名称:</label>                                                
-                                                <asp:TextBox ID="TxtName" runat="server" class="form-control" ></asp:TextBox>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="message-text" class="control-label">产品内容:</label>
-                                                <asp:TextBox ID="TxtCon" runat="server" class="form-control" ></asp:TextBox>
-                                                
-                                            </div>
+
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">姓名:</label>
+                                            <asp:TextBox ID="TxtName" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">年龄:</label>
+                                            <asp:TextBox ID="Txtage" runat="server" class="form-control"></asp:TextBox>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">性别:</label>
+                                            <asp:RadioButtonList ID="Radsex" runat="server" class="form-control" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                                                <asp:ListItem Selected="True">男</asp:ListItem>
+                                                <asp:ListItem>女</asp:ListItem>
+                                            </asp:RadioButtonList>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">出生日期:</label>
+                                            <asp:TextBox ID="Txtdate" runat="server" type="date" class="form-control"></asp:TextBox>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">身份证号:</label>
+                                            <asp:TextBox ID="txtidcard" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">电话:</label>
+                                            <asp:TextBox ID="txttel" runat="server" class="form-control"></asp:TextBox>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">地址:</label>
+                                            <asp:TextBox ID="txtaddress" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">邮箱:</label>
+                                            <asp:TextBox ID="txtemali" runat="server" class="form-control"></asp:TextBox>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">入职时间:</label>
+                                            <asp:TextBox ID="txttime" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">离职时间:</label>
+                                            <asp:TextBox ID="txttime1" runat="server" class="form-control"></asp:TextBox>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">工龄:</label>
+                                            <asp:TextBox ID="txtyears" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">部门:</label>
+                                            <asp:DropDownList ID="Dropdep1" runat="server" class="form-control">
+                                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                                <asp:ListItem Value="1">人事部</asp:ListItem>
+                                                <asp:ListItem Value="2">财务部</asp:ListItem>
+                                                <asp:ListItem Value="3">研发部</asp:ListItem>
+                                                <asp:ListItem Value="4">销售部</asp:ListItem>
+                                            </asp:DropDownList>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">职务:</label>
+                                            <asp:DropDownList ID="Dropduty" runat="server" class="form-control">
+                                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                                <asp:ListItem Value="1">总经理</asp:ListItem>
+                                                <asp:ListItem Value="2">人事经理</asp:ListItem>
+                                                <asp:ListItem Value="3">财务经理</asp:ListItem>
+                                                <asp:ListItem Value="4">销售主管</asp:ListItem>
+                                                <asp:ListItem Value="5">研发主管</asp:ListItem>
+                                                <asp:ListItem Value="6">普通员工</asp:ListItem>
+                                                <asp:ListItem Value="7">实习生</asp:ListItem>
+                                            </asp:DropDownList>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">登录账号:</label>
+                                            <asp:TextBox ID="txtuser" runat="server" class="form-control"></asp:TextBox>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">工资:</label>
+                                            <asp:TextBox ID="txtmoney1" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">状态:</label>
+                                            <asp:DropDownList ID="DropState" runat="server" class="form-control">
+                                                <asp:ListItem Value="0">在职</asp:ListItem>
+                                                <asp:ListItem Value="1">请假</asp:ListItem>
+                                                <asp:ListItem Value="2">离职</asp:ListItem>
+                                            </asp:DropDownList>
                                             
-                                            <div class="form-group">
-                                                <label for="message-text" class="control-label">研发金额:</label>
-                                                <asp:TextBox ID="TxtMoney" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">研发状态:</label>
-                                                <asp:TextBox ID="TxtState" runat="server" class="form-control"></asp:TextBox>
-                                                 
-                                            </div>
-                                       
+                                        </div>
+
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                       <asp:Button ID="Button2" runat="server" Text="确定添加"  class="btn btn-primary"  />
-                                        
-                                        
+                                        <asp:Button ID="Button2" runat="server" Text="确定添加" class="btn btn-primary" OnClick="Button2_Click" />
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
+                     <%-- 修改模态框 --%>
+                          <script type="text/javascript">
+                              function addressUpdate(InfoId, InfoName, InfoAge, InfoSex, InfoDate, InfoIdcard, InfoTel, InfoAddress, InfoEmail,
+                                  InfoEntrytime, InfoLeavetime,InfoWorkyears,DepId,DutyId,Userid,InfoSalary,InfoState) {
+                                $("#update_InfoId").val(InfoId);
+                                $("#update_InfoName").val(InfoName);
+                                $("#update_InfoAge").val(InfoAge);
+                                $("#update_InfoSex").val(InfoSex);
+                                $("#update_InfoDate").val(InfoDate);
+                                $("#update_InfoIdcard").val(InfoIdcard);
+                                $("#update_InfoTel").val(InfoTel);
+                                 $("#update_InfoAddress").val(InfoAddress);
+                                $("#update_InfoEmail").val(InfoEmail);
+                                $("#update_InfoEntrytime").val(InfoEntrytime);
+                                $("#update_InfoLeavetime").val(InfoLeavetime);
+                                $("#update_InfoWorkyears").val(InfoWorkyears);
+                                $("#update_DepId").val(DepId);
+                                  $("#update_DutyId").val(DutyId);
+                                  $("#update_Userid").val(Userid);
+                                $("#update_InfoSalary").val(InfoSalary);
+                                $("#update_InfoState").val(InfoState);
+                               
+
+                                $("#modal-address-update").modal("show");
+                            }
+                        </script>
+
+                        <div class="modal fade" id="modal-address-update" tabindex="-1" role="dialog" aria-labelledby="modal-address-update-label"
+                            aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="text-align: center">
+                                        <h3 class="modal-title" id="modal-address-update-label">修改信息</h3>
+                                        <button type="button" class="close" data-dismiss="modal">
+                                            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                        </button>
+
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <input type="hidden" id="update_AddressId" />
+
+                                        <div>
+
+                                            <div class="form-group">
+                                            <label for="recipient-name" class="control-label">编号:</label>
+                                            <asp:TextBox ID="update_InfoId" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                           <div class="form-group">
+                                            <label for="recipient-name" class="control-label">姓名:</label>
+                                            <asp:TextBox ID="update_InfoName" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">年龄:</label>
+                                            <asp:TextBox ID="update_InfoAge" runat="server" class="form-control"></asp:TextBox>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">性别:</label>
+                                            <asp:RadioButtonList ID="update_InfoSex" runat="server" class="form-control" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                                                <asp:ListItem Selected="True">男</asp:ListItem>
+                                                <asp:ListItem>女</asp:ListItem>
+                                            </asp:RadioButtonList>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">出生日期:</label>
+                                            <asp:TextBox ID="update_InfoDate" runat="server" type="date" class="form-control"></asp:TextBox>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">身份证号:</label>
+                                            <asp:TextBox ID="update_InfoIdcard" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">电话:</label>
+                                            <asp:TextBox ID="update_InfoTel" runat="server" class="form-control"></asp:TextBox>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">地址:</label>
+                                            <asp:TextBox ID="update_InfoAddress" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">邮箱:</label>
+                                            <asp:TextBox ID="update_InfoEmail" runat="server" class="form-control"></asp:TextBox>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">入职时间:</label>
+                                            <asp:TextBox ID="update_InfoEntrytime" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">离职时间:</label>
+                                            <asp:TextBox ID="update_InfoLeavetime" runat="server" class="form-control"></asp:TextBox>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">工龄:</label>
+                                            <asp:TextBox ID="update_InfoWorkyears" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">部门:</label>
+                                            <asp:DropDownList ID="update_DepId" runat="server" class="form-control">
+                                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                                <asp:ListItem Value="1">人事部</asp:ListItem>
+                                                <asp:ListItem Value="2">财务部</asp:ListItem>
+                                                <asp:ListItem Value="3">研发部</asp:ListItem>
+                                                <asp:ListItem Value="4">销售部</asp:ListItem>
+                                            </asp:DropDownList>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">职务:</label>
+                                            <asp:DropDownList ID="update_DutyId" runat="server" class="form-control">
+                                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                                <asp:ListItem Value="1">总经理</asp:ListItem>
+                                                <asp:ListItem Value="2">人事经理</asp:ListItem>
+                                                <asp:ListItem Value="3">财务经理</asp:ListItem>
+                                                <asp:ListItem Value="4">销售主管</asp:ListItem>
+                                                <asp:ListItem Value="5">研发主管</asp:ListItem>
+                                                <asp:ListItem Value="6">普通员工</asp:ListItem>
+                                                <asp:ListItem Value="7">实习生</asp:ListItem>
+                                            </asp:DropDownList>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">登录账号:</label>
+                                            <asp:TextBox ID="update_Userid" runat="server" class="form-control" ></asp:TextBox>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">工资:</label>
+                                            <asp:TextBox ID="update_InfoSalary" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">状态:</label>
+                                            <asp:DropDownList ID="update_InfoState" runat="server" class="form-control">
+                                                <asp:ListItem Value="0">在职</asp:ListItem>
+                                                <asp:ListItem Value="1">请假</asp:ListItem>
+                                                <asp:ListItem Value="2">离职</asp:ListItem>
+                                            </asp:DropDownList>
+                                            
+                                        </div>
+                                           
+                                        </div>
+                                        <div class="form-group" style="text-align: center">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                取消</button>
+                                            <asp:Button ID="Button3" runat="server" Text="修改" OnClick="Button3_Click" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
         <script src="vendor/jquery/jquery.min.js"></script>
@@ -360,6 +606,7 @@
         <script src="js/front.js"></script>
     </form>
 
+    
 </body>
 </html>
 

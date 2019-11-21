@@ -98,11 +98,11 @@ create table InfoTable(
   DutyId int references DutyInfo(DutyId), --职务外键id
   Userid int references UserLogin(Userid),--登陆表外键
   InfoSalary decimal(18,2) default(0) check(InfoSalary>=0) not null,--工资
-  InfoState int check(InfoState=0 or InfoState=1 or InfoState=2 )  --状态 0在职 1请假 2离职
+  InfoState int check( InfoState=1 or InfoState=2 )  --状态  1在职 2离职
 )
 
-insert  into InfoTable values('张三',18,'男','1997.11.1','123456431','12345123454','河南省','11231234121@qq.com','','','2',1,2,2,'7000',0)
-insert  into InfoTable values('里斯',20,'女','1997.10.1','12345643152','12345123456','河南省郑州市','10231234121@qq.com',getdate(),'','3',2,3,3,'7000',0)
+insert  into InfoTable values('张三',18,'男','1997.11.1','123456431','12345123454','河南省','11231234121@qq.com','','','2',1,2,2,'7000',1)
+insert  into InfoTable values('里斯',20,'女','1997.10.1','12345643152','12345123456','河南省郑州市','10231234121@qq.com',getdate(),'','3',2,3,3,'7000',1)
 go
 
 
@@ -110,7 +110,7 @@ go
 if exists(select * from sys.tables where name='sel_InfoTable')
 drop proc sel_InfoTable
 GO
-create proc sel_InfoTable(@InfoName varchar(10)='', @DepId  int=0,@DutyId int=0,@InfoSex char(2)='')
+create proc sel_InfoTable(@InfoName varchar(10)='', @DepId  int=0,@DutyId int=0,@InfoSex char(2)='',@InfoState int=0)
 as
 declare @strsql varchar(max)
 set @strsql='select DepartmentInfo.Dep,DutyInfo.DutyName,userlogin.UserNum, InfoTable .*from DepartmentInfo,DutyInfo,InfoTable,userlogin where DepartmentInfo.DepId=InfoTable.DepId and DutyInfo.DutyId=InfoTable.DutyId and userlogin.Userid=InfoTable.Userid and InfoName like ''%'+@InfoName+'%'''
@@ -120,10 +120,12 @@ if @DutyId<>0
 set @strsql=@strsql+' and InfoTable.DutyId='+CONVERT(varchar,@DutyId)
 if @InfoSex<>''
 set @strsql=@strsql+' and InfoSex='''+CONVERT(varchar,@InfoSex)+''''
+if @InfoState<>0
+set @strsql=@strsql+' and InfoState='+CONVERT(varchar,@InfoState)
 print @strsql
 exec(@strsql)
 go
-exec sel_InfoTable '三',0,0,''
+exec sel_InfoTable '三',0,0,'',
 
 
 /*人员打卡表 ClockInfo*/
@@ -200,11 +202,11 @@ create table AccoutInfo(
    ACCSalary decimal(18,2) check(ACCSalary>=0) not null,--工资总金额   
    AccSubsidy decimal(18,2) check(AccSubsidy>=0) not null,--补贴总金额
    AccFiveMoney decimal(18,2) check(AccFiveMoney>=0) not null,--五险一金总金额
-   ReportId int references ReportInfo(ReportId),--报备金额 外键报备表 字段（报备部门  所需金额）
+   AccReportModey decimal(18,2) check(AccReportModey>=0) not null,--报备金额 外键报备表 字段（报备部门  所需金额）
 )
 go
 
-insert into AccoutInfo values (30000,5000,8000,1)
+insert into AccoutInfo values (30000,5000,8000,5000)
 
 --研发部门表ResearchInfo
 if exists(select * from sys.tables where name='ResearchInfo')

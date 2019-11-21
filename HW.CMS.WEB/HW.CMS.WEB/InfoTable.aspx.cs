@@ -14,6 +14,9 @@ namespace HW.CMS.WEB
     public partial class InfoTable : System.Web.UI.Page
     {
         UserBll bll = new UserBll();
+
+        public object InfoId { get; internal set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string user =Convert.ToString(Session["chuan"]);

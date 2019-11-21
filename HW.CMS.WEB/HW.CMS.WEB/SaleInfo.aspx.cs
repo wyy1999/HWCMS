@@ -33,7 +33,7 @@ namespace HW.CMS.WEB
             model.SaleContent = TxtCon.Text;
             model.SaleMoney = Convert.ToDouble(TxtMoney.Text);
             model.DepId = Convert.ToInt32(DropDownList1.SelectedValue);
-            int num = 0;
+         
             if (bll.Add(model) >= 0)
             {
                 Response.Write("<script>alert('添加成功！');location.href='SaleInfo.aspx' </script>");
