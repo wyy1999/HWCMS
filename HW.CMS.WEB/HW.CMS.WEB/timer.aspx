@@ -212,12 +212,19 @@
                     </div>
 
                     <div>
+                        <div class="jumbotron">
+                            <span>员工编号</span>
+                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                            <hr />
+                            <h1>当前时间</h1>
+                            <h1>
+                                <div id="current_time" style="height: 20px"></div>
+                            </h1>
+                            <asp:Button ID="Button1" runat="server" Text="签到" OnClick="Button1_Click" />
+                            <asp:Button ID="Button2" runat="server" Text="签退" OnClick="Button2_Click" />
+                        </div>
 
-                        <span>当前时间</span><div id="current_time" style="height: 20px"></div>
-                        <span>请输入员工编号</span>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                        <asp:Button ID="Button1" runat="server" Text="签到" OnClick="Button1_Click" />
-                        <asp:Button ID="Button2" runat="server" Text="签退" OnClick="Button2_Click" />
+
 
 
 
@@ -243,12 +250,12 @@
 </body>
 <script>
     $(function () {
-        
+
         setInterval(function () {
             var now = (new Date()).toLocaleString();
             $('#current_time').text(now);
         }, 1000);
-        
+
     })
 
 </script>

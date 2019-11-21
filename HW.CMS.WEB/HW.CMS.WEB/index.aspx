@@ -186,8 +186,8 @@
                     </ul>
                     <span class="heading">制度</span>
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="icon-flask"></i>打卡</a></li>
-                        <li><a href="#"><i class="icon-screen"></i>请假</a></li>
+                        <li><a href="timer.aspx"><i class="icon-flask"></i>打卡</a></li>
+                        <li><a href="leave.aspx"><i class="icon-screen"></i>请假</a></li>
                         <%--<li><a href="#"><i class="icon-mail"></i>Demo </a></li>
                         <li><a href="#"><i class="icon-picture"></i>Demo </a></li>--%>
                     </ul>
