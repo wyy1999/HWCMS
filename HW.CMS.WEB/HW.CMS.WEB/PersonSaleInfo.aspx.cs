@@ -17,15 +17,50 @@ namespace HW.CMS.WEB
             Repeater1.DataBind();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+     
+
+
+        /// <summary>
+        /// 添加
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Button2_Click1(object sender, EventArgs e)
         {
             PersonSaleInfoModel model = new PersonSaleInfoModel();
-            model.PerId = Convert.ToInt32(TextBox1.Text);
+            model.InfoId = Convert.ToInt32(TxtInfoId.Text);
+            model.DepId = Convert.ToInt32(DropDep.SelectedValue);
+            model.PerContent = TxtPerContent.Text;
+            model.PerMoney = Convert.ToDecimal(TxtPerMoney.Text);
+            model.ConMoney = Convert.ToDecimal(TxtConMoney.Text);
+           
+            if (bll.Add(model) >= 0)
+            {
+                Response.Write("<script>alert('添加成功！');location.href='PersonSaleInfo.aspx' </script>");
+
+            }
+            else
+            {
+
+                Response.Write("<script>alert('添加失败！') </script>");
+            }
+          
+        }
+
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            PersonSaleInfoModel model = new PersonSaleInfoModel();
+            model.PerId = Convert.ToInt32(update_PerId.Text);
             model.InfoId = Convert.ToInt32(update_InfoId.Text);
-            model.DepId = Convert.ToInt32(update_DepId.Text);
+            model.DepId = Convert.ToInt32(update_DepId.SelectedValue);
             model.PerContent = update_PerContent.Text;
             model.PerMoney = Convert.ToDecimal(update_PerMoney.Text);
-            model.ConMoney = Convert.ToDecimal(TextBox2.Text);
+            model.ConMoney = Convert.ToDecimal(update_ConMoney.Text);
             if (bll.update(model) >= 0)
             {
                 Response.Write("<script>alert('修改成功！');location.href='PersonSaleInfo.aspx' </script>");
@@ -35,6 +70,12 @@ namespace HW.CMS.WEB
                 Response.Write("<script>alert('修改失败！') </script>");
             }
         }
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
+        
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
@@ -47,30 +88,6 @@ namespace HW.CMS.WEB
             {
                 Response.Write("<script>alert('删除失败！') </script>");
             }
-
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            PersonSaleInfoModel model = new PersonSaleInfoModel();
-            model.InfoId = Convert.ToInt32(TxtName.Text);
-            model.DepId =Convert.ToInt32(TexDep.Text);
-            model.PerContent =TexPerContent.Text;
-            model.PerMoney = Convert.ToDecimal(TexPerMoney.Text);
-            model.ConMoney = Convert.ToDecimal(TexConMoney.Text);
-            int num = 0;
-            if (bll.Add(model) >= 0)
-            {
-                Response.Write("<script>alert('添加成功！');location.href='PersonSaleInfo.aspx' </script>");
-
-            }
-            else
-            {
-
-                Response.Write("<script>alert('添加失败！') </script>");
-            }
-            Session.Add("PerId", num);
-
         }
     }
 }

@@ -307,7 +307,7 @@ as
 declare @strsql varchar(max)
 set @strsql='select * from SaleInfo,DepartmentInfo where DepartmentInfo.DepId=SaleInfo.DepId and GroupName like ''%'+@GroupName+'%'''
 if @DepId<>0
-set @strsql=@strsql+'and DepId='+CONVERT(varchar,@DepId)
+set @strsql=@strsql+'and SaleInfo.DepId='+CONVERT(varchar,@DepId)
 exec (@strsql)
 go
 exec sel_SaleInfo 

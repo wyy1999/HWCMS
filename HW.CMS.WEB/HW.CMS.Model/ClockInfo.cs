@@ -19,7 +19,7 @@ namespace HW.CMS.Model
         /// <summary>
         /// string 类型
         /// </summary>
-        private string _ClockStateString;
+        //private string _ClockStateString;
 
         public string ClockStateString
         {

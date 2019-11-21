@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <link href="css/style.default.css" rel="stylesheet" />
     <link href="css/custom.css" rel="stylesheet" />
+
+      <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -41,7 +45,7 @@
                             <!-- 导航栏右侧 -->
                             <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                                 <!-- Search-->
-                                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search">第一个</i></a></li>
+                                <%--<li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search">第一个</i></a></li>--%>
                                 <!-- Notifications-->
                                 <li class="nav-item dropdown"><a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o">第二个 </i><span class="badge bg-red badge-corner">12</span></a>
                                     <ul aria-labelledby="notifications" class="dropdown-menu">
@@ -116,7 +120,7 @@
                                     </ul>
                                 </li>--%>
                                 <!-- Logout    -->
-                                <li class="nav-item"><a href="#" class="nav-link logout"><span class="d-none d-sm-inline">退出</span><i class="fa fa-sign-out"></i></a></li>
+                                <li class="nav-item"><a href="login.aspx" class="nav-link logout"><span class="d-none d-sm-inline">退出</span><i class="fa fa-sign-out"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -208,7 +212,7 @@
             </ul>
           </div>
            <div>
-               <asp:Repeater ID="Repeater1" runat="server">
+               <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
                    <HeaderTemplate>
                        <table class="table table-hover">
                            <thead>
@@ -229,12 +233,12 @@
                                <td><%#Eval("InfoName")%></td>
                                <td><%#Eval("Dep")%></td>
                                <td><%#Eval("PerContent")%></td>
-                               <td><%#Eval("PerMoney")%></td>
-                               <td><%#Eval("ConMoney")%></td>
-                               <td>
-                                   <%--<asp:LinkButton ID="LinkButton1" CommandName="insert" CommandArgument='<%#Eval("")%>' runat="server">添加</asp:LinkButton>--%>
-                                   <asp:LinkButton ID="LinkButton2" CommandName="update" CommandArgument='<%#Eval("PerId")%>' runat="server">修改</asp:LinkButton>
-                                   <asp:LinkButton ID="LinkButton3" CommandName="delete" CommandArgument='<%#Eval("PerId")%>' runat="server">删除</asp:LinkButton>
+                               <td><%#Eval("PerMoney")%>￥</td>
+                               <td><%#Eval("ConMoney")%>￥</td>
+                               <td>                                   
+                                   <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("PerId") %>','<%#Eval("InfoId") %>','<%#Eval("DepId") %>','<%#Eval("PerContent") %>','<%#Eval("PerMoney") %>','<%#Eval("ConMoney") %>')">修改</a>
+                                    <asp:LinkButton ID="LinkButton1" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("PerId")%>' runat="server">删除</asp:LinkButton>
+                                   
                                </td>
                            </tr>
                        </tbody>
@@ -260,34 +264,117 @@
                                     <div class="modal-body">
                                         
                                             <div class="form-group">
-                                                <label for="recipient-name" class="control-label">产品名称:</label>                                                
-                                                <asp:TextBox ID="TxtName" runat="server" class="form-control" ></asp:TextBox>
+                                                <label for="recipient-name" class="control-label">员工:</label>                                                
+                                                <asp:TextBox ID="TxtInfoId" runat="server" class="form-control" ></asp:TextBox>
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">产品内容:</label>
-                                                <asp:TextBox ID="TxtCon" runat="server" class="form-control" ></asp:TextBox>
+                                                <label for="message-text" class="control-label">部门:</label>
+                                                <asp:DropDownList ID="DropDep" runat="server" class="form-control" >
+                                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                                <asp:ListItem Value="1">人事部</asp:ListItem>
+                                                <asp:ListItem Value="2">财务部</asp:ListItem>
+                                                <asp:ListItem Value="3">研发部</asp:ListItem>
+                                                <asp:ListItem Value="4">销售部</asp:ListItem>
+                                            </asp:DropDownList>
                                                 
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">研发金额:</label>
-                                                <asp:TextBox ID="TxtMoney" runat="server" class="form-control"></asp:TextBox>
+                                                <label for="message-text" class="control-label">销售内容:</label>
+                                                <asp:TextBox ID="TxtPerContent" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                              <div class="form-group">
-                                                <label for="message-text" class="control-label">研发状态:</label>
-                                                <asp:TextBox ID="TxtState" runat="server" class="form-control"></asp:TextBox>
+                                                <label for="message-text" class="control-label">销售金额:</label>
+                                                <asp:TextBox ID="TxtPerMoney" runat="server" class="form-control"></asp:TextBox>
                                                  
                                             </div>
-                                       
+                                        <div class="form-group">
+                                                <label for="message-text" class="control-label">消费金额:</label>
+                                                <asp:TextBox ID="TxtConMoney" runat="server" class="form-control"></asp:TextBox>      
+                                            </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                       <asp:Button ID="Button2" runat="server" Text="确定添加"  class="btn btn-primary"  />                                                                             
+                                       <asp:Button ID="Button2" runat="server" Text="确定添加"  class="btn btn-primary" OnClick="Button2_Click1"  />                                                                             
+                                    </div>
+                                </div>
+                            </div>      
+                        </div>
+
+               <%-- 修改 --%>
+               <script type="text/javascript">
+                            function addressUpdate(PerId, InfoId, DepId, PerContent, PerMoney,ConMoney) {
+                                $("#update_PerId").val(PerId);
+                                $("#update_InfoId").val(InfoId);
+                                $("#update_DepId").val(DepId);
+                                $("#update_PerContent").val(PerContent);
+                                $("#update_PerMoney").val(PerMoney);  
+                                $("#update_ConMoney").val(ConMoney);  
+                                $("#modal-address-update").modal("show");
+                            }
+                        </script>
+
+                        <div class="modal fade" id="modal-address-update" tabindex="-1" role="dialog" aria-labelledby="modal-address-update-label"
+                            aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="text-align: center">
+                                        <h3 class="modal-title" id="modal-address-update-label">修改信息</h3>
+                                        <button type="button" class="close" data-dismiss="modal">
+                                            <span aria-hidden="true">×</span><span class="sr-only">关闭</span>
+                                        </button>
+
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <input type="hidden" id="update_AddressId" />
+
+                                        <div>
+
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">个人销售编号:</label>
+                                                <asp:TextBox ID="update_PerId" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">员工:</label>
+                                                <asp:TextBox ID="update_InfoId" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">部门:</label>
+                                                <asp:DropDownList ID="update_DepId" runat="server" class="form-control">
+                                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                                <asp:ListItem Value="1">人事部</asp:ListItem>
+                                                <asp:ListItem Value="2">财务部</asp:ListItem>
+                                                <asp:ListItem Value="3">研发部</asp:ListItem>
+                                                <asp:ListItem Value="4">销售部</asp:ListItem>
+                                            </asp:DropDownList>
+                                                
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">销售内容:</label>
+                                                <asp:TextBox ID="update_PerContent" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">销售金额:</label>
+                                               <asp:TextBox ID="update_PerMoney" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">消费金额:</label>
+                                                <asp:TextBox ID="update_ConMoney" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="text-align: center">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                取消</button>
+                                            <asp:Button ID="Button3" runat="server" Text="修改"  class="btn btn-primary"  OnClick="Button3_Click"/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
+
+
+
               </div>
         </div>
             </div>
