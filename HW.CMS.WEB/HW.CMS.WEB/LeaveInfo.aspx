@@ -214,37 +214,50 @@
                          
                     </div>
                     <div>
+                        <div style="height:50px;text-align:center;margin-top:10px">
 
-                        <asp:Repeater ID="Repeater1" runat="server" >
+                            部门名称：<asp:DropDownList ID="DropDownList1" runat="server">
+                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                <asp:ListItem Value="1">人事部</asp:ListItem>
+                                <asp:ListItem Value="2">财务部</asp:ListItem>
+                                <asp:ListItem Value="3">研发部</asp:ListItem>
+                                <asp:ListItem Value="4">销售部</asp:ListItem>
+                            </asp:DropDownList>
+                            审批状态：<asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                            <asp:ListItem Value="2" Selected="True">全部</asp:ListItem>
+                            <asp:ListItem Value="0">未审核</asp:ListItem>
+                            <asp:ListItem Value="1">已审核</asp:ListItem>
+                        </asp:RadioButtonList>
+                        <asp:Button ID="Button1" runat="server" Text="查询"  class="btn btn-success" OnClick="Button1_Click"/>
+                        </div>
+                        <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" >
                             <HeaderTemplate>
                                 
                                 <table class="table table-hove">
                                    
                                     <thead>
                                         <tr>
-                                            <th>id</th>
-                                            <th>产品名称</th>
-                                            <th>产品内容</th>
-                                            <th>开始时间</th>
-                                            <th>结束时间</th>
-                                            <th>研发金额</th>
-                                            <th>研发状态</th>
-                                            <th>编辑</th>
+                                            <th>请假id</th>
+                                            <th>员工</th>
+                                            <th>部门</th>
+                                            <th>请假时间</th>
+                                            <th>请假原因</th>
+                                            <th>审核状态</th>
                                         </tr>
                                     </thead>
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <tbody>
                                     <tr class="warning">
-                                        <td><%#Eval("ResId") %></td>
-                                        <td><%#Eval("Resname") %></td>
-                                        <td><%#Eval("ResIntroduce") %></td>
-                                        <td><%#Eval("BeginTime") %></td>
-                                        <td><%#Eval("EndTime") %></td>
-                                        <td><%#Eval("ResMoney") %></td>
-                                        <td><%#Eval("ResStateString") %></td>
+                                        <td><%#Eval("LeaveId") %></td>
+                                        <td><%#Eval("InfoName") %></td>
+                                        <td><%#Eval("Dep") %></td>
+                                        <td><%#Eval("LeaveTime") %></td>
+                                        <td><%#Eval("LeaveReason") %></td>
+                                        <td><%#Eval("LeaveStatestr") %></td>
                                         <td>
-                                            <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info"  >修改</asp:LinkButton>                                      
+                                            <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-info" CommandName="delete" CommandArgument='<%#Eval("LeaveId") %>' >删除</asp:LinkButton> 
+                                            <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" CommandName="update" CommandArgument='<%#Eval("LeaveId") %>' >修改</asp:LinkButton>                                     
                                         </td>
                                     </tr>
                                 </tbody>

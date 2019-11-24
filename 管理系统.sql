@@ -161,6 +161,21 @@ go
 
 insert into LeaveInfo values (1,1,'2019.9.9','回家结婚',0)
 
+if exists(select * from sys.procedures where name='Sel_LeaveInfo')
+drop proc Sel_LeaveInfo
+go
+create proc Sel_LeaveInfo(@DepId int=0,@LeaveState int=0)
+as
+declare @sql varchar(max)
+set @sql='select LeaveInfo.*,InfoTable.InfoName,DepartmentInfo.Dep from LeaveInfo,InfoTable,DepartmentInfo where LeaveInfo.InfoId=InfoTable.InfoId and LeaveInfo.DepId=DepartmentInfo.DepId'
+if @DepId<>0
+set @sql=@sql+' and LeaveInfo.DepId='+CONVERT(varchar,@DepId)
+if @LeaveState<>2 
+set @sql=@sql+' and LeaveState='+CONVERT(varchar,@LeaveState)
+exec(@sql)
+go
+exec Sel_LeaveInfo 1,0
+
 --公司报备表 ReportInfo
 if exists(select * from sys.tables where name='ReportInfo')
 drop table ReportInfo

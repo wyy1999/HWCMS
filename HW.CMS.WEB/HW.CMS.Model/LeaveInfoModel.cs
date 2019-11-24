@@ -14,5 +14,23 @@ namespace HW.CMS.Model
         public string LeaveTime { get; set; }
         public string LeaveReason { get; set; }
         public int LeaveState { get; set; }
+
+        public string LeaveStatestr
+        {
+            get
+            {
+                if (LeaveState == 0)
+                {
+                    return "未审核";
+                }
+                else
+                {
+                    return "已审核";
+                }
+            }
+        }
+        public string InfoName { get; set; }
+        public string Dep { get; set; }
+
     }
 }
