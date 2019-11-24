@@ -141,37 +141,37 @@
                         <li class="active"><a href="index.aspx"><i class="icon-home"></i>首页 </a></li>
                         <li><a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse"><i class="icon-grid"></i>公司人员信息 </a>
                              <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
-                                <li><a href="InfoTable.aspx">登录信息</a></li>
-                                <li><a href="UserInfo.aspx">人员详情</a></li>
+                                <li><a href="InfoTable.aspx" target="frame">登录信息</a></li>
+                                <li><a href="UserInfo.aspx" target="frame">人员详情</a></li>
                                
                             </ul>
                         </li>
                         <li><a href="#exampledropdownDropdown5" aria-expanded="false" data-toggle="collapse"><i class="fa fa-bar-chart"></i>出勤情况 </a>
                             <ul id="exampledropdownDropdown5" class="collapse list-unstyled ">
-                                <li><a href="ClockInfo.aspx">打卡信息</a></li>
-                                <li><a href="LeaveInfo.aspx">请假信息</a></li>                              
+                                <li><a href="ClockInfo.aspx" target="frame">打卡信息</a></li>
+                                <li><a href="LeaveInfo.aspx" target="frame">请假信息</a></li>                              
                             </ul>
 
                         </li>
                         <li><a href="ReportInfo.aspx"><i class="icon-padnote"></i>公司报备</a></li>
                            <li><a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>公司财务 </a>
                             <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
-                                <li><a href="AccoutInfo.aspx">支出</a></li>
-                                <li><a href="IncomeInfo.aspx">收入</a></li>
+                                <li><a href="AccoutInfo.aspx" target="frame">支出</a></li>
+                                <li><a href="IncomeInfo.aspx"target="frame">收入</a></li>
                                 
                             </ul>
                         </li>
                         <li><a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>研发部 </a>
                             <ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
-                                <li><a href="ResearchInfo.aspx">研发内容</a></li>
-                                <li><a href="DetailsInfo.aspx">研发详情</a></li>
+                                <li><a href="ResearchInfo.aspx"target="frame">研发内容</a></li>
+                                <li><a href="DetailsInfo.aspx" target="frame">研发详情</a></li>
                                
                             </ul>
                         </li>
                         <li><a href="#exampledropdownDropdown3" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>销售部 </a>
                              <ul id="exampledropdownDropdown3" class="collapse list-unstyled ">
-                                <li><a href="SaleInfo.aspx">销售情况</a></li>
-                                <li><a href="PersonSaleInfo.aspx">个人销售情况</a></li>
+                                <li><a href="SaleInfo.aspx" target="frame">销售情况</a></li>
+                                <li><a href="PersonSaleInfo.aspx" target="frame">个人销售情况</a></li>
                                 
                             </ul>
                         </li>
@@ -186,15 +186,15 @@
                     </ul>
                     <span class="heading">制度</span>
                     <ul class="list-unstyled">
-                        <li><a href="timer.aspx"><i class="icon-flask"></i>打卡</a></li>
-                        <li><a href="leave.aspx"><i class="icon-screen"></i>请假</a></li>
+                        <li><a href="timer.aspx" target="frame"><i class="icon-flask"></i>打卡</a></li>
+                        <li><a href="leave.aspx" target="frame"><i class="icon-screen"></i>请假</a></li>
                         <%--<li><a href="#"><i class="icon-mail"></i>Demo </a></li>
                         <li><a href="#"><i class="icon-picture"></i>Demo </a></li>--%>
                     </ul>
                 </nav>
-                 <div class="content-inner">
+<%--                 <div class="content-inner">--%>
           <!-- Page Header-->
-          <header class="page-header">
+         <%-- <header class="page-header">
             <div class="container-fluid">
               <h2 class="no-margin-bottom">图表</h2>
             </div>
@@ -204,13 +204,13 @@
             <ul class="breadcrumb">
               <li class="breadcrumb-item"><a href="index.html">345</a></li>
               <li class="breadcrumb-item active">234            </li>
-            </ul>
-          </div>
+            </ul>--%>
+ <%--         </div>--%>
            <div>
-                      在这写东西
+                      <iframe name="frame" src="" frameborder="" align="right" width="2000px" height="1000px" scrolling="yes"></iframe>
                   </div>
         </div>
-            </div>
+         <%--   </div>--%>
         </div>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
@@ -223,6 +223,8 @@
     <script src="js/front.js"></script>
 
     </form>
-
+    <script>
+        <
+    </script>
 </body>
 </html>
