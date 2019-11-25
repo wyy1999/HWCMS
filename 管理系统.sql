@@ -51,7 +51,7 @@ insert into UserLogin values(1003,'123456',3)
 insert into UserLogin values(1004,'123456',4)
 insert into UserLogin values(1005,'123456',5)
 insert into UserLogin values(1006,'123456',6)
-
+insert into UserLogin values(1007,'123456',7)
 
 
 
@@ -101,8 +101,14 @@ create table InfoTable(
   InfoState int check( InfoState=1 or InfoState=2 )  --状态  1在职 2离职
 )
 
-insert  into InfoTable values('张三',18,'男','1997.11.1','123456431','12345123454','河南省','11231234121@qq.com','','','2',1,2,2,'7000',1)
-insert  into InfoTable values('里斯',20,'女','1997.10.1','12345643152','12345123456','河南省郑州市','10231234121@qq.com',getdate(),'','3',2,3,3,'7000',1)
+insert  into InfoTable values('张三',18,'男','1997.11.1','147852369632541785','12345123454','河南省','11231234121@qq.com','','','2',1,2,2,'7000',1)
+insert  into InfoTable values('里斯',20,'女','1997.10.1','145236525632458712','12345123456','河南省郑州市','10231234121@qq.com',getdate(),'','3',2,3,3,'7000',1)
+insert  into InfoTable values('王五',27,'男','1997.10.1','147852369963258741','12345123455','河南省郑州市','10231234123@qq.com',getdate(),'','3',3,5,5,'5000',1)
+insert  into InfoTable values('李四',24,'女','1997.10.1','147852369987456123','12345123453','河南省郑州市管城区','10231234124@qq.com',getdate(),'','3',4,4,4,'6000',1)
+insert  into InfoTable values('白亚军',20,'男','1997.10.1','147852369987456714','12345123483','河南省郑州市管城区','10231234174@qq.com',getdate(),'','1',4,6,6,'4000',1)
+insert  into InfoTable values('李明',20,'男','1997.10.1','147852369987456185','12345123473','河南省郑州市管城区','10231234824@qq.com',getdate(),'','3个月',4,7,7,'3000',1)
+select * from InfoTable
+
 go
 
 
@@ -360,6 +366,10 @@ create table IncomeInfo(
   SaleId int references SaleInfo(SaleId)  -- 销售金额 外键销售表   
 )
 go
+
+insert into IncomeInfo values(1)
+insert into IncomeInfo values(2)
+insert into IncomeInfo values(3)
 
 select * from SaleInfo
 --------------------------------------------------------插入数据
