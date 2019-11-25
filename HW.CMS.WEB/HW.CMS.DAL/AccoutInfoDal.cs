@@ -30,8 +30,7 @@ namespace HW.CMS.DAL
                         ACCSalary = Convert.ToDecimal(sqlda["ACCSalary"]),
                         AccSubsidy = Convert.ToDecimal(sqlda["AccSubsidy"]),
                         AccFiveMoney =Convert.ToDecimal(sqlda["AccFiveMoney"]) ,
-                         AccReportModey= Convert.ToDecimal(sqlda["AccReportModey"]),
-                        ReportMoney = Convert.ToDecimal(sqlda["ReportMoney"])
+                        AccReportModey= Convert.ToDecimal(sqlda["AccReportModey"]),    
                         
                     };
                     list.Add(accout);

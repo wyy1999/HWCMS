@@ -19,8 +19,8 @@ namespace HW.CMS.WEB
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string user =Convert.ToString(Session["chuan"]);
-            TextBox4.Text = user;
+            //string user =Convert.ToString(Session["chuan"]);
+            //TextBox4.Text = user;
             Repeater1.DataSource = UserLoginBll.selectAll();
             Repeater1.DataBind();
         }

@@ -153,7 +153,7 @@
                             </ul>
 
                         </li>
-                        <li><a href="ReportInfo.aspx"><i class="icon-padnote"></i>公司报备</a></li>
+                        <li><a href="ReportInfo.aspx" target="frame"><i class="icon-padnote"></i>公司报备</a></li>
                            <li><a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse"><i class="icon-padnote"></i>公司财务 </a>
                             <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
                                 <li><a href="AccoutInfo.aspx" target="frame">支出</a></li>
@@ -224,7 +224,7 @@
 
     </form>
     <script>
-        <
+        
     </script>
 </body>
 </html>

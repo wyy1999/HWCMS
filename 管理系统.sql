@@ -125,10 +125,12 @@ set @strsql=@strsql+' and InfoState='+CONVERT(varchar,@InfoState)
 print @strsql
 exec(@strsql)
 go
-exec sel_InfoTable '三',0,0,'',
+exec sel_InfoTable '三',0,0,''
+go
 
 
 /*人员打卡表 ClockInfo*/
+
 if exists(select * from sys.tables where name='ClockInfo')
 drop table ClockInfo
 GO

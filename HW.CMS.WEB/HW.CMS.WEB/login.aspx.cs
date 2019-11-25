@@ -31,11 +31,11 @@ namespace HW.CMS.WEB
                 if (result.DutyId == 1)
                 {
                     Session["chuan"] = result.UserNum;
-                    Response.Redirect("InfoTable.aspx");
+                    Response.Redirect("index.aspx");
                 }
                 else if(result.DutyId==2)
                 {
-                    Response.Redirect("AccoutInfo.aspx");
+                    Response.Redirect("index.aspx");
                 }
                 else { 
                 //Session.Add("Userid", num);
