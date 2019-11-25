@@ -320,9 +320,9 @@ create table SaleInfo(
 go
 --SELECT * FROM SaleInfo
 select SaleInfo.*,DepartmentInfo.Dep from SaleInfo,DepartmentInfo where DepartmentInfo.DepId=SaleInfo.DepId
-INSERT INTO SaleInfo VALUES('嘿','销售内容',2342424,1)
-INSERT INTO SaleInfo VALUES('哈','销售内容',5335333,1)
-INSERT INTO SaleInfo VALUES('嗯哼','销售内容',435355,1)
+INSERT INTO SaleInfo VALUES('张三','卖房一套',2342424,1)
+INSERT INTO SaleInfo VALUES('李四','租出单间公寓',5335333,1)
+INSERT INTO SaleInfo VALUES('王五','租出公寓',435355,1)
 
 if exists(select * from sys.procedures where name='sel_SaleInfo')
 drop proc sel_SaleInfo
