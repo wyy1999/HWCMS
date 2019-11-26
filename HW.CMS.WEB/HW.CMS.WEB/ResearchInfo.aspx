@@ -71,7 +71,7 @@
                                 <tbody>
                                     <tr class="warning">
                                         <td><%#Eval("ResId") %></td>
-                                        <td><%#Eval("Resname") %></td>
+                                        <td><a href="ResXq/<%#Eval("ResId") %>a.aspx" target="frame"> <%#Eval("Resname") %></a></td>
                                         <td><%#Eval("ResIntroduce") %></td>
                                         <td><%#Eval("ResGroup") %></td>
                                         <td><%#Eval("BeginTime") %></td>
