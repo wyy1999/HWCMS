@@ -25,15 +25,14 @@
                 <!-- Page Header-->
                 <header class="page-header">
                     <div class="container-fluid">
-                        <h2 class="no-margin-bottom">公司人员信息</h2>
+                        <h2 class="no-margin-bottom">登陆信息</h2>
                     </div>
                 </header>
                 <!-- Breadcrumb-->
                 <div class="breadcrumb-holder container-fluid">
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item">人员信息</li>
                         <li class="breadcrumb-item active">
-                            <asp:Label type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="添加"></asp:Label>
+                            <asp:Label type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="录入"></asp:Label>
                     </ul>
                 </div>
 
@@ -51,7 +50,7 @@
                         <ItemTemplate>
                             <tr class="danger">
                                 <td><%#Eval("UserName") %></td>
-                                <td><%#Eval("Userpwd") %></td>
+                                <td>******</td>
                                 <td><%#Eval("DutyName") %></td>
                                 <td style="width: 200px">
                                     <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("Userid") %>','<%#Eval("UserName") %>','<%#Eval("Userpwd") %>','<%#Eval("DutyId") %>')">修改</a>

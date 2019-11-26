@@ -34,20 +34,23 @@
                             <!-- 左侧标题-->
                             <div class="navbar-header">
                                 <!-- Navbar Brand -->
-                                <a href="index.html" class="navbar-brand d-none d-sm-inline-block">
+                                <a class="navbar-brand d-none d-sm-inline-block">
                                     <div class="brand-text d-none d-lg-inline-block"><span>公司管理 </span><strong>系统   </strong></div>
                                     <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div>
                                 </a>
                                 <!-- 切换按钮-->
                                 <a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
-                                
+
                             </div>
                             <!-- 导航栏右侧 -->
                             <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                                 <!-- Search-->
-                                      <li class="nav-item d-flex align-items-center"><div id="current_time" style="height: 20px"></div></li>
+                                <li class="nav-item d-flex align-items-center">欢迎：
+                                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                                    <span>~~~现在时间：</span><div id="current_time" style="height: 20px"></div>
+                                </li>
                                 <!-- Notifications-->
-                              <%--    <li class="nav-item dropdown"><a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o">第二个 </i><span class="badge bg-red badge-corner">12</span></a>
+                                <%--    <li class="nav-item dropdown"><a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o">第二个 </i><span class="badge bg-red badge-corner">12</span></a>
                                     <ul aria-labelledby="notifications" class="dropdown-menu">
                                         <li><a rel="nofollow" href="#" class="dropdown-item">
                                             <div class="notification">
@@ -140,9 +143,9 @@
                         </div>
                     </div>
                     <!-- Sidebar Navidation Menus-->
-                    <span class="heading">菜单</span>
+                    <span class="heading" style="font-size: 16px">菜单</span>
                     <ul class="list-unstyled">
-                        <li class="active"><a href="indexinfo.aspx" target="frame"><i class="icon-home"></i>首页 </a></li>
+                        <li><a href="indexinfo.aspx" target="frame"><i class="icon-home"></i>首页 </a></li>
                         <li><a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse"><i class="icon-grid"></i>公司人员信息 </a>
                             <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
                                 <li><a href="InfoTable.aspx" target="frame">登录信息</a></li>
@@ -190,7 +193,6 @@
                     </ul>
                     <span class="heading">制度</span>
                     <ul class="list-unstyled">
-                        <li><a href="timer.aspx" target="frame"><i class="icon-flask"></i>打卡</a></li>
                         <li><a href="leave.aspx" target="frame"><i class="icon-screen"></i>请假</a></li>
                         <%--<li><a href="#"><i class="icon-mail"></i>Demo </a></li>
                         <li><a href="#"><i class="icon-picture"></i>Demo </a></li>--%>

@@ -31,10 +31,7 @@
                     </header>
                     <!-- Breadcrumb-->
                     <div class="breadcrumb-holder container-fluid">
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">支出表</a></li>
-                            <li class="breadcrumb-item active"></li>
-                            <asp:Label type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="添加"></asp:Label>
+                            <asp:Label type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="报备信息"></asp:Label>
                         </ul>
                     </div>
                     <div>

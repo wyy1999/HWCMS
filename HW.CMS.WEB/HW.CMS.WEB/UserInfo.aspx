@@ -31,10 +31,9 @@
                     <!-- Breadcrumb-->
                     <div class="breadcrumb-holder container-fluid">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="ResearchInfo.aspx">公司人员信息</a></li>
-                            <li class="breadcrumb-item active">人员详情            </li>          
+                             <button style="margin-left: 20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">新员工入职</button>
                         </ul>
-                        <button style="margin-left: 20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">添加</button>
+                       
                     </div>
                     <div>
                         <div style="height: 50px; text-align: center; margin-top: 10px">

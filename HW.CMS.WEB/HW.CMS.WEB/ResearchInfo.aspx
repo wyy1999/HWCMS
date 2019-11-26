@@ -31,9 +31,7 @@
                     <!-- Breadcrumb-->
                     <div class="breadcrumb-holder container-fluid">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="ResearchInfo.aspx">研发部</a></li>
-                            <li class="breadcrumb-item active">研发内容            </li>
-                            <button style="margin-left: 20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">添加</button>
+                            <button style="margin-left: 20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">新项目</button>
                         </ul>
 
                     </div>
@@ -126,7 +124,7 @@
                                             <label for="message-text" class="control-label">研发金额:</label>
                                             <asp:TextBox ID="TxtMoney" runat="server" class="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" style="display:none">
                                             <label for="message-text" class="control-label">研发状态:</label>
                                             <asp:DropDownList ID="DropDownList1" runat="server" class="form-control">
                                                     <asp:ListItem Selected="True" Value="1">未完成</asp:ListItem>

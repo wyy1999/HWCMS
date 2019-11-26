@@ -29,12 +29,7 @@
             </div>
           </header>
           <!-- Breadcrumb-->
-          <div class="breadcrumb-holder container-fluid">
-            <ul class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">出勤情况</a></li>
-              <li class="breadcrumb-item active">打卡表            </li>
-            </ul>
-          </div>
+          
            <div>
                   
                 <asp:Repeater ID="Repeater1" runat="server">

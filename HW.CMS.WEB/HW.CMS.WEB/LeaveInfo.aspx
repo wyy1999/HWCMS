@@ -25,18 +25,11 @@
                     <!-- Page Header-->
                     <header class="page-header">
                         <div class="container-fluid">
-                            <h2 class="no-margin-bottom">出勤信息</h2>
+                            <h2 class="no-margin-bottom">请假信息</h2>
                         </div>
                     </header>
                     <!-- Breadcrumb-->
-                    <div class="breadcrumb-holder container-fluid">
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="ResearchInfo.aspx">出勤情况</a></li>
-                            <li class="breadcrumb-item active">请假信息           </li>
-                            <button style="margin-left:20px" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">添加</button>
-                        </ul>
-                         
-                    </div>
+                   
                     <div>
                         <div style="height:50px;text-align:center;margin-top:10px">
 

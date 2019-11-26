@@ -21,9 +21,9 @@ namespace HW.CMS.DAL
 
 
             //与数据库操作的步骤
-            string sql = "select DutyInfo.DutyName,userlogin.* from userlogin,DutyInfo where userlogin.DutyId=DutyInfo.DutyId and UserNum =@UserNum and Userpwd=@Userpwd ";
+            string sql = "select DutyInfo.DutyName,userlogin.* from userlogin,DutyInfo where userlogin.DutyId=DutyInfo.DutyId and UserName =@UserName and Userpwd=@Userpwd ";
             SqlParameter[] sqlParameters = new SqlParameter[2];
-            sqlParameters[0] = new SqlParameter("@UserNum", userName);
+            sqlParameters[0] = new SqlParameter("@UserName", userName);
             sqlParameters[1] = new SqlParameter("@Userpwd", passWord);
             //5.执行命令，返回结果
             UserLogin accout = new UserLogin();
@@ -35,7 +35,7 @@ namespace HW.CMS.DAL
                     accout = new UserLogin() { 
 
                     Userid = Convert.ToInt32(result["Userid"]),
-                    UserName = Convert.ToString(result["UserNum"]),
+                    UserName = Convert.ToString(result["UserName"]),
                     Userpwd = Convert.ToString(result["Userpwd"]),
                     DutyId=Convert.ToInt32(result["DutyId"]),
                      DutyName=Convert.ToString(result["DutyName"])

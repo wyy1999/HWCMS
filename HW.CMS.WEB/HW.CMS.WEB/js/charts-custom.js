@@ -41,10 +41,10 @@ $(document).ready(function () {
             },
         },
         data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["1-2", "3-4", "5-6", "7-8", "8-9", "9-10", "11-12"],
             datasets: [
                 {
-                    label: "Data Set One",
+                    label: "财务",
                     fill: true,
                     lineTension: 0.3,
                     backgroundColor: gradient1,
@@ -67,7 +67,7 @@ $(document).ready(function () {
                     spanGaps: false
                 },
                 {
-                    label: "Data Set Two",
+                    label: "人员",
                     fill: true,
                     lineTension: 0.3,
                     backgroundColor: gradient2,

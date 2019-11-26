@@ -31,15 +31,25 @@ namespace HW.CMS.WEB
                 if (result.DutyId == 1)
                 {
                     Session["chuan"] = result.UserName;
+                    Session["zhi"] = result.DutyId;
                     Response.Redirect("index.aspx");
                 }
                 else if(result.DutyId==2)
                 {
                     Session["chuan"] = result.UserName;
+                    Session["zhi"] = result.DutyId;
                     Response.Redirect("index.aspx");
                 }
-                else {
+                else if(result.DutyId == 3)
+                {
                     Session["chuan"] = result.UserName;
+                    Session["zhi"] = result.DutyId;
+                    Response.Redirect("index.aspx");
+                }
+                else
+                {
+                    Session["chuan"] = result.UserName;
+                    Session["zhi"] = result.DutyId;
                     Response.Redirect("index.aspx");
                 }
             }
