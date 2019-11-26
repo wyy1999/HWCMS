@@ -12,25 +12,21 @@ namespace HW.CMS.Model
     public class PersonSaleInfoModel
     {
         public int PerId { get; set; }
-        public int InfoId { get; set; }
-        public int DepId { get; set; }
+        public int Userid { get; set; }
+        
         public string PerContent { get; set; }
         public decimal PerMoney { get; set; }
         public decimal ConMoney { get; set; }
 
-        private string _Dep;
+      
 
-        public string Dep
-        {
-            get { return _Dep; }
-            set { _Dep = value; }
-        }
-        private string _InfoName;
+       
+        private string _UserName;
 
-        public string InfoName
+        public string UserName
         {
-            get { return _InfoName; }
-            set { _InfoName = value; }
+            get { return _UserName; }
+            set { _UserName = value; }
         }
 
     }

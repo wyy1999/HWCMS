@@ -44,9 +44,9 @@
                                     <tr>
                                         <th>收入id
                                         </th>
-                                        <th>销售金额
+                                        <th>收入金额
                                         </th>
-                                        <th>销售内容
+                                        <th>收入来源
                                         </th>
                                     </tr>
                             </HeaderTemplate>
@@ -56,14 +56,14 @@
                                         <%#Eval("IncomeId") %>
                                     </td>
                                     <td>
-                                        <%#Eval("SaleMoney") %>￥
+                                        <%#Eval("IncomMoney") %>￥
                                     </td>
                                     <td>
-                                        <%#Eval("SaleContent") %>
+                                        <%#Eval("IncomForm") %>
                                     </td>
                                     <td>
                                         <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("IncomeId") %>'>删除</asp:LinkButton>
-                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("IncomeId") %>','<%#Eval("SaleId") %>')">修改</a>
+                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("IncomeId") %>','<%#Eval("IncomMoney") %>','<%#Eval("IncomForm") %>')">修改</a>
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -85,9 +85,14 @@
                                     <table>
 
                                         <tr>
-                                            <td>销售id</td>
+                                            <td>收入金额</td>
                                             <td>
                                                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+                                        </tr>
+                                        <tr>
+                                            <td>收入来源</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
                                         </tr>
                                     </table>
 
@@ -100,9 +105,10 @@
                         </div>
                     </div>
                     <script type="text/javascript">
-                        function addressUpdate(id, Id) {
-                            $("#update_IncomeId").val(id);
-                            $("#update_SaleId").val(Id);
+                        function addressUpdate(IncomeId, IncomMoney,IncomForm) {
+                            $("#update_IncomeId").val(IncomeId);
+                            $("#update_IncomMoney").val(IncomMoney);
+                             $("#update_IncomForm").val(IncomForm);
                             $("#modal-address-update").modal("show");
                         }
                     </script>
@@ -124,16 +130,22 @@
 
                                     <div>
                                         <table>
-                                            <tr style="display: none">
+                                            <tr >
                                                 <td>收入id</td>
                                                 <td>
                                                     <asp:TextBox ID="update_IncomeId" name="update_IncomeId"
                                                         class="form-control" runat="server"></asp:TextBox></td>
                                             </tr>
                                             <tr>
-                                                <td>销售id</td>
+                                                <td>收入金额</td>
                                                 <td>
-                                                    <asp:TextBox ID="update_SaleId" name="update_SaleId"
+                                                    <asp:TextBox ID="update_IncomMoney" name="update_SaleId"
+                                                        class="form-control" runat="server"></asp:TextBox></td>
+                                            </tr>
+                                             <tr>
+                                                <td>收入来源</td>
+                                                <td>
+                                                    <asp:TextBox ID="update_IncomForm" name="update_SaleId"
                                                         class="form-control" runat="server"></asp:TextBox></td>
                                             </tr>
                                         </table>

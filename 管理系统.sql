@@ -378,7 +378,7 @@ drop table PersonSaleInfo
 GO
 create table PersonSaleInfo(
   PerId int primary key identity(1,1),--个人销售id
-  InfoId int references  InfoTable(InfoId),   --员工表外键 字段  姓名 部门  
+  Userid int references UserLogin(Userid),--登陆表外键 字段  姓名 部门  
   PerContent VARCHAR(500),--销售内容
   PerMoney decimal(18,2) check(PerMoney>=0) default(0) not null,--销售金额
   ConMoney decimal(18,2) check(ConMoney>=0) default(0) not null,--消费金额
@@ -386,10 +386,10 @@ create table PersonSaleInfo(
 go
 
 
-INSERT INTO PersonSaleInfo VALUES(5,'酒店管理系统',10000,200)
-INSERT INTO PersonSaleInfo VALUES(6,'高校数字化管理平台',20000,200)
-SELECT InfoTable.InfoName,PersonSaleInfo.*FROM InfoTable,DepartmentInfo,PersonSaleInfo 
-WHERE InfoTable.InfoId=PersonSaleInfo.InfoId 
+INSERT INTO PersonSaleInfo VALUES(6,'酒店管理系统',10000,200)
+INSERT INTO PersonSaleInfo VALUES(7,'高校数字化管理平台',20000,200)
+SELECT UserLogin.UserName,PersonSaleInfo.*FROM UserLogin,PersonSaleInfo 
+WHERE PersonSaleInfo.Userid=UserLogin.Userid 
 
 --财务表（收入）IncomeInfo
 if exists(select * from sys.tables where name='IncomeInfo')

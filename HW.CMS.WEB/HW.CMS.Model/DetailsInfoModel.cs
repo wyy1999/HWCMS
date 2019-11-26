@@ -18,20 +18,23 @@ namespace HW.CMS.Model
             get { return _DetId; }
             set { _DetId = value; }
         }
-        private int _InfoId;
+        private string _DetName;
 
-        public int InfoId
+        public string DetName
         {
-            get { return _InfoId; }
-            set { _InfoId = value; }
+            get { return _DetName; }
+            set { _DetName = value; }
         }
-        private decimal _AllMoney;
 
-        public decimal AllMoney
+        private string _DetContent;
+
+        public string DetContent
         {
-            get { return _AllMoney; }
-            set { _AllMoney = value; }
+            get { return _DetContent; }
+            set { _DetContent = value; }
         }
+
+
 
         private decimal _UseMoney;
 
@@ -41,14 +44,7 @@ namespace HW.CMS.Model
             set { _UseMoney = value; }
         }
 
-        private decimal _OverMoney;
-
-        public decimal OverMoney
-        {
-            get { return _OverMoney; }
-            set { _OverMoney = value; }
-        }
-
+      
         private string _DetPlan;
 
         public string DetPlan
@@ -65,16 +61,7 @@ namespace HW.CMS.Model
             set { _ResId = value; }
         }
 
-        /// <summary>
-        /// 负责人
-        /// </summary>
-        private string _InfoName;
-
-        public string InfoName
-        {
-            get { return _InfoName; }
-            set { _InfoName = value; }
-        }
+      
         /// <summary>
         /// 研发名称
         /// </summary>
@@ -97,6 +84,21 @@ namespace HW.CMS.Model
             get { return _ResIntroduce; }
             set { _ResIntroduce = value; }
         }
+        private string _ResGroup;
+
+        public string ResGroup
+        {
+            get { return _ResGroup; }
+            set { _ResGroup = value; }
+        }
+        private decimal _ResMoney;
+
+        public decimal ResMoney
+        {
+            get { return _ResMoney; }
+            set { _ResMoney = value; }
+        }
+
 
     }
 }

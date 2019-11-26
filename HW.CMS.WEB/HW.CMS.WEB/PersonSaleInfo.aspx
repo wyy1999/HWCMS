@@ -41,8 +41,8 @@
                        <table class="table table-hover">
                            <thead>
                                <tr>
-                                   <th>员工</th>
-                                   <th>报备部门</th>
+                                 
+                                   <th>销售人员</th>
                                    <th>销售内容</th>
                                    <th>销售金额</th>
                                    <th>消费金额</th>
@@ -54,13 +54,13 @@
                    <ItemTemplate>
                        <tbody>
                            <tr>
-                               <td><%#Eval("InfoName")%></td>
-                               <td><%#Eval("Dep")%></td>
+                              
+                               <td><%#Eval("UserName")%></td>
                                <td><%#Eval("PerContent")%></td>
                                <td><%#Eval("PerMoney")%>￥</td>
                                <td><%#Eval("ConMoney")%>￥</td>
                                <td>                                   
-                                   <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("PerId") %>','<%#Eval("InfoId") %>','<%#Eval("DepId") %>','<%#Eval("PerContent") %>','<%#Eval("PerMoney") %>','<%#Eval("ConMoney") %>')">修改</a>
+                                   <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("PerId") %>','<%#Eval("Userid") %>','<%#Eval("PerContent") %>','<%#Eval("PerMoney") %>','<%#Eval("ConMoney") %>')">修改</a>
                                     <asp:LinkButton ID="LinkButton1" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("PerId")%>' runat="server">删除</asp:LinkButton>
                                    
                                </td>
@@ -91,17 +91,7 @@
                                                 <label for="recipient-name" class="control-label">员工:</label>                                                
                                                 <asp:TextBox ID="TxtInfoId" runat="server" class="form-control" ></asp:TextBox>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="message-text" class="control-label">部门:</label>
-                                                <asp:DropDownList ID="DropDep" runat="server" class="form-control" >
-                                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
-                                                <asp:ListItem Value="1">人事部</asp:ListItem>
-                                                <asp:ListItem Value="2">财务部</asp:ListItem>
-                                                <asp:ListItem Value="3">研发部</asp:ListItem>
-                                                <asp:ListItem Value="4">销售部</asp:ListItem>
-                                            </asp:DropDownList>
-                                                
-                                            </div>
+        
                                             
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">销售内容:</label>
@@ -127,10 +117,10 @@
 
                <%-- 修改 --%>
                <script type="text/javascript">
-                            function addressUpdate(PerId, InfoId, DepId, PerContent, PerMoney,ConMoney) {
+                            function addressUpdate(PerId, Userid, PerContent, PerMoney,ConMoney) {
                                 $("#update_PerId").val(PerId);
-                                $("#update_InfoId").val(InfoId);
-                                $("#update_DepId").val(DepId);
+                                $("#update_InfoId").val(Userid);
+                               
                                 $("#update_PerContent").val(PerContent);
                                 $("#update_PerMoney").val(PerMoney);  
                                 $("#update_ConMoney").val(ConMoney);  
@@ -162,17 +152,6 @@
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">员工:</label>
                                                 <asp:TextBox ID="update_InfoId" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="message-text" class="control-label">部门:</label>
-                                                <asp:DropDownList ID="update_DepId" runat="server" class="form-control">
-                                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
-                                                <asp:ListItem Value="1">人事部</asp:ListItem>
-                                                <asp:ListItem Value="2">财务部</asp:ListItem>
-                                                <asp:ListItem Value="3">研发部</asp:ListItem>
-                                                <asp:ListItem Value="4">销售部</asp:ListItem>
-                                            </asp:DropDownList>
-                                                
                                             </div>
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">销售内容:</label>

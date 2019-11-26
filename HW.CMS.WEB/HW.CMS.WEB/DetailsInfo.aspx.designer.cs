@@ -58,15 +58,6 @@ namespace HW.CMS.WEB {
         protected global::System.Web.UI.WebControls.TextBox TxtUse;
         
         /// <summary>
-        /// TxtOver 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtOver;
-        
-        /// <summary>
         /// TxtPlan 控件。
         /// </summary>
         /// <remarks>
@@ -128,15 +119,6 @@ namespace HW.CMS.WEB {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox update_UseMoney;
-        
-        /// <summary>
-        /// update_OverMoney 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox update_OverMoney;
         
         /// <summary>
         /// update_DetPlan 控件。

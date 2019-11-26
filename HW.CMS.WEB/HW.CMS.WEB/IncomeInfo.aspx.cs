@@ -21,8 +21,8 @@ namespace HW.CMS.WEB
         protected void Button1_Click(object sender, EventArgs e)
         {
             IncomeInfoModel user = new IncomeInfoModel();
-            user.SaleId = Convert.ToInt32(TextBox1.Text);
-
+            user.IncomMoney = Convert.ToDecimal(TextBox1.Text);
+            user.IncomForm =TextBox2.Text;
             if (bll.Add(user) > 0)
             {
 
@@ -34,8 +34,8 @@ namespace HW.CMS.WEB
         {
             IncomeInfoModel user = new IncomeInfoModel();
             user.IncomeId = Convert.ToInt32(update_IncomeId.Text);
-            user.SaleId = Convert.ToInt32(update_SaleId.Text);
-
+            user.IncomMoney = Convert.ToDecimal(update_IncomMoney.Text);
+            user.IncomForm = update_IncomForm.Text;
             if (bll.update(user) > 0)
             {
 

@@ -43,10 +43,10 @@ namespace HW.CMS.WEB
         {
             
             DetailsInfoModel model = new DetailsInfoModel();
-            model.InfoId = Convert.ToInt32(TxtName.Text) ;
-            model.AllMoney =Convert.ToDecimal(TxtAll.Text) ;
+            model.DetName = TxtName.Text ;
+            model.DetContent =TxtAll.Text ;
             model.UseMoney = Convert.ToDecimal(TxtUse.Text) ;
-            model.OverMoney = Convert.ToDecimal( TxtOver.Text);
+            
             model.DetPlan = TxtPlan.Text;
             model.ResId = Convert.ToInt32(TxtResId.Text);
             
@@ -84,11 +84,10 @@ namespace HW.CMS.WEB
         {
             DetailsInfoModel model = new DetailsInfoModel();
             model.ResId = Convert.ToInt32(update_ResId.Text);
-            model.InfoId = Convert.ToInt32(update_InfoId.Text) ;
-            model.AllMoney =Convert.ToDecimal(update_AllMoney.Text) ;
+            model.DetName =update_InfoId.Text ;
+            model.DetContent =update_AllMoney.Text ;
             model.DetId = Convert.ToInt32(update_DetId.Text);
-            model.DetPlan = update_DetPlan.Text;
-            model.OverMoney = Convert.ToDecimal(update_OverMoney.Text);
+            model.DetPlan = update_DetPlan.Text;      
             model.UseMoney = Convert.ToDecimal(update_UseMoney.Text);
 
             if (bll.update_Det(model) > 0)

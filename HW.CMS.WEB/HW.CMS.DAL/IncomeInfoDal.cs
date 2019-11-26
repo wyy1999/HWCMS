@@ -17,7 +17,7 @@ namespace HW.CMS.DAL
         public List<IncomeInfoModel> setAll()
         {
             List<IncomeInfoModel> list = new List<IncomeInfoModel>();
-            string sql = "select SaleInfo.SaleMoney,SaleInfo.SaleContent,IncomeInfo.*  from IncomeInfo,SaleInfo where SaleInfo.SaleId=IncomeInfo.SaleId";
+            string sql = "select * from IncomeInfo ";
             SqlDataReader sqlda = DBHelper.ExcuteSqlDataReader(sql);
             if (sqlda.HasRows)
             {
@@ -26,9 +26,9 @@ namespace HW.CMS.DAL
                     IncomeInfoModel accout = new IncomeInfoModel()
                     {
                         IncomeId = Convert.ToInt32(sqlda["IncomeId"]),
-                        SaleId = Convert.ToInt32(sqlda["SaleId"]),
-                        SaleMoney= Convert.ToDecimal(sqlda["SaleMoney"]),
-                        SaleContent=Convert.ToString(sqlda["SaleContent"])
+                     
+                         IncomMoney= Convert.ToDecimal(sqlda["IncomMoney"]),
+                        IncomForm = Convert.ToString(sqlda["IncomForm"])
                     };
                     list.Add(accout);
                 };
@@ -42,10 +42,12 @@ namespace HW.CMS.DAL
         /// <returns></returns>
         public int Add(IncomeInfoModel model)
         {
-            string sql = "insert into IncomeInfo values(@SaleId)";
+            string sql = "insert into IncomeInfo values(@IncomMoney,@IncomForm)";
             SqlParameter[] par = new SqlParameter[]
             {
-               new SqlParameter("@SaleId",model.SaleId)
+
+               new SqlParameter("@IncomForm",model.IncomForm),
+               new SqlParameter("@IncomMoney",model.IncomMoney)
             };
             int result = DBHelper.ExcuteSqlNonQuery(sql, par);
             return result;
@@ -57,11 +59,12 @@ namespace HW.CMS.DAL
         /// <returns></returns>
         public int update(IncomeInfoModel model)
         {
-            string sql = "update IncomeInfo set SaleId=@SaleId where IncomeId=@IncomeId";
+            string sql = "update IncomeInfo set IncomMoney=@IncomMoney,IncomForm=@IncomForm where IncomeId=@IncomeId";
             SqlParameter[] par = new SqlParameter[]
             {
                 new SqlParameter("@IncomeId",model.IncomeId),
-                new SqlParameter("@SaleId",model.SaleId)
+                new SqlParameter("@IncomMoney",model.IncomMoney),
+                new SqlParameter("@IncomForm",model.IncomForm)
             };
             int result = DBHelper.ExcuteSqlNonQuery(sql, par);
             return result;

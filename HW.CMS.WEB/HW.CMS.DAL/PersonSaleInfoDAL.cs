@@ -14,7 +14,7 @@ namespace HW.CMS.DAL
         /// </summary>
          public List<PersonSaleInfoModel> pers()
         {
-            string sql = "SELECT InfoTable.InfoName,DepartmentInfo.Dep,PersonSaleInfo.*FROM InfoTable,DepartmentInfo,PersonSaleInfo WHERE InfoTable.InfoId = PersonSaleInfo.InfoId AND DepartmentInfo.DepId = PersonSaleInfo.DepId";
+            string sql = "SELECT UserLogin.UserName,PersonSaleInfo.*FROM UserLogin,PersonSaleInfo WHERE PersonSaleInfo.Userid = UserLogin.Userid ";
             SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
             List<PersonSaleInfoModel> list = new List<PersonSaleInfoModel>();
             if(reader.HasRows)
@@ -23,13 +23,13 @@ namespace HW.CMS.DAL
                 {
                     PersonSaleInfoModel model = new PersonSaleInfoModel();
                     model.PerId = int.Parse(reader["PerId"].ToString());
-                    model.InfoId = int.Parse(reader["InfoId"].ToString());
-                    model.DepId= int.Parse(reader["DepId"].ToString());
+                    model.Userid = int.Parse(reader["Userid"].ToString());
+                  
                     model.PerContent = reader["PerContent"].ToString();
                     model.PerMoney=decimal.Parse(reader["PerMoney"].ToString());
                     model.ConMoney= decimal.Parse(reader["ConMoney"].ToString());
-                    model.Dep = reader["Dep"].ToString();
-                    model.InfoName= reader["InfoName"].ToString();
+                  
+                    model.UserName= reader["UserName"].ToString();
                     list.Add(model);
                 }
             }
@@ -40,11 +40,11 @@ namespace HW.CMS.DAL
         /// </summary>
         public int Add(PersonSaleInfoModel model)
         {
-            string sql = "insert into PersonSaleInfo values(@InfoId,@DepId,@PerContent,@PerMoney,@ConMoney)";
+            string sql = "insert into PersonSaleInfo values(@Userid,@PerContent,@PerMoney,@ConMoney)";
             SqlParameter[] pters = new SqlParameter[]
             {
-                new SqlParameter("@InfoId",model.InfoId),
-               new SqlParameter("@DepId",model.DepId),
+                new SqlParameter("@Userid",model.Userid),
+          
                new SqlParameter("@PerContent",model.PerContent),
                new SqlParameter("@PerMoney",model.PerMoney),
                new SqlParameter("@ConMoney",model.ConMoney),
@@ -67,12 +67,12 @@ namespace HW.CMS.DAL
         /// </summary>
         public int update(PersonSaleInfoModel model)
         {
-            string sql = "update PersonSaleInfo set InfoId=@InfoId,DepId=@DepId,PerContent=@PerContent,PerMoney=@PerMoney,ConMoney=@ConMoney where PerId=@PerId";
+            string sql = "update PersonSaleInfo set Userid=@Userid,PerContent=@PerContent,PerMoney=@PerMoney,ConMoney=@ConMoney where PerId=@PerId";
             SqlParameter[] par = new SqlParameter[]
             {
                 new SqlParameter("@PerId",model.PerId),
-                new SqlParameter("@InfoId",model.InfoId),
-                new SqlParameter("@DepId",model.DepId),
+                new SqlParameter("@Userid",model.Userid),
+
                 new SqlParameter("@PerContent",model.PerContent),
                 new SqlParameter("@PerMoney",model.PerMoney),
                 new SqlParameter("@ConMoney",model.ConMoney),

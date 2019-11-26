@@ -47,12 +47,13 @@
                                     <thead>
                                         <tr>
                                             <th>id</th>
-                                            <th>研发负责人</th>
+                                            <th>组名</th>
+                                            <th>研发人员</th>
                                             <th>研发名称</th>
                                             <th>研发内容</th>
-                                            <th>总资金</th>
-                                            <th>已用资金</th>
-                                            <th>剩余资金</th>
+                                            <th>项目简介</th>
+                                            <th>研发金额</th>
+                                            <th>已用金额</th>
                                             <th>研发进度</th>
                                             <th>编辑</th>
                                         </tr>
@@ -62,16 +63,18 @@
                                 <tbody>
                                     <tr class="warning">
                                         <td><%#Eval("DetId") %></td>
-                                        <td><%#Eval("InfoName") %></td>
+                                        <td><%#Eval("ResGroup") %></td>
+                                        
+                                        <td><%#Eval("DetName") %></td>
                                         <td><%#Eval("Resname") %></td>
                                         <td><%#Eval("ResIntroduce") %></td>
-                                        <td><%#Eval("AllMoney") %> ￥</td>
+                                        <td><%#Eval("DetContent") %> </td>
+                                        <td><%#Eval("ResMoney") %>￥</td>
                                         <td><%#Eval("UseMoney") %>￥</td>
-                                        <td><%#Eval("OverMoney") %>￥</td>
                                         <td><%#Eval("DetPlan") %></td>
                                         <td>
-                                               <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("DetId") %>','<%#Eval("InfoId") %>','<%#Eval("AllMoney") %>',
-                                                   '<%#Eval("UseMoney") %>','<%#Eval("OverMoney") %>','<%#Eval("DetPlan") %>','<%#Eval("ResId") %>')">修改</a>
+                                               <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("DetId") %>','<%#Eval("DetName") %>','<%#Eval("DetContent") %>',
+                                                   '<%#Eval("UseMoney") %>','<%#Eval("DetPlan") %>','<%#Eval("ResId") %>')">修改</a>
                                             <asp:LinkButton ID="LinkButton3" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%# Eval("DetId")%>'>删除</asp:LinkButton>
                                         </td>
                                     </tr>
@@ -94,11 +97,11 @@
                                     <div class="modal-body">
 
                                         <div class="form-group">
-                                            <label for="recipient-name" class="control-label">研发负责人:</label>
+                                            <label for="recipient-name" class="control-label">研发人员:</label>
                                             <asp:TextBox ID="TxtName" runat="server" class="form-control" ></asp:TextBox>
                                         </div>
                                         <div class="form-group">
-                                            <label for="message-text" class="control-label">总资金:</label>
+                                            <label for="message-text" class="control-label">项目简介:</label>
                                             <asp:TextBox ID="TxtAll" runat="server" class="form-control"></asp:TextBox>
 
                                         </div>
@@ -106,10 +109,7 @@
                                             <label for="message-text" class="control-label">已用资金:</label>
                                             <asp:TextBox ID="TxtUse" runat="server" class="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="control-label">剩余资金:</label>
-                                            <asp:TextBox ID="TxtOver" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
+                                       
                                         <div class="form-group">
                                             <label for="message-text" class="control-label">进度:</label>
                                             <asp:TextBox ID="TxtPlan" runat="server" class="form-control"></asp:TextBox>
@@ -130,12 +130,12 @@
 
                         <%--修改模态框  --%>
                         <script type="text/javascript">
-                            function addressUpdate(DetId, InfoId, AllMoney, UseMoney, OverMoney, DetPlan, ResId) {
+                            function addressUpdate(DetId, DetName, DetContent, UseMoney, DetPlan, ResId) {
                                 $("#update_DetId").val(DetId);
-                                $("#update_InfoId").val(InfoId);
-                                $("#update_AllMoney").val(AllMoney);
+                                $("#update_InfoId").val(DetName);
+                                $("#update_AllMoney").val(DetContent);
                                 $("#update_UseMoney").val(UseMoney);
-                                $("#update_OverMoney").val(OverMoney);
+                       
                                 $("#update_DetPlan").val(DetPlan);
                                 $("#update_ResId").val(ResId);
                                 $("#modal-address-update").modal("show");
@@ -164,21 +164,18 @@
                                                 <asp:TextBox ID="update_DetId" runat="server" class="form-control" ></asp:TextBox>
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">研发负责人:</label>
+                                                <label for="message-text" class="control-label">研发人员:</label>
                                                 <asp:TextBox ID="update_InfoId" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">总资金:</label>
+                                                <label for="message-text" class="control-label">项目简介:</label>
                                                 <asp:TextBox ID="update_AllMoney" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">已用资金:</label>
                                                 <asp:TextBox ID="update_UseMoney" runat="server" class="form-control"></asp:TextBox>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="message-text" class="control-label">剩余资金:</label>
-                                                <asp:TextBox ID="update_OverMoney" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
+                                          
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">研发进度:</label>
                                                 <asp:TextBox ID="update_DetPlan" runat="server" class="form-control"></asp:TextBox>

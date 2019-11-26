@@ -28,15 +28,15 @@ namespace HW.CMS.DAL
             {
                
                     DetailsInfoModel model = new DetailsInfoModel();
-                    model.InfoName = row["InfoName"].ToString();
+                    model.DetName = row["DetName"].ToString();
                     model.ResIntroduce = row["ResIntroduce"].ToString();                
                     model.Resname = row["Resname"].ToString();
-                    model.OverMoney = decimal.Parse(row["OverMoney"].ToString());
-                    model.AllMoney = decimal.Parse(row["AllMoney"].ToString()) ;
+                    model.DetContent = row["DetContent"].ToString();
+                    model.ResMoney = decimal.Parse(row["ResMoney"].ToString()) ;
                     model.DetPlan = row["DetPlan"].ToString();
                     model.DetId = int.Parse(row["DetId"].ToString()) ;
                     model.UseMoney = decimal.Parse(row["UseMoney"].ToString()) ;
-                    model.InfoId= int.Parse(row["InfoId"].ToString());
+                    model.ResGroup= row["ResGroup"].ToString();
                     model.ResId= int.Parse(row["ResId"].ToString());
 
                     list.Add(model);
@@ -68,13 +68,16 @@ namespace HW.CMS.DAL
                 //读取第一条数据
                 while (reader.Read())
                 {
-                    model.InfoId = int.Parse(reader["InfoId"].ToString()) ;
-                    model.ResId = int.Parse(reader["ResId"].ToString());                  
-                    model.OverMoney = decimal.Parse(reader["OverMoney"].ToString());
-                    model.AllMoney = decimal.Parse(reader["AllMoney"].ToString());
+                    model.DetName = reader["DetName"].ToString();
+                    model.ResIntroduce = reader["ResIntroduce"].ToString();
+                    model.Resname = reader["Resname"].ToString();
+                    model.DetContent = reader["DetContent"].ToString();
+                    model.ResMoney = decimal.Parse(reader["ResMoney"].ToString());
                     model.DetPlan = reader["DetPlan"].ToString();
                     model.DetId = int.Parse(reader["DetId"].ToString());
                     model.UseMoney = decimal.Parse(reader["UseMoney"].ToString());
+                    model.ResGroup = reader["ResGroup"].ToString();
+                    model.ResId = int.Parse(reader["ResId"].ToString());
                 }
             }
             return model;
@@ -86,15 +89,15 @@ namespace HW.CMS.DAL
         /// <returns></returns>
         public int Add(DetailsInfoModel model)
         {
-            string sql = " insert into DetailsInfo values(@InfoId,@AllMoney,@UseMoney,@OverMoney,@DetPlan,@ResId)";
+            string sql = " insert into DetailsInfo values(@DetName,@DetContent,@UseMoney,@DetPlan,@ResId)";
             ///创建命令
             SqlParameter[] sqlParameters = new SqlParameter[]
            {
 
-               new SqlParameter("@InfoId",model.InfoId),
-               new SqlParameter("@AllMoney",model.AllMoney),
+               new SqlParameter("@DetName",model.DetName),
+               new SqlParameter("@DetContent",model.DetContent),
                new SqlParameter("@UseMoney",model.UseMoney),
-               new SqlParameter("@OverMoney",model.OverMoney),
+            
                new SqlParameter("@DetPlan",model.DetPlan),
                new SqlParameter("@ResId",model.ResId),
 
@@ -142,14 +145,14 @@ namespace HW.CMS.DAL
         /// <returns></returns>
         public int update_Det(DetailsInfoModel model)
         {
-            string sql = "update DetailsInfo set InfoId=@InfoId,AllMoney=@AllMoney,UseMoney=@UseMoney,OverMoney=@OverMoney,DetPlan=@DetPlan,ResId=@ResId where DetId=@DetId";
+            string sql = "update DetailsInfo set DetName=@DetName,DetContent=@DetContent,UseMoney=@UseMoney,DetPlan=@DetPlan,ResId=@ResId where DetId=@DetId";
             SqlParameter[] par = new SqlParameter[]
             {
 
-                new SqlParameter("@InfoId",model.InfoId),
-                new SqlParameter("@AllMoney",model.AllMoney),
+                new SqlParameter("@DetName",model.DetName),
+                new SqlParameter("@DetContent",model.DetContent),
                 new SqlParameter("@UseMoney",model.UseMoney),
-                new SqlParameter("@OverMoney",model.OverMoney),
+
                 new SqlParameter("@DetPlan",model.DetPlan),
                 new SqlParameter("@ResId",model.ResId),
                 new SqlParameter("@DetId",model.DetId),

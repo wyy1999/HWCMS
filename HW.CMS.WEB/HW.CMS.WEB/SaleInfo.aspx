@@ -34,7 +34,7 @@
                     </div>
                     <div>
                         <div style="height:50px;text-align:center;margin-top:10px">
-                        销售内容：<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        组名：<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                         部门：<asp:DropDownList ID="DropDownList2" runat="server" >
                                                 <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
                                                 <asp:ListItem Value="1">人事部</asp:ListItem>
