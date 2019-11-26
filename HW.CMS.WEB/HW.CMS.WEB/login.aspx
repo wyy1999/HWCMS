@@ -25,16 +25,22 @@
               <div class="info d-flex align-items-center">
                 <div class="content">
                   <div class="logo">
-                    <h1>The login page</h1>
+                      <asp:Label ID="Label1" runat="server" style="font-size:35px" Text="CMS公司管理系统">CMS公司管理系统</asp:Label>
+                    <h1></h1>
                   </div>
-                  <p>The best preparation for tomorrow is doing your best today.</p>
+                  <p></p>
                 </div>
               </div>
             </div>
             <!-- Form Panel    -->
             <div class="col-lg-6 bg-white">
+                 <div style="margin:0 auto; float:right; margin-right:250px;margin-top:20px">
+                <asp:Label ID="Label3" runat="server" style=" font-size:50px"  Text="Label">登录</asp:Label> 
+                 </div>
+
               <div class="form d-flex align-items-center">
                 <div class="content">
+
                   <form method="post" class="form-validate">
                     <div class="form-group">
                         <asp:TextBox ID="TextBox1" CssClass="input-material"   runat="server"></asp:TextBox>
@@ -48,7 +54,7 @@
                     </div>
                       <asp:Button ID="Button1" CssClass="btn btn-primary"  runat="server" Text="登录" OnClick="Button1_Click" />
                     <!-- This should be submit button but I replaced it with <a> for demo purposes-->
-                  </form><a href="#" class="forgot-pass">忘记密码?</a><br><small>When all else is lost the future still remains. </small>
+                  </form><a href="#" class="forgot-pass"></a><br><small> </small>
                 </div>
               </div>
             </div>
