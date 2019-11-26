@@ -48,9 +48,9 @@
                                 <asp:ListItem Value="4">销售部</asp:ListItem>
                             </asp:DropDownList>
                             审批状态：<asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
-                            <asp:ListItem Value="2" Selected="True">全部</asp:ListItem>
-                            <asp:ListItem Value="0">未审核</asp:ListItem>
-                            <asp:ListItem Value="1">已审核</asp:ListItem>
+                            <asp:ListItem Value="0" Selected="True">全部</asp:ListItem>
+                            <asp:ListItem Value="1">未审核</asp:ListItem>
+                            <asp:ListItem Value="2">已审核</asp:ListItem>
                         </asp:RadioButtonList>
                         <asp:Button ID="Button1" runat="server" Text="查询"  class="btn btn-success" OnClick="Button1_Click"/>
                         </div>
@@ -65,6 +65,7 @@
                                             <th>员工</th>
                                             <th>部门</th>
                                             <th>请假时间</th>
+                                            <th>结束时间</th>
                                             <th>请假原因</th>
                                             <th>审核状态</th>
                                         </tr>
@@ -74,14 +75,15 @@
                                 <tbody>
                                     <tr class="warning">
                                         <td><%#Eval("LeaveId") %></td>
-                                        <td><%#Eval("InfoName") %></td>
+                                        <td><%#Eval("UserName") %></td>
                                         <td><%#Eval("Dep") %></td>
                                         <td><%#Eval("LeaveTime") %></td>
+                                        <td><%#Eval("LeTime") %></td>
                                         <td><%#Eval("LeaveReason") %></td>
                                         <td><%#Eval("LeaveStatestr") %></td>
                                         <td>
                                             <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-info" CommandName="delete" CommandArgument='<%#Eval("LeaveId") %>' >删除</asp:LinkButton> 
-<%--                                            <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" CommandName="update" CommandArgument='<%#Eval("LeaveId") %>' >修改</asp:LinkButton>--%>                                     
+                                            <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" CommandName="update" CommandArgument='<%#Eval("LeaveId") %>' >审批</asp:LinkButton>                                     
                                         </td>
                                     </tr>
                                 </tbody>

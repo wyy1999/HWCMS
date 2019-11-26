@@ -11,7 +11,7 @@ namespace HW.CMS.DAL
     public class LeaveInfoDal
     {
 
-        public List<LeaveInfoModel> setAll(int DepId=0,int LeaveState=2)
+        public List<LeaveInfoModel> setAll(int DepId=0,int LeaveState=0)
         {
             List<LeaveInfoModel> list = new List<LeaveInfoModel>();
             SqlParameter[] sql = new SqlParameter[]
@@ -26,12 +26,13 @@ namespace HW.CMS.DAL
                 LeaveInfoModel accout = new LeaveInfoModel()
                 {
                     LeaveId = Convert.ToInt32(row["LeaveId"]),
-                    InfoId = Convert.ToInt32(row["InfoId"]),
+                    Userid = Convert.ToInt32(row["Userid"]),
                     DepId = Convert.ToInt32(row["DepId"]),
                     LeaveTime = Convert.ToString(row["LeaveTime"]),
                     LeaveReason = Convert.ToString(row["LeaveReason"]),
                     LeaveState = Convert.ToInt32(row["LeaveState"]),
-                    InfoName = Convert.ToString(row["InfoName"]),
+                    UserName = Convert.ToString(row["UserName"]),
+                     LeTime= Convert.ToString(row["LeTime"]),
                     Dep = Convert.ToString(row["Dep"]),
                 };
                 list.Add(accout);
@@ -50,7 +51,7 @@ namespace HW.CMS.DAL
         }
         public int update(int LeaveId)
         {
-            string sql = "update LeaveInfo set LeaveState=1 where LeaveId=@LeaveId";
+            string sql = "update LeaveInfo set LeaveState=2 where LeaveId=@LeaveId";
             SqlParameter[] par = new SqlParameter[]
             {
                 new SqlParameter("@LeaveId",LeaveId)

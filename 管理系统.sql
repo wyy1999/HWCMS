@@ -158,17 +158,17 @@ drop table ClockInfo
 GO
 create table ClockInfo(
    ClockId int primary key identity(1,1),--打卡id
-   InfoId int references  InfoTable(InfoId),  --员工表外键
+   Userid int references UserLogin(Userid),--登陆表外键
    ClockTime varchar(50) ,--打卡时间
    ClockState int check(ClockState=1 or ClockState=2)--状态 1已打卡 2 未打卡
 )
 go
 
-insert  into ClockInfo values(1,'2019/10/10 07:58:25',1)
-insert  into ClockInfo values(2,'',2)
-insert  into ClockInfo values(3,'2019/10/11 14:59:25',1)
+insert  into ClockInfo values(5,'2019/10/10 07:58:25',1)
+insert  into ClockInfo values(6,'',2)
+insert  into ClockInfo values(7,'2019/10/11 14:59:25',1)
 
-select InfoTable.InfoName, ClockInfo.*from InfoTable,ClockInfo where ClockInfo.InfoId=InfoTable.InfoId
+select UserLogin.UserName, ClockInfo.*from UserLogin,ClockInfo where ClockInfo.Userid=UserLogin.Userid
 
 --员工请假表LeaveInfo
 if exists(select * from sys.tables where name='LeaveInfo')
@@ -176,7 +176,7 @@ drop table LeaveInfo
 GO
 create table LeaveInfo(
 	LeaveId int primary key identity(1,1),--请假id
-	InfoId int references  InfoTable(InfoId),   --员工表外键
+	 Userid int references UserLogin(Userid),--登陆表外键
 	DepId int references DepartmentInfo(DepId),--部门表外键
 	LeaveTime datetime default(getdate()) not null,--请假时间
 	LeTime datetime  not null,--结束时间
@@ -185,8 +185,8 @@ create table LeaveInfo(
 )
 go
 
-insert into LeaveInfo values (5,4,'2019/9/9','2019/9/11','回家参加婚礼',1)
-insert into LeaveInfo values (6,4,'2019/9/10','2019/9/14','家里有急事',2)
+insert into LeaveInfo values (6,4,'2019/9/9','2019/9/11','回家参加婚礼',1)
+insert into LeaveInfo values (7,4,'2019/9/10','2019/9/14','家里有急事',2)
 
 
 if exists(select * from sys.procedures where name='Sel_LeaveInfo')
@@ -195,14 +195,14 @@ go
 create proc Sel_LeaveInfo(@DepId int=0,@LeaveState int=0)
 as
 declare @sql varchar(max)
-set @sql='select LeaveInfo.*,InfoTable.InfoName,DepartmentInfo.Dep from LeaveInfo,InfoTable,DepartmentInfo where LeaveInfo.InfoId=InfoTable.InfoId and LeaveInfo.DepId=DepartmentInfo.DepId'
+set @sql='select LeaveInfo.*,UserLogin.UserName,DepartmentInfo.Dep from LeaveInfo,UserLogin,DepartmentInfo where LeaveInfo.Userid=UserLogin.Userid and LeaveInfo.DepId=DepartmentInfo.DepId'
 if @DepId<>0
 set @sql=@sql+' and LeaveInfo.DepId='+CONVERT(varchar,@DepId)
 if @LeaveState<>0
 set @sql=@sql+' and LeaveState='+CONVERT(varchar,@LeaveState)
 exec(@sql)
 go
-exec Sel_LeaveInfo 1,0
+exec Sel_LeaveInfo 0,2
 
 --公司报备表 ReportInfo
 if exists(select * from sys.tables where name='ReportInfo')
@@ -219,7 +219,7 @@ create table ReportInfo(
 )
 go
 insert into ReportInfo values ('饮水机','公司右侧饮水机不出水，插电没反应','2019.11.12',3,1000,1)
-insert into ReportInfo values ('公调','研发部会议室前方空调坏了，开关键没反应','2019.10.12',3,2000,1)
+insert into ReportInfo values ('空调','研发部会议室前方空调坏了，开关键没反应','2019.10.12',3,2000,1)
 insert into ReportInfo values ('话费','电话推销','2019.10.22',4,500,2)
 insert into ReportInfo values ('出差','到上海分公司洽谈业务','2019.10.27',4,2000,2)
 select ReportInfo.*,DepartmentInfo.Dep from ReportInfo,DepartmentInfo where DepartmentInfo.DepId=ReportInfo.DepId
@@ -228,10 +228,10 @@ select ReportInfo.*,DepartmentInfo.Dep from ReportInfo,DepartmentInfo where Depa
 if exists(select * from sys.procedures where name='Sel_ReportInfo')
 drop proc Sel_ReportInfo
 go
-create proc Sel_ReportInfo(@ReportReason varchar(50)='',@ReportState int=0)
+create proc Sel_ReportInfo(@RepName varchar(50)='',@ReportState int=0)
 as
 declare @sql varchar(max)
-set @sql='select ReportInfo.*,DepartmentInfo.Dep from ReportInfo,DepartmentInfo where DepartmentInfo.DepId=ReportInfo.DepId and ReportReason like ''%'+@ReportReason+'%'''
+set @sql='select ReportInfo.*,DepartmentInfo.Dep from ReportInfo,DepartmentInfo where DepartmentInfo.DepId=ReportInfo.DepId and RepName like ''%'+@RepName+'%'''
 if @ReportState<>0
 set @sql=@sql+' and ReportState='+CONVERT(varchar,@ReportState)
 exec(@sql)
@@ -247,16 +247,17 @@ create table AccoutInfo(
    AccoutId int primary key identity(1,1),--支出id
    AccMonth varchar(20)not null, --月份
    ACCSalary decimal(18,2) check(ACCSalary>=0) not null,--工资总金额   
-   AccReportModey decimal(18,2) check(AccReportModey>=0) not null,--报备总金额 
+   AccReportModey decimal(18,2) check(AccReportModey>=0) not null,--报备总金额
+   AccResMoney decimal(18,2) check(AccResMoney>=0) not null,-- 研发总金额
    AccName varchar(10)not null--财务人员名称
   
 )
 go
 
-insert into AccoutInfo values ('10月份',35000,5500,'王莹莹')
-insert into AccoutInfo values ('9月份',35000,6000,'王莹莹')
-insert into AccoutInfo values ('11月份',35000,8000,'王莹莹')
-insert into AccoutInfo values ('8月份',35000,3000,'王莹莹')
+insert into AccoutInfo values ('10月份',35000,5500,2000,'王莹莹')
+insert into AccoutInfo values ('9月份',35000,6000,5000,'王莹莹')
+insert into AccoutInfo values ('11月份',35000,8000,3000,'王莹莹')
+insert into AccoutInfo values ('8月份',35000,3000,4000,'王莹莹')
 
 --研发部门表ResearchInfo
 if exists(select * from sys.tables where name='ResearchInfo')
@@ -268,16 +269,16 @@ create table ResearchInfo(
     ResIntroduce varchar(500) not null,--项目内容
     ResGroup varchar(100),--研发小组
     BeginTime date default(getdate()) not null,--开始时间
-    EndTime date default(getdate()) not null,--结束时间
+    EndTime varchar(100) ,--结束时间
     ResMoney decimal(18,2) check(ResMoney>=0) default(0) not null,--研发金额
     ResState int default(1) check(ResState=1 or ResState=2)--研发状态 1研发中 2研发完成
 )
 go
 select * from ResearchInfo
-insert into ResearchInfo values('酒店管理系统','提高门店客流量，打造网上一站式订房系统','七瑾','2018.6.12','2019.6.20',40000,2)
-insert into ResearchInfo values('高校数字化管理平台','为方便教师管理，实时网上教务管理系统','新IT','2017.5.12','2018.5.20',50000,2)
-insert into ResearchInfo values('书店管理系统','为更好的进行图书管理，增加图书销售量，实现网上购书','致远','2018.5.12','2019.5.20',20000,2)
-insert into ResearchInfo values('医疗管理系统','让医患关系更贴近','代码都敲对','2018.5.12','2019.5.20',20000,2)
+insert into ResearchInfo values('酒店管理系统','提高门店客流量，打造网上一站式订房系统','七瑾','2018.6.12','2019.8.20',40000,2)
+insert into ResearchInfo values('高校数字化管理平台','为方便教师管理，实时网上教务管理系统','新IT','2019.5.12','2019.9.20',50000,2)
+insert into ResearchInfo values('书店管理系统','为更好的进行图书管理，增加图书销售量，实现网上购书','致远','2018.5.12','2019.10.20',20000,2)
+insert into ResearchInfo values('医疗管理系统','让医患关系更贴近','代码都敲对','2018.5.12','2019.8.20',20000,2)
 insert into ResearchInfo values('商城系统','类似淘宝，拼多多购物网站','棒棒棒','2019.10.20','',30000,1)
 
 

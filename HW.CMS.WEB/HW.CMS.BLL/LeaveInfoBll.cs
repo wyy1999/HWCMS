@@ -12,7 +12,7 @@ namespace HW.CMS.BLL
     {
         LeaveInfoDal dal = new LeaveInfoDal();
 
-        public List<LeaveInfoModel> setAll(int DepId=0, int LeaveState=2)
+        public List<LeaveInfoModel> setAll(int DepId=0, int LeaveState=0)
         {
             return dal.setAll(DepId,LeaveState);
         }

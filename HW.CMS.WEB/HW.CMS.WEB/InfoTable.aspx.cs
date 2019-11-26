@@ -25,21 +25,7 @@ namespace HW.CMS.WEB
             Repeater1.DataBind();
         }
 
-        //protected void Button1_Click(object sender, EventArgs e)
-        //{
-        //    string tex1 = TextBox1.Text;
-        //    string tex2 = TextBox2.Text;
-        //    string tex3 = TextBox3.Text;
-        //    UserLogin user = new UserLogin();
-        //    user.UserNum = Convert.ToInt32(tex1);
-        //    user.Userpwd = tex2;
-        //    user.UserRole = Convert.ToInt32(tex3);
-        //    if (UserLoginBll.insert(user) > 0)
-        //    {
-        //        Response.Write("<script>alert('添加成功');</script>");
-        //        Response.Redirect("InfoTable.aspx");
-        //    }
-        //}
+     
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
@@ -69,9 +55,9 @@ namespace HW.CMS.WEB
         protected void Button1_Click(object sender, EventArgs e)
         {
             UserLogin user = new UserLogin();
-            user.UserNum = Convert.ToInt32(TextBox1.Text);
+            user.UserName = TextBox1.Text;
             user.Userpwd = TextBox2.Text;
-            user.DutyId = Convert.ToInt32(TextBox3.Text);
+            user.DutyId = Convert.ToInt32(DropDutyName.SelectedValue);
 
             if (UserLoginBll.insert(user) > 0)
             {
@@ -85,9 +71,9 @@ namespace HW.CMS.WEB
 
             UserLogin user = new UserLogin();
             user.Userid = Convert.ToInt32(update_Userid.Text);
-            user.UserNum = Convert.ToInt32(update_UserNum.Text);
+            user.UserName = update_UserNum.Text;
             user.Userpwd = update_Userpwd.Text;
-            user.DutyId = Convert.ToInt32(update_UserRole.Text);
+            user.DutyId = Convert.ToInt32(DropDownList1.SelectedValue);
 
             if (bll.update(user) > 0)
             {
@@ -96,25 +82,5 @@ namespace HW.CMS.WEB
             }
         }
 
-        //protected void Button1_Click(object sender, EventArgs e)
-        //{
-        //    Response.Write("<script>alert('修改失败');</script>");
-        //}
-
-
-        //protected void Button1_Click(object sender, EventArgs e)
-        //{
-        //    string tex1 = TextBox1.Text;
-        //    string tex2 = TextBox2.Text;
-        //    string tex3 = TextBox3.Text;
-        //    UserLogin user = new UserLogin();
-        //    user.UserNum =Convert.ToInt32( tex1);
-        //    user.Userpwd = tex2;
-        //    user.UserRole = Convert.ToInt32(tex3);
-        //    if(UserLoginBll.insert(user) > 0)
-        //    {
-        //        Response.Write("<script>alert('添加成功');</script>");
-        //    }
-        //       }
     }
 }

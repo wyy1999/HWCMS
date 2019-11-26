@@ -15,13 +15,13 @@ namespace HW.CMS.DAL
         /// 查询全部
         /// </summary>
         /// <returns></returns>
-        public List<ReportInfoModel> RepList(string ReportReason="",int ReportState=0)
+        public List<ReportInfoModel> RepList(string RepName = "",int ReportState=0)
         {
             //string sql = "select ReportInfo.*,DepartmentInfo.Dep from ReportInfo,DepartmentInfo where DepartmentInfo.DepId=ReportInfo.DepId";
             //SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
-               new SqlParameter("@ReportReason",ReportReason),
+               new SqlParameter("@RepName",RepName),
                new SqlParameter("@ReportState",ReportState)
             };
             DataTable table = DBHelper.Query("Sel_ReportInfo", sqlParameters);
@@ -37,7 +37,8 @@ namespace HW.CMS.DAL
                     model.ReportReason = row["ReportReason"].ToString();          
                     model.ReportState = int.Parse(row["ReportState"].ToString());
                     model.DepId = int.Parse(row["DepId"].ToString());
-                    list.Add(model);
+                model.RepName= row["RepName"].ToString();
+                list.Add(model);
                
             }
             return list;
@@ -54,9 +55,10 @@ namespace HW.CMS.DAL
 
         public int update_Res(ReportInfoModel model)
         {
-            string sql = "update ReportInfo set ReportReason=@ReportReason,ReportTime=@ReportTime,DepId=@DepId,ReportMoney=@ReportMoney,ReportState=@ReportState where ReportId=@ReportId ";
+            string sql = "update ReportInfo set RepName=@RepName, ReportReason=@ReportReason,ReportTime=@ReportTime,DepId=@DepId,ReportMoney=@ReportMoney,ReportState=@ReportState where ReportId=@ReportId ";
             SqlParameter[] par = new SqlParameter[]
             {
+                 new SqlParameter("@RepName",model.RepName),
                 new SqlParameter("@ReportId",model.ReportId),
                 new SqlParameter("@ReportReason",model.ReportReason),
                 new SqlParameter("@ReportTime",model.ReportTime),
@@ -70,11 +72,11 @@ namespace HW.CMS.DAL
 
         public int Add(ReportInfoModel model)
         {
-            string sql = " insert into ReportInfo values(@ReportReason,@ReportTime,@DepId,@ReportMoney,@ReportState)";
+            string sql = " insert into ReportInfo values(@RepName,@ReportReason,@ReportTime,@DepId,@ReportMoney,@ReportState)";
             ///创建命令
             SqlParameter[] sqlParameters = new SqlParameter[]
            {
-
+               new SqlParameter("@RepName",model.RepName),
                new SqlParameter("@ReportReason",model.ReportReason),
                new SqlParameter("@ReportTime",model.ReportTime),
                new SqlParameter("@DepId",model.DepId),

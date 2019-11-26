@@ -35,7 +35,7 @@ namespace HW.CMS.DAL
                     accout = new UserLogin() { 
 
                     Userid = Convert.ToInt32(result["Userid"]),
-                    UserNum = Convert.ToInt32(result["UserNum"]),
+                    UserName = Convert.ToString(result["UserNum"]),
                     Userpwd = Convert.ToString(result["Userpwd"]),
                     DutyId=Convert.ToInt32(result["DutyId"]),
                      DutyName=Convert.ToString(result["DutyName"])
@@ -55,10 +55,10 @@ namespace HW.CMS.DAL
 
         public int update(UserLogin user)
         {
-            string sql = "update UserLogin set UserNum=@UserNum,Userpwd=@Userpwd,DutyId=@DutyId where  Userid=@Userid";
+            string sql = "update UserLogin set UserName=@UserName,Userpwd=@Userpwd,DutyId=@DutyId where  Userid=@Userid";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
-                new SqlParameter("@UserNum",user.UserNum),
+                new SqlParameter("@UserName",user.UserName),
                 new SqlParameter("@Userpwd",user.Userpwd),
                 new SqlParameter("@DutyId",user.DutyId),
                 new SqlParameter("@Userid",user.Userid),

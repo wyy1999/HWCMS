@@ -9,9 +9,10 @@ namespace HW.CMS.Model
     public class LeaveInfoModel
     {
         public int LeaveId { get; set; }
-        public int InfoId { get; set; }
+        public int Userid { get; set; }
         public int DepId { get; set; }
         public string LeaveTime { get; set; }
+        public string LeTime { get; set; }
         public string LeaveReason { get; set; }
         public int LeaveState { get; set; }
 
@@ -19,7 +20,7 @@ namespace HW.CMS.Model
         {
             get
             {
-                if (LeaveState == 0)
+                if (LeaveState == 1)
                 {
                     return "未审核";
                 }
@@ -29,7 +30,7 @@ namespace HW.CMS.Model
                 }
             }
         }
-        public string InfoName { get; set; }
+        public string UserName { get; set; }
         public string Dep { get; set; }
 
     }

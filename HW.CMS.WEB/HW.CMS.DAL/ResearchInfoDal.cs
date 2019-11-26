@@ -36,6 +36,7 @@ namespace HW.CMS.DAL
                     model.Resname = row["Resname"].ToString();
                     model.ResState = int.Parse(row["ResState"].ToString()) ;
                     model.EndTime = row["EndTime"].ToString();
+                model.ResGroup = row["ResGroup"].ToString();
                     list.Add(model);
                
                 
@@ -53,12 +54,13 @@ namespace HW.CMS.DAL
         /// <returns></returns>
         public int Add(ResearchInfoModel model)
         {
-            string sql = " insert into ResearchInfo values(@Resname,@ResIntroduce,@BeginTime,@EndTime,@ResMoney,@ResState)";
+            string sql = " insert into ResearchInfo values(@Resname,@ResIntroduce,@ResGroup,@BeginTime,@EndTime,@ResMoney,@ResState)";
             ///创建命令
             SqlParameter[] sqlParameters = new SqlParameter[]
            {
 
                new SqlParameter("@ResIntroduce",model.ResIntroduce),
+                new SqlParameter("@ResGroup",model.ResGroup),
                new SqlParameter("@BeginTime",model.BeginTime),
                new SqlParameter("@EndTime",model.EndTime),
                new SqlParameter("@ResMoney",model.ResMoney),
@@ -109,12 +111,13 @@ namespace HW.CMS.DAL
         /// <returns></returns>
         public int update_Res(ResearchInfoModel model)
         {
-            string sql = "update ResearchInfo set Resname=@Resname,ResIntroduce=@ResIntroduce,BeginTime=@BeginTime,EndTime=@EndTime,ResMoney=@ResMoney,ResState=@ResState where ResId=@ResId";
+            string sql = "update ResearchInfo set Resname=@Resname,ResIntroduce=@ResIntroduce,ResGroup=@ResGroup,BeginTime=@BeginTime,EndTime=@EndTime,ResMoney=@ResMoney,ResState=@ResState where ResId=@ResId";
             SqlParameter[] par = new SqlParameter[]
             {
                 new SqlParameter("@ResId",model.ResId),
                 new SqlParameter("@Resname",model.Resname),
                 new SqlParameter("@ResIntroduce",model.ResIntroduce),
+                new SqlParameter("@ResGroup",model.ResGroup),
                 new SqlParameter("@BeginTime",model.BeginTime),
                 new SqlParameter("@EndTime",model.EndTime),               
                 new SqlParameter("@ResMoney",model.ResMoney),

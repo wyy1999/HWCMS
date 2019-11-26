@@ -21,160 +21,178 @@
 <body>
     <form id="form1" runat="server">
         <div class="page">
-                            <div class="content-inner">
-                    <!-- Page Header-->
-                    <header class="page-header">
-                        <div class="container-fluid">
-                            <h2 class="no-margin-bottom">公司人员信息</h2>
+            <div class="content-inner">
+                <!-- Page Header-->
+                <header class="page-header">
+                    <div class="container-fluid">
+                        <h2 class="no-margin-bottom">公司人员信息</h2>
+                    </div>
+                </header>
+                <!-- Breadcrumb-->
+                <div class="breadcrumb-holder container-fluid">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">人员信息</li>
+                        <li class="breadcrumb-item active">
+                            <asp:Label type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="添加"></asp:Label>
+                    </ul>
+                </div>
+
+                <div>
+                    <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
+                        <HeaderTemplate>
+                            <table class="table table-hover" style="text-align: center; background-color: aliceblue;">
+                                <tr>
+                                    <th>员工姓名</th>
+                                    <th>登陆密码</th>
+                                    <th>登陆角色</th>
+                                    <th>操作</th>
+                                </tr>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <tr class="danger">
+                                <td><%#Eval("UserName") %></td>
+                                <td><%#Eval("Userpwd") %></td>
+                                <td><%#Eval("DutyName") %></td>
+                                <td style="width: 200px">
+                                    <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("Userid") %>','<%#Eval("UserName") %>','<%#Eval("Userpwd") %>','<%#Eval("DutyId") %>')">修改</a>
+                                    <asp:LinkButton ID="LinkButton1" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("Userid") %>' runat="server">删除</asp:LinkButton>
+
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                        <FooterTemplate>
+                            </table>
+                        </FooterTemplate>
+                    </asp:Repeater>
+
+
+
+                    <!-- Modal -->
+
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">添加</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                                </div>
+                                <div class="modal-body">
+                                    <table>
+                                        <tr>
+                                            <td>员工姓名</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+                                        </tr>
+                                        <tr>
+                                            <td>登陆密码</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+                                        </tr>
+                                        <tr>
+                                            <td>登陆角色</td>
+                                            <td>
+                                                <asp:DropDownList ID="DropDutyName" runat="server">
+                                                    <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                                    <asp:ListItem Value="1">总经理</asp:ListItem>
+                                                    <asp:ListItem Value="2">人事经理</asp:ListItem>
+                                                    <asp:ListItem Value="3">财务经理</asp:ListItem>
+                                                    <asp:ListItem Value="4">销售主管</asp:ListItem>
+                                                    <asp:ListItem Value="5">研发主管</asp:ListItem>
+                                                    <asp:ListItem Value="6">普通员工</asp:ListItem>
+
+                                                </asp:DropDownList></td>
+                                        </tr>
+                                    </table>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="添加" OnClick="Button1_Click" />
+
+                                </div>
+                            </div>
                         </div>
-                    </header>
-                    <!-- Breadcrumb-->
-                    <div class="breadcrumb-holder container-fluid">
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item">人员信息</li>
-                            <li class="breadcrumb-item active">
-                                <asp:Label type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="添加"></asp:Label>
-                        </ul>
                     </div>
 
-                    <div>
-                        <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
-                            <HeaderTemplate>
-                                <table class="table table-hover" style="text-align: center;background-color:aliceblue;">
-                                    <tr>
-                                        <th>员工编号</th>
-                                        <th>登陆密码</th>
-                                        <th>登陆角色</th>
-                                        <th>操作</th>
-                                    </tr>
-                            </HeaderTemplate>
-                            <ItemTemplate>
-                                <tr class="danger">
-                                    <td><%#Eval("UserNum") %></td>
-                                    <td><%#Eval("Userpwd") %></td>
-                                    <td><%#Eval("DutyName") %></td>
-                                    <td style="width: 200px">
-                                         <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("Userid") %>','<%#Eval("UserNum") %>','<%#Eval("Userpwd") %>','<%#Eval("DutyId") %>')">修改</a>
-                                        <asp:LinkButton ID="LinkButton1" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("Userid") %>' runat="server">删除</asp:LinkButton>
-                                       
-                                    </td>
-                                </tr>
-                            </ItemTemplate>
-                            <FooterTemplate>
-                                </table>
-                            </FooterTemplate>
-                        </asp:Repeater>
+                    <script type="text/javascript">
+                        function addressUpdate(id, num, pwd, role, ) {
+                            $("#update_Userid").val(id);
+                            $("#update_UserNum").val(num);
+                            $("#update_Userpwd").val(pwd);
+                            $("#DropDownList1").val(role);
+                            $("#modal-address-update").modal("show");
+                        }
+                    </script>
 
+                    <div class="modal fade" id="modal-address-update" tabindex="-1" role="dialog" aria-labelledby="modal-address-update-label"
+                        aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" style="text-align: center">
+                                    <h3 class="modal-title" id="modal-address-update-label">修改信息</h3>
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                    </button>
 
+                                </div>
+                                <div class="modal-body">
 
-                        <!-- Modal -->
+                                    <input type="hidden" id="update_AddressId" />
 
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title" id="myModalLabel">添加</h4>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-                                    </div>
-                                    <div class="modal-body">
+                                    <div>
                                         <table>
-                                            <tr>
+                                            <tr style="display: none">
                                                 <td>员工编号</td>
                                                 <td>
-                                                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+                                                    <asp:TextBox ID="update_Userid" name="update_Userid" placeholder="隐藏的"
+                                                        class="form-control" runat="server"></asp:TextBox></td>
+                                            </tr>
+                                            <tr>
+                                                <td>员工姓名</td>
+                                                <td>
+                                                    <asp:TextBox ID="update_UserNum" name="update_UserNum" placeholder="请输入员工姓名"
+                                                        class="form-control" runat="server"></asp:TextBox></td>
                                             </tr>
                                             <tr>
                                                 <td>登陆密码</td>
                                                 <td>
-                                                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+                                                    <asp:TextBox ID="update_Userpwd" name="update_Userpwd" placeholder="请输入登陆密码"
+                                                        class="form-control" runat="server"></asp:TextBox></td>
                                             </tr>
                                             <tr>
                                                 <td>登陆角色</td>
-                                                <td>
-                                                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+                                                <td>                                                 
+                                                    <asp:DropDownList ID="DropDownList1" runat="server">
+                                                    <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                                    <asp:ListItem Value="1">总经理</asp:ListItem>
+                                                    <asp:ListItem Value="2">人事经理</asp:ListItem>
+                                                    <asp:ListItem Value="3">财务经理</asp:ListItem>
+                                                    <asp:ListItem Value="4">销售主管</asp:ListItem>
+                                                    <asp:ListItem Value="5">研发主管</asp:ListItem>
+                                                    <asp:ListItem Value="6">普通员工</asp:ListItem>
+          
+                                                </asp:DropDownList></td>
+
+                                    
                                             </tr>
                                         </table>
-
-
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                        <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="添加" OnClick="Button1_Click" />
-
+                                    <div class="form-group" style="text-align: center">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                                            取消</button>
+                                        <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="修改" OnClick="Button2_Click" />
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <script type="text/javascript">
-                            function addressUpdate(id, num, pwd, role, ) {
-                                $("#update_Userid").val(id);
-                                $("#update_UserNum").val(num);
-                                $("#update_Userpwd").val(pwd);
-                                $("#update_UserRole").val(role);
-                                $("#modal-address-update").modal("show");
-                            }
-                        </script>
-
-                        <div class="modal fade" id="modal-address-update" tabindex="-1" role="dialog" aria-labelledby="modal-address-update-label"
-                            aria-hidden="true" style="display: none;">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header" style="text-align: center">
-                                        <h3 class="modal-title" id="modal-address-update-label">修改信息</h3>
-                                        <button type="button" class="close" data-dismiss="modal">
-                                            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
-                                        </button>
-
-                                    </div>
-                                    <div class="modal-body">
-                                       
-                                            <input type="hidden" id="update_AddressId" />
-
-                                            <div>
-                                                <table>
-                                                    <tr style="display:none">
-                                                        <td>员工编号</td>
-                                                        <td>
-                                                            <asp:TextBox ID="update_Userid" name="update_Userid" placeholder="隐藏的"
-                                                                class="form-control" runat="server"></asp:TextBox></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>员工编号</td>
-                                                        <td>
-                                                            <asp:TextBox ID="update_UserNum" name="update_UserNum" placeholder="请输入收货地址"
-                                                                class="form-control" runat="server"></asp:TextBox></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>登陆密码</td>
-                                                        <td>
-                                                            <asp:TextBox ID="update_Userpwd" name="update_Userpwd" placeholder="请输入收货人姓名"
-                                                                class="form-control" runat="server"></asp:TextBox></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>登陆角色</td>
-                                                        <td>
-                                                            <asp:TextBox ID="update_UserRole" name="update_UserRole" placeholder="请输入收件人联系方式"
-                                                                class="form-control" runat="server"></asp:TextBox></td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                            <div class="form-group" style="text-align: center">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                    取消</button>
-                                                <asp:Button ID="Button2" class="btn btn-primary" runat="server" Text="修改" OnClick="Button2_Click" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    
-                    <%--                    <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">LinkButton</asp:LinkButton>--%>
-                </div
->
+                        <%--                    <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">LinkButton</asp:LinkButton>--%>
+                    </div>
+                </div>
             </div>
         </div>
-            </div>
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/popper.js/umd/popper.min.js"> </script>
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>

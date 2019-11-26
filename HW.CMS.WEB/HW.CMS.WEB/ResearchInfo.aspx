@@ -42,9 +42,9 @@
 
                             产品名称：<asp:TextBox ID="TxtResName" runat="server" ></asp:TextBox>
                         研发状态：<asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
-                            <asp:ListItem Value="2" Selected="True">全部</asp:ListItem>
-                            <asp:ListItem Value="0">未完成</asp:ListItem>
-                            <asp:ListItem Value="1">已完成</asp:ListItem>
+                            <asp:ListItem Value="0" Selected="True">全部</asp:ListItem>
+                            <asp:ListItem Value="1">未完成</asp:ListItem>
+                            <asp:ListItem Value="2">已完成</asp:ListItem>
                         </asp:RadioButtonList>
                         <asp:Button ID="Button1" runat="server" Text="查询"  class="btn btn-success" OnClick="Button1_Click"/>
                         </div>
@@ -58,8 +58,9 @@
                                     <thead>
                                         <tr>
                                             <th>id</th>
-                                            <th>产品名称</th>
-                                            <th>产品内容</th>
+                                            <th>研发名称</th>
+                                            <th>研发内容</th>
+                                            <th>研发小组</th>
                                             <th>开始时间</th>
                                             <th>结束时间</th>
                                             <th>研发金额</th>
@@ -74,13 +75,14 @@
                                         <td><%#Eval("ResId") %></td>
                                         <td><%#Eval("Resname") %></td>
                                         <td><%#Eval("ResIntroduce") %></td>
+                                        <td><%#Eval("ResGroup") %></td>
                                         <td><%#Eval("BeginTime") %></td>
                                         <td><%#Eval("EndTime") %></td>
                                         <td><%#Eval("ResMoney") %> ￥</td>
                                         <td><%#Eval("ResStateString") %></td>
                                         <td>
                                             <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-link" CommandArgument='<%#Eval("ResId") %>'>详情 </asp:LinkButton>
-                                            <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("ResId") %>','<%#Eval("Resname") %>','<%#Eval("ResIntroduce") %>','<%#Eval("BeginTime") %>','<%#Eval("EndTime") %>','<%#Eval("ResMoney") %>','<%#Eval("ResState") %>')">修改</a>
+                                            <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("ResId") %>','<%#Eval("Resname") %>','<%#Eval("ResIntroduce") %>','<%#Eval("ResGroup") %>','<%#Eval("BeginTime") %>','<%#Eval("EndTime") %>','<%#Eval("ResMoney") %>','<%#Eval("ResState") %>')">修改</a>
 
                                         </td>
                                     </tr>
@@ -107,15 +109,19 @@
                                     <div class="modal-body">
 
                                         <div class="form-group">
-                                            <label for="recipient-name" class="control-label">产品名称:</label>
+                                            <label for="recipient-name" class="control-label">研发名称:</label>
                                             <asp:TextBox ID="TxtName" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
-                                            <label for="message-text" class="control-label">产品内容:</label>
+                                            <label for="message-text" class="control-label">研发内容:</label>
                                             <asp:TextBox ID="TxtCon" runat="server" class="form-control"></asp:TextBox>
 
                                         </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">研发小组:</label>
+                                            <asp:TextBox ID="Txtgroup" runat="server" class="form-control"></asp:TextBox>
 
+                                        </div>
                                         <div class="form-group">
                                             <label for="message-text" class="control-label">研发金额:</label>
                                             <asp:TextBox ID="TxtMoney" runat="server" class="form-control"></asp:TextBox>
@@ -123,8 +129,8 @@
                                         <div class="form-group">
                                             <label for="message-text" class="control-label">研发状态:</label>
                                             <asp:DropDownList ID="DropDownList1" runat="server" class="form-control">
-                                                    <asp:ListItem Selected="True" Value="0">未完成</asp:ListItem>
-                                                    <asp:ListItem Value="1">已完成</asp:ListItem>
+                                                    <asp:ListItem Selected="True" Value="1">未完成</asp:ListItem>
+                                                    <asp:ListItem Value="2">已完成</asp:ListItem>
                                                 </asp:DropDownList>
 
                                         </div>
@@ -141,10 +147,11 @@
 
                         <%-- 修改模态框 --%>
                         <script type="text/javascript">
-                            function addressUpdate(ResId, Resname, ResIntroduce, BeginTime, EndTime, ResMoney, ResState) {
+                            function addressUpdate(ResId, Resname, ResIntroduce,ResGroup, BeginTime, EndTime, ResMoney, ResState) {
                                 $("#update_ResId").val(ResId);
                                 $("#update_Resname").val(Resname);
                                 $("#update_ResIntroduce").val(ResIntroduce);
+                                 $("#update_group").val(ResGroup);
                                 $("#update_BeginTime").val(BeginTime);
                                 $("#update_EndTime").val(EndTime);
                                 $("#update_ResMoney").val(ResMoney);
@@ -175,12 +182,16 @@
                                                 <asp:TextBox ID="update_ResId" runat="server" class="form-control" ></asp:TextBox>
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">产品名称:</label>
+                                                <label for="message-text" class="control-label">研发名称:</label>
                                                 <asp:TextBox ID="update_Resname" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">产品内容:</label>
+                                                <label for="message-text" class="control-label">研发内容:</label>
                                                 <asp:TextBox ID="update_ResIntroduce" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message-text" class="control-label">研发小组:</label>
+                                                <asp:TextBox ID="update_group" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">开始时间:</label>
@@ -197,8 +208,8 @@
                                             <div class="form-group">
                                                 <label for="message-text" class="control-label">研发状态:</label>
                                                 <asp:DropDownList ID="update_state" runat="server" class="form-control">
-                                                    <asp:ListItem Selected="True" Value="0">未完成</asp:ListItem>
-                                                    <asp:ListItem Value="1">已完成</asp:ListItem>
+                                                    <asp:ListItem  Value="1">未完成</asp:ListItem>
+                                                    <asp:ListItem Value="2">已完成</asp:ListItem>
                                                 </asp:DropDownList>
                                                 <%--<asp:TextBox ID="update_ResState" runat="server" class="form-control"></asp:TextBox>--%>
                                             </div>

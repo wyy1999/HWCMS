@@ -54,7 +54,7 @@
                                 <asp:ListItem Value="4">销售主管</asp:ListItem>
                                 <asp:ListItem Value="5">研发主管</asp:ListItem>
                                 <asp:ListItem Value="6">普通员工</asp:ListItem>
-                                <asp:ListItem Value="7">实习生</asp:ListItem>
+
                             </asp:DropDownList>
                            &nbsp;&nbsp;&nbsp; 性别：<asp:RadioButtonList ID="Sex" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
                                 <asp:ListItem Selected="True">全部</asp:ListItem>
@@ -114,7 +114,7 @@
                                         <td><%#Eval("InfoWorkyears") %></td>
                                         <td><%#Eval("Dep") %></td>
                                         <td><%#Eval("DutyName") %></td>
-                                        <td><%#Eval("UserNum") %></td>
+                                        <td><%#Eval("UserName") %></td>
                                         <td><%#Eval("InfoSalary") %></td>
                                         <td><%#Eval("InfoStatestring") %></td>
                                         <td>
@@ -223,7 +223,7 @@
                                                 <asp:ListItem Value="4">销售主管</asp:ListItem>
                                                 <asp:ListItem Value="5">研发主管</asp:ListItem>
                                                 <asp:ListItem Value="6">普通员工</asp:ListItem>
-                                                <asp:ListItem Value="7">实习生</asp:ListItem>
+ 
                                             </asp:DropDownList>
 
                                         </div>
@@ -240,7 +240,7 @@
                                         <div class="form-group">
                                             <label for="message-text" class="control-label">状态:</label>
                                             <asp:DropDownList ID="DropState" runat="server" class="form-control">
-                                                <asp:ListItem Value="0">在职</asp:ListItem>
+                                                <asp:ListItem Value="0">请选择</asp:ListItem>
                                                 <asp:ListItem Value="1">请假</asp:ListItem>
                                                 <asp:ListItem Value="2">离职</asp:ListItem>
                                             </asp:DropDownList>
@@ -380,7 +380,7 @@
                                                 <asp:ListItem Value="4">销售主管</asp:ListItem>
                                                 <asp:ListItem Value="5">研发主管</asp:ListItem>
                                                 <asp:ListItem Value="6">普通员工</asp:ListItem>
-                                                <asp:ListItem Value="7">实习生</asp:ListItem>
+                                   
                                             </asp:DropDownList>
 
                                         </div>
@@ -397,7 +397,7 @@
                                         <div class="form-group">
                                             <label for="message-text" class="control-label">状态:</label>
                                             <asp:DropDownList ID="update_InfoState" runat="server" class="form-control">
-                                                <asp:ListItem Value="0">在职</asp:ListItem>
+                                                <asp:ListItem Value="0">请选择</asp:ListItem>
                                                 <asp:ListItem Value="1">请假</asp:ListItem>
                                                 <asp:ListItem Value="2">离职</asp:ListItem>
                                             </asp:DropDownList>

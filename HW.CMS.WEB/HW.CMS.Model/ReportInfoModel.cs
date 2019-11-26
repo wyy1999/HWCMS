@@ -12,6 +12,7 @@ namespace HW.CMS.Model
     public class ReportInfoModel
     {
         public int ReportId { get; set; }
+        public string RepName { get; set; }
         public string ReportReason { get; set; }
         public string ReportTime { get; set; }
         public int DepId { get; set; }
@@ -23,12 +24,12 @@ namespace HW.CMS.Model
         public string ReportStateString
         {
             get {
-                if(ReportState == 0) {
-                    return "未完成";
+                if(ReportState == 1) {
+                    return "未审核";
                 }
                 else
                 {
-                    return "已完成";
+                    return "已审核";
                 }
             }
             

@@ -20,12 +20,12 @@ namespace HW.CMS.Model
         /// <summary>
         /// 编号
         /// </summary>
-        private int _UserNum;
+        private string _UserName;
 
-        public int UserNum
+        public string UserName
         {
-            get { return _UserNum; }
-            set { _UserNum = value; }
+            get { return _UserName; }
+            set { _UserName = value; }
         }
 
         /// <summary>

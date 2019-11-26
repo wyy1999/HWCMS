@@ -17,7 +17,7 @@ namespace HW.CMS.DAL
         /// <returns></returns>
         public List<ClockInfo> CloList()
         {
-            string sql = "select InfoTable.InfoName,ClockInfo.*from InfoTable,ClockInfo where ClockInfo.InfoId=InfoTable.InfoId";
+            string sql = "select UserLogin.UserName, ClockInfo.*from UserLogin,ClockInfo where ClockInfo.Userid=UserLogin.Userid";
             SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
             List<ClockInfo> list = new List<ClockInfo>();
             if (reader.HasRows)
@@ -27,8 +27,8 @@ namespace HW.CMS.DAL
                     ClockInfo model = new ClockInfo();
                     model.ClockTime = reader["ClockTime"].ToString();
                     model.ClockId = int.Parse(reader["ClockId"].ToString());
-                    model.InfoName = reader["InfoName"].ToString();
-                    //model.InfoId = int.Parse(reader["InfoId"].ToString());                   
+                    model.UserName = reader["UserName"].ToString();
+                    model.Userid = int.Parse(reader["Userid"].ToString());
                     model.ClockState = int.Parse(reader["ClockState"].ToString());
 
                     list.Add(model);
@@ -39,10 +39,10 @@ namespace HW.CMS.DAL
 
         public int inserts(int st)
         {
-            string sql = "insert  into ClockInfo values(@InfoId,"+DateTime.Now+",0)";
+            string sql = "insert  into ClockInfo values(@Userid,'" + DateTime.Now+"',1)";
             SqlParameter[] sqlParameters = new SqlParameter[]
           {
-                new SqlParameter("@InfoId",st),
+                new SqlParameter("@Userid",st),
           };
             return DBHelper.ExcuteSqlNonQuery(sql, sqlParameters);
         }

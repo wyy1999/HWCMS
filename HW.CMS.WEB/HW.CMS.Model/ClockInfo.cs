@@ -12,7 +12,7 @@ namespace HW.CMS.Model
     public class ClockInfo
     {
         public int ClockId { get; set; }
-        public int InfoId { get; set; }
+        public int Userid { get; set; }
         public string ClockTime { get; set; }
         public int ClockState { get; set; }
 
@@ -24,12 +24,12 @@ namespace HW.CMS.Model
         public string ClockStateString
         {
             get {
-                if (ClockState==0) {
-                    return "未完成";
+                if (ClockState==1) {
+                    return "已打卡";
                 }
                 else
                 {
-                    return "已完成";
+                    return "未打卡";
                 }
             }
           
@@ -38,12 +38,12 @@ namespace HW.CMS.Model
         /// <summary>
         /// 姓名
         /// </summary>
-        private string _InfoName;
+        private string _UserName;
 
-        public string InfoName
+        public string UserName
         {
-            get { return _InfoName; }
-            set { _InfoName = value; }
+            get { return _UserName; }
+            set { _UserName = value; }
         }
 
 

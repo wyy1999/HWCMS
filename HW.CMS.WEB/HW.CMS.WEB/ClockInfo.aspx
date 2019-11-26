@@ -47,7 +47,7 @@
                                    <th>员工姓名</th>
                                    <th>打卡时间</th>
                                    <th>打卡状态</th> 
-                                   <th>编辑</th>
+                                   
                                </tr>
                            </thead>
                    </HeaderTemplate>
@@ -55,13 +55,10 @@
                        <tbody>
                            <tr >
                                <td><%#Eval("ClockId") %></td>
-                               <td><%#Eval("InfoName") %></td>
+                               <td><%#Eval("UserName") %></td>
                                <td><%#Eval("ClockTime") %></td>
                                <td><%#Eval("ClockStateString") %></td>                              
-                               <td>
-                                   <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" >修改</asp:LinkButton>
-                                   <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger">删除</asp:LinkButton>
-                               </td>
+                              
                            </tr>
                        </tbody>                                         
                    </ItemTemplate>

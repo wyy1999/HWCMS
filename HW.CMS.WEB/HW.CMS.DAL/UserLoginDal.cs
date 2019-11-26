@@ -27,7 +27,7 @@ namespace HW.CMS.DAL
                     UserLogin accout = new UserLogin()
                     {
                         Userid = Convert.ToInt32(sqlda["Userid"]),
-                        UserNum = Convert.ToInt32(sqlda["UserNum"]),
+                        UserName = Convert.ToString(sqlda["UserName"]),
                         Userpwd = Convert.ToString(sqlda["Userpwd"]),
                         DutyId=Convert.ToInt32(sqlda["DutyId"]),
                          DutyName = Convert.ToString(sqlda["DutyName"]),
@@ -40,10 +40,10 @@ namespace HW.CMS.DAL
 
         public static int insert(UserLogin param)
         {
-           string sql = "insert into UserLogin values(@UserNum,@Userpwd,@DutyId)";
+           string sql = "insert into UserLogin values(@UserName,@Userpwd,@DutyId)";
             SqlParameter[] sqlpar = new SqlParameter[]
             {
-               new SqlParameter("@UserNum",param.UserNum),
+               new SqlParameter("@UserName",param.UserName),
                new SqlParameter("@Userpwd",param.Userpwd),
                new SqlParameter("@DutyId",param.DutyId),
             };

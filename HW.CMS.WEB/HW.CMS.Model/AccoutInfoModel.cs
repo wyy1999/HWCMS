@@ -9,11 +9,12 @@ namespace HW.CMS.Model
     public class AccoutInfoModel
     {
         public int AccoutId { get; set; }
+        public string AccMonth { get; set; }
         public decimal ACCSalary { get; set; }
-        public decimal AccSubsidy { get; set; }
-        public decimal AccFiveMoney { get; set; }
+     
         public decimal AccReportModey { get; set; }
-        public decimal ReportMoney { get; set; }
+        public decimal AccResMoney { get; set; }
+        public string AccName { get; set; }
 
         
     }

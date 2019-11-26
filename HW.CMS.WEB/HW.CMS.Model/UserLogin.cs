@@ -9,7 +9,7 @@ namespace HW.CMS.Model
     public class UserLogin
     {
         public int Userid { get; set; }
-        public int UserNum { get; set; }
+        public string UserName { get; set; }
         public string Userpwd { get; set; }
         /// <summary>
         /// 角色

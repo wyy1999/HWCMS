@@ -43,7 +43,7 @@ namespace HW.CMS.WEB
         protected void Button1_Click(object sender, EventArgs e)
         {
             int dep = Convert.ToInt32(DropDownList1.SelectedValue);
-            int state = Convert.ToInt32( DropDownList1.SelectedValue);
+            int state = Convert.ToInt32( RadioButtonList1.SelectedValue);
             Repeater1.DataSource = bll.setAll(dep,state);
             Repeater1.DataBind();
         }

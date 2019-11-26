@@ -74,9 +74,10 @@ namespace HW.CMS.WEB
             ReportInfoModel model = new ReportInfoModel();
             model.ReportTime = Convert.ToString(DateTime.Now);
             model.ReportReason = Txt1.Text;
-            model.DepId = Convert.ToInt32(Txt3.Text);
+            model.DepId = Convert.ToInt32(DropDownList2.SelectedValue);
+            model.RepName = TextName.Text;
             model.ReportMoney = Convert.ToDecimal(Txt4.Text);
-            model.ReportState = Convert.ToInt32(DropDownList1.SelectedValue);
+            model.ReportState = 1;
             if (bll.Add(model) >= 0)
             {
                 Response.Write("<script>alert('添加成功！');location.href='ReportInfo.aspx' </script>");
@@ -98,11 +99,12 @@ namespace HW.CMS.WEB
         {
             ReportInfoModel model = new ReportInfoModel();
             model.ReportId = Convert.ToInt32(update_ReportId.Text);
+            model.RepName = update_name.Text;
             model.ReportReason = update_ReportReason.Text;
             model.ReportTime = update_ReportTime.Text;
-            model.DepId = Convert.ToInt32(update_DepId.Text);
+            model.DepId = Convert.ToInt32(update_DepId.SelectedValue);
             model.ReportMoney = Convert.ToDecimal(update_ReportMoney.Text);
-            model.ReportState = Convert.ToInt32(update_state.SelectedValue);
+            model.ReportState = 1;
             if (bll.update_Res(model) >= 0)
             {
                 Response.Write("<script>alert('修改成功！');location.href='ReportInfo.aspx' </script>");

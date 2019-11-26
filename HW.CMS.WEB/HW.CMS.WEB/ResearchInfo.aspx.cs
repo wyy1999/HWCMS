@@ -39,6 +39,7 @@ namespace HW.CMS.WEB
             ResearchInfoModel model = new ResearchInfoModel();
             model.Resname = TxtName.Text;
             model.ResIntroduce = TxtCon.Text;
+            model.ResGroup = Txtgroup.Text;
             model.BeginTime =Convert.ToString(DateTime.Now) ;
             model.EndTime = "";           
             model.ResMoney = Convert.ToDecimal(TxtMoney.Text);
@@ -83,6 +84,7 @@ namespace HW.CMS.WEB
             ResearchInfoModel model = new ResearchInfoModel();
             model.ResId = Convert.ToInt32(update_ResId.Text);
             model.ResIntroduce = update_ResIntroduce.Text;
+            model.ResGroup = update_group.Text;
             model.Resname = update_Resname.Text;
             model.BeginTime = update_BeginTime.Text;
             model.EndTime = update_EndTime.Text;

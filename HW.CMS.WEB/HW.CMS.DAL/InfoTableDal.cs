@@ -52,7 +52,7 @@ namespace HW.CMS.DAL
                         InfoState = Convert.ToInt32(row["InfoState"]),
                         Dep=Convert.ToString(row["Dep"]),
                         DutyName= Convert.ToString(row["DutyName"]),
-                        UserNum= Convert.ToInt32(row["UserNum"]),
+                        UserName= Convert.ToString(row["UserName"]),
                     };
                     list.Add(accout);
                 

@@ -45,13 +45,15 @@
                                     <tr>
                                         <th>支出id
                                         </th>
-                                        <th>工资金额
+                                        <th>月份
                                         </th>
-                                        <th>补贴金额
+                                        <th>工资总金额
                                         </th>
-                                        <th>五险一金
+                                        <th>报备总金额
                                         </th>
-                                        <th>报备金额
+                                        <th>研发总金额
+                                        </th>
+                                         <th>财务人员姓名
                                         </th>
                                     </tr>
                             </HeaderTemplate>
@@ -61,19 +63,22 @@
                                         <%#Eval("AccoutId") %>
                                     </td>
                                     <td>
+                                        <%#Eval("AccMonth") %>
+                                    </td>
+                                    <td>
                                         <%#Eval("ACCSalary") %>￥
-                                    </td>
-                                    <td>
-                                        <%#Eval("AccSubsidy") %>￥
-                                    </td>
-                                    <td>
-                                        <%#Eval("AccFiveMoney") %>￥
                                     </td>
                                     <td>
                                         <%#Eval("AccReportModey") %>￥
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("AccoutId") %>','<%#Eval("ACCSalary") %>','<%#Eval("AccSubsidy") %>','<%#Eval("AccFiveMoney") %>','<%#Eval("AccReportModey") %>')">修改</a>
+                                        <%#Eval("AccResMoney") %>￥
+                                    </td>
+                                    <td>
+                                        <%#Eval("AccName") %>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("AccoutId") %>','<%#Eval("AccMonth") %>','<%#Eval("ACCSalary") %>','<%#Eval("AccReportModey") %>','<%#Eval("AccResMoney") %>')">修改</a>
                                         <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("AccoutId") %>'>删除</asp:LinkButton>
                                         
 
@@ -98,25 +103,26 @@
                                     <table>
 
                                         <tr>
-                                            <td>工资金额</td>
+                                            <td>月份</td>
                                             <td>
-                                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+                                                <asp:TextBox ID="AccMonth" runat="server"></asp:TextBox></td>
                                         </tr>
                                         <tr>
-                                            <td>补贴金额</td>
+                                            <td>工资总金额</td>
                                             <td>
-                                                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+                                                <asp:TextBox ID="ACCSalary" runat="server"></asp:TextBox></td>
                                         </tr>
                                         <tr>
-                                            <td>五险一金</td>
+                                            <td>报备总金额</td>
                                             <td>
-                                                <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox></td>
+                                                <asp:TextBox ID="AccReportModey" runat="server"></asp:TextBox></td>
                                         </tr>
                                         <tr>
-                                            <td>报备id</td>
+                                            <td>研发总金额</td>
                                             <td>
-                                                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox></td>
+                                                <asp:TextBox ID="AccResMoney" runat="server"></asp:TextBox></td>
                                         </tr>
+                                     
                                     </table>
 
 
@@ -129,12 +135,13 @@
                         </div>
                     </div>
                     <script type="text/javascript">
-                        function addressUpdate(id, Salary, Subsidy, FiveMoney, AccReportModey) {
+                        function addressUpdate(id, AccMonth, ACCSalary, AccReportModey, AccResMoney) {
                             $("#update_AccoutId").val(id);
-                            $("#update_ACCSalary").val(Salary);
-                            $("#update_AccSubsidy").val(Subsidy);
-                            $("#update_AccFiveMoney").val(FiveMoney);
+                            $("#update_month").val(AccMonth);
+                            $("#update_ACCSalary").val(ACCSalary);
                             $("#update_AccReportModey").val(AccReportModey);
+                            $("#update_AccResMoney").val(AccResMoney);
+                          
                             $("#modal-address-update").modal("show");
                         }
                     </script>
@@ -162,6 +169,12 @@
                                                     <asp:TextBox ID="update_AccoutId" name="update_AccoutId"
                                                         class="form-control" runat="server"></asp:TextBox></td>
                                             </tr>
+                                             <tr>
+                                                <td>月份</td>
+                                                <td>
+                                                    <asp:TextBox ID="update_month" name="update_ACCSalary"
+                                                        class="form-control" runat="server"></asp:TextBox></td>
+                                            </tr>
                                             <tr>
                                                 <td>工资金额</td>
                                                 <td>
@@ -169,24 +182,18 @@
                                                         class="form-control" runat="server"></asp:TextBox></td>
                                             </tr>
                                             <tr>
-                                                <td>补贴金额</td>
+                                                <td>报备总金额</td>
                                                 <td>
-                                                    <asp:TextBox ID="update_AccSubsidy" name="update_AccSubsidy"
+                                                    <asp:TextBox ID="update_AccReportModey" name="update_AccSubsidy"
                                                         class="form-control" runat="server"></asp:TextBox></td>
                                             </tr>
                                             <tr>
-                                                <td>五险一金</td>
+                                                <td>研发总金额</td>
                                                 <td>
-                                                    <asp:TextBox ID="update_AccFiveMoney" name="update_AccFiveMoney"
+                                                    <asp:TextBox ID="update_AccResMoney" name="update_AccFiveMoney"
                                                         class="form-control" runat="server"></asp:TextBox></td>
                                             </tr>
-                                            <tr>
-                                                <td>报备金额</td>
-                                                <td>
-                                                    <asp:TextBox ID="update_AccReportModey" name="update_ReportId "
-                                                        class="form-control" runat="server"></asp:TextBox></td>
-
-                                            </tr>
+                         
                                         </table>
                                     </div>
                                     <div class="form-group" style="text-align: center">

@@ -47,10 +47,11 @@ namespace HW.CMS.WEB
         protected void Button1_Click(object sender, EventArgs e)
         {
             AccoutInfoModel user = new AccoutInfoModel();
-            user.ACCSalary = Convert.ToDecimal(TextBox2.Text);
-            user.AccSubsidy = Convert.ToDecimal(TextBox3.Text);
-            user.AccFiveMoney = Convert.ToDecimal(TextBox4.Text);
-            user.AccReportModey = Convert.ToInt32(TextBox5.Text);
+            user.ACCSalary = Convert.ToDecimal(ACCSalary.Text);
+            user.AccMonth = Convert.ToString(AccMonth.Text);
+            user.AccResMoney = Convert.ToDecimal(AccResMoney.Text);
+            user.AccReportModey = Convert.ToInt32(AccReportModey.Text);
+            user.AccName = "王莹莹";
 
             if (bll.Add(user) > 0)
             {
@@ -64,9 +65,10 @@ namespace HW.CMS.WEB
             AccoutInfoModel user = new AccoutInfoModel();
             user.AccoutId = Convert.ToInt32(update_AccoutId.Text);
             user.ACCSalary = Convert.ToDecimal(update_ACCSalary.Text);
-            user.AccSubsidy = Convert.ToDecimal(update_AccSubsidy.Text);
-            user.AccFiveMoney = Convert.ToDecimal(update_AccFiveMoney.Text);
-            user.AccReportModey = Convert.ToInt32(update_AccReportModey.Text);
+            user.AccResMoney = Convert.ToDecimal(update_AccResMoney.Text);
+            user.AccMonth = update_month.Text;
+            user.AccName = "王莹莹";
+            user.AccReportModey = Convert.ToDecimal(update_AccReportModey.Text);
 
             if (bll.update(user) > 0)
             {

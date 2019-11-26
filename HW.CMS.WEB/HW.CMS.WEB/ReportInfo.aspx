@@ -39,9 +39,9 @@
                     <div style="height: 50px; text-align: center; margin-top: 10px">
                         报备原因：<asp:TextBox ID="TxtResName" runat="server"></asp:TextBox>
                         审核状态：<asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
-                            <asp:ListItem Value="2" Selected="True">全部</asp:ListItem>
-                            <asp:ListItem Value="0">未完成</asp:ListItem>
-                            <asp:ListItem Value="1">已完成</asp:ListItem>
+                            <asp:ListItem Value="0" Selected="True">全部</asp:ListItem>
+                            <asp:ListItem Value="1">未审核</asp:ListItem>
+                            <asp:ListItem Value="2">已审核</asp:ListItem>
                         </asp:RadioButtonList>
                         <asp:Button ID="Button1" runat="server" Text="查询" class="btn btn-success" OnClick="Button1_Click" />
                     </div>
@@ -52,6 +52,7 @@
                                 <thead>
                                     <tr>
                                         <th>id</th>
+                                        <th>报备名称</th>
                                         <th>报备原因</th>
                                         <th>报备时间</th>
                                         <th>报备部门</th>
@@ -65,13 +66,14 @@
                             <tbody>
                                 <tr>
                                     <td><%#Eval("ReportId") %> </td>
+                                    <td><%#Eval("RepName") %> </td>
                                     <td><%#Eval("ReportReason") %></td>
                                     <td><%#Eval("ReportTime") %></td>
                                     <td><%#Eval("Dep") %></td>
                                     <td><%#Eval("ReportMoney") %> ￥</td>
                                     <td><%#Eval("ReportStateString") %></td>
                                     <td>
-                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("ReportId") %>','<%#Eval("ReportReason") %>','<%#Eval("ReportTime") %>','<%#Eval("DepId") %>','<%#Eval("ReportMoney") %>','<%#Eval("ReportState") %>')">修改</a>
+                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("ReportId") %>','<%#Eval("RepName") %>','<%#Eval("ReportReason") %>','<%#Eval("ReportTime") %>','<%#Eval("DepId") %>','<%#Eval("ReportMoney") %>','<%#Eval("ReportState") %>')">修改</a>
 
                                         <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("ReportId") %>'>删除</asp:LinkButton>
                                     </td>
@@ -98,34 +100,31 @@
 
                                 </div>
                                 <div class="modal-body">
-
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">报备名称:</label>
+                                        <asp:TextBox ID="TextName" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
                                     <div class="form-group">
                                         <label for="recipient-name" class="control-label">报备原因:</label>
                                         <asp:TextBox ID="Txt1" runat="server" class="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="message-text" class="control-label">报备时间:</label>
-                                        <asp:TextBox ID="Txt2" runat="server" class="form-control"></asp:TextBox>
-
-                                    </div>
 
                                     <div class="form-group">
                                         <label for="message-text" class="control-label">报备部门:</label>
-                                        <asp:TextBox ID="Txt3" runat="server" class="form-control"></asp:TextBox>
+                                        <asp:DropDownList ID="DropDownList2" runat="server" class="form-control">
+                                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                                <asp:ListItem Value="1">人事部</asp:ListItem>
+                                                <asp:ListItem Value="2">财务部</asp:ListItem>
+                                                <asp:ListItem Value="3">研发部</asp:ListItem>
+                                                <asp:ListItem Value="4">销售部</asp:ListItem>
+                                            </asp:DropDownList>
                                     </div>
                                     <div class="form-group">
                                         <label for="message-text" class="control-label">所需金额:</label>
                                         <asp:TextBox ID="Txt4" runat="server" class="form-control"></asp:TextBox>
 
                                     </div>
-                                    <div class="form-group">
-                                        <label for="message-text" class="control-label">审核状态:</label>
-                                        <asp:DropDownList ID="DropDownList1" runat="server" class="form-control">
-                                            <asp:ListItem Selected="True" Value="0">未完成</asp:ListItem>
-                                            <asp:ListItem Value="1">已完成</asp:ListItem>
-                                        </asp:DropDownList>
-
-                                    </div>
+                                    
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -137,13 +136,13 @@
                     </div>
                     <%-- 修改模态框 --%>
                     <script type="text/javascript">
-                        function addressUpdate(ReportId, ReportReason, ReportTime, DepId, ReportMoney, ReportState) {
+                        function addressUpdate( ReportId,RepName, ReportReason, ReportTime, DepId, ReportMoney) {
                             $("#update_ReportId").val(ReportId);
+                            $("#update_name").val(RepName);
                             $("#update_ReportReason").val(ReportReason);
                             $("#update_ReportTime").val(ReportTime);
                             $("#update_DepId").val(DepId);
-                            $("#update_ReportMoney").val(ReportMoney);
-                            $("#update_ReportState").val(ReportState);
+                            $("#update_ReportMoney").val(ReportMoney);                           
                             $("#modal-address-update").modal("show");
                         }
                     </script>
@@ -170,28 +169,34 @@
                                             <asp:TextBox ID="update_ReportId" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
+                                        <label for="recipient-name" class="control-label">报备名称:</label>
+                                        <asp:TextBox ID="update_name" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                        <div class="form-group">
                                             <label for="message-text" class="control-label">报备原因:</label>
                                             <asp:TextBox ID="update_ReportReason" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label for="message-text" class="control-label">报备时间:</label>
-                                            <asp:TextBox ID="update_ReportTime" runat="server" class="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="update_ReportTime"  runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label for="message-text" class="control-label">报备部门:</label>
-                                            <asp:TextBox ID="update_DepId" runat="server" class="form-control"></asp:TextBox>
+                                          
+                                             <asp:DropDownList ID="update_DepId" runat="server" class="form-control">
+                                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                                <asp:ListItem Value="1">人事部</asp:ListItem>
+                                                <asp:ListItem Value="2">财务部</asp:ListItem>
+                                                <asp:ListItem Value="3">研发部</asp:ListItem>
+                                                <asp:ListItem Value="4">销售部</asp:ListItem>
+                                            </asp:DropDownList>
+                                    </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="message-text" class="control-label">所需金额:</label>
                                             <asp:TextBox ID="update_ReportMoney" runat="server" class="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="control-label">审核状态:</label>
-                                            <asp:DropDownList ID="update_state" runat="server" class="form-control">
-                                                <asp:ListItem Selected="True" Value="0">未完成</asp:ListItem>
-                                                <asp:ListItem Value="1">已完成</asp:ListItem>
-                                            </asp:DropDownList>
-                                        </div>
+                                      
                                     </div>
                                     <div class="form-group" style="text-align: center">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">

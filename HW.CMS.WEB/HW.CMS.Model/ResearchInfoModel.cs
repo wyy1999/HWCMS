@@ -14,6 +14,7 @@ namespace HW.CMS.Model
         public int ResId { get; set; }
         public string Resname { get; set; }
         public string ResIntroduce { get; set; }
+        public string ResGroup { get; set; }
         public string BeginTime { get; set; }
         public string EndTime { get; set; }
         public decimal ResMoney { get; set; }
@@ -25,7 +26,7 @@ namespace HW.CMS.Model
         public string ResStateString
         {
             get {
-                if (ResState == 0)
+                if (ResState == 1)
                 {
                     return "未完成";
                 }
