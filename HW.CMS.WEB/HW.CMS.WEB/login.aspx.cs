@@ -46,11 +46,21 @@ namespace HW.CMS.WEB
                     Session["zhi"] = result.DutyId;
                     Response.Redirect("index.aspx");
                 }
-                else
+                else if(result.DutyId == 4)
                 {
                     Session["chuan"] = result.UserName;
                     Session["zhi"] = result.DutyId;
                     Response.Redirect("index.aspx");
+                }
+                else if(result.DutyId == 5)
+                {
+                    Session["chuan"] = result.UserName;
+                    Session["zhi"] = result.DutyId;
+                    Response.Redirect("index.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>alert('你的权限不足');</script>");
                 }
             }
             else
