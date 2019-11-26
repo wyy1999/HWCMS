@@ -14,6 +14,7 @@ namespace HW.CMS.WEB
             string st = Session["chuan"].ToString();
             Label1.Text = st;
             Label2.Text = st;
+            Label3.Text = Session["zhi"].ToString();
         }
     }
 }

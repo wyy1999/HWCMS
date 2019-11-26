@@ -66,17 +66,17 @@
                             <tr>
                                 <td>员工id</td>
                                 <td>
-                                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+                                    <asp:TextBox ID="TextBox1" runat="server" class="form-control"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td>部门id</td>
                                 <td>
-                                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>
                             </tr>
                             <tr>
                                 <td>请假原因</td>
                                 <td>
-                                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+                                    <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
