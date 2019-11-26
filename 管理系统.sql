@@ -141,14 +141,15 @@ create table MoneyTable(
   InfoId int references  InfoTable(InfoId),  --员工表外键 
   Conunt int,--迟到次数
   MoneyDed decimal(18,2) default(0) check(MoneyDed>=0),--提成
-  MoneyState int check(MoneyState=1 or MoneyState=2 ) --状态 全勤 1是 2否
+  MoneyState int check(MoneyState=1 or MoneyState=2 ), --状态 全勤 1是 2否
+  Moneysta int check(Moneysta=1 or Moneysta=2)--工资结算状态 1已结算 2未结算
 )
 
-insert into MoneyTable values(1,0,'200',1)
-insert into MoneyTable values(2,3,'0',2)
-insert into MoneyTable values(3,5,'0',2)
-insert into MoneyTable values(4,0,'200',1)
-insert into MoneyTable values(5,0,'200',1)
+insert into MoneyTable values(1,0,'200',1,1)
+insert into MoneyTable values(2,3,'0',2,1)
+insert into MoneyTable values(3,5,'0',2,1)
+insert into MoneyTable values(4,0,'200',1,2)
+insert into MoneyTable values(5,0,'200',1,2)
 select * from MoneyTable
 
 /*人员打卡表 ClockInfo*/
@@ -315,7 +316,9 @@ select * from DetailsInfo
 
 
 insert into DetailsInfo values ('杨申，谷相搏，李彬辉，代梦丽，顾家瑄，于发光','让顾客更了解酒店，实时观察到房间的动态以及信息。',38000,'100%',1)
+
 insert into DetailsInfo values ('杨申','用户查看前台信息',10000,'100%',1)
+
 insert into DetailsInfo values ('谭顺顺，潘武豪，田松茂，董雅敏，王洋，张建行','数字化管理学生信息，实现线上教务系统。',50000,'100%',2)
 insert into DetailsInfo values ('于超越，石金涛，李浩东，陈路明','跟随时代把书店搬到线上，更直观的了解到书的种类以及更新动态。',20000,'100%',3)
 insert into DetailsInfo values ('冯琦，许备备，朱思南，彭林，李梦凡，张文政','数字化医疗平台，实现线上挂号，线上缴费等目的节约患者时间。',20000,'100%',4)
