@@ -69,7 +69,7 @@ namespace HW.CMS.DAL
 
         public int insert_leave(int uid,int tid,string baca)
         {
-            string sql = "insert into LeaveInfo values(@InfoId,@DepId,'"+ DateTime.Now+ "',@LeaveReason,0)";
+            string sql = "insert into LeaveInfo values(@InfoId,@DepId,'"+ DateTime.Now+ "','',@LeaveReason,1)";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@InfoId",uid),

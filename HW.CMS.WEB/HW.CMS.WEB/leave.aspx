@@ -69,6 +69,11 @@
                                     <asp:TextBox ID="TextBox1" runat="server" class="form-control"></asp:TextBox></td>
                             </tr>
                             <tr>
+                                <td>员工姓名</td>
+                                <td>
+                                    <asp:TextBox ID="TextBox4" runat="server" class="form-control"></asp:TextBox></td>
+                            </tr>
+                            <tr>
                                 <td>部门id</td>
                                 <td>
                                     <asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>
