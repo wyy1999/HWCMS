@@ -29,5 +29,21 @@ namespace HW.CMS.BLL
         {
             return dal.delete(AccoutId);
         }
+        public AccoutInfoModel sel1()
+        {
+            return dal.sel4();
+        }
+        public AccoutInfoModel sel2()
+        {
+            return dal.sel4();
+        }
+        public AccoutInfoModel sel3()
+        {
+            return dal.sel4();
+        }
+        public AccoutInfoModel sel4()
+        {
+            return dal.sel4();
+        }
     }
 }

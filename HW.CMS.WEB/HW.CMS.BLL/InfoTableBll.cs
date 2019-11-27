@@ -48,5 +48,26 @@ namespace HW.CMS.BLL
             return dal.update_Info(model);
         }
 
+         public object sel1()
+        {
+            return dal.sel1();
         }
+        public object sel2()
+        {
+            return dal.sel2();
+        }
+        public object sel3()
+        {
+            return dal.sel3();
+        }
+        public object sel4()
+        {
+            return dal.sel4();
+        }
+        public object sel5()
+        {
+            return dal.sel5();
+        }
+
+    }
 }

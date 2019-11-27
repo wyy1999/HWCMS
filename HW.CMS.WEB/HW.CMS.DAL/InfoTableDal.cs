@@ -158,6 +158,35 @@ namespace HW.CMS.DAL
             return DBHelper.ExcuteSqlNonQuery(sql, par);
 
         }
-
+        public object sel1()
+        {
+            string sql = "select count(*) from InfoTable where DepId = 1";
+            object result = DBHelper.ExcuteScalar(sql);
+            return result;
+        }
+        public object sel2()
+        {
+            string sql = "select count(*) from InfoTable where DepId = 2";
+            object result = DBHelper.ExcuteScalar(sql);
+            return result;
+        }
+        public object sel3()
+        {
+            string sql = "select count(*) from InfoTable where DepId = 3";
+            object result = DBHelper.ExcuteScalar(sql);
+            return result;
+        }
+        public object sel4()
+        {
+            string sql = "select count(*) from InfoTable where DepId = 4";
+            object result = DBHelper.ExcuteScalar(sql);
+            return result;
+        }
+        public object sel5()
+        {
+            string sql = "select count(*) from InfoTable";
+            object result = DBHelper.ExcuteScalar(sql);
+            return result;
+        }
     }
 }

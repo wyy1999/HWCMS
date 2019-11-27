@@ -43,7 +43,7 @@ create table UserLogin(
    --登录角色  1 总经理 2人事经理 3财务经理 4销售主管 5研发主管 6员工
 )
 go
-select * from userlogin
+
 --登陆表
 insert into UserLogin values('柳林军','123456',1)
 insert into UserLogin values('王莹莹','123456',2)
@@ -52,7 +52,6 @@ insert into UserLogin values('宋玉鑫','123456',4)
 insert into UserLogin values('周丁浩','123456',5)
 insert into UserLogin values('白亚军','123456',6)
 insert into UserLogin values('李明','123456',6)
-
 
 
 --公司部门表 DepartmentInfo
@@ -100,35 +99,50 @@ create table InfoTable(
   InfoSalary decimal(18,2) default(0) check(InfoSalary>=0) not null,--工资
   InfoState int check( InfoState=1 or InfoState=2 )  --状态  1在职 2离职
 )
+select count(*) from InfoTable where DepId = 3
 
-insert  into InfoTable values('王莹莹',18,'男','2001.11.1','147852369632541785','12345123454','河南省郑州市','11231234121@qq.com','','','2',1,2,2,'7000',1)
-insert  into InfoTable values('位伟峰',20,'女','1999.10.1','145236525632458712','12345123456','河南省郑州市','10231234121@qq.com',getdate(),'','3',2,3,3,'7000',1)
-insert  into InfoTable values('周丁浩',27,'男','1992.6.1','147852369963258741','12345123455','河南省郑州市','10231234123@qq.com',getdate(),'','3',3,5,5,'5000',1)
-insert  into InfoTable values('宋玉鑫',24,'女','1995.5.1','147852369987456123','12345123453','河南省郑州市','10231234124@qq.com',getdate(),'','3',4,4,4,'6000',1)
-insert  into InfoTable values('白亚军',20,'男','1999.10.1','147852369987456714','12345123483','河南省郑州市','10231234174@qq.com',getdate(),'','1',4,6,6,'4000',1)
-insert  into InfoTable values('李明',20,'男','1999.7.1','147852369987456185','12345123473','河南省郑州市','10231234824@qq.com',getdate(),'','3个月',4,6,7,'3000',1)
-insert  into InfoTable values('谷相搏',22,'男','1997.12.13','213784216424624242','4134213411','河南省郑州市','142143242424@qq.com','','','1',2,1,3,'6000',1)
-insert  into InfoTable values('杨申',20,'女','1989.10.1','234321456789231234','9876543212','河南省郑州市','1431412421@qq.com',getdate(),'','3',2,3,3,'7000',1)
+select * from InfoTable
+
+insert  into InfoTable values('王莹莹',18,'男','2001.11.1','147852369632541785','12345123454','河南省郑州市','11231234121@qq.com',getdate(),'','2',2,2,2,'7000',1)
+insert  into InfoTable values('位伟峰',20,'女','1999.10.1','145236525632458712','12345123456','河南省郑州市','10231234121@qq.com',getdate(),'','3',1,3,3,'7000',1)
+insert  into InfoTable values('周丁浩',27,'男','1992.6.1','147852369963258741','12345123455','河南省郑州市','10231234123@qq.com',getdate(),'','3',2,5,5,'5000',1)
+insert  into InfoTable values('宋玉鑫',24,'女','1995.5.1','147852369987456123','12345123453','河南省郑州市','10231234124@qq.com',getdate(),'','3',1,4,4,'6000',1)
+insert  into InfoTable values('白亚军',20,'男','1999.10.1','147852369987456714','12345123483','河南省郑州市','10231234174@qq.com',getdate(),'','1',1,6,6,'4000',1)
+insert  into InfoTable values('李明',20,'男','1999.7.1','147852369987456185','12345123473','河南省郑州市','10231234824@qq.com',getdate(),'','3个月',1,6,7,'3000',1)
+insert  into InfoTable values('谷相搏',22,'男','1997.12.13','213784216424624242','4134213411','河南省郑州市','142143242424@qq.com','','','1',3,1,3,'6000',1)
+insert  into InfoTable values('杨申',20,'女','1989.10.1','234321456789231234','9876543212','河南省郑州市','1431412421@qq.com',getdate(),'','3',3,3,3,'7000',1)
 insert  into InfoTable values('李彬辉',27,'男','1992.6.1','3242142432453545','34523231231','河南省郑州市','523424244124@qq.com',getdate(),'','2',3,5,5,'5000',1)
-insert  into InfoTable values('代梦丽',24,'女','1995.5.1','234213131231234535','54623423123','河南省郑州市','15343234324@qq.com',getdate(),'','3',4,4,4,'6000',1)
-insert  into InfoTable values('顾家瑄',20,'男','1999.10.1','1234123131424345','12323123','河南省郑州市','2345324543535@qq.com',getdate(),'','1',4,5,6,'4000',1)
-insert  into InfoTable values('于发光',20,'男','1999.7.1','23412312313434252','5643223','河南省郑州市','23453533333335@qq.com',getdate(),'','3个月',4,5,6,'3000',1)
-insert  into InfoTable values('谭顺顺',18,'男','2001.11.1','123423133432423','345423113','河南省郑州市','324532455345@qq.com','','','1',1,3,2,'7000',1)
-insert  into InfoTable values('潘武豪',20,'女','1999.10.1','75432112342324213','43523123142','河南省郑州市','345353535353@qq.com',getdate(),'','2',2,4,3,'7000',1)
+insert  into InfoTable values('代梦丽',24,'女','1995.5.1','234213131231234535','54623423123','河南省郑州市','15343234324@qq.com',getdate(),'','3',3,4,4,'6000',1)
+insert  into InfoTable values('顾家瑄',20,'男','1999.10.1','1234123131424345','12323123','河南省郑州市','2345324543535@qq.com',getdate(),'','1',3,5,6,'4000',1)
+insert  into InfoTable values('于发光',20,'男','1999.7.1','23412312313434252','5643223','河南省郑州市','23453533333335@qq.com',getdate(),'','3个月',3,5,6,'3000',1)
+insert  into InfoTable values('谭顺顺',18,'男','2001.11.1','123423133432423','345423113','河南省郑州市','324532455345@qq.com','','','1',3,3,2,'7000',1)
+insert  into InfoTable values('潘武豪',20,'女','1999.10.1','75432112342324213','43523123142','河南省郑州市','345353535353@qq.com',getdate(),'','2',3,4,3,'7000',1)
 insert  into InfoTable values('田松茂',27,'男','1992.6.1','21231324231234234','5523422323','河南省郑州市','53453532@qq.com',getdate(),'','2',3,4,6,'5000',1)
-insert  into InfoTable values('董雅敏',24,'女','1995.5.1','2433453212314134','6542324332','河南省郑州市','2353543453523@qq.com',getdate(),'','3',4,5,6,'6000',1)
+insert  into InfoTable values('董雅敏',24,'女','1995.5.1','2433453212314134','6542324332','河南省郑州市','2353543453523@qq.com',getdate(),'','3',3,5,6,'6000',1)
 insert  into InfoTable values('张建行',20,'男','1999.10.1','2432452342655635','653524123','河南省郑州市','14141344245434@qq.com',getdate(),'','2',3,5,6,'4000',1)
-insert  into InfoTable values('王洋',20,'男','1999.7.1','413546454231331','34524154623','河南省郑州市','456423242313@qq.com',getdate(),'','3个月',4,5,6,'3000',1)
-insert  into InfoTable values('于超越',18,'男','2001.11.1','134321235335','3214364342','河南省郑州市','42342312@qq.com','','','1',1,3,4,'7000',1)
-insert  into InfoTable values('石金涛',20,'女','1999.10.1','45362342411231','13253443','河南省郑州市','124321312@qq.com',getdate(),'','2',1,4,7,'7000',1)
+insert  into InfoTable values('王洋',20,'男','1999.7.1','413546454231331','34524154623','河南省郑州市','456423242313@qq.com',getdate(),'','3个月',3,5,6,'3000',1)
+insert  into InfoTable values('于超越',18,'男','2001.11.1','134321235335','3214364342','河南省郑州市','42342312@qq.com','','','1',3,3,4,'7000',1)
+insert  into InfoTable values('石金涛',20,'女','1999.10.1','45362342411231','13253443','河南省郑州市','124321312@qq.com',getdate(),'','2',3,4,7,'7000',1)
 insert  into InfoTable values('李浩东',27,'男','1992.6.1','3453424131231534','124124346','河南省郑州市','345312312@qq.com',getdate(),'','2',3,4,6,'5000',1)
-insert  into InfoTable values('陈路明',24,'女','1995.5.1','546312123123131','3425463242','河南省郑州市','3452312123@qq.com',getdate(),'','2',4,5,6,'6000',1)
-insert  into InfoTable values('冯琦',20,'男','1999.10.1','5345231231231423','2523534634','河南省郑州市','3452313123@qq.com',getdate(),'','3',4,5,6,'4000',1)
-insert  into InfoTable values('许备备',20,'男','1999.7.1','4231231423531231','45645241312','河南省郑州市','345212132@qq.com',getdate(),'','3个月',4,6,7,'3000',1)
-insert  into InfoTable values('朱思南',27,'男','1992.6.1','443531231252313','3523121423','河南省郑州市','4565234213@qq.com',getdate(),'','1',2,3,5,'5000',1)
+insert  into InfoTable values('陈路明',24,'女','1995.5.1','546312123123131','3425463242','河南省郑州市','3452312123@qq.com',getdate(),'','2',3,5,6,'6000',1)
+insert  into InfoTable values('冯琦',20,'男','1999.10.1','5345231231231423','2523534634','河南省郑州市','3452313123@qq.com',getdate(),'','3',3,5,6,'4000',1)
+insert  into InfoTable values('许备备',20,'男','1999.7.1','4231231423531231','45645241312','河南省郑州市','345212132@qq.com',getdate(),'','3个月',3,6,7,'3000',1)
+insert  into InfoTable values('朱思南',27,'男','1992.6.1','443531231252313','3523121423','河南省郑州市','4565234213@qq.com',getdate(),'','1',3,3,5,'5000',1)
 insert  into InfoTable values('彭林',24,'女','1995.5.1','3245423123123131','4352312452','河南省郑州市','2314312313@qq.com',getdate(),'','2',3,5,7,'6000',1)
-insert  into InfoTable values('李梦凡',21,'男','1998.10.1','123252341224354','1231252342','河南省郑州市','34312324@qq.com',getdate(),'','3',4,5,6,'4000',1)
+insert  into InfoTable values('李梦凡',21,'男','1998.10.1','123252341224354','1231252342','河南省郑州市','34312324@qq.com',getdate(),'','3',3,5,6,'4000',1)
 insert  into InfoTable values('张文政',22,'男','1997.7.1','531244345124','435634123','河南省郑州市','456453422@qq.com',getdate(),'','3个月',3,5,6,'3000',1)
+
+insert  into InfoTable values('孙悟空',20,'男','1999.10.1','24324523124635','623412123','河南省郑州市','24532145434@qq.com',getdate(),'','2',4,5,6,'4000',1)
+insert  into InfoTable values('娜美',20,'女','1999.7.1','4135123231331','31234623','河南省郑州市','456231232313@qq.com',getdate(),'','3个月',4,5,6,'3000',1)
+insert  into InfoTable values('罗宾',18,'女','2001.11.1','134321232335','3214234342','河南省郑州市','423345312@qq.com','','','1',4,3,4,'7000',1)
+insert  into InfoTable values('汉库克',20,'女','1999.10.1','453612311231','112343','河南省郑州市','12312312@qq.com',getdate(),'','2',4,4,7,'7000',1)
+insert  into InfoTable values('萧炎',27,'男','1992.6.1','3453424134231534','1242344346','河南省郑州市','3434512312@qq.com',getdate(),'','2',4,4,6,'5000',1)
+insert  into InfoTable values('灵帝',24,'女','1995.5.1','5463121233131','342123242','河南省郑州市','312323@qq.com',getdate(),'','2',4,5,6,'6000',1)
+insert  into InfoTable values('吕布',20,'男','1999.10.1','5345231531231423','25223434634','河南省郑州市','34513123@qq.com',getdate(),'','3',4,5,6,'4000',1)
+insert  into InfoTable values('貂蝉',27,'女','1992.6.1','4435312313452313','35223421423','河南省郑州市','4534534213@qq.com',getdate(),'','1',4,3,5,'5000',1)
+insert  into InfoTable values('大乔',24,'女','1995.5.1','3245423134523131','432312452','河南省郑州市','2314234313@qq.com',getdate(),'','2',4,5,7,'6000',1)
+insert  into InfoTable values('小乔',21,'女','1998.10.1','123252345224354','12352342','河南省郑州市','2344@qq.com',getdate(),'','3',4,5,6,'4000',1)
+insert  into InfoTable values('蔡文姬',22,'女','1997.7.1','531234545124','432344123','河南省郑州市','456423422@qq.com',getdate(),'','3个月',4,5,6,'3000',1)
 select * from InfoTable
 
 go
@@ -180,14 +194,14 @@ go
 create proc Sel_MoneyTable(@InfoName varchar(20)='',@MoneyState int=0,@Moneysta int=0)
 as
 declare @sql varchar(max)
-set @sql='select InfoTable.InfoId,MoneyTable.* from InfoTable,MoneyTable where InfoTable.InfoId=MoneyTable.InfoId and InfoTable.InfoName like ''%'+@InfoName+'%'''
+set @sql='select InfoTable.InfoName,MoneyTable.* from InfoTable,MoneyTable where InfoTable.InfoId=MoneyTable.InfoId and InfoTable.InfoName like ''%'+@InfoName+'%'''
 if @MoneyState<>0
 set @sql=@sql+' and MoneyState='+CONVERT(varchar,@MoneyState)
 if @Moneysta<>0
 set @sql=@sql+' and Moneysta='+CONVERT(varchar,@Moneysta)
 exec(@sql)
 go
-exec Sel_MoneyTable '亚',0,2
+exec Sel_MoneyTable '',0,0
 
 /*人员打卡表 ClockInfo*/
 
@@ -287,15 +301,16 @@ create table AccoutInfo(
    ACCSalary decimal(18,2) check(ACCSalary>=0) not null,--工资总金额   
    AccReportModey decimal(18,2) check(AccReportModey>=0) not null,--报备总金额
    AccResMoney decimal(18,2) check(AccResMoney>=0) not null,-- 研发总金额
+   AccMoney decimal(18,2) not null,--总收入
    AccName varchar(10)not null--财务人员名称
   
 )
 go
-
-insert into AccoutInfo values ('10月份',35000,5500,2000,'王莹莹')
-insert into AccoutInfo values ('9月份',35000,6000,5000,'王莹莹')
-insert into AccoutInfo values ('11月份',35000,8000,3000,'王莹莹')
-insert into AccoutInfo values ('8月份',35000,3000,4000,'王莹莹')
+select * from AccoutInfo where AccMonth = '9月份'
+insert into AccoutInfo values ('10月份',350000,55000,20000,1150000,'王莹莹')
+insert into AccoutInfo values ('9月份',350000,60000,50000,1000000,'王莹莹')
+insert into AccoutInfo values ('11月份',350000,80000,30000,9000000,'王莹莹')
+insert into AccoutInfo values ('8月份',350000,30000,40000,18000000,'王莹莹')
 
 --研发部门表ResearchInfo
 if exists(select * from sys.tables where name='ResearchInfo')

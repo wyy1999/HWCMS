@@ -165,6 +165,7 @@
                             <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
                                 <li><a href="AccoutInfo.aspx" target="frame">支出</a></li>
                                 <li><a href="IncomeInfo.aspx" target="frame">收入</a></li>
+                                <li><a href="MoneyInfo.aspx" target="frame">工资</a></li>
 
                             </ul>
                         </li>

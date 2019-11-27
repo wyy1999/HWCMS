@@ -14,6 +14,7 @@ namespace HW.CMS.Model
      
         public decimal AccReportModey { get; set; }
         public decimal AccResMoney { get; set; }
+        public decimal AccMoney { get; set; }
         public string AccName { get; set; }
 
         

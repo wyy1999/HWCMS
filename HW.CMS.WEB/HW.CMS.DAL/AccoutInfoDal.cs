@@ -28,20 +28,20 @@ namespace HW.CMS.DAL
                     {
                         AccoutId = Convert.ToInt32(sqlda["AccoutId"]),
                         ACCSalary = Convert.ToDecimal(sqlda["ACCSalary"]),
-                         AccMonth = Convert.ToString(sqlda["AccMonth"]),
-                          AccName =Convert.ToString(sqlda["AccName"]) ,
-                        AccReportModey= Convert.ToDecimal(sqlda["AccReportModey"]),    
-                         AccResMoney= Convert.ToDecimal(sqlda["AccResMoney"]),
+                        AccMonth = Convert.ToString(sqlda["AccMonth"]),
+                        AccName = Convert.ToString(sqlda["AccName"]),
+                        AccReportModey = Convert.ToDecimal(sqlda["AccReportModey"]),
+                        AccResMoney = Convert.ToDecimal(sqlda["AccResMoney"]),
                     };
                     list.Add(accout);
                 };
             }
             return list;
         }/// <summary>
-        /// 添加
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
+         /// 添加
+         /// </summary>
+         /// <param name="model"></param>
+         /// <returns></returns>
         public int Add(AccoutInfoModel model)
         {
             string sql = "insert into AccoutInfo values(@ACCSalary,@AccMonth,@AccName,@AccResMoney，@AccReportModey)";
@@ -96,6 +96,110 @@ namespace HW.CMS.DAL
             };
             int result = DBHelper.ExcuteSqlNonQuery(sql, p);
             return result;
+        }
+        public AccoutInfoModel sel1()
+        {
+
+            AccoutInfoModel model = new AccoutInfoModel();
+            //根据用户id 查询用户信息
+            string sql = "select * from AccoutInfo where AccMonth = '8月份'";
+            //5.执行命令，返回结果
+            SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
+            if (reader.HasRows)
+            {
+                //读取第一条数据
+                while (reader.Read())
+                {
+                    model.AccoutId = Convert.ToInt32(reader["AccoutId"]);
+                    model.ACCSalary = Convert.ToDecimal(reader["ACCSalary"]);
+                    model.AccMonth = Convert.ToString(reader["AccMonth"]);
+                    model.AccName = Convert.ToString(reader["AccName"]);
+                    model.AccReportModey = Convert.ToDecimal(reader["AccReportModey"]); 
+                    model.AccMoney = Convert.ToDecimal(reader["AccMoney"]);
+                    model.AccResMoney = Convert.ToDecimal(reader["AccResMoney"]);
+
+                }
+            }
+            return model;
+
+        }
+        public AccoutInfoModel sel2()
+        {
+
+            AccoutInfoModel model = new AccoutInfoModel();
+            //根据用户id 查询用户信息
+            string sql = "select * from AccoutInfo where AccMonth = '9月份'";
+            //5.执行命令，返回结果
+            SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
+            if (reader.HasRows)
+            {
+                //读取第一条数据
+                while (reader.Read())
+                {
+                    model.AccoutId = Convert.ToInt32(reader["AccoutId"]);
+                    model.ACCSalary = Convert.ToDecimal(reader["ACCSalary"]);
+                    model.AccMonth = Convert.ToString(reader["AccMonth"]);
+                    model.AccName = Convert.ToString(reader["AccName"]);
+                    model.AccReportModey = Convert.ToDecimal(reader["AccReportModey"]);
+                    model.AccMoney = Convert.ToDecimal(reader["AccMoney"]);
+                    model.AccResMoney = Convert.ToDecimal(reader["AccResMoney"]);
+
+                }
+            }
+            return model;
+
+        }
+        public AccoutInfoModel sel3()
+        {
+
+            AccoutInfoModel model = new AccoutInfoModel();
+            //根据用户id 查询用户信息
+            string sql = "select * from AccoutInfo where AccMonth = '10月份'";
+            //5.执行命令，返回结果
+            SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
+            if (reader.HasRows)
+            {
+                //读取第一条数据
+                while (reader.Read())
+                {
+                    model.AccoutId = Convert.ToInt32(reader["AccoutId"]);
+                    model.ACCSalary = Convert.ToDecimal(reader["ACCSalary"]);
+                    model.AccMonth = Convert.ToString(reader["AccMonth"]);
+                    model.AccName = Convert.ToString(reader["AccName"]);
+                    model.AccReportModey = Convert.ToDecimal(reader["AccReportModey"]);
+                    model.AccMoney = Convert.ToDecimal(reader["AccMoney"]);
+                    model.AccResMoney = Convert.ToDecimal(reader["AccResMoney"]);
+
+                }
+            }
+            return model;
+
+        }
+        public AccoutInfoModel sel4()
+        {
+
+            AccoutInfoModel model = new AccoutInfoModel();
+            //根据用户id 查询用户信息
+            string sql = "select * from AccoutInfo where AccMonth = '11月份'";
+            //5.执行命令，返回结果
+            SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
+            if (reader.HasRows)
+            {
+                //读取第一条数据
+                while (reader.Read())
+                {
+                    model.AccoutId = Convert.ToInt32(reader["AccoutId"]);
+                    model.ACCSalary = Convert.ToDecimal(reader["ACCSalary"]);
+                    model.AccMonth = Convert.ToString(reader["AccMonth"]);
+                    model.AccName = Convert.ToString(reader["AccName"]);
+                    model.AccReportModey = Convert.ToDecimal(reader["AccReportModey"]);
+                    model.AccMoney = Convert.ToDecimal(reader["AccMoney"]);
+                    model.AccResMoney = Convert.ToDecimal(reader["AccResMoney"]);
+
+                }
+            }
+            return model;
+
         }
     }
 }

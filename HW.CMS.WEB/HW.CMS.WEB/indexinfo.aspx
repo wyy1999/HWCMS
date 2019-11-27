@@ -12,11 +12,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" />
     <link href="css/style.default.css" rel="stylesheet" />
     <link href="css/custom.css" rel="stylesheet" />
+    <script src="js/Echarts.js"></script>
 
     <%-- bootsharp --%>
     <%--    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />--%>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -28,20 +30,14 @@
                         <h2 class="no-margin-bottom">首页</h2>
                     </div>
                 </header>
-                <!-- Breadcrumb-->
-                <div class="breadcrumb-holder container-fluid">
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Charts            </li>
-                    </ul>
-                </div>
+
                 <!-- Charts Section-->
                 <section class="charts">
                     <div class="container-fluid">
                         <div class="row">
                             <!-- Line Charts-->
-                            <div class="col-lg-8">
-                                <div class="line-chart-example card">
+                            <div class="col-lg-6">
+                                <div class="line-chart-example card"">
                                     <div class="card-close">
                                         <div class="dropdown">
                                             <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
@@ -49,14 +45,30 @@
                                         </div>
                                     </div>
                                     <div class="card-header d-flex align-items-center">
-                                        <h3 class="h4">财务报表</h3>
+                                        <h3 class="h4">人数详情</h3>
                                     </div>
-                                    <div class="card-body">
-                                        <canvas id="lineChartExample"></canvas>
+                                    <%--<div id="main" class="card-body">
+                                    </div>--%>
+                                    <div id="main" style="width: 770px; height: 800px">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                              <div class="col-lg-6">
+                                <div class="line-chart-example card"">
+                                    <div class="card-close">
+                                        <div class="dropdown">
+                                            <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                            <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"><i class="fa fa-times"></i>关闭</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>管理</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="card-header d-flex align-items-center">
+                                        <h3 class="h4">财务支出</h3>
+                                    <div id="admin" style="width: 770px; height: 800px">
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4" style="display:none">
                                 <div class="line-chart-example card no-margin-bottom">
                                     <div class="card-close">
                                         <div class="dropdown">
@@ -68,105 +80,54 @@
                                         <h3 class="h4">员工人数</h3>
                                     </div>
                                     <div class="card-body">
-                                        <canvas id="lineChartExample1"></canvas>
+                                        人事部：<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        财务部：<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        研发部：<asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        销售部：<asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        总人数：<asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>                                        人事部：<asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                       8月 财务人员名称：<asp:Label ID="Label81" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        工资总金额：<asp:Label ID="Label82" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        报备总金额：<asp:Label ID="Label83" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        研发总金额：<asp:Label ID="Label84" runat="server" Text="Label"></asp:Label>
+                                          9月 财务人员名称：<asp:Label ID="Label91" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        工资总金额：<asp:Label ID="Label92" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        报备总金额：<asp:Label ID="Label93" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        研发总金额：<asp:Label ID="Label94" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                 10月 财务人员名称：<asp:Label ID="Label15" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        工资总金额：<asp:Label ID="Label10" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        报备总金额：<asp:Label ID="Label11" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        研发总金额：<asp:Label ID="Label12" runat="server" Text="Label"></asp:Label>
+                                          11月 财务人员名称：<asp:Label ID="Label21" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        工资总金额：<asp:Label ID="Label22" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        报备总金额：<asp:Label ID="Label23" runat="server" Text="Label"></asp:Label>
+                                        <br />
+                                        研发总金额：<asp:Label ID="Label24" runat="server" Text="Label"></asp:Label>
                                     </div>
-                                </div>
-<%--                                <div class="line-chart-example card">
-                                    <div class="card-close">
-                                        <div class="dropdown">
-                                            <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                            <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"><i class="fa fa-times"></i>关闭</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>管理</a></div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <canvas id="lineChartExample2"></canvas>
-                                    </div>
-                                </div>
-                            </div>--%>
-<%--                            <!-- Bar Charts-->
-                            <div class="col-lg-4">
-                                <div class="bar-chart-example card no-margin-bottom">
-                                    <div class="card-close">
-                                        <div class="dropdown">
-                                            <button type="button" id="closeCard4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                            <div aria-labelledby="closeCard4" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"><i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                                        </div>
-                                    </div>
-                                    <div class="card-header d-flex align-items-center">
-                                        <h3 class="h4">Bar Chart Example</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <canvas id="barChart1"></canvas>
-                                    </div>
-                                </div>
-                                <div class="line-chart-example card">
-                                    <div class="card-close">
-                                        <div class="dropdown">
-                                            <button type="button" id="closeCard5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                            <div aria-labelledby="closeCard5" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"><i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <canvas id="barChart2"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="bar-chart-example card">
-                                    <div class="card-close">
-                                        <div class="dropdown">
-                                            <button type="button" id="closeCard6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                            <div aria-labelledby="closeCard6" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"><i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                                        </div>
-                                    </div>
-                                    <div class="card-header d-flex align-items-center">
-                                        <h3 class="h4">Bar Chart Example</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <canvas id="barChartExample"></canvas>
-                                    </div>
-                                </div>  
-                            </div>
 
-                            <!-- Polar Chart-->
-                            <div class="col-lg-6">
-                                <div class="polar-chart-example card">
-                                    <div class="card-close">
-                                        <div class="dropdown">
-                                            <button type="button" id="closeCard9" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                            <div aria-labelledby="closeCard9" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"><i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                                        </div>
-                                    </div>
-                                    <div class="card-header d-flex align-items-center">
-                                        <h3 class="h4">Polar Chart Example</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <canvas id="polarChartExample"></canvas>
-                                    </div>
                                 </div>
+
                             </div>
-                            <!-- Radar Chart-->
-                            <div class="col-lg-6">
-                                <div class="radar-chart-example card">
-                                    <div class="card-close">
-                                        <div class="dropdown">
-                                            <button type="button" id="closeCard10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                            <div aria-labelledby="closeCard10" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"><i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                                        </div>
-                                    </div>
-                                    <div class="card-header d-flex align-items-center">
-                                        <h3 class="h4">Radar Chart Example</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <canvas id="radarChartExample"></canvas>
-                                    </div>
-                                </div>
-                            </div>--%>
                         </div>
-                    </div>
                 </section>
                 <!-- Page Footer-->
-             
+
             </div>
         </div>
         <script src="vendor/jquery/jquery.min.js"></script>
@@ -180,6 +141,180 @@
         <script src="js/front.js"></script>
 
     </form>
+    <script>
+        $(function () {
+            var myChart = echarts.init(document.getElementById('main'));
 
+            var t1 = $("#Label1").text();
+            var t2 = $("#Label2").text();
+            var t3 = $("#Label3").text();
+            var t4 = $("#Label4").text();
+            var colorArr = ["#218de0", "#01cbb3", "#85e647", "#5d5cda", "#05c5b0", "#c29927"];
+            var colorAlpha = ['rgba(60,170,211,0.05)', 'rgba(1,203,179,0.05)', 'rgba(133,230,71,0.05)', 'rgba(93,92,218,0.05)', 'rgba(5,197,176,0.05)', 'rgba(194,153,39,0.05)']
+            option = {
+                backgroundColor: "#090e36",
+                grid: {
+                    left: -100,
+                    top: 50,
+                    bottom: 10,
+                    right: 10,
+                    containLabel: true
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{b} : {c}人 ({d}%)"
+                },
+                legend: {
+                    show: false
+                },
+
+                polar: {},
+                angleAxis: {
+                    interval: 1,
+                    type: 'category',
+                    data: [],
+                    z: 10,
+                    axisLine: {
+                        show: false,
+                        lineStyle: {
+                            color: "#0B4A6B",
+                            width: 1,
+                            type: "solid"
+                        },
+                    },
+                    axisLabel: {
+                        interval: 0,
+                        show: true,
+                        color: "#0B4A6B",
+                        margin: 8,
+                        fontSize: 16
+                    },
+                },
+                radiusAxis: {
+                    min: 20,
+                    max: 120,
+                    interval: 20,
+                    axisLine: {
+                        show: false,
+                        lineStyle: {
+                            color: "#0B3E5E",
+                            width: 1,
+                            type: "solid"
+                        },
+                    },
+                    axisLabel: {
+                        formatter: '{value} %',
+                        show: false,
+                        padding: [0, 0, 20, 0],
+                        color: "#0B3E5E",
+                        fontSize: 16
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: "#07385e",
+                            width: 2,
+                            type: "dashed"
+                        }
+                    }
+                },
+                calculable: true,
+                series: [{
+                    stack: 'a',
+                    type: 'pie',
+                    radius: '80%',
+                    roseType: 'radius',
+                    zlevel: 10,
+                    startAngle: 100,
+                    label: {
+                        normal: {
+                            formatter: ['{b|{b}}', '{d|{d}%}'].join('\n'),
+                            rich: {
+                                b: {
+                                    color: '#3bd2fe',
+                                    fontSize: 14,
+                                    lineHeight: 20
+                                },
+                                d: {
+                                    color: '#d0fffc',
+                                    fontSize: 14,
+                                    height: 20
+                                },
+                            },
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: true,
+                            length: 10,
+                            length2: 45,
+                            lineStyle: {
+                                color: '#0096b1'
+
+                            }
+                        },
+                        emphasis: {
+                            show: false
+                        }
+                    },
+                    data: [{
+                        value: t3,
+                        name: '研发部',
+                        itemStyle: {
+                            borderColor: colorArr[0],
+                            borderWidth: 2,
+                            shadowBlur: 20,
+                            shadowColor: "#41a8f8",
+                            shadowOffsetx: 25,
+                            shadowOffsety: 20,
+                            color: colorAlpha[0]
+                        }
+                    },
+                    {
+                        value: t4,
+                        name: '销售部',
+                        itemStyle: {
+                            borderColor: colorArr[1],
+                            borderWidth: 2,
+                            shadowBlur: 20,
+                            shadowColor: colorArr[1],
+                            shadowOffsetx: 25,
+                            shadowOffsety: 20,
+                            color: colorAlpha[1]
+                        }
+                    },
+                    {
+                        value: t2,
+                        name: '财务部',
+                        itemStyle: {
+                            borderColor: colorArr[2],
+                            borderWidth: 2,
+                            shadowBlur: 20,
+                            shadowColor: colorArr[2],
+                            shadowOffsetx: 25,
+                            shadowOffsety: 20,
+                            color: colorAlpha[2]
+                        }
+                    },
+                    {
+                        value: t1,
+                        name: '人事部',
+                        itemStyle: {
+                            borderColor: colorArr[3],
+                            borderWidth: 2,
+                            shadowBlur: 20,
+                            shadowColor: colorArr[3],
+                            shadowOffsetx: 25,
+                            shadowOffsety: 20,
+                            color: colorAlpha[3]
+                        }
+                    },
+
+
+                    ]
+                },]
+            }
+            myChart.setOption(option);
+        })
+    </script>
 </body>
 </html>
