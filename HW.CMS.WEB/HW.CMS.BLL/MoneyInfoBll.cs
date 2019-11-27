@@ -15,6 +15,10 @@ namespace HW.CMS.BLL
         {
             return dal.setAll(InfoName, MoneyState, Moneysta);
         }
+        public int Add(MoneyInfoModel model)
+        {
+            return dal.Add(model);
+        }
         public int update(int MoneyId)
         {
             return dal.update(MoneyId);

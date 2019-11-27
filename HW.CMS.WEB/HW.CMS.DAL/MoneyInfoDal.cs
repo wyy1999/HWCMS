@@ -32,15 +32,29 @@ namespace HW.CMS.DAL
                     MoneyDed = Convert.ToDecimal(row["MoneyDed"]),
                     MoneyState = Convert.ToInt32(row["MoneyState"]),
                     Moneysta = Convert.ToInt32(row["Moneysta"]),
-                    InfoName = Convert.ToString(row["InfoName"])
+                    InfoName = Convert.ToString(row["InfoName"]),
                 };
                 list.Add(accout);
             }
             return list;
         }
+        public int Add(MoneyInfoModel model)
+        {
+            string sql = "insert into MoneyTable values(@InfoId,@Conunt,@MoneyDed,@MoneyState,2)";
+            SqlParameter[] par = new SqlParameter[]
+            {
+
+               new SqlParameter("@InfoId",model.InfoId),
+               new SqlParameter("@Conunt",model.Conunt),
+               new SqlParameter("@MoneyDed",model.MoneyDed),
+               new SqlParameter("@MoneyState",model.MoneyState),
+            };
+            int result = DBHelper.ExcuteSqlNonQuery(sql, par);
+            return result;
+        }
         public int update(int MoneyId)
         {
-            string sql = "update MoneyTable set LeaveState=1 where MoneyId=@MoneyId";
+            string sql = "update MoneyTable set Moneysta=1 where MoneyId=@MoneyId";
             SqlParameter[] par = new SqlParameter[]
             {
                 new SqlParameter("@MoneyId",MoneyId)

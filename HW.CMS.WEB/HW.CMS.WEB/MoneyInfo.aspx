@@ -30,7 +30,10 @@
                         </div>
                     </header>
                     <!-- Breadcrumb-->
-                    
+                    <div class="breadcrumb-holder container-fluid">
+                            <asp:Label type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="添加"></asp:Label>
+                        
+                    </div>
                     <div>
                         <div style="height:50px;text-align:center;margin-top:10px">
 
@@ -80,10 +83,10 @@
                                         <%#Eval("MoneyDed") %>￥
                                     </td>
                                     <td>
-                                       <%#Eval("MoneyState") %>
+                                       <%#Eval("MoneyStatestr") %>
                                     </td>
                                     <td>
-                                        <%#Eval("Moneysta") %>
+                                        <%#Eval("Moneystastr") %>
                                     </td>
                                     <td>
                                        <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" CommandName="update" CommandArgument='<%#Eval("MoneyId") %>' >结算</asp:LinkButton>
@@ -97,7 +100,52 @@
                             </FooterTemplate>
                         </asp:Repeater>
                     </div>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">添加</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                                </div>
+                                <div class="modal-body">
+                                    <table>
+                                         <tr>
+                                            <td>员工ID</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+                                        </tr>
+                                        <tr>
+                                            <td>员工</td>
+                                            <td>
+                                                <asp:TextBox ID="InfoName" runat="server"></asp:TextBox></td>
+                                        </tr>
+                                        <tr>
+                                            <td>迟到次数</td>
+                                            <td>
+                                                <asp:TextBox ID="Conunt" runat="server"></asp:TextBox></td>
+                                        </tr>
+                                        <tr>
+                                            <td>提成</td>
+                                            <td>
+                                                <asp:TextBox ID="MoneyDed" runat="server"></asp:TextBox></td>
+                                        </tr>
+
+                                     
+                                    </table>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <asp:Button ID="Button2" runat="server" Text="添加" OnClick="Button2_Click" />
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                        </div>
+            
+                
                         <script src="vendor/jquery/jquery.min.js"></script>
                         <script src="vendor/popper.js/umd/popper.min.js"> </script>
                         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
