@@ -25,6 +25,7 @@ namespace HW.CMS.WEB
         /// <param name="e"></param>
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+
             ReportInfoBll bll = new ReportInfoBll();
             //获取当前操作按钮的属性和参数
             string comtype = e.CommandName;
@@ -32,7 +33,15 @@ namespace HW.CMS.WEB
             //如果属性是修改则使用修改方法
             if (comtype == "update")
             {
-                Response.Redirect("main.aspx?ReportId=" + ReportId);
+                int result = bll.update_Res(ReportId);
+                if (result > 0) {
+                    Response.Write("<script>alert('修改成功');location.href='ReportInfo.aspx'</script>");
+                }
+                else
+                {
+                    //反之删除失败
+                    Response.Write("<script>alert('修改失败，请重新修改')  </script>");
+                }
             }
             else
             {
@@ -95,25 +104,25 @@ namespace HW.CMS.WEB
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void Button3_Click(object sender, EventArgs e)
-        {
-            ReportInfoModel model = new ReportInfoModel();
-            model.ReportId = Convert.ToInt32(update_ReportId.Text);
-            model.RepName = update_name.Text;
-            model.ReportReason = update_ReportReason.Text;
-            model.ReportTime = update_ReportTime.Text;
-            model.DepId = Convert.ToInt32(update_DepId.SelectedValue);
-            model.ReportMoney = Convert.ToDecimal(update_ReportMoney.Text);
-            model.ReportState = 1;
-            if (bll.update_Res(model) >= 0)
-            {
-                Response.Write("<script>alert('修改成功！');location.href='ReportInfo.aspx' </script>");
-            }
-            else
-            {
-                Response.Write("<script>alert('修改失败！') </script>");
-            }
-        }
+        //protected void Button3_Click(object sender, EventArgs e)
+        //{
+        //    ReportInfoModel model = new ReportInfoModel();
+        //    model.ReportId = Convert.ToInt32(update_ReportId.Text);
+        //    model.RepName = update_name.Text;
+        //    model.ReportReason = update_ReportReason.Text;
+        //    model.ReportTime = update_ReportTime.Text;
+        //    model.DepId = Convert.ToInt32(update_DepId.SelectedValue);
+        //    model.ReportMoney = Convert.ToDecimal(update_ReportMoney.Text);
+        //    model.ReportState = 2;
+        //    if (bll.update_Res(model) >= 0)
+        //    {
+        //        Response.Write("<script>alert('修改成功！');location.href='ReportInfo.aspx' </script>");
+        //    }
+        //    else
+        //    {
+        //        Response.Write("<script>alert('修改失败！') </script>");
+        //    }
+        //}
 
         protected void Button1_Click(object sender, EventArgs e)
         {

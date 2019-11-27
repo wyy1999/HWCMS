@@ -16,6 +16,11 @@
     <%-- booysharp --%>
       <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        #TxtResName {
+           border-radius:20px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -35,7 +40,7 @@
                 </div>
                 <div>
                     <div style="height: 50px; text-align: center; margin-top: 10px">
-                        报备原因：<asp:TextBox ID="TxtResName" runat="server"></asp:TextBox>
+                        报备名称：<asp:TextBox ID="TxtResName" runat="server"></asp:TextBox>
                         审核状态：<asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
                             <asp:ListItem Value="0" Selected="True">全部</asp:ListItem>
                             <asp:ListItem Value="1">未审核</asp:ListItem>
@@ -69,11 +74,11 @@
                                     <td><%#Eval("ReportTime") %></td>
                                     <td><%#Eval("Dep") %></td>
                                     <td><%#Eval("ReportMoney") %> ￥</td>
-                                    <td><%#Eval("ReportStateString") %></td>
-                                    <td>
-                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("ReportId") %>','<%#Eval("RepName") %>','<%#Eval("ReportReason") %>','<%#Eval("ReportTime") %>','<%#Eval("DepId") %>','<%#Eval("ReportMoney") %>','<%#Eval("ReportState") %>')">修改</a>
-
-                                        <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("ReportId") %>'>删除</asp:LinkButton>
+                                    <td id="state"><%#Eval("ReportStateString") %></td>
+                                    <td>                                                                              
+                                        <%--<a  href="#" id="update"  title="update"  class="btn btn-info" Visible='<%# Convert.ToString(Eval("ReportStateString"))=="已审核" %>' onclick="addressUpdate('<%#Eval("ReportId") %>','<%#Eval("RepName") %>','<%#Eval("ReportReason") %>','<%#Eval("ReportTime") %>','<%#Eval("DepId") %>','<%#Eval("ReportMoney") %>','<%#Eval("ReportState") %>')">修改</a>--%>
+                                        <asp:LinkButton ID="update" class="btn btn-info" runat="server" Visible='<%# Convert.ToString(Eval("ReportStateString"))=="未审核" %>' CommandName="update" CommandArgument='<%#Eval("ReportId") %>' >审核</asp:LinkButton>
+                                        <asp:LinkButton ID="delete"   Visible='<%# Convert.ToString(Eval("ReportStateString"))=="已审核" %>' runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("ReportId") %>'>删除</asp:LinkButton>
                                     </td>
                                 </tr>
                             </tbody>
@@ -133,83 +138,13 @@
 
                     </div>
                     <%-- 修改模态框 --%>
-                    <script type="text/javascript">
-                        function addressUpdate( ReportId,RepName, ReportReason, ReportTime, DepId, ReportMoney) {
-                            $("#update_ReportId").val(ReportId);
-                            $("#update_name").val(RepName);
-                            $("#update_ReportReason").val(ReportReason);
-                            $("#update_ReportTime").val(ReportTime);
-                            $("#update_DepId").val(DepId);
-                            $("#update_ReportMoney").val(ReportMoney);                           
-                            $("#modal-address-update").modal("show");
-                        }
-                    </script>
-                    <%-- 修改 --%>
-                    <div class="modal fade" id="modal-address-update" tabindex="-1" role="dialog" aria-labelledby="modal-address-update-label"
-                        aria-hidden="true" style="display: none;">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header" style="text-align: center">
-                                    <h3 class="modal-title" id="modal-address-update-label">修改信息</h3>
-                                    <button type="button" class="close" data-dismiss="modal">
-                                        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
-                                    </button>
 
-                                </div>
-                                <div class="modal-body">
-
-                                    <input type="hidden" id="update_AddressId" />
-
-                                    <div>
-
-                                        <div class="form-group">
-                                            <label for="message-text" class="control-label">ID:</label>
-                                            <asp:TextBox ID="update_ReportId" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                        <label for="recipient-name" class="control-label">报备名称:</label>
-                                        <asp:TextBox ID="update_name" runat="server" class="form-control"></asp:TextBox>
-                                    </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="control-label">报备原因:</label>
-                                            <asp:TextBox ID="update_ReportReason" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="control-label">报备时间:</label>
-                                            <asp:TextBox ID="update_ReportTime"  runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="control-label">报备部门:</label>
-                                          
-                                             <asp:DropDownList ID="update_DepId" runat="server" class="form-control">
-                                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
-                                                <asp:ListItem Value="1">人事部</asp:ListItem>
-                                                <asp:ListItem Value="2">财务部</asp:ListItem>
-                                                <asp:ListItem Value="3">研发部</asp:ListItem>
-                                                <asp:ListItem Value="4">销售部</asp:ListItem>
-                                            </asp:DropDownList>
-                                    </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="message-text" class="control-label">所需金额:</label>
-                                            <asp:TextBox ID="update_ReportMoney" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                      
-                                    </div>
-                                    <div class="form-group" style="text-align: center">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                                            取消</button>
-                                        <asp:Button ID="Button3" runat="server" Text="修改" class="btn btn-primary" OnClick="Button3_Click" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
-
+                    
                 </div>
             </div>
-        </div>
+
 
           <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>

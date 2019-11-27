@@ -74,13 +74,13 @@
                                         <%#Eval("InfoName") %>
                                     </td>
                                     <td>
-                                        <%#Eval("Conunt") %>￥
+                                        <%#Eval("Conunt") %>
                                     </td>
                                     <td>
                                         <%#Eval("MoneyDed") %>￥
                                     </td>
                                     <td>
-                                        <%#Eval("MoneyState") %>￥
+                                       <%#Eval("MoneyState") %>
                                     </td>
                                     <td>
                                         <%#Eval("Moneysta") %>

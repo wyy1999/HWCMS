@@ -29,6 +29,9 @@
             font-size:24px;
             text-align:center;
         }
+        h2 {
+
+        }
 
     </style>
 </head>
@@ -38,15 +41,12 @@
                 <!-- Page Header-->
                 <header class="page-header">
                     <div class="container-fluid">
-                        <h2 class="no-margin-bottom">酒店管理系统详情</h2>
+                        <h2 class="no-margin-bottom"><b>酒店管理系统详情</b></h2>
+                        
                     </div>
                 </header>
-                <!-- Breadcrumb-->
-                <div class="breadcrumb-holder container-fluid">
-                    <ul class="breadcrumb">
-                        
-                    </ul>
-                </div>
+
+              <br />
         <%-- 信息 --%>
         <div  id="table">
             <form class="form-horizontal" role="form">
@@ -190,6 +190,7 @@
         <%-- 图片 --%>
         <div  id="img">
             <img src="../img/JD.png" width="1000px" height="600px" />
+            <br />
             <br />
             <p>七瑾酒店管理系统</p>
         </div>

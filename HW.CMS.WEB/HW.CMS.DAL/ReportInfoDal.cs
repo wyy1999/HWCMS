@@ -53,18 +53,15 @@ namespace HW.CMS.DAL
             return retult;
         }
 
-        public int update_Res(ReportInfoModel model)
+        public int update_Res(int ReportId)
         {
-            string sql = "update ReportInfo set RepName=@RepName, ReportReason=@ReportReason,ReportTime=@ReportTime,DepId=@DepId,ReportMoney=@ReportMoney,ReportState=@ReportState where ReportId=@ReportId ";
+            string sql = "update ReportInfo set ReportState=2 where ReportId=@ReportId ";
             SqlParameter[] par = new SqlParameter[]
             {
-                 new SqlParameter("@RepName",model.RepName),
-                new SqlParameter("@ReportId",model.ReportId),
-                new SqlParameter("@ReportReason",model.ReportReason),
-                new SqlParameter("@ReportTime",model.ReportTime),
-                new SqlParameter("@DepId",model.DepId),
-                new SqlParameter("@ReportMoney",model.ReportMoney),
-                new SqlParameter("@ReportState",model.ReportState),
+                
+                new SqlParameter("@ReportId",ReportId),
+              
+  
             };
             int result = DBHelper.ExcuteSqlNonQuery(sql, par);
             return result;
