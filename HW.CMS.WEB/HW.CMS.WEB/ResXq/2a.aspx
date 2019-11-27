@@ -46,16 +46,10 @@
                     <!-- Page Header-->
                     <header class="page-header">
                         <div class="container-fluid">
-                            <h2 class="no-margin-bottom">（UDMP）高校数字化管理系统详情</h2>
+                            <h2 class="no-margin-bottom"><b>（UDMP）高校数字化管理系统详情</b></h2>
                         </div>
                     </header>
-                    <!-- Breadcrumb-->
-                    <div class="breadcrumb-holder container-fluid">
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="ResearchInfo.aspx">研发部</a></li>                                   
-                       </ul>
-                    </div>
-                    </div>
+                 <br />
         <%-- 信息 --%>
         <div  id="table">
             <form class="form-horizontal" role="form">
@@ -187,6 +181,7 @@
         <%-- 图片 --%>
         <div  id="img">
             <img src="../img/UDMP.png" width="1000px" height="500px" />
+            <br />
             <br />
             <p>高校数字化管理平台</p>
         </div>

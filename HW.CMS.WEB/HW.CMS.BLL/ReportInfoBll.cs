@@ -25,9 +25,9 @@ namespace HW.CMS.BLL
         {
             return dal.Del_ReportInfo(ReportId);
         }
-        public int update_Res(ReportInfoModel model)
+        public int update_Res(int ReportId)
         {
-            return dal.update_Res(model);
+            return dal.update_Res(ReportId);
         }
 
         public int Add(ReportInfoModel model)

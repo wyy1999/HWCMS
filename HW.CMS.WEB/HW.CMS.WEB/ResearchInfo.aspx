@@ -17,6 +17,12 @@
     <%--<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />--%>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        #TxtResName {
+            border-radius:25px;
+            height:40px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -38,8 +44,8 @@
                     <div>
                         <div style="height:50px;text-align:center;margin-top:10px">
 
-                            产品名称：<asp:TextBox ID="TxtResName" runat="server" ></asp:TextBox>
-                        研发状态：<asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                            研发名称：<asp:TextBox ID="TxtResName" runat="server"  ></asp:TextBox>
+                        研发状态：<asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" >
                             <asp:ListItem Value="0" Selected="True">全部</asp:ListItem>
                             <asp:ListItem Value="1">未完成</asp:ListItem>
                             <asp:ListItem Value="2">已完成</asp:ListItem>

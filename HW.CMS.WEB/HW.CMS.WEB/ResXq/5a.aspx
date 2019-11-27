@@ -47,15 +47,10 @@
                     <!-- Page Header-->
                     <header class="page-header">
                         <div class="container-fluid">
-                            <h2 class="no-margin-bottom">商城管理系统详情</h2>
+                            <h2 class="no-margin-bottom"><b>商城管理系统详情</b></h2>
                         </div>
                     </header>
-                    <!-- Breadcrumb-->
-                    <div class="breadcrumb-holder container-fluid">
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="ResearchInfo.aspx">研发部</a></li>                                   
-                       </ul>
-                    </div>
+                    <br />
                     </div>
         <%-- 信息 --%>
         <div  id="table">
@@ -173,6 +168,7 @@
         <%-- 图片 --%>
         <div  id="img">
             <img src="../img/SC.jpg" width="1000px" height="500px" />
+            <br />
             <br />
             <p>商城管理系统参考模板</p>
         </div>
