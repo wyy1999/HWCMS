@@ -31,15 +31,15 @@ namespace HW.CMS.BLL
         }
         public AccoutInfoModel sel1()
         {
-            return dal.sel4();
+            return dal.sel1();
         }
         public AccoutInfoModel sel2()
         {
-            return dal.sel4();
+            return dal.sel2();
         }
         public AccoutInfoModel sel3()
         {
-            return dal.sel4();
+            return dal.sel3();
         }
         public AccoutInfoModel sel4()
         {

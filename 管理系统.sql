@@ -307,10 +307,10 @@ create table AccoutInfo(
 )
 go
 select * from AccoutInfo where AccMonth = '9月份'
-insert into AccoutInfo values ('10月份',350000,55000,20000,1150000,'王莹莹')
-insert into AccoutInfo values ('9月份',350000,60000,50000,1000000,'王莹莹')
-insert into AccoutInfo values ('11月份',350000,80000,30000,9000000,'王莹莹')
-insert into AccoutInfo values ('8月份',350000,30000,40000,18000000,'王莹莹')
+insert into AccoutInfo values ('10月份',350000,100000,200000,1150000,'王莹莹')
+insert into AccoutInfo values ('9月份',350000,120000,300000,1000000,'王莹莹')
+insert into AccoutInfo values ('11月份',350000,80000,250000,900000,'王莹莹')
+insert into AccoutInfo values ('8月份',400000,20000,40000,1800000,'王莹莹')
 
 --研发部门表ResearchInfo
 if exists(select * from sys.tables where name='ResearchInfo')

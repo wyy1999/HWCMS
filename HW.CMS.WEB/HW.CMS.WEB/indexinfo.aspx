@@ -63,8 +63,8 @@
                                     </div>
                                     <div class="card-header d-flex align-items-center">
                                         <h3 class="h4">财务支出</h3>
-                                    <div id="admin" style="width: 770px; height: 800px">
                                     </div>
+                                    <div id="admin" style="width: 770px; height: 800px">
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +144,91 @@
     <script>
         $(function () {
             var myChart = echarts.init(document.getElementById('main'));
+            var admin = echarts.init(document.getElementById('admin'));
+            var tt1 = $("#Label81").text();
+            var tt2 = $("#Label82").text();
+            var tt3 = $("#Label83").text();
+            var tt4 = $("#Label84").text();
+            var ta1 = $("#Label91").text();
+            var ta2 = $("#Label92").text();
+            var ta3 = $("#Label93").text();
+            var ta4 = $("#Label94").text();
+            var tq1 = $("#Label15").text();
+            var tq2 = $("#Label10").text();
+            var tq3 = $("#Label11").text();
+            var tq4 = $("#Label12").text();
+            var tw1 = $("#Label21").text();
+            var tw2 = $("#Label22").text();
+            var tw3 = $("#Label23").text();
+            var tw4 = $("#Label24").text();
+             option = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                legend: {
+                    data: ['工资总金额', '报备总金额', '研发总金额', '总收入']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: ['8月', '9月', '10月', '11月']
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: '工资总金额',
+                        type: 'bar',
+                        stack: '支出',
+                        data: [tt2, ta2, tq2, tw2]
+                    },
+                    {
+                        name: '报备总金额',
+                        type: 'bar',
+                        stack: '支出',
+                        data: [tt3, ta3, tq3, tt3]
+                    },
+                    {
+                        name: '研发总金额',
+                        type: 'bar',
+                        stack: '支出',
+                        data: [tt4, ta4, tq4, tw4]
+                    },
 
+                    {
+                        name: '总收入',
+                        type: 'bar',
+                        data: [tt1, ta1, tq1, tw1],
+
+                        markLine: {
+                            lineStyle: {
+                                normal: {
+                                    type: 'dashed'
+                                }
+                            },
+                            data: [
+                                [{ type: 'min' }, { type: 'max' }]
+                            ]
+                        }
+                    },
+
+                ]
+            };
+            
+            admin.setOption(option);
             var t1 = $("#Label1").text();
             var t2 = $("#Label2").text();
             var t3 = $("#Label3").text();
