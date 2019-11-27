@@ -190,7 +190,7 @@
                                 <li><a href="#">Page</a></li>
                             </ul>
                         </li>--%>
-                        <li id="xiaoshou"><a href="TheMap/examples/index.html"><i class="icon-interface-windows"></i>产品分布图 </a></li>
+                        <li id="xiaoshou"><a href="TheMap/examples/index2.html" target="frame"><i class="icon-interface-windows"></i>产品分布图 </a></li>
                     </ul>
                     <span class="heading">制度</span>
                     <ul class="list-unstyled">
@@ -214,7 +214,7 @@
             </ul>--%>
                 <%--         </div>--%>
                 <div>
-                    <iframe name="frame" src="indexinfo.aspx" frameborder="" align="right" width="1900px" height="1000px" scrolling="yes"></iframe>
+                    <iframe name="frame" src="indexinfo.aspx" frameborder="" align="right" width="2300px" height="1000px" scrolling="yes"></iframe>
 
                 </div>
             </div>

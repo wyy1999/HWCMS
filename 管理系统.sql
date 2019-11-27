@@ -85,7 +85,7 @@ create table InfoTable(
   InfoName varchar(20) not null,--姓名
   InfoAge int not null,--年龄
   InfoSex char(2) check(InfoSex='男' or InfoSex='女'),--性别
-  InfoDate datetime not null,--出生年月
+  InfoDate date not null,--出生年月
   InfoIdcard varchar(20) not null unique,--身份证号
   InfoTel varchar(11) not null unique,--电话
   InfoAddress varchar(50) not null,--地址
@@ -237,8 +237,8 @@ create table LeaveInfo(
 )
 go
 
-insert into LeaveInfo values (6,4,'2019/9/9','2019/9/11','回家参加婚礼',1)
-insert into LeaveInfo values (7,4,'2019/9/10','2019/9/14','家里有急事',2)
+insert into LeaveInfo values (6,4,'2019/9/9 8:00:00','2019/9/11 8:00:00','回家参加婚礼',1)
+insert into LeaveInfo values (7,4,'2019/9/10 12:00:00','2019/9/14 12:00:00','家里有急事',2)
 
 
 if exists(select * from sys.procedures where name='Sel_LeaveInfo')
@@ -270,10 +270,10 @@ create table ReportInfo(
     ReportState int check(ReportState=1 or ReportState=2)--审核状态 1未审核 2已审核
 )
 go
-insert into ReportInfo values ('饮水机','公司右侧饮水机不出水，插电没反应...','2019.11.12',3,1000,1)
-insert into ReportInfo values ('空调','研发部会议室前方空调坏了,开关键没反应...','2019.10.12',3,2000,1)
-insert into ReportInfo values ('话费','电话推销...','2019.10.22',4,500,2)
-insert into ReportInfo values ('出差','到上海分公司洽谈业务...','2019.10.27',4,2000,2)
+insert into ReportInfo values ('饮水机','公司右侧饮水机不出水，插电没反应...','2019.11.12 15:00:00',3,1000,1)
+insert into ReportInfo values ('空调','研发部会议室前方空调坏了,开关键没反应...','2019.10.12 12:00:00',3,2000,1)
+insert into ReportInfo values ('话费','电话推销...','2019.10.22 9:00:00',4,500,2)
+insert into ReportInfo values ('出差','到上海分公司洽谈业务...','2019.10.27 13:00:00',4,2000,2)
 select ReportInfo.*,DepartmentInfo.Dep from ReportInfo,DepartmentInfo where DepartmentInfo.DepId=ReportInfo.DepId
 
 --报备表存储过程
@@ -306,7 +306,6 @@ create table AccoutInfo(
   
 )
 go
-select * from AccoutInfo where AccMonth = '9月份'
 insert into AccoutInfo values ('10月份',350000,100000,200000,1150000,'王莹莹')
 insert into AccoutInfo values ('9月份',350000,120000,300000,1000000,'王莹莹')
 insert into AccoutInfo values ('11月份',350000,80000,250000,900000,'王莹莹')
@@ -328,9 +327,9 @@ create table ResearchInfo(
 )
 go
 select * from ResearchInfo
-insert into ResearchInfo values('酒店管理系统','提高门店客流量，打造网上一站式订房系统','七瑾','2018.6.12','2019.8.20',40000,2)
-insert into ResearchInfo values('高校数字化管理平台','为方便教师管理，实时网上教务管理系统','新IT','2019.5.12','2019.9.20',50000,2)
-insert into ResearchInfo values('书店管理系统','为更好的进行图书管理，增加图书销售量，实现网上购书','致远','2018.5.12','2019.10.20',20000,2)
+insert into ResearchInfo values('酒店管理系统','提高门店客流量，打造网上一站式订房系统','七瑾','2018.6.12 12:00:00','2019.8.20 18:00:00',40000,2)
+insert into ResearchInfo values('高校数字化管理平台','为方便教师管理，实时网上教务管理系统','新IT','2019.5.12 8:00:00','2019.9.20 8:00:00',50000,2)
+insert into ResearchInfo values('书店管理系统','为更好的进行图书管理，增加图书销售量，实现网上购书','致远','2018.5.12 8:00:00','2019.10.20 16:00:00',20000,2)
 insert into ResearchInfo values('医疗管理系统','让医患关系更贴近','代码都敲对','2018.5.12','2019.8.20',20000,2)
 
 
@@ -480,6 +479,32 @@ insert into IncomeInfo values('20000','高校数字化管理平台')
 
 
 select * from IncomeInfo
+--产品分布图表
+if exists(select * from sys.tables where name='TuTable')
+drop table TuTable
+GO
+create table TuTable(
+   Tuid int primary key identity(1,1),
+   TuCity varchar(50) not null,
+   TuValue int not null,
+)
+insert into TuTable values('青岛',18)
+insert into TuTable values('日照',21)
+insert into TuTable values('南通',23)
+insert into TuTable values('上海',25)
+insert into TuTable values('烟台',28)
+insert into TuTable values('宁波',33)
+insert into TuTable values('葫芦岛',35)
+insert into TuTable values('东莞',36)
+insert into TuTable values('南宁',37)
+insert into TuTable values('广州',38)
+insert into TuTable values('苏州',50)
+insert into TuTable values('三门峡',53)
+insert into TuTable values('成都',58)
+insert into TuTable values('西安',61)
+insert into TuTable values('重庆',66)
+
+select * from TuTable
 --------------------------------------------------------插入数据
 
 

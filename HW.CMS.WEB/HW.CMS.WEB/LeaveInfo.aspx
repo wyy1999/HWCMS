@@ -17,6 +17,19 @@
     <%--<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />--%>
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        #DropDownList1 {
+        border-radius:20px;
+        height:50px;
+        
+        width:140px;
+        }
+        #RadioButtonList1 {
+            font-size:18px;
+            width:220px;
+            line-height:60px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -29,9 +42,8 @@
                         </div>
                     </header>
                     <!-- Breadcrumb-->
-                   
-                    <div>
-                        <div style="height:50px;text-align:center;margin-top:10px">
+                   <div class="breadcrumb-holder container-fluid">
+                        <div style="height:60px;text-align:center;margin-top:10px">
 
                             部门名称：<asp:DropDownList ID="DropDownList1" runat="server">
                                 <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
@@ -40,17 +52,23 @@
                                 <asp:ListItem Value="3">研发部</asp:ListItem>
                                 <asp:ListItem Value="4">销售部</asp:ListItem>
                             </asp:DropDownList>
-                            审批状态：<asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                           &nbsp;&nbsp; 审批状态：<asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
                             <asp:ListItem Value="0" Selected="True">全部</asp:ListItem>
                             <asp:ListItem Value="1">未审核</asp:ListItem>
                             <asp:ListItem Value="2">已审核</asp:ListItem>
                         </asp:RadioButtonList>
                         <asp:Button ID="Button1" runat="server" Text="查询"  class="btn btn-success" OnClick="Button1_Click"/>
                         </div>
+
+                    </div>
+                  
+                 
+                    <div>
+                        
                         <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" >
                             <HeaderTemplate>
                                 
-                                <table class="table table-hove">
+                                <table class="table table-hover">
                                    
                                     <thead>
                                         <tr>
@@ -75,8 +93,9 @@
                                         <td><%#Eval("LeaveReason") %></td>
                                         <td><%#Eval("LeaveStatestr") %></td>
                                         <td>
-                                            <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-info" CommandName="delete" CommandArgument='<%#Eval("LeaveId") %>' >删除</asp:LinkButton> 
-                                            <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" CommandName="update" CommandArgument='<%#Eval("LeaveId") %>' >审批</asp:LinkButton>                                     
+                                                                                        <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" Visible='<%# Convert.ToString(Eval("LeaveStatestr"))=="未审核" %>' CommandName="update" CommandArgument='<%#Eval("LeaveId") %>' >审批</asp:LinkButton>   
+                                            <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" Visible='<%# Convert.ToString(Eval("LeaveStatestr"))=="已审核" %>' CommandName="delete" CommandArgument='<%#Eval("LeaveId") %>' >删除</asp:LinkButton> 
+                                  
                                         </td>
                                     </tr>
                                 </tbody>

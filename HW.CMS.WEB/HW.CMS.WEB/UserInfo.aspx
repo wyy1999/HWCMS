@@ -100,7 +100,7 @@
                             <asp:ListItem Value="1">在职</asp:ListItem>
                             <asp:ListItem Value="2">离职</asp:ListItem>
                         </asp:RadioButtonList>
-                        <asp:Button ID="Button1" runat="server" Text="查询" CssClass="btn-success disabled" OnClick="Button1_Click" />
+                        <asp:Button ID="Button1" runat="server" Text="查询" Class="btn btn-success " OnClick="Button1_Click" />
                     </div>
 
                     <asp:Repeater ID="Repeater1" runat="server">

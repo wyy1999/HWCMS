@@ -31,7 +31,8 @@
                     </header>
                     <!-- Breadcrumb-->
                     <div class="breadcrumb-holder container-fluid">
-                            <asp:Label type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="报备信息"></asp:Label>
+                        <ul class="breadcrumb">
+                            <asp:Label type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="添加财务信息"></asp:Label>
                         </ul>
                     </div>
                     <div>
@@ -49,6 +50,8 @@
                                         <th>报备总金额
                                         </th>
                                         <th>研发总金额
+                                        </th>
+                                        <th>总金额
                                         </th>
                                          <th>财务人员姓名
                                         </th>
@@ -71,11 +74,14 @@
                                     <td>
                                         <%#Eval("AccResMoney") %>￥
                                     </td>
+                                     <td>
+                                        <%#Eval("AccMoney") %>￥
+                                    </td>
                                     <td>
                                         <%#Eval("AccName") %>
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("AccoutId") %>','<%#Eval("AccMonth") %>','<%#Eval("ACCSalary") %>','<%#Eval("AccReportModey") %>','<%#Eval("AccResMoney") %>')">修改</a>
+                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("AccoutId") %>','<%#Eval("AccMonth") %>','<%#Eval("ACCSalary") %>','<%#Eval("AccReportModey") %>','<%#Eval("AccResMoney") %>','<%#Eval("AccMoney") %>')">修改</a>
                                         <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("AccoutId") %>'>删除</asp:LinkButton>
                                         
 
@@ -118,7 +124,8 @@
                                             <td>研发总金额</td>
                                             <td>
                                                 <asp:TextBox ID="AccResMoney" runat="server"></asp:TextBox></td>
-                                        </tr>
+                                        </tr> 
+
                                      
                                     </table>
 
@@ -126,7 +133,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                    <asp:Button ID="Button1" runat="server" Text="添加" OnClick="Button1_Click" />
+                                    <asp:Button ID="Button1" runat="server" class="btn btn-primary" Text="添加" OnClick="Button1_Click" />
                                 </div>
                             </div>
                         </div>
@@ -196,7 +203,7 @@
                                     <div class="form-group" style="text-align: center">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">
                                             取消</button>
-                                    <asp:Button ID="Button3" runat="server" Text="修改" OnClick="Button3_Click" />
+                                    <asp:Button ID="Button3" runat="server" Text="修改" class="btn btn-primary" OnClick="Button3_Click" />
                                     </div>
                                 </div>
                             </div>

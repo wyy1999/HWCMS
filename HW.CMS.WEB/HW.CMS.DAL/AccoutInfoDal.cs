@@ -32,6 +32,7 @@ namespace HW.CMS.DAL
                         AccName = Convert.ToString(sqlda["AccName"]),
                         AccReportModey = Convert.ToDecimal(sqlda["AccReportModey"]),
                         AccResMoney = Convert.ToDecimal(sqlda["AccResMoney"]),
+                        AccMoney=Convert.ToDecimal(sqlda["AccMoney"])
                     };
                     list.Add(accout);
                 };
@@ -44,7 +45,7 @@ namespace HW.CMS.DAL
          /// <returns></returns>
         public int Add(AccoutInfoModel model)
         {
-            string sql = "insert into AccoutInfo values(@ACCSalary,@AccMonth,@AccName,@AccResMoney，@AccReportModey)";
+            string sql = "insert into AccoutInfo values(@ACCSalary,@ACCSalary,@AccReportModey,@AccResMoney,@AccMoney,@AccName)";
             SqlParameter[] pters = new SqlParameter[]
             {
                new SqlParameter("@ACCSalary",model.ACCSalary),
@@ -52,6 +53,7 @@ namespace HW.CMS.DAL
                new SqlParameter("@AccMonth",model.AccMonth),
                new SqlParameter("@AccResMoney",model.AccResMoney),
                new SqlParameter("@AccReportModey",model.AccReportModey),
+               new SqlParameter("@AccMoney",model.AccMoney),
             };
             int result = DBHelper.ExcuteSqlNonQuery(sql, pters);
             int res = 0;
@@ -71,7 +73,7 @@ namespace HW.CMS.DAL
         /// </summary>
         public int update(AccoutInfoModel model)
         {
-            string sql = "update AccoutInfo set ACCSalary=@ACCSalary,AccMonth=@AccMonth,AccName=@AccName,AccReportModey=@AccReportModey，AccResMoney=@AccResMoney where AccoutId=@AccoutId";
+            string sql = "update AccoutInfo set ACCSalary=@ACCSalary,AccMonth=@AccMonth,AccName=@AccName,AccReportModey=@AccReportModey,AccResMoney=@AccResMoney,AccMoney=@AccMoney where AccoutId=@AccoutId";
             SqlParameter[] par = new SqlParameter[]
             {
                 new SqlParameter("@AccoutId",model.AccoutId),
@@ -80,6 +82,7 @@ namespace HW.CMS.DAL
                 new SqlParameter("@AccName",model.AccName),
                 new SqlParameter("@AccReportModey",model.AccReportModey),
                  new SqlParameter("@AccResMoney",model.AccResMoney),
+                 new SqlParameter("@AccMoney",model.AccMoney),
             };
             int result = DBHelper.ExcuteSqlNonQuery(sql, par);
             return result;

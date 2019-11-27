@@ -24,7 +24,15 @@ namespace HW.CMS.WEB
 
             if (name == "update")
             {
-                bll.update(userid);
+              int result=  bll.update(userid);
+                if (result > 0)
+                {
+                    Response.Write("<script>alert('审批成功！');location.href='LeaveInfo.aspx'</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('审批失败！请重新审批！')</script>");
+                }
             }
             else
             {
