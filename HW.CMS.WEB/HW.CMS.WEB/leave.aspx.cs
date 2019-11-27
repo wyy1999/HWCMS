@@ -22,9 +22,10 @@ namespace HW.CMS.WEB
             int uid = Convert.ToInt32(TextBox1.Text);
             int tid = Convert.ToInt32(TextBox2.Text);
             string beca = TextBox3.Text;
+            string time = date.Text;
             if (bll.insert_leave(uid, tid, beca) > 0)
             {
-                Response.Write("<script>alert('申请成功');location.href('AccoutInfo.aspx');</script>");
+                Response.Write("<script>alert('申请成功');</script>");
             }
 
         }

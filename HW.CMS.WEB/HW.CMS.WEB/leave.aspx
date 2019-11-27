@@ -5,6 +5,13 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <link href="css/dateTime.css" rel="stylesheet" />
+    <style>
+        .mycontainer input {
+            border: 1px solid #ccc;
+            padding: 6px 10px;
+        }
+    </style>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/fontastic.css" rel="stylesheet" />
@@ -62,7 +69,7 @@
                     </div>
 
                     <div>
-                        <table style=" width:"90%"" class="table">
+                        <table style=" width:"90%" class="table">
                             <tr>
                                 <td>员工id</td>
                                 <td>
@@ -74,9 +81,11 @@
                                     <asp:TextBox ID="TextBox4" runat="server" class="form-control"></asp:TextBox></td>
                             </tr>
                             <tr>
-                                <td>部门id</td>
+                                <td>部门</td>
                                 <td>
                                     <asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>
+
+                                </td>
                             </tr>
                             <tr>
                                 <td>请假原因</td>
@@ -84,10 +93,49 @@
                                     <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox></td>
                             </tr>
                             <tr>
-                                <td colspan="2">
-                                    <asp:Button ID="Button1" runat="server" Text="提交请求" OnClick="Button1_Click" /></td>
+                                <td>请假时间</td>
+                                <td>
+                                    <div class="mycontainer">
+                                        <asp:TextBox ID="date" runat="server" placeholder="请选择日期" style="width:400px;font-size:18px;"></asp:TextBox>
+
+	</div>
+	<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="js/dateTime.min.js"></script>
+	<script>
+		$("#date").datetime({
+			type:"date",
+			value:[2019,9,31],
+			success:function(res){
+				console.log(res)
+			}
+        })
+	</script>
+
+	<script>
+		window.onload=function(){
+			var totleTp = 0;
+			var tppiao = document.getElementsByClassName("tppiao");
+			for(var i=0;i<tppiao.length;i++){totleTp+=parseInt(tppiao[i].innerHTML);}
+			var tpdetial = document.getElementsByClassName("tpdetial");
+			for(var i=0;i<tpdetial.length;i++){var mun = parseInt(tpdetial[i].getElementsByClassName("tppiao")[0].innerHTML);var bfb = (mun*100/totleTp).toFixed(2)+"%";tpdetial[i].getElementsByClassName("tppercent")[0].innerHTML = bfb;
+			}
+		}
+		if(window.location.href.indexOf("udsid=")>-1){
+			$("#ctlNext").on("click",function(){
+				console.log("执行成功！")
+				meteor.track("form", {convert_id: "1641358861914125"})
+			})
+		}
+	</script>
+
+                                </td>
                             </tr>
-                            <br />
+                            
+                            <tr>
+                                <td colspan="2">
+                                    <asp:Button ID="Button1" runat="server" Text="提交" OnClick="Button1_Click" /></td>
+                            </tr>
+                            
                         </table>
 
                         <%--                    <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">LinkButton</asp:LinkButton>--%>
