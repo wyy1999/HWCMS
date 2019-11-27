@@ -174,6 +174,21 @@ insert into MoneyTable values(4,0,'200',1,2)
 insert into MoneyTable values(5,0,'200',1,2)
 select * from MoneyTable
 
+if exists(select * from sys.procedures where name='Sel_MoneyTable')
+drop proc Sel_MoneyTable
+go
+create proc Sel_MoneyTable(@InfoName varchar(20)='',@MoneyState int=0,@Moneysta int=0)
+as
+declare @sql varchar(max)
+set @sql='select InfoTable.InfoId,MoneyTable.* from InfoTable,MoneyTable where InfoTable.InfoId=MoneyTable.InfoId and InfoTable.InfoName like ''%'+@InfoName+'%'''
+if @MoneyState<>0
+set @sql=@sql+' and MoneyState='+CONVERT(varchar,@MoneyState)
+if @Moneysta<>0
+set @sql=@sql+' and Moneysta='+CONVERT(varchar,@Moneysta)
+exec(@sql)
+go
+exec Sel_MoneyTable '亚',0,2
+
 /*人员打卡表 ClockInfo*/
 
 if exists(select * from sys.tables where name='ClockInfo')
@@ -199,7 +214,7 @@ drop table LeaveInfo
 GO
 create table LeaveInfo(
 	LeaveId int primary key identity(1,1),--请假id
-	 Userid int references UserLogin(Userid),--登陆表外键
+	Userid int references UserLogin(Userid),--登陆表外键
 	DepId int references DepartmentInfo(DepId),--部门表外键
 	LeaveTime datetime default(getdate()) not null,--请假时间
 	LeTime datetime  not null,--结束时间
