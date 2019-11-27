@@ -13,7 +13,8 @@ namespace HW.CMS.WEB
         MoneyInfoBll bll = new MoneyInfoBll();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Repeater1.DataSource = bll.setAll();
+            Repeater1.DataBind();
         }
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -31,7 +32,7 @@ namespace HW.CMS.WEB
         {
             string InfoName = TextBox1.Text;
             int MoneyState = Convert.ToInt32(RadioButtonList1.SelectedValue);
-            int Moneysta = Convert.ToInt32(RadioButtonList1.SelectedValue);
+            int Moneysta = Convert.ToInt32(RadioButtonList2.SelectedValue);
             Repeater1.DataSource = bll.setAll(InfoName,MoneyState, Moneysta);
             Repeater1.DataBind();
         }

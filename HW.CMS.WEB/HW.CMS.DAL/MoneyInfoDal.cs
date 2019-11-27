@@ -11,14 +11,14 @@ namespace HW.CMS.DAL
 {
     public class MoneyInfoDal
     {
-        public List<MoneyInfoModel> setAll(string InfoName,int MoneyState = 0,int Moneysta = 0)
+        public List<MoneyInfoModel> setAll(string InfoName="",int MoneyState = 0,int Moneysta = 0)
         {
             List<MoneyInfoModel> list = new List<MoneyInfoModel>();
             SqlParameter[] sql = new SqlParameter[]
                 {
                     new SqlParameter("@InfoName",InfoName),
-                    new SqlParameter("@DepId",MoneyState),
-                    new SqlParameter("@LeaveState",Moneysta)
+                    new SqlParameter("@MoneyState",MoneyState),
+                    new SqlParameter("@Moneysta",Moneysta)
                 };
             DataTable sqlda = DBHelper.Query("Sel_MoneyTable", sql);
             foreach (DataRow row in sqlda.Rows)
