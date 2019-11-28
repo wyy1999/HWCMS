@@ -52,7 +52,7 @@ namespace HW.CMS.WEB
             user.AccResMoney = Convert.ToDecimal(AccResMoney.Text);
             user.AccReportModey = Convert.ToInt32(AccReportModey.Text);
             user.AccMoney = Convert.ToDecimal(user.AccReportModey + user.AccResMoney + user.ACCSalary);
-            user.AccName = "王莹莹";
+            user.AccName = "位伟峰";
             if (bll.Add(user) > 0)
             {
 
@@ -67,7 +67,7 @@ namespace HW.CMS.WEB
             user.ACCSalary = Convert.ToDecimal(update_ACCSalary.Text);
             user.AccResMoney = Convert.ToDecimal(update_AccResMoney.Text);
             user.AccMonth = update_month.Text;
-            user.AccName = "王莹莹";
+            user.AccName = "位伟峰";
             user.AccReportModey = Convert.ToDecimal(update_AccReportModey.Text);
             user.AccMoney =Convert.ToDecimal(user.AccReportModey+user.AccResMoney+user.ACCSalary);
 

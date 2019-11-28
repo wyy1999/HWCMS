@@ -63,7 +63,7 @@
                                         <tr>
                                             <th>id</th>
                                             <th>研发名称</th>
-                                            <th>研发内容</th>
+                                            <th>研发愿景</th>
                                             <th>研发小组</th>
                                             <th>开始时间</th>
                                             <th>结束时间</th>
@@ -117,7 +117,7 @@
                                             <asp:TextBox ID="TxtName" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
-                                            <label for="message-text" class="control-label">研发内容:</label>
+                                            <label for="message-text" class="control-label">研发愿景:</label>
                                             <asp:TextBox ID="TxtCon" runat="server" class="form-control"></asp:TextBox>
 
                                         </div>
@@ -186,7 +186,7 @@
                                                 <asp:TextBox ID="update_ResId" runat="server" class="form-control" ></asp:TextBox>
                                             </div>
                                             <div class="form-group">
-                                                <label for="message-text" class="control-label">研发名称:</label>
+                                                <label for="message-text" class="control-label">研发愿景:</label>
                                                 <asp:TextBox ID="update_Resname" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="form-group">

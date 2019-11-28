@@ -52,7 +52,7 @@ namespace HW.CMS.WEB
             
             if (bll.Add(model) >= 0)
             {
-                Response.Write("<script>alert('添加成功！');location.href='DetailsInfo.aspx' </script>");
+                Response.Write("<script>alert('添加成功！');location.href='ResearchInfo.aspx' </script>");
 
             }
             else
@@ -66,8 +66,10 @@ namespace HW.CMS.WEB
         {
 
             int id = Convert.ToInt32(e.CommandArgument.ToString());
+           
             if (bll.delete_Det(id) >= 0)
             {
+
                 Response.Write("<script>alert('删除成功！');location.href='DetailsInfo.aspx' </script>");
             }
             else

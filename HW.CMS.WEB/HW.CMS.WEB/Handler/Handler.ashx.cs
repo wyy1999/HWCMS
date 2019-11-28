@@ -18,7 +18,8 @@ namespace HW.CMS.WEB
         {
             context.Response.ContentType = "application/json";
             List<TuTableModel> points = TuTableDal.SalList();
-            string json = JsonConvert.SerializeObject(points);
+            var newPoints = points.Select(r => new { name = r.TuCity, value = r.TuValue });
+            string json = JsonConvert.SerializeObject(newPoints);
             context.Response.Write(json);
         }
 

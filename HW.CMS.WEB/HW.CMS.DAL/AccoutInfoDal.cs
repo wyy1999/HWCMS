@@ -45,7 +45,7 @@ namespace HW.CMS.DAL
          /// <returns></returns>
         public int Add(AccoutInfoModel model)
         {
-            string sql = "insert into AccoutInfo values(@ACCSalary,@ACCSalary,@AccReportModey,@AccResMoney,@AccMoney,@AccName)";
+            string sql = "insert into AccoutInfo values(@AccMonth,@ACCSalary,@AccReportModey,@AccResMoney,@AccMoney,@AccName)";
             SqlParameter[] pters = new SqlParameter[]
             {
                new SqlParameter("@ACCSalary",model.ACCSalary),

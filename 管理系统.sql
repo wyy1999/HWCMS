@@ -313,12 +313,12 @@ create table AccoutInfo(
   
 )
 go
-select * from AccoutInfo
-insert into AccoutInfo values ('10月份',350000,100000,200000,1150000,'王莹莹')
-insert into AccoutInfo values ('9月份',350000,120000,300000,1000000,'王莹莹')
-insert into AccoutInfo values ('11月份',350000,80000,250000,900000,'王莹莹')
-insert into AccoutInfo values ('8月份',400000,20000,40000,1800000,'王莹莹')
 
+insert into AccoutInfo values ('10月份',350000,100000,200000,1150000,'位伟峰')
+insert into AccoutInfo values ('9月份',350000,120000,300000,1000000,'位伟峰')
+insert into AccoutInfo values ('11月份',350000,80000,250000,900000,'位伟峰')
+insert into AccoutInfo values ('8月份',400000,20000,40000,1800000,'位伟峰')
+select * from AccoutInfo
 --研发部门表ResearchInfo
 if exists(select * from sys.tables where name='ResearchInfo')
 drop table ResearchInfo

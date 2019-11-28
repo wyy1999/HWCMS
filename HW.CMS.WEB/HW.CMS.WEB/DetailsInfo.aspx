@@ -83,8 +83,8 @@
                                         <th>组名</th>
                                         <th>研发人员</th>
                                         <th>研发名称</th>
-                                        <th>研发内容</th>
-                                        <th>项目简介</th>
+                                        <th>研发愿景</th>
+                                        <th>负责内容</th>
                                         <th>研发金额</th>
                                         <th>已用金额</th>
                                         <th>研发进度</th>
@@ -131,10 +131,10 @@
 
                                     <div class="form-group">
                                         <label for="recipient-name" class="control-label">研发人员:</label>
-                                        <asp:TextBox ID="TxtName" runat="server" class="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="TxtName" runat="server" class="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="form-group">
-                                        <label for="message-text" class="control-label">项目简介:</label>
+                                        <label for="message-text" class="control-label">负责内容:</label>
                                         <asp:TextBox ID="TxtAll" runat="server" class="form-control"></asp:TextBox>
 
                                     </div>
@@ -201,7 +201,7 @@
                                             <asp:TextBox ID="update_InfoId" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
-                                            <label for="message-text" class="control-label">项目简介:</label>
+                                            <label for="message-text" class="control-label">负责内容:</label>
                                             <asp:TextBox ID="update_AllMoney" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
