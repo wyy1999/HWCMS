@@ -31,9 +31,9 @@
                     <!-- Breadcrumb-->
                     <div class="breadcrumb-holder container-fluid">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">收入表</a></li>
+                            
                             <li class="breadcrumb-item active"></li>
-                            <asp:Label type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" runat="server" Text="添加"></asp:Label>
+                            <asp:Label type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="添加公司收入"></asp:Label>
                         </ul>
                     </div>
                     <div>
@@ -62,8 +62,9 @@
                                         <%#Eval("IncomForm") %>
                                     </td>
                                     <td>
+                                          <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("IncomeId") %>','<%#Eval("IncomMoney") %>','<%#Eval("IncomForm") %>')">修改</a>
                                         <asp:LinkButton ID="LinkButton2" runat="server" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("IncomeId") %>'>删除</asp:LinkButton>
-                                        <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("IncomeId") %>','<%#Eval("IncomMoney") %>','<%#Eval("IncomForm") %>')">修改</a>
+                                      
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -99,7 +100,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                    <asp:Button ID="Button1" runat="server" Text="添加" OnClick="Button1_Click" />
+                                    <asp:Button ID="Button1" runat="server" class="btn btn-primary" Text="添加" OnClick="Button1_Click" />
                                 </div>
                             </div>
                         </div>
@@ -153,7 +154,7 @@
                                     <div class="form-group" style="text-align: center">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">
                                             取消</button>
-                                        <asp:Button ID="Button2" runat="server" Text="修改" OnClick="Button2_Click" />
+                                        <asp:Button ID="Button2" runat="server" class="btn btn-primary" Text="修改" OnClick="Button2_Click" />
                                     </div>
                                 </div>
                             </div>

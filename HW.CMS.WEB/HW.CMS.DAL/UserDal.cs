@@ -67,14 +67,15 @@ namespace HW.CMS.DAL
         }
 
 
-        public int insert_leave(int uid,int tid,string baca)
+        public int insert_leave(int uid,int tid,string baca, string LeTime)
         {
-            string sql = "insert into LeaveInfo values(@InfoId,@DepId,'"+ DateTime.Now+ "','',@LeaveReason,1)";
+            string sql = "insert into LeaveInfo values(@InfoId,@DepId,'"+ DateTime.Now+ "',@LeTime,@LeaveReason,1)";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@InfoId",uid),
                 new SqlParameter("@DepId",tid),
                 new SqlParameter("@LeaveReason",baca),
+                new SqlParameter("@LeTime",LeTime),
             };
             return DBHelper.ExcuteSqlNonQuery(sql, sqlParameters);
         }

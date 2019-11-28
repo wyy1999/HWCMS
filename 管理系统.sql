@@ -326,12 +326,12 @@ create table ResearchInfo(
     ResState int default(1) check(ResState=1 or ResState=2)--研发状态 1研发中 2研发完成
 )
 go
-select * from ResearchInfo
+
 insert into ResearchInfo values('酒店管理系统','提高门店客流量，打造网上一站式订房系统','七瑾','2018.6.12 12:00:00','2019.8.20 18:00:00',40000,2)
 insert into ResearchInfo values('高校数字化管理平台','为方便教师管理，实时网上教务管理系统','新IT','2019.5.12 8:00:00','2019.9.20 8:00:00',50000,2)
 insert into ResearchInfo values('书店管理系统','为更好的进行图书管理，增加图书销售量，实现网上购书','致远','2018.5.12 8:00:00','2019.10.20 16:00:00',20000,2)
 insert into ResearchInfo values('医疗管理系统','让医患关系更贴近','代码都敲对','2018.5.12','2019.8.20',20000,2)
-
+select * from ResearchInfo
 
 if exists(select * from sys.procedures where name='sel_ResearchInfo')
 drop proc sel_ResearchInfo

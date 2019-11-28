@@ -25,7 +25,14 @@ namespace HW.CMS.WEB
 
             if (name == "update")
             {
-                bll.update(userid);
+              int reault=  bll.update(userid);
+                if (reault > 0)
+                {
+                    Response.Write("<script>alert('结算成功');location.href='MoneyInfo.aspx';</script>");
+                }
+                else {
+                    Response.Write("<script>alert('结算失败，请重新结算');location.href='MoneyInfo.aspx';</script>");
+                }
             }
         }
 
@@ -55,7 +62,7 @@ namespace HW.CMS.WEB
             if (bll.Add(user) > 0)
             {
 
-                Response.Write("<script>alert('添加');location.href='MoneyInfo.aspx';</script>");
+                Response.Write("<script>alert('添加成功');location.href='MoneyInfo.aspx';</script>");
             }
         }
     }

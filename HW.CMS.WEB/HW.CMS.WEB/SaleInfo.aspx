@@ -12,6 +12,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <link href="css/style.default.css" rel="stylesheet" />
     <link href="css/custom.css" rel="stylesheet" />
+    <style>
+        #TextBox1 {
+            border-radius:20px;
+            height:40px;
+        }
+        #DropDownList2{
+            border-radius:20px;
+            height:40px;
+        }
+
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">

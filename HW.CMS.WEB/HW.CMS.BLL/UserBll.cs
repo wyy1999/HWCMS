@@ -29,9 +29,9 @@ namespace HW.CMS.BLL
         {
             return dal.update(user);
         }
-        public int insert_leave(int uid, int tid, string baca)
+        public int insert_leave(int uid, int tid, string baca,string LeTime)
         {
-            return dal.insert_leave(uid, tid, baca);
+            return dal.insert_leave(uid, tid, baca, LeTime);
         }
     }
 }

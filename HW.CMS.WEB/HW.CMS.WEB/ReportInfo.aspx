@@ -19,6 +19,7 @@
     <style>
         #TxtResName {
            border-radius:20px;
+           height:40px;
         }
     </style>
 </head>

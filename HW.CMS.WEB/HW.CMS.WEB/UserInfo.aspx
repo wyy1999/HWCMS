@@ -49,6 +49,18 @@
                 background-color: #0CF;
                 color: #ffffff;
             }
+        #TxtInfoName {
+            border-radius:20px;
+            height:40px;
+        }
+        #DropDep  {
+            border-radius:20px;
+            height:40px;
+        }
+        #DropDutyName  {
+            border-radius:20px;
+            height:40px;
+        }
     </style>
 </head>
 <body>
@@ -69,7 +81,7 @@
 
                 </div>
                 <div>
-                    <div style="height: 50px; text-align: center; margin-top: 10px">
+                    <div id="select" style="height: 50px; text-align: center; margin-top: 10px">
                         姓名：<asp:TextBox ID="TxtInfoName" runat="server"></asp:TextBox>
                         &nbsp;&nbsp;&nbsp;部门：<asp:DropDownList ID="DropDep" runat="server">
                             <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>

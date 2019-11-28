@@ -24,10 +24,11 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style type="text/css">
-        table {
+        .table {
             border-collapse: collapse;
             margin: 0 auto;
             text-align: center;
+           
         }
 
             table td, table th {
@@ -69,34 +70,43 @@
                     </div>
 
                     <div>
-                        <table style=" width:"90%" class="table">
+                        <table  class="table">
                             <tr>
-                                <td>员工id</td>
+                                <td >员工id</td>
                                 <td>
                                     <asp:TextBox ID="TextBox1" runat="server" class="form-control"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td>员工姓名</td>
                                 <td>
-                                    <asp:TextBox ID="TextBox4" runat="server" class="form-control"></asp:TextBox></td>
+                                    <asp:TextBox ID="TextBox4" runat="server"  class="form-control" ></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td>部门</td>
                                 <td>
-                                    <asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>
+                                   <asp:DropDownList ID="DropDownList2" runat="server" class="form-control" >
+                                                <asp:ListItem Selected="True" Value="0">请选择</asp:ListItem>
+                                                <asp:ListItem Value="1">人事部</asp:ListItem>
+                                                <asp:ListItem Value="2">财务部</asp:ListItem>
+                                                <asp:ListItem Value="3">研发部</asp:ListItem>
+                                                <asp:ListItem Value="4">销售部</asp:ListItem>
+                                            </asp:DropDownList>
+                                   <%-- <asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>--%>
 
                                 </td>
                             </tr>
                             <tr>
                                 <td>请假原因</td>
                                 <td>
-                                    <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox></td>
+
+                                  <%--  <textarea id="reson" rows="3" class="form-control" placeholder="请输入请假原因"></textarea>--%>
+                                    <asp:TextBox ID="TextBox3" runat="server" class="form-control" TextMode="MultiLine" placeholder="请输入请假原因" Height="100px" ></asp:TextBox></td>
                             </tr>
                             <tr>
-                                <td>请假时间</td>
+                                <td>请假结束时间</td>
                                 <td>
                                     <div class="mycontainer">
-                                        <asp:TextBox ID="date" runat="server" placeholder="请选择日期" style="width:400px;font-size:18px;"></asp:TextBox>
+                                        <asp:TextBox  ID="date" runat="server" class="form-control" placeholder="请选择日期" style="width:400px;font-size:18px;" TextMode="DateTime"></asp:TextBox>
 
 	</div>
 	<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
@@ -133,7 +143,7 @@
                             
                             <tr>
                                 <td colspan="2">
-                                    <asp:Button ID="Button1" runat="server" Text="提交" OnClick="Button1_Click" /></td>
+                                    <asp:Button ID="Button1" runat="server" class="btn btn-primary" Text="提交" OnClick="Button1_Click" /></td>
                             </tr>
                             
                         </table>

@@ -57,7 +57,7 @@
                         <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
                             <HeaderTemplate>
 
-                                <table class="table table-hove">
+                                <table class="table table-hover">
 
                                     <thead>
                                         <tr>

@@ -18,6 +18,17 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <style>
+        #TextBox1 {
+            border-radius:20px;
+            height:50px;
+        }
+        RadioButtonList {
+            font-size:18px;
+            
+        }
+
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -31,19 +42,21 @@
                     </header>
                     <!-- Breadcrumb-->
                     <div class="breadcrumb-holder container-fluid">
+                        <ul class="breadcrumb">
                             <asp:Label type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" runat="server" Text="添加"></asp:Label>
-                        
+                        <br />
+                            </ul>
                     </div>
                     <div>
                         <div style="height:50px;text-align:center;margin-top:10px">
 
                             员工名称：<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                            是否全勤：<asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                           &nbsp;&nbsp; 是否全勤：<asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
                             <asp:ListItem Value="0" Selected="True">全部</asp:ListItem>
                             <asp:ListItem Value="1">是</asp:ListItem>
                             <asp:ListItem Value="2">否</asp:ListItem>
                         </asp:RadioButtonList>
-                            工资状态：<asp:RadioButtonList ID="RadioButtonList2" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                          &nbsp;&nbsp;  &nbsp;&nbsp;工资状态：<asp:RadioButtonList ID="RadioButtonList2" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
                                 <asp:ListItem Value="0" Selected="True">全部</asp:ListItem>
                                 <asp:ListItem Value="1">已结算</asp:ListItem>
                                 <asp:ListItem Value="2">未结算</asp:ListItem>
@@ -89,7 +102,7 @@
                                         <%#Eval("Moneystastr") %>
                                     </td>
                                     <td>
-                                       <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" CommandName="update" CommandArgument='<%#Eval("MoneyId") %>' >结算</asp:LinkButton>
+                                       <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-info" Visible='<%# Convert.ToString(Eval("Moneystastr"))=="未结算" %>' CommandName="update" CommandArgument='<%#Eval("MoneyId") %>' >结算</asp:LinkButton>
                                         
 
                                     </td>
@@ -138,7 +151,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                    <asp:Button ID="Button2" runat="server" Text="添加" OnClick="Button2_Click" />
+                                    <asp:Button ID="Button2" runat="server" Text="添加" class="btn btn-info" OnClick="Button2_Click" />
                                 </div>
                             </div>
                         </div>

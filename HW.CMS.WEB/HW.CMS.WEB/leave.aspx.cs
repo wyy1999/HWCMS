@@ -20,10 +20,10 @@ namespace HW.CMS.WEB
         protected void Button1_Click(object sender, EventArgs e)
         {
             int uid = Convert.ToInt32(TextBox1.Text);
-            int tid = Convert.ToInt32(TextBox2.Text);
+            int tid = Convert.ToInt32(DropDownList2.SelectedValue);
             string beca = TextBox3.Text;
             string time = date.Text;
-            if (bll.insert_leave(uid, tid, beca) > 0)
+            if (bll.insert_leave(uid, tid, beca,time) > 0)
             {
                 Response.Write("<script>alert('申请成功');</script>");
             }
