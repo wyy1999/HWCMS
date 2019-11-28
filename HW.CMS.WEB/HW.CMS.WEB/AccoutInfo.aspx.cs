@@ -56,7 +56,7 @@ namespace HW.CMS.WEB
             if (bll.Add(user) > 0)
             {
 
-                Response.Write("<script>alert('添加');location.href='Accoutinfo.aspx';</script>");
+                Response.Write("<script>alert('添加成功');location.href='Accoutinfo.aspx';</script>");
             }
         }
 
@@ -74,7 +74,7 @@ namespace HW.CMS.WEB
             if (bll.update(user) > 0)
             {
 
-                Response.Write("<script>alert('修改');location.href='Accoutinfo.aspx';</script>");
+                Response.Write("<script>alert('修改成功');location.href='Accoutinfo.aspx';</script>");
             }
 
         }

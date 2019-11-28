@@ -139,7 +139,7 @@
         <script src="js/charts-custom.js"></script>
         <!-- Main File-->
         <script src="js/front.js"></script>
-
+        
     </form>
     <script>
         $(function () {

@@ -61,6 +61,7 @@ namespace HW.CMS.DAL
                 //添加参数
                 command.Parameters.AddRange(sqlParameters);
                 //返回结果,及时关闭掉连接
+                
                 return command.ExecuteReader(CommandBehavior.CloseConnection);
             }
         }

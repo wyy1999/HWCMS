@@ -14,7 +14,7 @@ namespace HW.CMS.DAL
         /// </summary>
          public List<PersonSaleInfoModel> pers()
         {
-            string sql = "SELECT UserLogin.UserName,PersonSaleInfo.*FROM UserLogin,PersonSaleInfo WHERE PersonSaleInfo.Userid = UserLogin.Userid ";
+            string sql = "select * from PersonSaleInfo ";
             SqlDataReader reader = DBHelper.ExcuteSqlDataReader(sql);
             List<PersonSaleInfoModel> list = new List<PersonSaleInfoModel>();
             if(reader.HasRows)
@@ -23,13 +23,13 @@ namespace HW.CMS.DAL
                 {
                     PersonSaleInfoModel model = new PersonSaleInfoModel();
                     model.PerId = int.Parse(reader["PerId"].ToString());
-                    model.Userid = int.Parse(reader["Userid"].ToString());
+                    model.PerName = reader["PerName"].ToString();
                   
                     model.PerContent = reader["PerContent"].ToString();
                     model.PerMoney=decimal.Parse(reader["PerMoney"].ToString());
                     model.ConMoney= decimal.Parse(reader["ConMoney"].ToString());
                   
-                    model.UserName= reader["UserName"].ToString();
+                   
                     list.Add(model);
                 }
             }
@@ -40,10 +40,10 @@ namespace HW.CMS.DAL
         /// </summary>
         public int Add(PersonSaleInfoModel model)
         {
-            string sql = "insert into PersonSaleInfo values(@Userid,@PerContent,@PerMoney,@ConMoney)";
+            string sql = "insert into PersonSaleInfo values(@PerName,@PerContent,@PerMoney,@ConMoney)";
             SqlParameter[] pters = new SqlParameter[]
             {
-                new SqlParameter("@Userid",model.Userid),
+                new SqlParameter("@PerName",model.PerName),
           
                new SqlParameter("@PerContent",model.PerContent),
                new SqlParameter("@PerMoney",model.PerMoney),
@@ -67,11 +67,11 @@ namespace HW.CMS.DAL
         /// </summary>
         public int update(PersonSaleInfoModel model)
         {
-            string sql = "update PersonSaleInfo set Userid=@Userid,PerContent=@PerContent,PerMoney=@PerMoney,ConMoney=@ConMoney where PerId=@PerId";
+            string sql = "update PersonSaleInfo set PerName=@PerName,PerContent=@PerContent,PerMoney=@PerMoney,ConMoney=@ConMoney where PerId=@PerId";
             SqlParameter[] par = new SqlParameter[]
             {
                 new SqlParameter("@PerId",model.PerId),
-                new SqlParameter("@Userid",model.Userid),
+                new SqlParameter("@PerName",model.PerName),
 
                 new SqlParameter("@PerContent",model.PerContent),
                 new SqlParameter("@PerMoney",model.PerMoney),

@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="HW.CMS.WEB.index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index1.aspx.cs" Inherits="HW.CMS.WEB.index1" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <meta name="description" content="" />
+     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="robots" content="all,follow" />
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -17,6 +17,10 @@
     <link href="css/custom.css" rel="stylesheet" />
 </head>
 <body>
+
+
+
+
     <form id="form1" runat="server">
         <div class="page">
             <!-- 头部-->
@@ -145,6 +149,7 @@
                     <!-- Sidebar Navidation Menus-->
                     <span class="heading" style="font-size: 16px">菜单</span>
                     <ul class="list-unstyled">
+                        <li><a href="indexinfo.aspx" target="frame"><i class="icon-home"></i>首页 </a></li>
                         <li id="renyuan"><a href="#exampledropdownDropdown4" aria-expanded="false" data-toggle="collapse"><i class="icon-grid"></i>公司人员信息 </a>
                             <ul id="exampledropdownDropdown4" class="collapse list-unstyled ">
                                 <li><a href="InfoTable.aspx" target="frame">登录信息</a></li>
@@ -213,7 +218,8 @@
             </ul>--%>
                 <%--         </div>--%>
                 <div>
-                    <iframe name="frame" src="" frameborder="" align="right" width="1900px" height="1000px" scrolling="yes"></iframe>
+                    <iframe name="frame" src="indexinfo.aspx" frameborder="" align="right" width="1900px" height="1000px" scrolling="yes"></iframe>
+
                 </div>
             </div>
             <%--   </div>--%>
@@ -266,3 +272,4 @@
     </script>
 </body>
 </html>
+

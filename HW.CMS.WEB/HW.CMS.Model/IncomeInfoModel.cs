@@ -10,7 +10,7 @@ namespace HW.CMS.Model
     {
         public int IncomeId { get; set; }
 
-       
+        public string InMonth { get; set; }
 
         public decimal IncomMoney { get; set; }
 

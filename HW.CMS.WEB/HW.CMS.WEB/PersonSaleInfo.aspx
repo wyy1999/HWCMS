@@ -54,12 +54,12 @@
                        <tbody>
                            <tr>
                               
-                               <td><%#Eval("UserName")%></td>
+                               <td><%#Eval("PerName")%></td>
                                <td><%#Eval("PerContent")%></td>
                                <td><%#Eval("PerMoney")%>￥</td>
                                <td><%#Eval("ConMoney")%>￥</td>
                                <td>                                   
-                                   <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("PerId") %>','<%#Eval("Userid") %>','<%#Eval("PerContent") %>','<%#Eval("PerMoney") %>','<%#Eval("ConMoney") %>')">修改</a>
+                                   <a href="#" class="btn btn-info" onclick="addressUpdate('<%#Eval("PerId") %>','<%#Eval("PerName") %>','<%#Eval("PerContent") %>','<%#Eval("PerMoney") %>','<%#Eval("ConMoney") %>')">修改</a>
                                     <asp:LinkButton ID="LinkButton1" class="btn btn-danger" CommandName="delete" CommandArgument='<%#Eval("PerId")%>' runat="server">删除</asp:LinkButton>
                                    
                                </td>
@@ -116,9 +116,9 @@
 
                <%-- 修改 --%>
                <script type="text/javascript">
-                            function addressUpdate(PerId, Userid, PerContent, PerMoney,ConMoney) {
+                            function addressUpdate(PerId, PerName, PerContent, PerMoney,ConMoney) {
                                 $("#update_PerId").val(PerId);
-                                $("#update_InfoId").val(Userid);
+                                $("#update_InfoId").val(PerName);
                                
                                 $("#update_PerContent").val(PerContent);
                                 $("#update_PerMoney").val(PerMoney);  

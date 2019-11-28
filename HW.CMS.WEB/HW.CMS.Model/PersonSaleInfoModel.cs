@@ -12,7 +12,7 @@ namespace HW.CMS.Model
     public class PersonSaleInfoModel
     {
         public int PerId { get; set; }
-        public int Userid { get; set; }
+        public string PerName { get; set; }
         
         public string PerContent { get; set; }
         public decimal PerMoney { get; set; }

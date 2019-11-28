@@ -44,6 +44,8 @@
                                     <tr>
                                         <th>收入id
                                         </th>
+                                        <th>月份
+                                        </th>
                                         <th>收入金额
                                         </th>
                                         <th>收入来源
@@ -54,6 +56,9 @@
                                 <tr>
                                     <td>
                                         <%#Eval("IncomeId") %>
+                                    </td>
+                                    <td>
+                                        <%#Eval("InMonth") %>
                                     </td>
                                     <td>
                                         <%#Eval("IncomMoney") %>￥
@@ -84,7 +89,11 @@
                                 </div>
                                 <div class="modal-body">
                                     <table>
-
+                                        <tr>
+                                            <td>月份</td>
+                                            <td>
+                                                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+                                        </tr>
                                         <tr>
                                             <td>收入金额</td>
                                             <td>

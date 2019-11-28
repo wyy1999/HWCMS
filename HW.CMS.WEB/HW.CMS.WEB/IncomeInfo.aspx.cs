@@ -23,10 +23,11 @@ namespace HW.CMS.WEB
             IncomeInfoModel user = new IncomeInfoModel();
             user.IncomMoney = Convert.ToDecimal(TextBox1.Text);
             user.IncomForm =TextBox2.Text;
+            user.InMonth = TextBox3.Text;
             if (bll.Add(user) > 0)
             {
 
-                Response.Write("<script>alert('添加');location.href='IncomeInfo.aspx';</script>");
+                Response.Write("<script>alert('添加成功');location.href='IncomeInfo.aspx';</script>");
             }
         }
 
@@ -39,7 +40,7 @@ namespace HW.CMS.WEB
             if (bll.update(user) > 0)
             {
 
-                Response.Write("<script>alert('修改');location.href='IncomeInfo.aspx';</script>");
+                Response.Write("<script>alert('修改成功');location.href='IncomeInfo.aspx';</script>");
             }
         }
 
@@ -50,7 +51,7 @@ namespace HW.CMS.WEB
 
             if (name == "update")
             {
-                Response.Redirect("CG_Shop_up.aspx?id=" + userid);
+                //Response.Redirect("CG_Shop_up.aspx?id=" + userid);
             }
             else
             {

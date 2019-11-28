@@ -101,7 +101,7 @@ create table InfoTable(
 )
 select count(*) from InfoTable where DepId = 3
 
-select * from InfoTable
+
 
 insert  into InfoTable values('王莹莹',18,'男','2001.11.1','147852369632541785','12345123454','河南省郑州市','11231234121@qq.com',getdate(),'','2',2,2,2,'7000',1)
 insert  into InfoTable values('位伟峰',20,'女','1999.10.1','145236525632458712','12345123456','河南省郑州市','10231234121@qq.com',getdate(),'','3',1,3,3,'7000',1)
@@ -123,14 +123,14 @@ insert  into InfoTable values('张建行',20,'男','1999.10.1','2432452342655635','6
 insert  into InfoTable values('王洋',20,'男','1999.7.1','413546454231331','34524154623','河南省郑州市','456423242313@qq.com',getdate(),'','3个月',3,5,6,'3000',1)
 insert  into InfoTable values('于超越',18,'男','2001.11.1','134321235335','3214364342','河南省郑州市','42342312@qq.com','','','1',3,3,4,'7000',1)
 insert  into InfoTable values('石金涛',20,'女','1999.10.1','45362342411231','13253443','河南省郑州市','124321312@qq.com',getdate(),'','2',3,4,7,'7000',1)
-insert  into InfoTable values('李浩东',27,'男','1992.6.1','3453424131231534','124124346','河南省郑州市','345312312@qq.com',getdate(),'','2',3,4,6,'5000',1)
-insert  into InfoTable values('陈路明',24,'女','1995.5.1','546312123123131','3425463242','河南省郑州市','3452312123@qq.com',getdate(),'','2',3,5,6,'6000',1)
-insert  into InfoTable values('冯琦',20,'男','1999.10.1','5345231231231423','2523534634','河南省郑州市','3452313123@qq.com',getdate(),'','3',3,5,6,'4000',1)
-insert  into InfoTable values('许备备',20,'男','1999.7.1','4231231423531231','45645241312','河南省郑州市','345212132@qq.com',getdate(),'','3个月',3,6,7,'3000',1)
-insert  into InfoTable values('朱思南',27,'男','1992.6.1','443531231252313','3523121423','河南省郑州市','4565234213@qq.com',getdate(),'','1',3,3,5,'5000',1)
-insert  into InfoTable values('彭林',24,'女','1995.5.1','3245423123123131','4352312452','河南省郑州市','2314312313@qq.com',getdate(),'','2',3,5,7,'6000',1)
-insert  into InfoTable values('李梦凡',21,'男','1998.10.1','123252341224354','1231252342','河南省郑州市','34312324@qq.com',getdate(),'','3',3,5,6,'4000',1)
-insert  into InfoTable values('张文政',22,'男','1997.7.1','531244345124','435634123','河南省郑州市','456453422@qq.com',getdate(),'','3个月',3,5,6,'3000',1)
+insert  into InfoTable values('李浩东',27,'男','1992.6.1','3453424131231534','124124346','河南省郑州市','345312312@qq.com',getdate(),'','2',4,4,6,'5000',1)
+insert  into InfoTable values('陈路明',24,'女','1995.5.1','546312123123131','3425463242','河南省郑州市','3452312123@qq.com',getdate(),'','2',4,5,6,'6000',1)
+insert  into InfoTable values('冯琦',20,'男','1999.10.1','5345231231231423','2523534634','河南省郑州市','3452313123@qq.com',getdate(),'','3',4,5,6,'4000',1)
+insert  into InfoTable values('许备备',20,'男','1999.7.1','4231231423531231','45645241312','河南省郑州市','345212132@qq.com',getdate(),'','3个月',4,6,7,'3000',1)
+insert  into InfoTable values('朱思南',27,'男','1992.6.1','443531231252313','3523121423','河南省郑州市','4565234213@qq.com',getdate(),'','1',4,3,5,'5000',1)
+insert  into InfoTable values('彭林',24,'女','1995.5.1','3245423123123131','4352312452','河南省郑州市','2314312313@qq.com',getdate(),'','2',4,5,7,'6000',1)
+insert  into InfoTable values('李梦凡',21,'男','1998.10.1','123252341224354','1231252342','河南省郑州市','34312324@qq.com',getdate(),'','3',4,5,6,'4000',1)
+insert  into InfoTable values('张文政',22,'男','1997.7.1','531244345124','435634123','河南省郑州市','456453422@qq.com',getdate(),'','3个月',4,5,6,'3000',1)
 
 insert  into InfoTable values('孙悟空',20,'男','1999.10.1','24324523124635','623412123','河南省郑州市','24532145434@qq.com',getdate(),'','2',4,5,6,'4000',1)
 insert  into InfoTable values('娜美',20,'女','1999.7.1','4135123231331','31234623','河南省郑州市','456231232313@qq.com',getdate(),'','3个月',4,5,6,'3000',1)
@@ -186,6 +186,9 @@ insert into MoneyTable values(2,3,'0',2,1)
 insert into MoneyTable values(3,5,'0',2,1)
 insert into MoneyTable values(4,0,'200',1,2)
 insert into MoneyTable values(5,0,'200',1,2)
+insert into MoneyTable values(6,5,'0',2,1)
+insert into MoneyTable values(7,2,'0',2,2)
+insert into MoneyTable values(8,0,'200',1,2)
 select * from MoneyTable
 
 if exists(select * from sys.procedures where name='Sel_MoneyTable')
@@ -216,9 +219,13 @@ create table ClockInfo(
 )
 go
 
-insert  into ClockInfo values(5,'2019/10/10 07:58:25',1)
+insert  into ClockInfo values(5,'2019/11/29 07:58:25',1)
 insert  into ClockInfo values(6,'',2)
-insert  into ClockInfo values(7,'2019/10/11 14:59:25',1)
+insert  into ClockInfo values(7,'2019/11/29 07:59:25',1)
+insert  into ClockInfo values(4,'2019/11/29 07:59:30',1)
+insert  into ClockInfo values(3,'',2)
+insert  into ClockInfo values(2,'2019/11/29 07:55:25',1)
+insert  into ClockInfo values(1,'2019/10/29 07:56:25',1)
 
 select UserLogin.UserName, ClockInfo.*from UserLogin,ClockInfo where ClockInfo.Userid=UserLogin.Userid
 
@@ -306,6 +313,7 @@ create table AccoutInfo(
   
 )
 go
+select * from AccoutInfo
 insert into AccoutInfo values ('10月份',350000,100000,200000,1150000,'王莹莹')
 insert into AccoutInfo values ('9月份',350000,120000,300000,1000000,'王莹莹')
 insert into AccoutInfo values ('11月份',350000,80000,250000,900000,'王莹莹')
@@ -367,30 +375,30 @@ select * from DetailsInfo
 
 insert into DetailsInfo values ('杨申，谷相搏，李彬辉，代梦丽，顾家瑄，于发光','让顾客更了解酒店，实时观察到房间的动态以及信息。',38000,'100%',1)
 insert into DetailsInfo values ('杨申','用户查看前台信息...',10000,'100%',1)
-insert into DetailsInfo values ('谷相搏','用户查看前台信息...',20000,'100%',1)
-insert into DetailsInfo values ('李彬辉','用户查看前台信息...',7000,'100%',1)
-insert into DetailsInfo values ('代梦丽','用户查看前台信息...',8000,'100%',1)
-insert into DetailsInfo values ('顾家瑄','用户查看前台信息...',9999,'100%',1)
-insert into DetailsInfo values ('于发光','用户查看前台信息...',30000,'100%',1)
+insert into DetailsInfo values ('谷相搏','后台管理...',20000,'100%',1)
+insert into DetailsInfo values ('李彬辉','登陆权限...',7000,'100%',1)
+insert into DetailsInfo values ('代梦丽','登陆页面...',8000,'100%',1)
+insert into DetailsInfo values ('顾家瑄','需求文档...',9999,'100%',1)
+insert into DetailsInfo values ('于发光','ppt制作...',30000,'100%',1)
 insert into DetailsInfo values ('谭顺顺，潘武豪，田松茂，董雅敏，王洋，张建行','数字化管理学生信息，实现线上教务系统。',50000,'100%',2)
 insert into DetailsInfo values ('谭顺顺','用户查看前台信息...',10000,'100%',2)
-insert into DetailsInfo values ('潘武豪','用户查看前台信息...',20000,'100%',2)
-insert into DetailsInfo values ('田松茂','用户查看前台信息...',7000,'100%',2)
-insert into DetailsInfo values ('董雅敏','用户查看前台信息...',8000,'100%',2)
-insert into DetailsInfo values ('王洋','用户查看前台信息...',9999,'100%',2)
-insert into DetailsInfo values ('张建行','用户查看前台信息...',30000,'100%',2)
+insert into DetailsInfo values ('潘武豪','老师管理页面...',20000,'100%',2)
+insert into DetailsInfo values ('田松茂','学生管理页面...',7000,'100%',2)
+insert into DetailsInfo values ('董雅敏','请假页面...',8000,'100%',2)
+insert into DetailsInfo values ('王洋','登陆权限设置...',9999,'100%',2)
+insert into DetailsInfo values ('张建行','最高权限页面...',30000,'100%',2)
 insert into DetailsInfo values ('于超越，石金涛，李浩东，陈路明','跟随时代把书店搬到线上，更直观的了解到书的种类以及更新动态。',20000,'100%',3)
-insert into DetailsInfo values ('于超越','用户查看前台信息...',10000,'100%',3)
-insert into DetailsInfo values ('石金涛','用户查看前台信息...',20000,'100%',3)
-insert into DetailsInfo values ('李浩东','用户查看前台信息...',7000,'100%',3)
-insert into DetailsInfo values ('陈路明','用户查看前台信息...',8000,'100%',3)
+insert into DetailsInfo values ('于超越','后台页面显示...',10000,'100%',3)
+insert into DetailsInfo values ('石金涛','后台权限管理...',20000,'100%',3)
+insert into DetailsInfo values ('李浩东','文档编写...',7000,'100%',3)
+insert into DetailsInfo values ('陈路明','前台页面显示...',8000,'100%',3)
 insert into DetailsInfo values ('冯琦，许备备，朱思南，彭林，李梦凡，张文政','数字化医疗平台，实现线上挂号，线上缴费等目的节约患者时间。',20000,'100%',4)
-insert into DetailsInfo values ('冯琦','用户查看前台信息...',10000,'100%',4)
-insert into DetailsInfo values ('许备备','用户查看前台信息...',20000,'100%',4)
-insert into DetailsInfo values ('朱思南','用户查看前台信息...',7000,'100%',4)
-insert into DetailsInfo values ('彭林','用户查看前台信息...',8000,'100%',4)
+insert into DetailsInfo values ('冯琦','文档编写...',10000,'100%',4)
+insert into DetailsInfo values ('许备备','后台功能实现...',20000,'100%',4)
+insert into DetailsInfo values ('朱思南','登陆 注册页面...',7000,'100%',4)
+insert into DetailsInfo values ('彭林','ppt制作...',8000,'100%',4)
 insert into DetailsInfo values ('李梦凡','用户查看前台信息...',9999,'100%',4)
-insert into DetailsInfo values ('张文政','用户查看前台信息...',30000,'100%',4)
+insert into DetailsInfo values ('张文政','分页功能...',30000,'100%',4)
 
 select ResearchInfo.Resname,ResearchInfo.ResGroup,ResearchInfo.ResMoney, ResearchInfo.ResIntroduce,DetailsInfo.*from ResearchInfo,DetailsInfo
 where  ResearchInfo.ResId=DetailsInfo.ResId and DetailsInfo.ResId=1
@@ -450,7 +458,7 @@ drop table PersonSaleInfo
 GO
 create table PersonSaleInfo(
   PerId int primary key identity(1,1),--个人销售id
-  Userid int references UserLogin(Userid),--登陆表外键 字段  姓名 部门  
+  PerName varchar(100),--登陆表外键 字段  姓名 部门  
   PerContent VARCHAR(500),--销售内容
   PerMoney decimal(18,2) check(PerMoney>=0) default(0) not null,--销售金额
   ConMoney decimal(18,2) check(ConMoney>=0) default(0) not null,--消费金额
@@ -458,10 +466,12 @@ create table PersonSaleInfo(
 go
 
 
-INSERT INTO PersonSaleInfo VALUES(6,'酒店管理系统',10000,200)
-INSERT INTO PersonSaleInfo VALUES(7,'高校数字化管理平台',20000,200)
-SELECT UserLogin.UserName,PersonSaleInfo.*FROM UserLogin,PersonSaleInfo 
-WHERE PersonSaleInfo.Userid=UserLogin.Userid 
+INSERT INTO PersonSaleInfo VALUES('白亚军','酒店管理系统',10000,200)
+INSERT INTO PersonSaleInfo VALUES('李明','高校数字化管理平台',20000,200)
+INSERT INTO PersonSaleInfo VALUES('李浩东','高校数字化管理平台',20000,300)
+INSERT INTO PersonSaleInfo VALUES('陈路明','酒店管理系统',30000,200)
+INSERT INTO PersonSaleInfo VALUES('冯琦','高校数字化管理平台',10000,200)
+select * from PersonSaleInfo
 
 --财务表（收入）IncomeInfo
 if exists(select * from sys.tables where name='IncomeInfo')
@@ -469,13 +479,14 @@ drop table IncomeInfo
 GO
 create table IncomeInfo(
    IncomeId int  primary key identity(1,1),--
+   InMonth varchar(200),
  IncomMoney decimal(18,2) check(IncomMoney>=0) default(0) not null, --金额
 IncomForm varchar(50),--来源 
 )
 go
 
-insert into IncomeInfo values('22000','酒店管理系统')
-insert into IncomeInfo values('20000','高校数字化管理平台')
+insert into IncomeInfo values('10月份','22000','酒店管理系统')
+insert into IncomeInfo values('10月份','20000','高校数字化管理平台')
 
 
 select * from IncomeInfo
@@ -504,30 +515,4 @@ insert into TuTable values('成都',58)
 insert into TuTable values('西安',61)
 insert into TuTable values('重庆',66)
 
-select * from TuTable
---------------------------------------------------------插入数据
-
-
-
-
-
-
-
-
-
-select * from DetailsInfo
-select * from DutyInfo
-select * from DepartmentInfo
-select * from ClockInfo
-select * from LeaveInfo
-select * from ResearchInfo
-
-select * from InfoTable
-select * from SaleInfo
-
-select * from AccoutInfo
-
-select * from UserLogin
-select * from DutyInfo
-select * from DepartmentInfo
 

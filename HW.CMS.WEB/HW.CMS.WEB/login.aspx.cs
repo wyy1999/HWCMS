@@ -32,7 +32,7 @@ namespace HW.CMS.WEB
                 {
                     Session["chuan"] = result.UserName;
                     Session["zhi"] = result.DutyId;
-                    Response.Redirect("index.aspx");
+                    Response.Redirect("index1.aspx");
                 }
                 else if(result.DutyId==2)
                 {

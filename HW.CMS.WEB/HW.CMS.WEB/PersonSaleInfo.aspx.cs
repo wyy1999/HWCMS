@@ -28,7 +28,7 @@ namespace HW.CMS.WEB
         protected void Button2_Click1(object sender, EventArgs e)
         {
             PersonSaleInfoModel model = new PersonSaleInfoModel();
-            model.Userid = Convert.ToInt32(TxtInfoId.Text);
+            model.PerName = TxtInfoId.Text;
            
             model.PerContent = TxtPerContent.Text;
             model.PerMoney = Convert.ToDecimal(TxtPerMoney.Text);
@@ -56,7 +56,7 @@ namespace HW.CMS.WEB
         {
             PersonSaleInfoModel model = new PersonSaleInfoModel();
             model.PerId = Convert.ToInt32(update_PerId.Text);
-            model.Userid = Convert.ToInt32(update_InfoId.Text);
+            model.PerName =update_InfoId.Text;
            
             model.PerContent = update_PerContent.Text;
             model.PerMoney = Convert.ToDecimal(update_PerMoney.Text);

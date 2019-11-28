@@ -79,6 +79,7 @@
                                         </th>
                                          <th>工资结算
                                         </th>
+                                        <th>编辑</th>
                                     </tr>
                             </HeaderTemplate>
                             <ItemTemplate>

@@ -26,7 +26,7 @@ namespace HW.CMS.DAL
                     IncomeInfoModel accout = new IncomeInfoModel()
                     {
                         IncomeId = Convert.ToInt32(sqlda["IncomeId"]),
-                     
+                        InMonth = Convert.ToString(sqlda["InMonth"]),
                          IncomMoney= Convert.ToDecimal(sqlda["IncomMoney"]),
                         IncomForm = Convert.ToString(sqlda["IncomForm"])
                     };
@@ -42,10 +42,10 @@ namespace HW.CMS.DAL
         /// <returns></returns>
         public int Add(IncomeInfoModel model)
         {
-            string sql = "insert into IncomeInfo values(@IncomMoney,@IncomForm)";
+            string sql = "insert into IncomeInfo values(@InMonth,@IncomMoney,@IncomForm)";
             SqlParameter[] par = new SqlParameter[]
             {
-
+               new SqlParameter("@InMonth",model.InMonth),
                new SqlParameter("@IncomForm",model.IncomForm),
                new SqlParameter("@IncomMoney",model.IncomMoney)
             };
