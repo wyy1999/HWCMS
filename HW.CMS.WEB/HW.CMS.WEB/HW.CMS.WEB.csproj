@@ -384,17 +384,29 @@
     <Content Include="img\project-3.jpg" />
     <Content Include="img\project-4.jpg" />
     <Content Include="img\template-mac.png" />
+    <Content Include="IncomeInfo.aspx" />
     <Content Include="index.aspx" />
+    <Content Include="index1.aspx" />
+    <Content Include="indexinfo.aspx" />
     <Content Include="InfoTable.aspx" />
     <Content Include="js\charts-custom.js" />
     <Content Include="js\charts-home.js" />
+    <Content Include="js\Echarts.js" />
     <Content Include="js\front.js" />
+    <Content Include="leave.aspx" />
     <Content Include="LeaveInfo.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="MoneyInfo.aspx" />
     <Content Include="PersonSaleInfo.aspx" />
     <Content Include="ReportInfo.aspx" />
     <Content Include="ResearchInfo.aspx" />
+    <Content Include="ResXq\1a.aspx" />
+    <Content Include="ResXq\2a.aspx" />
+    <Content Include="ResXq\3a.aspx" />
+    <Content Include="ResXq\4a.aspx" />
+    <Content Include="ResXq\5a.aspx" />
     <Content Include="SaleInfo.aspx" />
+    <Content Include="timer.aspx" />
     <Content Include="UserInfo.aspx" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="vendor\bootstrap\css\bootstrap-grid.min.css" />
@@ -523,6 +535,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IncomeInfo.aspx.cs">
+      <DependentUpon>IncomeInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IncomeInfo.aspx.designer.cs">
+      <DependentUpon>IncomeInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -530,12 +549,33 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="index1.aspx.cs">
+      <DependentUpon>index1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index1.aspx.designer.cs">
+      <DependentUpon>index1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="indexinfo.aspx.cs">
+      <DependentUpon>indexinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="indexinfo.aspx.designer.cs">
+      <DependentUpon>indexinfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InfoTable.aspx.cs">
       <DependentUpon>InfoTable.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="InfoTable.aspx.designer.cs">
       <DependentUpon>InfoTable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="leave.aspx.cs">
+      <DependentUpon>leave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="leave.aspx.designer.cs">
+      <DependentUpon>leave.aspx</DependentUpon>
     </Compile>
     <Compile Include="LeaveInfo.aspx.cs">
       <DependentUpon>LeaveInfo.aspx</DependentUpon>
@@ -550,6 +590,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoneyInfo.aspx.cs">
+      <DependentUpon>MoneyInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoneyInfo.aspx.designer.cs">
+      <DependentUpon>MoneyInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="PersonSaleInfo.aspx.cs">
       <DependentUpon>PersonSaleInfo.aspx</DependentUpon>
@@ -573,12 +620,54 @@
     <Compile Include="ResearchInfo.aspx.designer.cs">
       <DependentUpon>ResearchInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ResXq\1a.aspx.cs">
+      <DependentUpon>1a.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResXq\1a.aspx.designer.cs">
+      <DependentUpon>1a.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResXq\2a.aspx.cs">
+      <DependentUpon>2a.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResXq\2a.aspx.designer.cs">
+      <DependentUpon>2a.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResXq\3a.aspx.cs">
+      <DependentUpon>3a.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResXq\3a.aspx.designer.cs">
+      <DependentUpon>3a.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResXq\4a.aspx.cs">
+      <DependentUpon>4a.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResXq\4a.aspx.designer.cs">
+      <DependentUpon>4a.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResXq\5a.aspx.cs">
+      <DependentUpon>5a.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResXq\5a.aspx.designer.cs">
+      <DependentUpon>5a.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SaleInfo.aspx.cs">
       <DependentUpon>SaleInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SaleInfo.aspx.designer.cs">
       <DependentUpon>SaleInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="timer.aspx.cs">
+      <DependentUpon>timer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="timer.aspx.designer.cs">
+      <DependentUpon>timer.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserInfo.aspx.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>

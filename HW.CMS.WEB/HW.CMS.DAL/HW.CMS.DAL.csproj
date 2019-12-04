@@ -46,8 +46,10 @@
     <Compile Include="ClockInfoDal.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="DetailsInfoDal.cs" />
+    <Compile Include="IncomeInfoDal.cs" />
     <Compile Include="InfoTableDal.cs" />
     <Compile Include="LeaveInfoDal.cs" />
+    <Compile Include="MoneyInfoDal.cs" />
     <Compile Include="PersonSaleInfoDAL.cs" />
     <Compile Include="ReportInfoDal.cs" />
     <Compile Include="ResearchInfoDal.cs" />

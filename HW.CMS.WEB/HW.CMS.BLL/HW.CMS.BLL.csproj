@@ -44,8 +44,10 @@
     <Compile Include="AccoutinfoBll.cs" />
     <Compile Include="ClockInfoBll.cs" />
     <Compile Include="DetailsInfoBll.cs" />
+    <Compile Include="IncomeInfoBll.cs" />
     <Compile Include="InfoTableBll.cs" />
     <Compile Include="LeaveInfoBll.cs" />
+    <Compile Include="MoneyInfoBll.cs" />
     <Compile Include="PersonSaleInfoBLL.cs" />
     <Compile Include="ReportInfoBll.cs" />
     <Compile Include="ResearchInfoBll.cs" />
